@@ -1,4 +1,6 @@
 const stats=document.querySelector('.stats');
+const favicon=document.createElement('link');favicon.rel='icon';favicon.type='image/jpeg';favicon.href='vortex_logo_1787259818226 - Kopya - Kopya.jpg';document.head.appendChild(favicon);
+const homeManifest=document.createElement('link');homeManifest.rel='manifest';homeManifest.href='site.webmanifest';document.head.appendChild(homeManifest);
 if(stats){
   const links=[
     ['01','Features','Discover what powers your game.','features.html'],
