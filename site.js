@@ -11,3 +11,4 @@ document.querySelectorAll('.page-hero').forEach(hero=>{const layer=document.crea
 const icon=document.createElement('link');icon.rel='icon';icon.type='image/jpeg';icon.href='vortex_logo_1787259818226 - Kopya - Kopya.jpg';document.head.appendChild(icon);
 const touchIcon=document.createElement('link');touchIcon.rel='apple-touch-icon';touchIcon.href='vortex_logo_1787259818226 - Kopya - Kopya.jpg';document.head.appendChild(touchIcon);
 const manifest=document.createElement('link');manifest.rel='manifest';manifest.href='site.webmanifest';document.head.appendChild(manifest);
+const contentScript=document.createElement('script');contentScript.src='site-content.js';document.body.appendChild(contentScript);
