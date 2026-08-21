@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Launcher</title>
+    <title>Vortex Launcher - Ultimate Gaming Experience</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         body {
-            background-color: #0b0f19;
+            background-color: #07090e;
             color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            overflow-x: hidden;
         }
         /* Navbar */
         nav {
@@ -27,19 +25,24 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .logo {
             font-size: 24px;
             font-weight: 800;
-            color: #38bdf8;
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
         }
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 30px;
             list-style: none;
         }
         .nav-links a {
@@ -49,20 +52,51 @@
             transition: color 0.3s;
         }
         .nav-links a:hover {
-            color: #38bdf8;
+            color: #4facfe;
+        }
+        .nav-btn {
+            background: rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            color: #4facfe;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover {
+            background: #4facfe;
+            color: #07090e;
         }
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 20px;
-            max-width: 800px;
+            padding: 100px 20px 60px 20px;
+            max-width: 900px;
             margin: auto;
         }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: #00f2fe;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
         .hero h1 {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #38bdf8, #818cf8);
+            line-height: 1.1;
+            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -72,54 +106,123 @@
             margin-bottom: 40px;
             line-height: 1.6;
         }
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
         .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #0284c7, #2563eb);
-            color: white;
-            padding: 16px 40px;
-            font-size: 18px;
-            font-weight: 700;
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            color: #07090e;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 800;
             border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3);
             transition: all 0.3s ease;
         }
         .download-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5);
+        }
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 8% 100px 8%;
+        }
+        .feature-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 35px 30px;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 172, 254, 0.4);
+        }
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.5;
         }
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: #64748b;
             font-size: 14px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #05070a;
         }
     </style>
 </head>
 <body>
 
-    <!-- Üst Menü -->
+    <!-- Navbar -->
     <nav>
         <div class="logo">VORTEX</div>
         <ul class="nav-links">
-            <li><a href="#">Ana Sayfa</a></li>
-            <li><a href="#">Özellikler</a></li>
-            <li><a href="#">Destek</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Support</a></li>
         </ul>
+        <a href="#" class="nav-btn">Download</a>
     </nav>
 
-    <!-- Ana İçerik (Hero) -->
+    <!-- Hero Section -->
     <div class="hero">
-        <h1>Oyunu En Üst Düzeyde Yaşa</h1>
-        <p>Vortex Launcher ile performansını zirveye çıkar, arkadaşlarınla kesintisiz bağlantı kur ve oyun deneyimini tamamen kişiselleştir.</p>
-        <a href="#" class="download-btn">Hemen İndir</a>
+        <div class="badge">🚀 Next-Gen Gaming Launcher</div>
+        <h1>Elevate Your Gameplay With <span>Vortex</span></h1>
+        <p>Experience unmatched performance, zero latency, sleek modern design, and ultimate customizability tailored just for hardcore gamers.</p>
+        <div class="cta-group">
+            <a href="#" class="download-btn">Download for Windows</a>
+            <a href="#" class="secondary-btn">Explore Features</a>
+        </div>
     </div>
 
-    <!-- Alt Bilgi -->
+    <!-- Features Grid -->
+    <div class="features">
+        <div class="feature-card">
+            <h3>⚡ Maximum Performance</h3>
+            <p>Optimized core engine built to boost your frame rates and eliminate stuttering during intense gaming sessions.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🛡️ Advanced Security</h3>
+            <p>Keep your account and personal setups secure with built-in multi-layered protection systems.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🎨 Custom Themes</h3>
+            <p>Personalize your launcher look completely with community themes and dynamic visual styles.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        &copy; 2026 Vortex Launcher. Tüm hakları saklıdır.
+        &copy; 2026 Vortex Launcher. All rights reserved.
     </footer>
 
 </body>
