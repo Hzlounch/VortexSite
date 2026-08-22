@@ -33,5 +33,16 @@
       card.addEventListener('mouseleave', () => card.classList.remove('is-ready'));
     });
   }
+  if (location.pathname.endsWith('/support.html')) {
+    const supportButton = document.querySelector('.page-actions .btn');
+    if (supportButton) supportButton.textContent = 'OPEN DISCORD TICKETS';
+    const cards = document.querySelector('.cards');
+    if (cards && !document.querySelector('.vortex-ticket-flow')) {
+      const flow = document.createElement('article');
+      flow.className = 'card vortex-ticket-flow';
+      flow.innerHTML = '<div class="symbol">!</div><h3>Private Discord tickets</h3><p>Support tickets are opened securely in Discord. After joining, open the Vortex support channel and press “Open support ticket”. Your conversation stays private, while ticket events are recorded for the staff team.</p>';
+      cards.appendChild(flow);
+    }
+  }
   document.querySelectorAll('a[href*="discord.gg"]').forEach(link => link.addEventListener('click', () => toast('Opening the Vortex Discord community…')));
 })();
