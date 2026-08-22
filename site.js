@@ -12,3 +12,4 @@ const icon=document.createElement('link');icon.rel='icon';icon.type='image/jpeg'
 const touchIcon=document.createElement('link');touchIcon.rel='apple-touch-icon';touchIcon.href='vortex_logo_1787259818226 - Kopya - Kopya.jpg';document.head.appendChild(touchIcon);
 const manifest=document.createElement('link');manifest.rel='manifest';manifest.href='site.webmanifest';document.head.appendChild(manifest);
 const contentScript=document.createElement('script');contentScript.src='site-content.js';document.body.appendChild(contentScript);
+const experienceScript=document.createElement('script');experienceScript.src='vortex-experience.js';document.body.appendChild(experienceScript);

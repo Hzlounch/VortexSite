@@ -1,5 +1,5 @@
 {
-  "name": "Vortex Client",
+  "name": "VortexLauncher",
   "short_name": "Vortex",
   "start_url": "/index.html",
   "display": "standalone",
