@@ -1,58 +1,579 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="enhanced">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#071419">
-  <title>Vortex Client | Make every block count</title>
-  <meta name="description" content="Vortex is a high-performance Minecraft client built for smooth gameplay, clear customization, and an effortless setup.">
-  <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
-  <link rel="apple-touch-icon" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#071419;--panel:#0b2228;--panel2:#0d2d34;--text:#efffff;--muted:#91adb0;--cyan:#20e2dc;--blue:#16b4ee;--line:rgba(152,242,241,.14);--max:1160px}*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}body{min-width:320px;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.ambient{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% -12%,rgba(17,223,221,.2),transparent 34rem),#071419}.grid{position:fixed;inset:0;z-index:-1;opacity:.18;background-image:linear-gradient(rgba(117,236,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(117,236,235,.05) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(#000,transparent 70%)}.eyebrow{color:#70ece7;font:500 10px "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 19px;border:1px solid transparent;border-radius:9px;background:linear-gradient(105deg,var(--cyan),var(--blue));box-shadow:0 10px 28px rgba(17,212,218,.22);color:#041719;cursor:pointer;font:800 10px Manrope,sans-serif;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:.2s}.btn:hover{transform:translateY(-2px);box-shadow:0 15px 34px rgba(17,212,218,.32)}.btn.outline{background:rgba(4,18,21,.55);border-color:rgba(166,255,253,.26);box-shadow:none;color:#e6ffff}.btn.light{background:#cafffb;color:#052126}header{height:78px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10;border-bottom:1px solid rgba(167,247,245,.1)}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.2em}.brand img{width:36px;height:36px;border-radius:9px;object-fit:cover;box-shadow:0 0 22px rgba(29,228,223,.28)}.nav{display:flex;align-items:center;gap:26px}.nav a{color:#a7c0c2;font-size:10px;font-weight:800;letter-spacing:.11em;text-decoration:none;text-transform:uppercase}.nav a:hover{color:var(--cyan)}.nav .btn{padding:11px 14px}.menu{display:none;border:1px solid var(--line);border-radius:8px;padding:7px 11px;background:transparent;color:#c8ffff;font-size:17px}.mobile{display:none;position:absolute;top:69px;left:0;right:0;padding:12px 18px 18px;background:#0a2026;border:1px solid var(--line);border-radius:0 0 14px 14px}.mobile.open{display:grid}.mobile a{padding:11px 3px;color:#b8d2d4;font:700 11px "DM Mono",monospace;letter-spacing:.1em;text-decoration:none;text-transform:uppercase}.mobile a:last-child{color:var(--cyan)}
-    .hero{height:660px;position:relative;isolation:isolate;display:grid;place-items:center;overflow:hidden;text-align:center}.scene-wrap{position:absolute;inset:0;z-index:-1}.scene-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,19,23,.22),rgba(7,19,23,.04) 35%,rgba(7,19,23,.92) 91%,#071419),linear-gradient(90deg,rgba(7,19,23,.45),transparent 27%,transparent 73%,rgba(7,19,23,.45))}.scene{width:100%;height:100%;image-rendering:pixelated}.hero-content{max-width:820px;padding:56px 0 145px}.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(73,245,237,.28);border-radius:100px;background:rgba(9,47,51,.52);color:#c5fffa;font:500 10px "DM Mono",monospace;letter-spacing:.09em}.live{width:6px;height:6px;border-radius:50%;background:#8bfff0;box-shadow:0 0 11px #8bfff0}h1{margin:22px auto 20px;font-size:clamp(50px,7.5vw,94px);font-weight:800;letter-spacing:-.08em;line-height:.91;text-shadow:0 4px 24px rgba(0,0,0,.38)}h1 span{color:transparent;background:linear-gradient(104deg,#edffff 21%,#75fff2 58%,#3fc9fa);background-clip:text}.hero p{max-width:535px;margin:auto;color:#b4d0d1;font-size:15px;line-height:1.8;text-shadow:0 2px 12px rgba(0,0,0,.65)}.actions{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:28px}.platforms{margin-top:18px;color:#92abad;font:10px "DM Mono",monospace;letter-spacing:.12em}.launcher{position:absolute;bottom:0;left:50%;z-index:3;width:min(850px,calc(100% - 42px));height:144px;transform:translateX(-50%);border:1px solid rgba(117,241,239,.26);border-bottom:0;border-radius:15px 15px 0 0;background:rgba(5,18,22,.84);box-shadow:0 -12px 55px rgba(0,190,204,.16);backdrop-filter:blur(8px);overflow:hidden}.launch-top{display:flex;align-items:center;gap:5px;height:35px;padding:0 14px;border-bottom:1px solid rgba(143,242,242,.1)}.dot{width:6px;height:6px;border-radius:50%;background:#3b565c}.dot:first-child{background:#ed7581}.dot:nth-child(2){background:#f0c96a}.dot:nth-child(3){background:#79e8a8}.launch-title{margin-left:6px;color:#78999e;font:10px "DM Mono",monospace}.launch-mark{margin-left:auto;color:#64f8ed;font:800 10px Manrope,sans-serif;letter-spacing:.15em}.launch-body{display:grid;grid-template-columns:140px 1fr;height:109px}.launch-menu{padding:12px;border-right:1px solid rgba(141,235,238,.08)}.launch-menu span{display:block;padding:6px 7px;color:#749095;font:9px "DM Mono",monospace}.launch-menu span:first-child{border-radius:5px;background:rgba(23,223,219,.14);color:#befffa}.launch-main{padding:17px 20px}.launch-main small{color:#5fe4e4;font:9px "DM Mono",monospace;letter-spacing:.12em}.launch-main strong{display:block;margin-top:4px;font-size:17px}.launch-main p{margin-top:4px;color:#6d9093;font-size:10px}.progress{width:62%;height:4px;margin-top:13px;border-radius:10px;background:#17353b;overflow:hidden}.progress i{display:block;width:72%;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue))}
-    .stats{border-bottom:1px solid var(--line);background:#081a1f}.stat-grid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{padding:25px 22px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font-size:25px;letter-spacing:-.07em}.stat span{color:#78979b;font:10px "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase}section{padding:108px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:38px}.head h2,.download-copy h2,.faq-copy h2,.support h2{margin-top:15px;font-size:clamp(33px,4vw,52px);letter-spacing:-.065em;line-height:.98}.head p{max-width:365px;color:var(--muted);font-size:14px;line-height:1.75}
-    .features{padding-bottom:44px}.feature-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.monitor{min-height:398px;padding:28px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#0e3439,#071c21);position:relative;overflow:hidden}.monitor:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 30%,rgba(34,232,223,.25),transparent 20%)}.monitor-top{position:relative;display:flex;justify-content:space-between;align-items:center;color:#9fc4c6;font:10px "DM Mono",monospace}.tag{padding:6px 8px;border:1px solid rgba(130,249,241,.23);border-radius:5px;color:#8bfff0}.graph{position:relative;height:198px;margin-top:25px;border:1px solid rgba(151,246,244,.11);border-radius:10px;background:linear-gradient(rgba(121,239,237,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(121,239,237,.05) 1px,transparent 1px),rgba(1,19,23,.42);background-size:36px 36px}.curve{position:absolute;left:4%;right:5%;bottom:27px;height:114px;clip-path:polygon(0 78%,7% 67%,13% 76%,21% 45%,29% 57%,38% 19%,47% 36%,55% 14%,64% 48%,72% 30%,81% 41%,90% 16%,100% 25%,100% 100%,0 100%);background:linear-gradient(180deg,rgba(40,252,234,.42),rgba(24,202,241,.03))}.mini{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:13px}.mini div{padding:12px;border:1px solid rgba(123,239,238,.11);border-radius:8px;background:rgba(2,22,26,.35)}.mini b{display:block;font-size:15px}.mini span{color:#72969a;font:9px "DM Mono",monospace;text-transform:uppercase}.stack{display:grid;gap:16px}.feature{min-height:191px;padding:25px;border:1px solid var(--line);border-radius:16px;background:#0a2228;position:relative;overflow:hidden}.feature:after{content:"";position:absolute;width:190px;height:190px;right:-80px;bottom:-98px;border-radius:50%;background:radial-gradient(circle,rgba(21,231,221,.19),transparent 67%)}.feature:nth-child(2):after{background:radial-gradient(circle,rgba(25,164,243,.22),transparent 67%)}.icon{display:grid;place-items:center;width:39px;height:39px;border:1px solid rgba(104,250,244,.24);border-radius:9px;color:#89fff2;background:rgba(25,221,217,.1);font-size:18px}.feature h3{margin-top:42px;font-size:20px;letter-spacing:-.05em}.feature p{position:relative;z-index:1;max-width:320px;margin-top:8px;color:#87a8ab;font-size:13px;line-height:1.65}
-    .download{padding-top:50px}.download-panel{display:grid;grid-template-columns:.92fr 1.08fr;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#091d22}.download-copy{padding:48px}.download-copy p{max-width:350px;margin:17px 0 26px;color:var(--muted);font-size:14px;line-height:1.75}.systems{padding:27px;background:linear-gradient(135deg,rgba(14,207,207,.12),transparent 65%),#0a2329}.system-label{margin-bottom:14px;color:#67e8e4;font:10px "DM Mono",monospace;letter-spacing:.14em}.system-row{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);color:#90afb1;font-size:12px}.system-row b{color:#e9ffff;text-align:right}.system-row:last-child{border:0}
-    .news{padding-bottom:64px}.news-layout{display:grid;grid-template-columns:1.13fr .87fr;gap:16px}.featured-news{min-height:375px;padding:31px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#113b42,#081a20);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:end}.featured-news:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 21%,rgba(38,239,222,.4),transparent 21%),linear-gradient(145deg,transparent 40%,rgba(2,11,15,.73))}.featured-news>*{position:relative;z-index:1}.date{color:#94fbef;font:10px "DM Mono",monospace;letter-spacing:.1em}.featured-news h3{max-width:540px;margin-top:12px;font-size:clamp(26px,3vw,38px);letter-spacing:-.06em;line-height:1.05}.story{display:inline-block;margin-top:22px;border:0;background:none;color:#e5ffff;cursor:pointer;font:10px "DM Mono",monospace;letter-spacing:.1em;text-align:left}.news-list{border:1px solid var(--line);border-radius:16px;background:#0a2026;overflow:hidden}.news-item{display:block;width:100%;padding:25px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;text-align:left}.news-item:hover{background:rgba(21,217,214,.05)}.news-item:last-child{border-bottom:0}.news-item h3{margin:8px 0 11px;font-size:16px;line-height:1.28;letter-spacing:-.035em}.news-item span:last-child{color:#7d9d9f;font-size:11px}
-    .store{padding-top:64px}.tabs{display:flex;gap:8px;margin-bottom:24px}.tabs button{padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:transparent;color:#8dacae;cursor:pointer;font:10px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase}.tabs button.active,.tabs button:hover{border-color:rgba(78,244,235,.45);background:rgba(27,226,219,.1);color:#bffff8}.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.item{min-height:315px;border:1px solid var(--line);border-radius:15px;background:#0b2228;overflow:hidden;transition:.25s}.item:hover{transform:translateY(-4px);border-color:rgba(85,246,239,.34)}.visual{height:181px;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 110%,rgba(18,235,225,.45),transparent 50%),linear-gradient(145deg,#15505a,#07181d)}.item:nth-child(2) .visual{background:radial-gradient(circle at 50% 110%,rgba(25,157,244,.45),transparent 50%),linear-gradient(145deg,#103850,#07161d)}.item:nth-child(3) .visual{background:radial-gradient(circle at 50% 110%,rgba(73,255,189,.31),transparent 50%),linear-gradient(145deg,#174640,#071b1d)}.cape{width:77px;height:111px;background:linear-gradient(135deg,#b6fffa,#0ddbdc 48%,#0b83d8);clip-path:polygon(12% 0,88% 0,100% 100%,50% 84%,0 100%);filter:drop-shadow(0 15px 12px rgba(0,0,0,.4));transform:rotate(-4deg)}.wings{position:relative;width:130px;height:94px}.wings:before,.wings:after{content:"";position:absolute;top:8px;width:67px;height:82px;background:linear-gradient(140deg,#7dffff,#0aabe9);clip-path:polygon(100% 0,0 28%,48% 47%,0 68%,100% 100%);filter:drop-shadow(0 12px 11px rgba(0,0,0,.36))}.wings:before{left:0}.wings:after{right:0;transform:scaleX(-1)}.plus{display:grid;place-items:center;width:100px;height:100px;border:2px solid #72fff0;border-radius:50%;color:#b9fffb;font-size:44px;box-shadow:inset 0 0 23px rgba(77,255,233,.28),0 0 26px rgba(70,255,228,.22)}.item-copy{padding:19px}.item-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.item h3{font-size:18px;letter-spacing:-.045em}.badge{color:#73eee8;font:9px "DM Mono",monospace;letter-spacing:.08em}.item p{margin-top:7px;color:#7f9ea1;font-size:12px}.item button{margin-top:17px;padding:0;border:0;background:none;color:#bafff8;cursor:pointer;font:10px "DM Mono",monospace;letter-spacing:.09em}
-    .faq{padding-bottom:108px}.faq-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:75px}.faq-copy p{max-width:330px;margin-top:18px;color:var(--muted);font-size:14px;line-height:1.75}.faq-list{border-top:1px solid var(--line)}details{padding:19px 0;border-bottom:1px solid var(--line)}summary{display:flex;justify-content:space-between;gap:20px;list-style:none;cursor:pointer;font-size:14px;font-weight:700}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:#64f8ec;font-size:18px;font-weight:400}details[open] summary:after{content:"-"}details p{margin-top:12px;color:#86a5a8;font-size:13px;line-height:1.7}.support{padding-top:0;padding-bottom:74px}.support-panel{padding:66px 35px;border:1px solid rgba(65,243,234,.29);border-radius:18px;background:radial-gradient(ellipse 49% 110% at 50% 0,rgba(14,227,220,.2),transparent),#0a2026;text-align:center}.support h2{max-width:630px;margin-inline:auto}.support p{max-width:480px;margin:17px auto 26px;color:var(--muted);font-size:14px;line-height:1.75}footer{display:flex;justify-content:space-between;align-items:center;padding:31px 0 40px;border-top:1px solid var(--line);color:#76979a;font-size:11px}.footer-links{display:flex;gap:21px}.footer-links a{text-decoration:none}.footer-links a:hover{color:var(--cyan)}
-    .modal{position:fixed;inset:0;z-index:30;display:none;place-items:center;padding:20px;background:rgba(2,11,14,.76);backdrop-filter:blur(10px)}.modal.show{display:grid}.modal-card{width:min(430px,100%);padding:32px;border:1px solid rgba(99,244,239,.33);border-radius:16px;background:#0a2329;box-shadow:0 24px 70px rgba(0,0,0,.45);text-align:center}.modal-symbol{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 15px;border-radius:50%;background:rgba(30,229,220,.14);color:#7bfff0;font-size:21px}.modal-card h2{font-size:27px;letter-spacing:-.05em}.modal-card p{margin:12px auto 21px;color:#91afb1;font-size:13px;line-height:1.7}.modal-card .btn{width:100%}.close{width:100%;margin-top:9px;padding:11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:#a5c7c8;cursor:pointer;font:10px "DM Mono",monospace;text-transform:uppercase}
-    @media(max-width:820px){.wrap{width:min(100% - 36px,var(--max))}.nav{display:none}.menu{display:block}.hero{height:625px}.hero-content{padding-top:55px}.launcher{height:132px}.launch-body{grid-template-columns:105px 1fr}.launch-menu{padding:9px}.stat-grid,.shop-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.head{display:block}.head p{margin-top:15px}.feature-grid,.download-panel,.faq-layout,.news-layout{grid-template-columns:1fr}.faq-layout{gap:32px}.systems{border-top:1px solid var(--line)}.download-copy{padding:39px}.support-panel{padding:53px 26px}}@media(max-width:470px){.wrap{width:calc(100% - 30px)}header{height:72px}.mobile{top:63px}.hero{height:585px}.hero-content{padding:42px 0 140px}h1{font-size:48px}.hero p{font-size:13px}.launcher{width:calc(100% - 26px);height:117px}.launch-top{height:32px}.launch-body{height:85px;grid-template-columns:75px 1fr}.launch-menu span{padding:4px 2px;font-size:7px}.launch-main{padding:11px}.launch-main strong{font-size:15px}.launch-main p{font-size:8px}.stat-grid,.shop-grid{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.mini{grid-template-columns:1fr 1fr}.tabs{overflow:auto}.featured-news{min-height:310px}.support-panel{padding:46px 19px}footer{display:block;line-height:2}.footer-links{margin-top:8px}}
-  </style>
-  <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="launcher.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vortex — The Next-Gen Minecraft Launcher</title>
+<meta name="description" content="Vortex Launcher is a premium Minecraft launcher with store, cosmetics, credits, instant play, mods support and a lively Discord community." />
+<meta name="theme-color" content="#05060d" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
 </head>
-<body>
-  <div class="ambient"></div><div class="grid"></div>
-  <header class="wrap"><a class="brand" href="index.html"><img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">VORTEX</a><nav class="nav"><a href="features.html">Features</a><a href="download.html">Download</a><a href="news.html">News</a><a href="store.html">Shop</a><a href="support.html">Support</a><a class="btn" href="download.html">Get Vortex</a></nav><button class="menu" id="menu">&#9776;</button><nav class="mobile" id="mobile"><a href="features.html">Features</a><a href="download.html">Download</a><a href="news.html">News</a><a href="store.html">Shop</a><a href="support.html">Support</a><a href="download.html">Get Vortex</a></nav></header>
-  <main>
-    <section class="hero" id="home"><div class="scene-wrap"><canvas class="scene" id="scene"></canvas></div><div class="hero-content wrap"><div class="pill"><i class="live"></i> VORTEXLAUNCHER FOR WINDOWS</div><h1>Make every block<br><span>count.</span></h1><p>VortexLauncher is the official Windows client for Vortex. Download it, complete setup, sign in with your Microsoft Minecraft account, and play. Support is on Discord and this website if you get stuck.</p><div class="setup-row"><div class="setup-step"><b>01 SETUP</b><span>Install VortexLauncher from the Windows download below.</span></div><div class="setup-step"><b>02 ACCOUNT</b><span>Sign in with a Microsoft account that owns Minecraft.</span></div><div class="setup-step"><b>03 PLAY</b><span>Pick a profile and launch. Help stays one click away.</span></div></div><div class="actions"><a class="btn" href="downloads/VortexLauncher-Setup.exe" download>Download for Windows &darr;</a><a class="btn outline" href="download.html">Setup guide &rarr;</a></div><div class="platforms">WINDOWS 10 / WINDOWS 11 · MICROSOFT ACCOUNT REQUIRED</div></div><div class="launcher" id="launcher"><div class="launch-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i><img class="launch-logo" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo"><span class="launch-title">VortexLauncher</span><span class="launch-status"><i></i> SYSTEM READY</span><span class="launch-mark">VORTEX</span></div><div class="launch-body"><nav class="launch-menu" aria-label="Launcher navigation"><button class="launch-tab active" data-view="home"><b>01</b> HOME</button><button class="launch-tab" data-view="library"><b>02</b> LIBRARY</button><button class="launch-tab" data-view="mods"><b>03</b> MODS</button><button class="launch-tab" data-view="settings"><b>04</b> SETTINGS</button></nav><div class="launch-main"><div class="launch-kicker" id="launchKicker">WELCOME BACK</div><div class="launch-heading"><div><strong id="launchTitle">Ready to play?</strong><p id="launchCopy">Vortex 1.21.1 / Fabric / optimized profile</p></div><div class="launch-clock" id="launchClock">00:00</div></div><div class="launch-meter"><span>GAME PREPARED</span><div class="progress"><i></i></div><b id="launchPercent">72%</b></div><div class="launch-footer"><div class="launch-server"><i></i><span id="launchInfo">Vortex Network / EU Central</span></div><button class="play" id="playButton"><span class="play-icon">&#9654;</span><span id="playLabel">PLAY</span></button></div></div></div></div></section>
-    <section class="stats"><div class="wrap stat-grid"><div class="stat"><strong>2x</strong><span>Smoother frames</span></div><div class="stat"><strong>60+</strong><span>Included mods</span></div><div class="stat"><strong>1</strong><span>Simple install</span></div><div class="stat"><strong>Free</strong><span>To get started</span></div></div></section>
-    <section class="features wrap" id="features"><div class="head"><div><div class="eyebrow">Built around your game</div><h2>Everything runs<br>better together.</h2></div><p>Less time searching through folders, more time exploring the worlds you actually want to play.</p></div><div class="feature-grid"><article class="monitor"><div class="monitor-top"><span>PERFORMANCE MONITOR</span><span class="tag">OPTIMIZED</span></div><div class="graph"><div class="curve"></div></div><div class="mini"><div><b>184</b><span>FPS average</span></div><div><b>42%</b><span>Lower load</span></div><div><b>18ms</b><span>Frame time</span></div></div></article><div class="stack"><article class="feature"><div class="icon">+</div><h3>Your game, your layout.</h3><p>Shape your HUD, mod selection, and visual settings without getting in the way of the game.</p></article><article class="feature"><div class="icon">*</div><h3>Clean from the start.</h3><p>Versions and updates stay organized, so every session begins with one clear click.</p></article></div></div></section>
-    <section class="download wrap" id="download"><div class="download-panel"><div class="download-copy"><div class="eyebrow">One client. Every world.</div><h2>Ready when<br>you are.</h2><p>Install VortexLauncher, sign in with your Microsoft Minecraft account, and choose exactly how you want to play.</p><a class="btn" href="downloads/VortexLauncher-Setup.exe" download>Download VortexLauncher &darr;</a></div><div class="systems"><div class="system-label">SYSTEM REQUIREMENTS</div><div class="system-row"><span>Operating system</span><b>Windows 10 / 11</b></div><div class="system-row"><span>Memory</span><b>4 GB RAM minimum</b></div><div class="system-row"><span>Storage</span><b>1 GB available space</b></div><div class="system-row"><span>Java</span><b>Included with Vortex</b></div></div></div></section>
-    <section class="news wrap" id="news"><div class="head"><div><div class="eyebrow">Vortex news</div><h2>From the<br>community.</h2></div><p>Release notes, build guides, and stories from the players making Vortex their own.</p></div><div class="news-layout"><article class="featured-news"><span class="date">RELEASE NOTES / VORTEX 1.21</span><h3>A cleaner launch, a sharper way to play.</h3><button class="story" data-news="release">READ RELEASE NOTES &rarr;</button></article><div class="news-list"><button class="news-item" data-news="guide"><span class="date">GUIDE / PERFORMANCE</span><h3>Five settings that make every world feel smoother.</h3><span>Open guide &rarr;</span></button><button class="news-item" data-news="community"><span class="date">COMMUNITY / DISCORD</span><h3>Meet the players shaping what comes next.</h3><span>Join Discord &rarr;</span></button><button class="news-item" data-news="roadmap"><span class="date">BEHIND VORTEX / ROADMAP</span><h3>What we are building toward this season.</h3><span>View roadmap &rarr;</span></button></div></div></section>
-    <section class="store wrap" id="store"><div class="head"><div><div class="eyebrow">Vortex shop</div><h2>Wear your<br>world differently.</h2></div><p>Cosmetic drops, member rewards, and a collection that never changes how you play.</p></div><div class="tabs"><button class="active" data-filter="all">Featured</button><button data-filter="cosmetics">Cosmetics</button><button data-filter="member">Membership</button></div><div class="shop-grid"><article class="item" data-type="cosmetics"><div class="visual"><div class="cape"></div></div><div class="item-copy"><div class="item-top"><h3>Vortex Cape</h3><span class="badge">COSMETIC</span></div><p>Signature color. Zero gameplay advantage.</p><button data-store>VIEW COLLECTION &rarr;</button></div></article><article class="item" data-type="cosmetics"><div class="visual"><div class="wings"></div></div><div class="item-copy"><div class="item-top"><h3>Aether Wings</h3><span class="badge">COSMETIC</span></div><p>A new silhouette for your next adventure.</p><button data-store>VIEW COLLECTION &rarr;</button></div></article><article class="item" data-type="member"><div class="visual"><div class="plus">+</div></div><div class="item-copy"><div class="item-top"><h3>Vortex Plus</h3><span class="badge">MEMBERSHIP</span></div><p>Early cosmetic previews and member-only drops.</p><button data-store>VIEW COLLECTION &rarr;</button></div></article></div></section>
-    <section class="faq wrap" id="faq"><div class="faq-layout"><div class="faq-copy"><div class="eyebrow">Quick answers</div><h2>Good to know.</h2><p>Get the basics before your first launch, then find the rest of the team on Discord.</p></div><div class="faq-list"><details open><summary>Is Vortex Client free?</summary><p>Yes. VortexLauncher is free to install. You still need a Microsoft account that owns Minecraft to play. Cosmetics are optional and never give an in-game advantage.</p></details><details><summary>Can I use Vortex with my own mods?</summary><p>Yes. Vortex is designed to keep your favorite mod setups clear and easy to switch between.</p></details><details><summary>Which Minecraft versions are available?</summary><p>The launcher will show the versions currently supported by Vortex when it is released.</p></details><details><summary>Where can I get help?</summary><p>The Vortex Discord is the fastest place to get help from the team and the community.</p></details></div></div></section>
-    <section class="support wrap" id="support"><div class="support-panel"><div class="eyebrow">Need a hand?</div><h2>Good games are better together.</h2><p>Join the Vortex Discord for announcements, early looks, support, and the people building the next great world.</p><a class="btn light" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Join our Discord &rarr;</a></div></section>
-  </main>
-  <footer class="wrap"><span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span><div class="footer-links"><a href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Discord</a><a href="#faq">FAQ</a><a href="#support">Support</a></div></footer>
-  <div class="modal" id="modal"><div class="modal-card"><div class="modal-symbol">*</div><h2 id="modal-title">Almost there.</h2><p id="modal-text">Vortex is still being prepared. Join Discord to be first in line when the download is ready.</p><a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Join Discord &rarr;</a><button class="close" id="close">Close</button></div></div>
-  <script>
-    const menu=document.getElementById('menu'),mobile=document.getElementById('mobile'),modal=document.getElementById('modal'),title=document.getElementById('modal-title'),text=document.getElementById('modal-text');
-    menu.onclick=()=>{mobile.classList.toggle('open');menu.textContent=mobile.classList.contains('open')?'x':'☰'};mobile.querySelectorAll('a').forEach(a=>a.onclick=()=>{mobile.classList.remove('open');menu.textContent='☰'});
-    function show(t,p){title.textContent=t;text.textContent=p;modal.classList.add('show');document.body.style.overflow='hidden'}function hide(){modal.classList.remove('show');document.body.style.overflow=''}document.querySelectorAll('[data-store]').forEach(x=>x.onclick=()=>show('The collection is loading.','The Vortex Shop is coming soon. Join Discord for collection previews and launch announcements.'));document.querySelectorAll('[data-news]').forEach(x=>x.onclick=()=>{if(x.dataset.news==='community'){window.open('https://discord.gg/7P6V3pASw','_blank');return}show('Story coming soon.','We are preparing this Vortex update. Join Discord for the first post and future announcements.')});document.getElementById('close').onclick=hide;modal.onclick=e=>{if(e.target===modal)hide()};document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
-    document.querySelectorAll('[data-filter]').forEach(t=>t.onclick=()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelectorAll('.item').forEach(x=>x.style.display=t.dataset.filter==='all'||x.dataset.type===t.dataset.filter?'block':'none')});
-    const c=document.getElementById('scene'),g=c.getContext('2d');function R(x,y,w,h,z){g.fillStyle=z;g.fillRect(x,y,w,h)}function house(x,y,s){R(x,y,36*s,28*s,'#62513d');R(x+3*s,y+4*s,30*s,24*s,'#917c57');R(x+8*s,y+11*s,5*s,6*s,'#dec678');R(x+24*s,y+11*s,5*s,6*s,'#dec678');R(x+16*s,y+17*s,6*s,11*s,'#4c382e');g.fillStyle='#293b3d';g.beginPath();g.moveTo(x-3*s,y+5*s);g.lineTo(x+18*s,y-11*s);g.lineTo(x+40*s,y+5*s);g.lineTo(x+18*s,y-4*s);g.closePath();g.fill();R(x+29*s,y-8*s,4*s,11*s,'#455654')}function tree(x,y,s){R(x+8*s,y+35*s,5*s,24*s,'#3c4b35');for(let i=0;i<4;i++){let w=(25-i*4)*s;R(x+10*s-w/2,y+i*8*s,w,12*s,i%2?'#1c4e42':'#245a48')}}function scene(){let W=320,H=160;c.width=W;c.height=H;g.imageSmoothingEnabled=false;for(let y=0;y<H;y++){let v=Math.round(27+y*.16);R(0,y,W,1,'rgb(7,'+v+','+(v+11)+')')}for(let i=0;i<75;i++){let x=i*47%W,y=i*31%68;R(x,y,i%5===0?2:1,1,i%6===0?'#9cfff5':'#b2e9ed')}R(247,20,13,13,'#c1fff2');R(244,23,19,7,'#c1fff2');g.fillStyle='#183e46';g.beginPath();g.moveTo(0,98);g.lineTo(36,58);g.lineTo(67,97);g.lineTo(110,48);g.lineTo(157,98);g.lineTo(204,57);g.lineTo(255,100);g.lineTo(292,55);g.lineTo(320,94);g.lineTo(320,160);g.lineTo(0,160);g.fill();R(0,111,W,49,'#1b443b');for(let i=0;i<13;i++){R(i*25,119+i%3*4,25,41,'#245441');R(i*25,119+i%3*4,25,3,'#377257')}R(0,141,W,19,'#16444b');for(let i=0;i<18;i++)R(i*19,143+i%2*4,18,2,'#2d6670');for(let i=0;i<7;i++)tree(i*52-9,89+i%2*6,.55);house(50,112,.78);house(115,101,1);house(190,110,.82);house(257,106,.9);R(0,132,W,5,'#506742');R(0,137,W,4,'#8b7649');for(let i=0;i<32;i++)R(i*37%W,100+i*11%49,1,1,i%4?'#77c881':'#d0bf67')}scene();
-  </script>
-  <script src="site-content.js"></script>
-  <script src="vortex-experience.js"></script>
-  <script src="vortex-socials.js"></script>
-  <script src="home.js"></script>
-  <script src="launcher.js"></script>
+<body id="body">
+
+<div class="ambient" aria-hidden="true"></div>
+<div class="grid" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollBar" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header id="siteHeader">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+    <a href="index.html" class="brand" aria-label="Vortex Home">
+      <span class="brand-mark">V</span>
+      <span style="color:#e9efff">VORTEX</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="news.html">News</a>
+      <a href="store.html">Store</a>
+      <a href="support.html">Support</a>
+      <a class="btn" href="download.html" style="font-size:11px;padding:12px 16px">↓ Launcher</a>
+    </nav>
+
+    <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="download.html">Download</a>
+    <a href="news.html">News</a>
+    <a href="store.html">Store</a>
+    <a href="support.html">Support</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="scene-wrap" aria-hidden="true">
+    <canvas id="scene" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
+    <div class="hero-particles" id="particles"></div>
+  </div>
+
+  <div class="hero-content">
+    <span class="eyebrow-accent" data-reveal><span class="live-dot"></span>v1.2.0 · Now Live</span>
+    <h1 data-reveal class="delay-1">
+      <span class="glow gradient-text">Launch Faster.</span><br/>
+      Play Beyond Limits.
+    </h1>
+    <p data-reveal class="delay-2">
+      Vortex is the all-in-one Minecraft launcher crafted for players who want zero friction, pro-grade cosmetics, a built-in store and seamless account linking — powered by a Discord community of passionate creators.
+    </p>
+
+    <div class="setup-row" data-reveal class="delay-3">
+      <div class="setup-step">
+        <b>01 · Install</b>
+        <span>Download the Vortex launcher in one click for your OS.</span>
+      </div>
+      <div class="setup-step">
+        <b>02 · Login</b>
+        <span>Link your Minecraft and Discord accounts to earn credits.</span>
+      </div>
+      <div class="setup-step">
+        <b>03 · Launch</b>
+        <span>Get 100 CR welcome bonus, shop cosmetics and play.</span>
+      </div>
+    </div>
+
+    <div class="actions" data-reveal>
+      <a class="btn" href="download.html">↓ Download Vortex</a>
+      <a class="btn outline" href="store.html">Browse Store →</a>
+    </div>
+
+    <div class="platforms" data-reveal>Windows · macOS · Linux</div>
+  </div>
+
+  <!-- Floating Launcher Mockup -->
+  <div class="launcher" role="img" aria-label="Vortex Launcher preview">
+    <div class="launch-top">
+      <div class="traffic-dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+      <span class="launch-title">Vortex Launcher · v1.2.0</span>
+      <span class="launch-mark">VORTEX</span>
+      <span class="launch-status"><span class="live-dot"></span>ONLINE</span>
+    </div>
+    <div class="launch-body">
+      <aside class="launch-menu" aria-label="Launcher navigation">
+        <button class="launch-tab active"><b>▶</b> HOME</button>
+        <button class="launch-tab"><b>⚙</b> INSTANCES</button>
+        <button class="launch-tab"><b>◆</b> CREDITS</button>
+        <button class="launch-tab"><b>🛒</b> STORE</button>
+        <button class="launch-tab"><b>👥</b> ACCOUNT</button>
+      </aside>
+      <section class="launch-main" aria-label="Launcher dashboard">
+        <div class="launch-kicker">SELECTED INSTANCE</div>
+        <div class="launch-heading">
+          <div>
+            <strong>Vanilla + OptiFine 1.21.3</strong>
+            <p>Ready to launch · 4 mods active · 22,840 players online</p>
+          </div>
+          <div class="launch-clock" id="launchClock">21:04:17</div>
+        </div>
+        <div class="launch-meter">
+          <span>LOAD PROFILE</span>
+          <div class="progress"><i style="width:88%"></i></div>
+          <b>88%</b>
+        </div>
+        <div class="launch-footer">
+          <span class="launch-server"><i></i>mc.vortexlauncher.com</span>
+          <button class="play" onclick="scrollToDownload()">
+            <span class="play-icon">▶</span> PLAY NOW
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" style="padding:0">
+  <div class="wrap stat-grid">
+    <div class="stat" data-reveal><strong id="sPlayers">0</strong><span>Active Players</span></div>
+    <div class="stat" data-reveal class="delay-1"><strong id="sInstalls">0</strong><span>Total Installs</span></div>
+    <div class="stat" data-reveal class="delay-2"><strong id="sCredits">0</strong><span>Credits Awarded</span></div>
+    <div class="stat" data-reveal class="delay-3"><strong id="sMods">0</strong><span>Mods Supported</span></div>
+  </div>
+</section>
+
+<!-- KEY PILLARS (Lunar-inspired but Vortex-exclusive) -->
+<section class="pillars" id="pillars">
+  <div class="wrap">
+    <div class="pillar-grid">
+      <article class="pillar" data-reveal>
+        <div class="pillar-icon" style="--p:#7c5cff;--p2:#c4b5fd">⬇</div>
+        <h3>One Download<br/>To Launch</h3>
+        <p>A single installer gives you everything — versions, mod loaders, profiles and cosmetics. No Java setup, no manual downloads.</p>
+        <b>Single Install</b>
+      </article>
+      <article class="pillar" data-reveal class="delay-1">
+        <div class="pillar-icon" style="--p:#22d3ee;--p2:#a5f3fc">🧩</div>
+        <h3>720+<br/>Modifications</h3>
+        <p>Every mod you need, performance-tested and conflict-checked. Forge, Fabric, NeoForge and Quilt — all in one launcher.</p>
+        <b>Countless Mods</b>
+      </article>
+      <article class="pillar" data-reveal class="delay-2">
+        <div class="pillar-icon" style="--p:#2563eb;--p2:#93c5fd">🚀</div>
+        <h3>More Than 2x<br/>Boosted Frames</h3>
+        <p>Smart JVM tuning, native optimizations and RAM auto-allocation deliver measurable FPS gains on every machine.</p>
+        <b>Boosted Frames</b>
+      </article>
+      <article class="pillar" data-reveal class="delay-3">
+        <div class="pillar-icon" style="--p:#86ffc1;--p2:#bbf7d0">💎</div>
+        <h3>Vortex Credits<br/>Economy</h3>
+        <p>Claim 100 CR welcome bonus, unlock capes &amp; wings via our Discord-linked economy, or transfer between site and launcher.</p>
+        <b>Cosmetics Only</b>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap">
+    <div class="head">
+      <div data-reveal>
+        <span class="eyebrow">— Features</span>
+        <h2>Built for the <span class="grad">next generation</span> of Minecraft players.</h2>
+      </div>
+      <p data-reveal class="delay-1">Launch, manage, mod, and dress up your game — all inside a single premium launcher. No Java hassle, no lost saves, no friction.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="monitor" data-reveal aria-label="Performance dashboard">
+        <div class="monitor-top">
+          <span>PERFORMANCE · LIVE</span>
+          <span class="tag">+38% FPS</span>
+        </div>
+        <div class="graph" aria-hidden="true">
+          <div class="curve"></div>
+        </div>
+        <div class="mini">
+          <div><b>240+</b><span>AVG FPS</span></div>
+          <div><b>0.4ms</b><span>INPUT LAG</span></div>
+          <div><b>12 GB</b><span>SMART RAM</span></div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <article class="feature" data-reveal>
+          <div class="symbol">⚡</div>
+          <h3>One-click Performance Boosts</h3>
+          <p>Automatic JVM tuning, RAM smart-allocation and native optimizations built in — so your game runs faster from launch.</p>
+        </article>
+        <article class="feature" data-reveal class="delay-1">
+          <div class="symbol">🛍</div>
+          <h3>Cosmetics & In-Game Store</h3>
+          <p>Unlock capes, wings, boosts and more using the built-in Vortex Credits. Earn them by playing, linking your account or from drops.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-top:20px">
+      <div class="card" data-reveal>
+        <div class="symbol">🧩</div>
+        <h3>300+ Mod Packs Ready</h3>
+        <p>Curate your perfect modpack. Forge, Fabric, NeoForge, Quilt — all supported with single-click installs.</p>
+      </div>
+      <div class="card" data-reveal class="delay-1">
+        <div class="symbol">🔗</div>
+        <h3>Discord Account Link</h3>
+        <p>Link your Discord to unlock server cosmetics, get drops, manage tickets and sync your wallet everywhere.</p>
+      </div>
+      <div class="card" data-reveal class="delay-2">
+        <div class="symbol">🛡</div>
+        <h3>Secure & Encrypted</h3>
+        <p>Credentials secured locally with AES-level storage, signed transfer codes and optional hardware lock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="howitworks" id="how">
+  <div class="wrap">
+    <div class="head" style="text-align:center;justify-content:center;flex-direction:column;gap:16px;margin-bottom:64px">
+      <span class="eyebrow">— 3 Steps to Play</span>
+      <h2 style="text-align:center">Get Vortex running in <span class="grad">under a minute.</span></h2>
+      <p style="max-width:620px;text-align:center;margin:auto;color:var(--muted);font-size:15px;line-height:1.8">No confusing setup. No Java wizardry. Just download, sign in, and launch straight into the game with your cosmetics ready.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>Download the Installer</h3>
+          <p>One click gets you the full Vortex package — Windows, macOS and Linux builds are always up to date. Java is bundled, so no extra installs.</p>
+        </div>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step" data-reveal class="delay-1">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>Sign in with Microsoft</h3>
+          <p>Official Microsoft account authentication keeps your world safe. Link Discord for bonus drops, tickets and wallet syncing.</p>
+        </div>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step" data-reveal class="delay-2">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>Hit Play &amp; Earn 100 CR</h3>
+          <p>Your one-time 100 CR welcome bonus lands the moment you first launch. Unlock a cape, equip wings, or save up for Vortex Plus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="download" id="download">
+  <div class="wrap">
+    <div class="download-panel">
+      <div class="download-copy">
+        <span class="eyebrow">— Download</span>
+        <h2 style="margin-top:16px;font-size:clamp(34px,4.4vw,54px);font-weight:900;letter-spacing:-.07em;line-height:.95">
+          Install <span class="grad">Vortex</span> in under a minute.
+        </h2>
+        <p>Pick your platform below and launch straight into the game. Updates arrive automatically and cloud-sync keeps your worlds & profiles safe.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;position:relative;z-index:1">
+          <a class="btn" href="download.html">↓ Windows (64-bit)</a>
+          <a class="btn outline" href="download.html">See all versions</a>
+        </div>
+      </div>
+
+      <div class="systems">
+        <div class="system-label">SUPPORTED PLATFORMS · LIVE STATUS</div>
+        <div class="system-row"><span>⌁ Windows 10 / 11</span><b>Recommended · 120 MB</b></div>
+        <div class="system-row"><span>⌁ macOS 12+ (Intel & Apple)</span><b>Stable · 124 MB</b></div>
+        <div class="system-row"><span>⌁ Linux (AppImage · .deb)</span><b>Stable · 118 MB</b></div>
+        <div class="system-row"><span>⌁ Java Runtime</span><b>Bundled — No setup</b></div>
+        <div class="system-row"><span>⌁ Cloud save sync</span><b>Enabled by default</b></div>
+        <div class="system-row"><span>⌁ Auto-updates</span><b>Silent · Zero downtime</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news">
+  <div class="wrap">
+    <div class="head">
+      <div data-reveal>
+        <span class="eyebrow">— News</span>
+        <h2>The latest from <span class="grad">Vortex HQ</span>.</h2>
+      </div>
+      <a href="news.html" class="story" data-reveal class="delay-1">See all news →</a>
+    </div>
+
+    <div class="news-layout">
+      <article class="featured-news" data-reveal>
+        <span class="date">18 March 2026 · Major Update</span>
+        <h3>Vortex 1.2.0 launches: new credit system, store refresh & zero-friction mod install.</h3>
+        <button class="story" onclick="location.href='news.html'">Read the release notes</button>
+      </article>
+
+      <div class="news-list" data-reveal class="delay-1">
+        <button class="news-item" onclick="location.href='news.html'">
+          <span class="date">17 March 2026 · Security</span>
+          <h3>Why we moved to one-time welcome bonuses instead of daily claims.</h3>
+          <span>3 min read · Credits, Economy</span>
+        </button>
+        <button class="news-item" onclick="location.href='news.html'">
+          <span class="date">12 March 2026 · Community</span>
+          <h3>Spring cosmetics drop: 9 new capes & 3 wing sets coming to the store.</h3>
+          <span>5 min read · Store, Cosmetics</span>
+        </button>
+        <button class="news-item" onclick="location.href='news.html'">
+          <span class="date">05 March 2026 · Tech</span>
+          <h3>Behind the launcher: how we doubled FPS without sacrificing stability.</h3>
+          <span>6 min read · Optimization</span>
+        </button>
+        <button class="news-item" onclick="location.href='news.html'">
+          <span class="date">27 February 2026 · Events</span>
+          <h3>Weekend event: earn bonus credits by playing with linked Discord.</h3>
+          <span>2 min read · Events, Discord</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community">
+  <div class="wrap">
+    <div class="community-panel" data-reveal>
+      <div class="community-copy">
+        <span class="eyebrow-accent"><span class="live-dot"></span>JOIN THE VORTEX</span>
+        <h2 style="margin-top:18px">A community of <span class="grad">128,000+</span> players, building together.</h2>
+        <p style="margin-top:18px;max-width:520px;color:var(--muted);font-size:15px;line-height:1.8">Jump into our Discord for weekly drops, credit giveaways, mod-pack votes, 24/7 support tickets and exclusive early-access cosmetics before they hit the store.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+          <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noreferrer">🎮 Join Our Discord</a>
+          <a class="btn outline" href="socials.html">See all Socials →</a>
+        </div>
+        <div class="community-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px">
+          <div>
+            <strong style="font-size:34px;font-weight:900;letter-spacing:-.06em;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent">128K+</strong>
+            <span style="display:block;margin-top:6px;color:#6e7da0;font:600 11px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase">Discord Members</span>
+          </div>
+          <div>
+            <strong style="font-size:34px;font-weight:900;letter-spacing:-.06em;background:linear-gradient(135deg,#fff,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent">4,200+</strong>
+            <span style="display:block;margin-top:6px;color:#6e7da0;font:600 11px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase">Players Online Now</span>
+          </div>
+          <div>
+            <strong style="font-size:34px;font-weight:900;letter-spacing:-.06em;background:linear-gradient(135deg,#fff,#86ffc1);-webkit-background-clip:text;background-clip:text;color:transparent">24/7</strong>
+            <span style="display:block;margin-top:6px;color:#6e7da0;font:600 11px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase">Human Support</span>
+          </div>
+        </div>
+      </div>
+      <div class="community-visual" aria-hidden="true">
+        <div class="discord-card">
+          <div class="dc-top">
+            <span class="dc-logo">V</span>
+            <div>
+              <div class="dc-title">VortexLauncher HQ</div>
+              <div class="dc-sub"><span class="dc-online"></span> 4,218 online · 128,490 members</div>
+            </div>
+          </div>
+          <div class="dc-chat">
+            <div class="dc-msg"><div class="dc-av" style="background:linear-gradient(135deg,#7c5cff,#22d3ee)">S</div><div><b>Staff</b><span>Cosmetic drop #42 is live — new capes in the store!</span></div></div>
+            <div class="dc-msg"><div class="dc-av" style="background:linear-gradient(135deg,#86ffc1,#22d3ee)">L</div><div><b>Lena</b><span>Just claimed my welcome 100 CR ty vortex 💎</span></div></div>
+            <div class="dc-msg"><div class="dc-av" style="background:linear-gradient(135deg,#fde68a,#f59e0b)">K</div><div><b>Kai</b><span>Anyone want to 1v1 on mc.vortexlauncher.com? 🙋</span></div></div>
+            <div class="dc-msg you"><div class="dc-av" style="background:linear-gradient(135deg,#c4b5fd,#2563eb)">Y</div><div><b>You</b><span>Downloaded the launcher! It's actually insane how fast it loads.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORE -->
+<section class="store">
+  <div class="wrap">
+    <div class="head">
+      <div data-reveal>
+        <span class="eyebrow">— Store preview</span>
+        <h2>Dress your character. <span class="grad">Stand out.</span></h2>
+      </div>
+      <p data-reveal class="delay-1">Unlock cosmetics with Vortex Credits. Claim your 100 CR welcome bonus once you install the launcher and link your Discord account.</p>
+    </div>
+
+    <div class="tabs" data-reveal role="tablist" aria-label="Store categories">
+      <button class="active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button data-filter="cape" role="tab">Capes</button>
+      <button data-filter="wings" role="tab">Wings</button>
+      <button data-filter="boost" role="tab">Boosts</button>
+    </div>
+
+    <div class="shop-grid" id="shopGrid">
+      <article class="item" data-cat="cape" data-reveal>
+        <div class="visual"><div class="cape" aria-hidden="true"></div></div>
+        <div class="item-copy">
+          <div class="item-top">
+            <h3>Aurora Gradient Cape</h3>
+            <span class="badge">NEW</span>
+          </div>
+          <p>A flowing purple→cyan gradient cape with subtle shimmer as you move.</p>
+          <div class="price"><b>340</b> <span style="color:#a5b4fc">CR</span></div>
+          <button class="cta" onclick="toast('Added to your wishlist. Open launcher to purchase.','warn')">+ Wishlist</button>
+        </div>
+      </article>
+
+      <article class="item" data-cat="wings" data-reveal class="delay-1">
+        <div class="visual"><div class="wings" aria-hidden="true"></div></div>
+        <div class="item-copy">
+          <div class="item-top">
+            <h3>Cyan Wings Set</h3>
+            <span class="badge">TOP</span>
+          </div>
+          <p>Legendary cyan wings with crystal refractions. Equipped server-side.</p>
+          <div class="price"><b>520</b> <span style="color:#a5b4fc">CR</span></div>
+          <button class="cta" onclick="toast('Added to your wishlist. Open launcher to purchase.','warn')">+ Wishlist</button>
+        </div>
+      </article>
+
+      <article class="item" data-cat="boost" data-reveal class="delay-2">
+        <div class="visual"><div class="plus" aria-hidden="true">+</div></div>
+        <div class="item-copy">
+          <div class="item-top">
+            <h3>Credit Boost · 7 days</h3>
+            <span class="badge">LIMITED</span>
+          </div>
+          <p>Doubles all credits earned from drops & events for the next 7 days.</p>
+          <div class="price"><b>180</b> <span style="color:#a5b4fc">CR</span></div>
+          <button class="cta" onclick="toast('Added to your wishlist. Open launcher to purchase.','warn')">+ Wishlist</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-layout">
+      <div class="faq-copy" data-reveal>
+        <span class="eyebrow">— FAQ</span>
+        <h2 style="margin-top:16px;font-size:clamp(36px,4.4vw,56px);font-weight:900;letter-spacing:-.07em;line-height:.95">
+          Quick answers to <span class="grad">frequent questions.</span>
+        </h2>
+        <p>Didn't find what you needed? Open a ticket in Discord or via the Support page — our team responds within 24 hours.</p>
+      </div>
+
+      <div class="faq-list" data-reveal class="delay-1">
+        <details open>
+          <summary>Is Vortex free to use?</summary>
+          <p>Yes. The launcher, cloud sync, mods, instances and linking are all free. The optional credit store unlocks cosmetics and boosts that never affect gameplay balance.</p>
+        </details>
+        <details>
+          <summary>How do I get the 100 CR welcome bonus?</summary>
+          <p>Install the launcher, open it once, then link your Discord account inside the Credits desk. The welcome bonus is a <b>one-time</b> reward — there are no daily resets, so your economy stays fair.</p>
+        </details>
+        <details>
+          <summary>Which Minecraft versions are supported?</summary>
+          <p>Every release from 1.8.9 up to the latest snapshot, including mod loaders: Forge, Fabric, NeoForge and Quilt. Mod packs install in one click and auto-update.</p>
+        </details>
+        <details>
+          <summary>Will I keep my worlds & mods?</summary>
+          <p>Absolutely. Vortex stores worlds locally AND offers optional encrypted cloud sync. You can switch computers and keep everything.</p>
+        </details>
+        <details>
+          <summary>How do I report bugs or open a ticket?</summary>
+          <p>Use the Support page here on the website, or go to the Discord and run <code>/ticket</code> with VortexBot. Staff will receive it instantly.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT CTA -->
+<section class="support">
+  <div class="wrap">
+    <div class="support-panel" data-reveal>
+      <span class="eyebrow-accent"><span class="live-dot"></span>24 / 7 · Human support</span>
+      <h2>Need a hand? We've got <span class="grad">your back</span>.</h2>
+      <p>Join the Discord community to chat with thousands of Vortex players, or open a private ticket for billing, linking and launcher issues.</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:1">
+        <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noreferrer">Join Discord</a>
+        <a class="btn outline" href="support.html">Open Support Ticket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap">
+  <div>© 2026 Vortex Launcher · Crafted with ♥ for the community.</div>
+  <div class="footer-links">
+    <a href="news.html">News</a>
+    <a href="store.html">Store</a>
+    <a href="support.html">Support</a>
+    <a href="download.html">Download</a>
+  </div>
+</footer>
+
+<!-- CREDIT BAR -->
+<div class="credit-bar" id="creditBar" role="status" aria-live="polite" style="display:none">
+  <b id="creditBalance">◆ 0</b>
+  <span style="color:#8591b5;margin-right:4px">CR</span>
+  <div style="width:1px;height:22px;background:rgba(148,163,255,.18)"></div>
+  <input id="redeemInput" type="text" placeholder="Paste redeem code (VX1-...) or transfer code" />
+  <div class="credit-bar-actions">
+    <button id="redeemBtn" type="button">Redeem</button>
+    <button id="creditBtn" type="button">+100 Welcome</button>
+    <button id="exportBtn" type="button">Export</button>
+    <button id="walletBtn" class="wallet-btn" type="button">◆ Wallet</button>
+  </div>
+  <small id="creditMessage" style="color:#a5b4fc">Launcher wallet ready.</small>
+</div>
+
+<!-- WALLET MODAL -->
+<div class="modal" id="walletModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vortex Wallet Dashboard">
+  <div class="modal-card" style="width:min(780px,100%);max-height:90vh;overflow:auto;text-align:left;padding:30px">
+    <div class="wallet-card" style="margin:0">
+      <div class="wallet-head">
+        <div>
+          <div style="color:#a5b4fc;font:700 11px 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase">VORTEX WALLET</div>
+          <div class="wallet-balance" style="margin-top:6px"><b id="walletBalance">0</b><span>CREDITS</span></div>
+        </div>
+        <button class="btn outline" onclick="document.getElementById('walletModal').classList.remove('show');document.getElementById('walletModal').setAttribute('aria-hidden','true')">× Close</button>
+      </div>
+      <div class="wallet-owned" id="walletOwnedGrid">
+        <div class="wallet-item"><div class="thumb">🧾</div><div><h4>Welcome Bonus (One-time)</h4><span id="welcomeStatus">Not claimed yet</span></div></div>
+      </div>
+      <div class="wallet-history">
+        <h3>Recent activity</h3>
+        <ul id="walletHistory"><li style="grid-template-columns:1fr"><span style="color:#67878a">Activity will show here after you claim the welcome bonus or use a redeem code.</span></li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ticket Modal (for Support) -->
+<div class="modal" id="ticketModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Open a ticket">
+  <div class="modal-card" style="width:min(560px,100%);text-align:left;padding:30px">
+    <div class="modal-symbol">✉</div>
+    <h2 style="text-align:center">Open a support ticket</h2>
+    <p style="text-align:center">We'll respond on the linked Discord. You can also use the ticket command on our server.</p>
+    <div class="ticket-form" style="padding:24px 4px 4px;box-shadow:none;margin:0;border:0;background:transparent">
+      <div class="ticket-grid">
+        <div class="field"><span>Discord name</span><input id="tUser" type="text" placeholder="Username#0000 or @handle" /></div>
+        <div class="field"><span>Category</span><select id="tCategory"><option>Launcher issue</option><option>Payment / Credits</option><option>Account link</option><option>Bug report</option><option>Other</option></select></div>
+        <div class="field full"><span>Describe your issue</span><textarea id="tMessage" rows="4" placeholder="Be specific — launcher version, when it happens, steps to reproduce..."></textarea></div>
+      </div>
+      <div class="ticket-actions">
+        <button class="btn" id="sendTicketBtn">Send ticket →</button>
+        <button class="btn outline" onclick="document.getElementById('ticketModal').classList.remove('show')">Cancel</button>
+        <div class="ticket-note" id="ticketNote">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="vortex-credits.js"></script>
+<script src="site.js"></script>
 </body>
 </html>

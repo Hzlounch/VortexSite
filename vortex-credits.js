@@ -48,22 +48,21 @@
     const wallet = load();
     if (!wallet.welcome) {
       wallet.welcome = true;
-      wallet.credits += 150;
+      wallet.credits += 100;
       save(wallet);
-      addTx('welcome', 150, 'Welcome bonus');
+      addTx('welcome', 100, 'Welcome bonus — first visit');
     }
     return wallet;
   }
 
   function daily() {
     const wallet = load();
-    const day = new Date().toISOString().slice(0, 10);
-    if (wallet.claimed === day) return { ok: false, message: 'Already claimed today.', wallet };
-    wallet.claimed = day;
-    wallet.credits += 75;
+    if (wallet.welcome) return { ok: false, message: 'Welcome bonus already claimed. Join Discord for drops!', wallet };
+    wallet.welcome = true;
+    wallet.credits += 100;
     save(wallet);
-    addTx('daily', 75, 'Daily claim');
-    return { ok: true, message: '+75 Vortex Credits claimed.', wallet };
+    addTx('welcome', 100, 'Welcome bonus');
+    return { ok: true, message: '+100 Vortex Credits welcome bonus claimed.', wallet };
   }
 
   function spend(id, cost) {
@@ -135,7 +134,8 @@
     const data = await apiFetch('GET', '/api/credits/' + encodeURIComponent(mcUser));
     if (!data || !data.ok) return { ok: false, error: (data && data.error) || 'Sync failed.' };
     const wallet = load();
-    const newCredits = Math.max(wallet.credits, Number(data.balance) || 0);
+    const serverBalance = Number(data.balance) || Number(data.credits) || 0;
+    const newCredits = Math.max(wallet.credits, serverBalance);
     const serverOwned = Array.isArray(data.owned) ? data.owned : [];
     const mergedOwned = Array.from(new Set([...wallet.owned, ...serverOwned]));
     if (newCredits !== wallet.credits || mergedOwned.length !== wallet.owned.length) {
