@@ -281,7 +281,7 @@
     try {
       const id = localStorage.getItem('vortex-wallet-id') || null;
       if (!id) return null;
-      const base = VORTEX_BASE;
+      const base = (typeof window.VORTEX_BASE !== 'undefined') ? window.VORTEX_BASE : 'https://vortex-site-ruddy.vercel.app';
       const r = await fetch(base + '/api/credits?id=' + encodeURIComponent(id), { credentials: 'omit' });
       if (!r.ok) return null;
       const data = await r.json();
@@ -369,9 +369,11 @@
     try {
       const id = localStorage.getItem('vortex-wallet-id');
       if (!id) return;
-      const res = await fetch(VORTEX_BASE + '/api/credits/claim', {
+      const base = (typeof window.VORTEX_BASE !== 'undefined') ? window.VORTEX_BASE : 'https://vortex-site-ruddy.vercel.app';
+      const secret = (typeof window.VORTEX_SECRET !== 'undefined') ? window.VORTEX_SECRET : 'site-public';
+      const res = await fetch(base + '/api/credits/claim', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-secret': VORTEX_SECRET },
+        headers: { 'Content-Type': 'application/json', 'x-api-secret': secret },
         body: JSON.stringify({ id })
       });
       const data = await res.json().catch(() => ({}));
@@ -401,9 +403,11 @@
     try {
       const id = localStorage.getItem('vortex-wallet-id');
       if (id) {
-        const r = await fetch(VORTEX_BASE + '/api/redeem', {
+        const base = (typeof window.VORTEX_BASE !== 'undefined') ? window.VORTEX_BASE : 'https://vortex-site-ruddy.vercel.app';
+        const secret = (typeof window.VORTEX_SECRET !== 'undefined') ? window.VORTEX_SECRET : 'site-public';
+        const r = await fetch(base + '/api/redeem', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'x-api-secret': VORTEX_SECRET },
+          headers: { 'Content-Type': 'application/json', 'x-api-secret': secret },
           body: JSON.stringify({ id, code })
         });
         const data = await r.json().catch(() => ({}));
