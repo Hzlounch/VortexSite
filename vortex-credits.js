@@ -106,103 +106,31 @@
     const wallet = load();
     if (!wallet.welcome) {
       wallet.welcome = true;
-      wallet.credits += 150;
+      wallet.credits += 250;
       wallet.xp += 300;
-      wallet.mysteryBoxes = (wallet.mysteryBoxes || 0) + 1;
       save(wallet);
-      addTx('welcome', 150, 'Welcome Reward (+150 CR, +1 Mystery Box)');
+      addTx('welcome', 250, 'Welcome Reward (+250 CR)');
     }
     return wallet;
   }
 
-  function claimDaily() {
+  function buyCredits(amount, usdPrice) {
+    // In a real app, this would integrate with a payment gateway (e.g. Stripe, PayPal)
+    // For now, this mocks a successful purchase
     const wallet = load();
-    const now = Date.now();
-    const ONE_DAY = 24 * 60 * 60 * 1000;
-    const timeSinceLast = now - (wallet.lastDaily || 0);
-
-    if (wallet.lastDaily && timeSinceLast < ONE_DAY) {
-      const remainingMs = ONE_DAY - timeSinceLast;
-      const hours = Math.floor(remainingMs / (1000 * 60 * 60));
-      const mins = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
-      return {
-        ok: false,
-        message: `Daily reward already claimed! Next reward in ${hours}h ${mins}m.`,
-        wallet,
-        cooldown: remainingMs
-      };
-    }
-
-    // Check streak
-    if (wallet.lastDaily && timeSinceLast < (2 * ONE_DAY)) {
-      wallet.streak = (wallet.streak || 0) + 1;
-    } else {
-      wallet.streak = 1;
-    }
-
-    const baseReward = 50;
-    const streakBonus = Math.min(200, (wallet.streak - 1) * 25);
-    const total = baseReward + streakBonus;
-
-    wallet.credits += total;
-    wallet.xp += total * 2;
-    wallet.lastDaily = now;
-
-    let bonusMsg = '';
-    if (wallet.streak % 7 === 0) {
-      wallet.mysteryBoxes = (wallet.mysteryBoxes || 0) + 1;
-      bonusMsg = ' + 1 Mystery Box (7-Day Streak!)';
-    }
-
+    const cr = Number(amount) || 0;
+    if (cr <= 0) return { ok: false, message: 'Invalid amount' };
+    
+    wallet.credits += cr;
+    wallet.xp += cr;
     save(wallet);
-    addTx('daily', total, `Daily Login Streak: Day ${wallet.streak} (+${total} CR${bonusMsg})`);
-
+    
+    addTx('purchase', cr, `Purchased +${cr} CR for $${usdPrice}`);
+    
     return {
       ok: true,
-      amount: total,
-      streak: wallet.streak,
-      message: `Claimed +${total} CR! (Day ${wallet.streak} Streak${bonusMsg})`,
-      wallet
-    };
-  }
-
-  function openMysteryBox() {
-    const wallet = load();
-    if (!wallet.mysteryBoxes || wallet.mysteryBoxes < 1) {
-      return { ok: false, message: 'No Mystery Boxes available to open!' };
-    }
-
-    wallet.mysteryBoxes -= 1;
-    const roll = Math.random() * 100;
-    let rewardCredits = 50;
-    let rewardItem = null;
-
-    if (roll < 55) {
-      rewardCredits = 100 + Math.floor(Math.random() * 150);
-    } else if (roll < 85) {
-      rewardCredits = 250 + Math.floor(Math.random() * 250);
-    } else {
-      rewardCredits = 500;
-      // Chance for an unowned item
-      const unowned = Object.keys(ITEM_CATALOG).filter(id => !wallet.owned.includes(id));
-      if (unowned.length > 0) {
-        rewardItem = unowned[Math.floor(Math.random() * unowned.length)];
-        wallet.owned.push(rewardItem);
-      }
-    }
-
-    wallet.credits += rewardCredits;
-    wallet.xp += rewardCredits * 3;
-    save(wallet);
-
-    const desc = rewardItem ? `JACKPOT! +${rewardCredits} CR & Unlocked ${ITEM_LABELS[rewardItem]}!` : `+${rewardCredits} CR from Mystery Box!`;
-    addTx('mystery_box', rewardCredits, desc, { item: rewardItem });
-
-    return {
-      ok: true,
-      credits: rewardCredits,
-      item: rewardItem ? ITEM_CATALOG[rewardItem] : null,
-      message: desc,
+      amount: cr,
+      message: `Successfully purchased ${cr} CR!`,
       wallet
     };
   }
@@ -301,7 +229,7 @@
   } catch(e) {}
 
   root.VortexCredits = {
-    load, save, welcome, daily: claimDaily, claimDaily, openMysteryBox, spend, equip, exportCode, redeem, owned,
+    load, save, welcome, buyCredits, spend, equip, exportCode, redeem, owned,
     recentHistory, ITEM_CATALOG, ITEM_LABELS, ITEM_COSTS, linkMc
   };
 })(typeof window !== 'undefined' ? window : globalThis);

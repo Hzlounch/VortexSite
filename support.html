@@ -1,4 +1,126 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Support | Vortex</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css"></head><body><div class="ambient"></div><div class="grid"></div><header class="wrap"><a class="brand" href="index.html"><img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">VORTEX</a><nav class="nav"><a href="features.html">Features</a><a href="download.html">Download</a><a href="news.html">News</a><a href="store.html">Shop</a><a class="active" href="support.html">Support</a><a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank">Join Discord</a></nav><button class="menu" id="menu">&#9776;</button><nav class="mobile" id="mobile"><a href="features.html">Features</a><a href="download.html">Download</a><a href="news.html">News</a><a href="store.html">Shop</a><a href="support.html">Support</a></nav></header><main><section class="page-hero"><div class="wrap"><div class="eyebrow">Vortex support</div><h1>Help is one<br>message away.</h1><p>From setup questions to feature feedback, the Vortex community is the fastest place to find an answer. Use the form below to open a private ticket directly in Discord, or join the server for live help.</p><div class="page-actions"><a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Open Discord</a><a class="btn outline" href="#ticket-form">Submit a ticket ↓</a></div></div></section><section class="wrap"><div class="cards"><article class="card"><div class="symbol">1</div><h3>Fill in the form</h3><p>Tell us your name, what you need, and a Minecraft username if it applies.</p></article><article class="card"><div class="symbol">2</div><h3>We open a private channel</h3><p>The VortexBot creates a private Discord ticket just for your request. Staff see it immediately.</p></article><article class="card"><div class="symbol">3</div><h3>Get back to playing</h3><p>We reply inside the ticket and on your email if you provided one.</p></article></div></section><section class="wrap" id="ticket-form"><div class="head"><div><div class="eyebrow">Support ticket</div><h2>Submit a request.</h2></div><p>Need help with the launcher, Minecraft sign-in, purchases, or the website? Send it below and the team picks it up in Discord.</p></div><form class="ticket-form" id="ticketForm" autocomplete="off"><div class="ticket-grid"><label class="field"><span>Your name</span><input name="name" required minlength="2" maxlength="40" placeholder="Example: Alex"></label><label class="field"><span>Email (optional, for replies)</span><input name="email" type="email" maxlength="100" placeholder="you@example.com"></label><label class="field"><span>Minecraft username (optional)</span><input name="minecraft" pattern="[A-Za-z0-9_]{3,16}" maxlength="16" placeholder="Same as in-game"></label><label class="field"><span>Category</span><select name="category"><option>General</option><option>Launcher / Install</option><option>Microsoft Login</option><option>Vortex Credits / Shop</option><option>Bug Report</option><option>Suggestion</option><option>Ban / Account</option></select></label><label class="field full"><span>Subject</span><input name="subject" required minlength="4" maxlength="100" placeholder="Short description of your issue"></label><label class="field full"><span>Message</span><textarea name="message" required minlength="10" maxlength="3500" rows="7" placeholder="What happened? What did you expect? Include error messages and steps to reproduce."></textarea></label></div><div class="ticket-actions"><button class="btn" type="submit">Send ticket →</button><button class="btn outline" type="reset">Clear</button><a class="btn light" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Prefer Discord? Join here</a></div><div class="ticket-note" id="ticketNote" role="status" aria-live="polite"></div></form></section><section class="wrap"><div class="support-panel"><div class="eyebrow">Vortex Discord</div><h2>Good games are better together.</h2><p>Announcements, early looks, support, and the people building the next great world are all in one place.</p><a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Join our Discord</a></div></section></main><footer class="wrap"><span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span><div class="footer-links"><a href="features.html">Features</a><a href="news.html">News</a><a href="store.html">Shop</a></div></footer><div class="modal" id="ticketModal"><div class="modal-card"><div class="modal-symbol">★</div><h2 id="ticketTitle">Sending…</h2><p id="ticketText">Your ticket is on its way to the Vortex team.</p><a class="btn" id="ticketDiscordBtn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer" style="display:none">Open Discord</a><button class="close" id="ticketClose" type="button">Close</button></div></div><script src="site.js"></script><script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Support & Tickets | Vortex Client</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="grid"></div>
+
+  <!-- Sleek Lunar-Style Header -->
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <a href="index.html" class="brand" aria-label="Vortex Home">
+        <span class="brand-mark">V</span>
+        <span style="color:#e9efff">VORTEX</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="download.html">Download</a>
+        <a href="news.html">News</a>
+        <a href="store.html">Store</a>
+        <a href="support.html" class="active">Support</a>
+        <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" style="font-size:11px;padding:12px 16px">Join Discord</a>
+      </nav>
+
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="news.html">News</a>
+      <a href="store.html">Store</a>
+      <a href="support.html">Support</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><i class="fa-solid fa-headset"></i> Vortex Support Center</div>
+        <h1 style="font-size:3rem; margin:12px 0 16px;">Help is one message away.</h1>
+        <p>From setup questions to feature feedback, the Vortex community is the fastest place to find an answer. Use the form below to open a private ticket directly in Discord, or join the server for live help.</p>
+        <div class="page-actions" style="margin-top:20px; display:flex; gap:12px;">
+          <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Open Discord</a>
+          <a class="btn outline" href="#ticket-form">Submit a ticket ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="cards">
+        <article class="card"><div class="symbol">1</div><h3>Fill in the form</h3><p>Tell us your name, what you need, and a Minecraft username if it applies.</p></article>
+        <article class="card"><div class="symbol">2</div><h3>We open a private channel</h3><p>The VortexBot creates a private Discord ticket just for your request. Staff see it immediately.</p></article>
+        <article class="card"><div class="symbol">3</div><h3>Get back to playing</h3><p>We reply inside the ticket and on your email if you provided one.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="ticket-form">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Support ticket</div>
+          <h2>Submit a request.</h2>
+        </div>
+        <p>Need help with the launcher, Minecraft sign-in, purchases, or the website? Send it below and the team picks it up in Discord.</p>
+      </div>
+      <form class="ticket-form" id="ticketForm" autocomplete="off">
+        <div class="ticket-grid">
+          <label class="field"><span>Your name</span><input name="name" required minlength="2" maxlength="40" placeholder="Example: Alex"></label>
+          <label class="field"><span>Email (optional, for replies)</span><input name="email" type="email" maxlength="100" placeholder="you@example.com"></label>
+          <label class="field"><span>Minecraft username (optional)</span><input name="minecraft" pattern="[A-Za-z0-9_]{3,16}" maxlength="16" placeholder="Same as in-game"></label>
+          <label class="field"><span>Category</span><select name="category"><option>General</option><option>Launcher / Install</option><option>Microsoft Login</option><option>Vortex Credits / Shop</option><option>Bug Report</option><option>Suggestion</option><option>Ban / Account</option></select></label>
+          <label class="field full"><span>Subject</span><input name="subject" required minlength="4" maxlength="100" placeholder="Short description of your issue"></label>
+          <label class="field full"><span>Message</span><textarea name="message" required minlength="10" maxlength="3500" rows="7" placeholder="What happened? What did you expect? Include error messages and steps to reproduce."></textarea></label>
+        </div>
+        <div class="ticket-actions">
+          <button class="btn" type="submit">Send ticket →</button>
+          <button class="btn outline" type="reset">Clear</button>
+          <a class="btn light" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Prefer Discord? Join here</a>
+        </div>
+        <div class="ticket-note" id="ticketNote" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="wrap">
+      <div class="support-panel">
+        <div class="eyebrow">Vortex Discord</div>
+        <h2>Good games are better together.</h2>
+        <p>Announcements, early looks, support, and the people building the next great world are all in one place.</p>
+        <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Join our Discord</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap" style="padding:40px 0 30px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#64748b;">
+    <span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+    <div class="footer-links" style="display:flex; gap:16px;">
+      <a href="features.html" style="color:#94a3b8;">Features</a>
+      <a href="news.html" style="color:#94a3b8;">News</a>
+      <a href="store.html" style="color:#94a3b8;">Store</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="ticketModal">
+    <div class="modal-card">
+      <div class="modal-symbol">★</div>
+      <h2 id="ticketTitle">Sending…</h2>
+      <p id="ticketText">Your ticket is on its way to the Vortex team.</p>
+      <a class="btn" id="ticketDiscordBtn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer" style="display:none">Open Discord</a>
+      <button class="close" id="ticketClose" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="site.js"></script><script>
 (function(){
   const BOT_API = (window.VORTEX_BOT_URL || 'https://your-vortexbot-host.example').replace(/\/$/, '');
   const FALLBACK_WEBHOOK = ''; // Optional: Discord webhook URL if bot API not available

@@ -201,21 +201,34 @@
   <div class="ambient"></div>
   <div class="grid"></div>
 
-  <header class="wrap">
-    <a class="brand" href="index.html">
-      <img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">
-      VORTEX
-    </a>
-    <nav class="nav">
+  <!-- Sleek Lunar-Style Header -->
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <a href="index.html" class="brand" aria-label="Vortex Home">
+        <span class="brand-mark">V</span>
+        <span style="color:#e9efff">VORTEX</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html" class="active">Features</a>
+        <a href="download.html">Download</a>
+        <a href="news.html">News</a>
+        <a href="store.html">Store</a>
+        <a href="support.html">Support</a>
+        <a class="btn" href="download.html" style="font-size:11px;padding:12px 16px">↓ Launcher</a>
+      </nav>
+
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
-      <a class="active" href="features.html">Features</a>
+      <a href="features.html">Features</a>
       <a href="download.html">Download</a>
       <a href="news.html">News</a>
-      <a href="store.html">Shop</a>
+      <a href="store.html">Store</a>
       <a href="support.html">Support</a>
-      <a class="btn" href="download.html">Get Launcher</a>
-    </nav>
-    <button class="menu" id="menu">&#9776;</button>
+    </div>
   </header>
 
   <main class="wrap">

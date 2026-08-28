@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cosmetics Store & Credits | Vortex Client</title>
+  <title>Store & Credits | Vortex Client</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -63,43 +63,25 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-    .btn-streak {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+    .btn-buy-cr {
+      background: linear-gradient(135deg, #10b981, #059669);
       color: #fff;
       border: none;
       border-radius: 10px;
-      padding: 10px 18px;
+      padding: 10px 20px;
       font-weight: 800;
       font-size: 0.85rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
       transition: all 0.2s ease;
+      text-decoration: none;
     }
-    .btn-streak:hover {
+    .btn-buy-cr:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-    }
-    .btn-mystery {
-      background: linear-gradient(135deg, #a855f7, #7c3aed);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 18px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);
-      transition: all 0.2s ease;
-    }
-    .btn-mystery:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
     }
     .btn-transfer {
       background: rgba(255, 255, 255, 0.08);
@@ -119,6 +101,83 @@
       background: rgba(255, 255, 255, 0.15);
       color: #fff;
     }
+
+    /* BUY CREDITS PACKAGES GRID */
+    .packages-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 40px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    .package-card {
+      background: linear-gradient(145deg, rgba(16, 24, 45, 0.8), rgba(8, 12, 24, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .package-card.popular {
+      border-color: rgba(0, 210, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 102, 255, 0.25);
+    }
+    .package-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 102, 255, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 102, 255, 0.2);
+    }
+    .package-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.65rem;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0066ff, #00d2ff);
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .package-icon {
+      font-size: 2.5rem;
+      color: #fbbf24;
+      margin: 10px 0 15px;
+      text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    }
+    .package-cr {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .package-bonus {
+      font-size: 0.8rem;
+      color: #10b981;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .package-price {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #00d2ff;
+      margin-bottom: 16px;
+    }
+
+    /* COSMETICS SECTION */
     .store-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -230,76 +289,122 @@
   <div class="ambient"></div>
   <div class="grid"></div>
   
-  <header class="wrap">
-    <a class="brand" href="index.html">
-      <img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">
-      VORTEX
-    </a>
-    <nav class="nav">
+  <!-- Sleek Lunar-Style Header -->
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <a href="index.html" class="brand" aria-label="Vortex Home">
+        <span class="brand-mark">V</span>
+        <span style="color:#e9efff">VORTEX</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="download.html">Download</a>
+        <a href="news.html">News</a>
+        <a href="store.html" class="active">Store</a>
+        <a href="support.html">Support</a>
+        <a class="btn" href="download.html" style="font-size:11px;padding:12px 16px">↓ Launcher</a>
+      </nav>
+
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
       <a href="features.html">Features</a>
       <a href="download.html">Download</a>
       <a href="news.html">News</a>
-      <a class="active" href="store.html">Shop</a>
+      <a href="store.html">Store</a>
       <a href="support.html">Support</a>
-      <a class="btn" href="download.html">Get Launcher</a>
-    </nav>
-    <button class="menu" id="menu">&#9776;</button>
+    </div>
   </header>
 
   <main class="wrap">
     <section class="store-hero">
-      <div class="eyebrow"><i class="fa-solid fa-sparkles"></i> Vortex Cosmetics & Credit Exchange</div>
-      <h1 style="font-size: 2.8rem; margin: 12px 0 16px;">Elevate Your In-Game Look</h1>
-      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Unlock exclusive capes, wings, halos and rank perks using Vortex Credits. Completely non pay-to-win visual cosmetics synced to your client.</p>
+      <div class="eyebrow"><i class="fa-solid fa-gem"></i> Official Store & Credit Vault</div>
+      <h1 style="font-size: 2.8rem; margin: 12px 0 16px;">Vortex Store & Cosmetics</h1>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Purchase Vortex Credits or spend your balance on in-game cosmetic items synced instantly across all your Minecraft profiles.</p>
     </section>
 
     <!-- WALLET LIVE BANNER -->
     <section class="wallet-banner" id="walletBanner">
       <div class="wallet-info-group">
         <div class="wallet-stat">
-          <span class="label">Vortex Balance</span>
+          <span class="label">Your Balance</span>
           <span class="value glow-cyan"><i class="fa-solid fa-coins" style="font-size: 1.2rem;"></i> <span id="valCredits">0</span> CR</span>
         </div>
         <div class="wallet-stat">
           <span class="label">Player Level</span>
           <span class="value"><i class="fa-solid fa-shield-halved" style="color: #a855f7; font-size:1.2rem;"></i> Lv. <span id="valLevel">1</span></span>
         </div>
-        <div class="wallet-stat">
-          <span class="label">Daily Streak</span>
-          <span class="value"><i class="fa-solid fa-fire" style="color: #f59e0b; font-size:1.2rem;"></i> <span id="valStreak">0</span> Days</span>
-        </div>
-        <div class="wallet-stat">
-          <span class="label">Mystery Boxes</span>
-          <span class="value"><i class="fa-solid fa-gift" style="color: #ec4899; font-size:1.2rem;"></i> <span id="valBoxes">0</span></span>
-        </div>
       </div>
 
       <div class="wallet-actions">
-        <button class="btn-streak" id="btnDaily" onclick="handleClaimDaily()">
-          <i class="fa-solid fa-calendar-check"></i> Claim Daily CR
-        </button>
-        <button class="btn-mystery" id="btnBox" onclick="handleOpenBox()">
-          <i class="fa-solid fa-box-open"></i> Open Box
-        </button>
+        <a class="btn-buy-cr" href="#creditPackages">
+          <i class="fa-solid fa-cart-shopping"></i> Buy Credits
+        </a>
         <button class="btn-transfer" onclick="handleTransferModal()">
           <i class="fa-solid fa-arrow-right-arrow-left"></i> Transfer Code
         </button>
       </div>
     </section>
 
+    <!-- BUY CREDITS PACKAGES -->
+    <div class="packages-title" id="creditPackages">
+      <i class="fa-solid fa-coins" style="color:#fbbf24;"></i> Buy Vortex Credits
+    </div>
+    <div class="packages-grid">
+      <div class="package-card">
+        <div class="package-icon"><i class="fa-solid fa-coins"></i></div>
+        <div class="package-cr">500 CR</div>
+        <div class="package-bonus">Starter Pack</div>
+        <div class="package-price">$4.99</div>
+        <button class="btn" style="width:100%; padding:10px;" onclick="purchaseCredits(500, 4.99)">Buy Now</button>
+      </div>
+
+      <div class="package-card popular">
+        <span class="package-badge">Best Value</span>
+        <div class="package-icon" style="color:#22d3ee;"><i class="fa-solid fa-sack-dollar"></i></div>
+        <div class="package-cr">1,250 CR</div>
+        <div class="package-bonus">+250 CR Bonus</div>
+        <div class="package-price">$9.99</div>
+        <button class="btn" style="width:100%; padding:10px;" onclick="purchaseCredits(1250, 9.99)">Buy Now</button>
+      </div>
+
+      <div class="package-card">
+        <span class="package-badge" style="background:#a855f7;">Popular</span>
+        <div class="package-icon" style="color:#a855f7;"><i class="fa-solid fa-vault"></i></div>
+        <div class="package-cr">3,000 CR</div>
+        <div class="package-bonus">+500 CR Bonus</div>
+        <div class="package-price">$19.99</div>
+        <button class="btn" style="width:100%; padding:10px;" onclick="purchaseCredits(3000, 19.99)">Buy Now</button>
+      </div>
+
+      <div class="package-card">
+        <span class="package-badge" style="background:#f43f5e;">Ultimate</span>
+        <div class="package-icon" style="color:#f43f5e;"><i class="fa-solid fa-crown"></i></div>
+        <div class="package-cr">8,500 CR</div>
+        <div class="package-bonus">+1,500 CR Bonus</div>
+        <div class="package-price">$49.99</div>
+        <button class="btn" style="width:100%; padding:10px;" onclick="purchaseCredits(8500, 49.99)">Buy Now</button>
+      </div>
+    </div>
+
     <!-- STORE ITEMS GRID -->
+    <div class="packages-title">
+      <i class="fa-solid fa-shirt" style="color:#22d3ee;"></i> In-Game Cosmetics
+    </div>
     <div class="store-grid" id="storeGrid">
       <!-- Items dynamically populated -->
     </div>
   </main>
 
-  <footer class="wrap">
+  <footer class="wrap" style="padding:40px 0 30px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#64748b;">
     <span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-    <div class="footer-links">
-      <a href="https://discord.gg/7P6V3pASw">Discord</a>
-      <a href="news.html">News</a>
-      <a href="support.html">Support</a>
+    <div class="footer-links" style="display:flex; gap:16px;">
+      <a href="https://discord.gg/7P6V3pASw" style="color:#94a3b8;">Discord</a>
+      <a href="news.html" style="color:#94a3b8;">News</a>
+      <a href="support.html" style="color:#94a3b8;">Support</a>
     </div>
   </footer>
 
@@ -310,9 +415,17 @@
       const w = VortexCredits.load();
       document.getElementById('valCredits').innerText = w.credits || 0;
       document.getElementById('valLevel').innerText = w.level || 1;
-      document.getElementById('valStreak').innerText = w.streak || 0;
-      document.getElementById('valBoxes').innerText = w.mysteryBoxes || 0;
       renderStoreCards();
+    }
+
+    function purchaseCredits(amount, usdPrice) {
+      if (confirm(`Confirm purchase of ${amount} Vortex Credits for $${usdPrice}?`)) {
+        const res = VortexCredits.buyCredits(amount, usdPrice);
+        if (res.ok) {
+          alert(`🎉 Payment Successful!\n+${amount} Vortex Credits added to your account.`);
+          refreshWalletUI();
+        }
+      }
     }
 
     function renderStoreCards() {
@@ -357,36 +470,10 @@
     function buyItem(id, cost) {
       const res = VortexCredits.spend(id, cost);
       if (res.ok) {
-        if (typeof window.toast === 'function') window.toast(res.message, 'success');
-        else alert(res.message);
+        alert(res.message);
         refreshWalletUI();
       } else {
-        if (typeof window.toast === 'function') window.toast(res.message, 'error');
-        else alert(res.message);
-      }
-    }
-
-    function handleClaimDaily() {
-      const res = VortexCredits.claimDaily();
-      if (res.ok) {
-        if (typeof window.toast === 'function') window.toast(res.message, 'success');
-        else alert(res.message);
-        refreshWalletUI();
-      } else {
-        if (typeof window.toast === 'function') window.toast(res.message, 'warn');
-        else alert(res.message);
-      }
-    }
-
-    function handleOpenBox() {
-      const res = VortexCredits.openMysteryBox();
-      if (res.ok) {
-        if (typeof window.toast === 'function') window.toast(res.message, 'success');
-        else alert(res.message);
-        refreshWalletUI();
-      } else {
-        if (typeof window.toast === 'function') window.toast(res.message, 'warn');
-        else alert(res.message);
+        alert(res.message);
       }
     }
 

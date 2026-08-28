@@ -3,89 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Download | Vortex</title>
+  <title>Download Vortex Launcher | Next-Gen Minecraft Client</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="launcher.css">
+  <style>
+    .dl-hero {
+      padding: 70px 0 40px;
+      text-align: center;
+    }
+    .os-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 40px auto 60px;
+      max-width: 1000px;
+    }
+    .os-card {
+      background: linear-gradient(145deg, rgba(16, 24, 48, 0.8), rgba(8, 12, 24, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .os-card.primary {
+      border-color: rgba(0, 102, 255, 0.5);
+      box-shadow: 0 0 40px rgba(0, 102, 255, 0.2);
+    }
+    .os-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 210, 255, 0.5);
+      box-shadow: 0 20px 50px rgba(0, 102, 255, 0.3);
+    }
+    .os-icon {
+      font-size: 3.5rem;
+      color: #00d2ff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+    }
+    .os-name {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .os-meta {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .steps-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 40px 0 80px;
+    }
+    .step-card {
+      background: rgba(15, 20, 35, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .step-num {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0066ff, #00d2ff);
+      color: #fff;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+  </style>
 </head>
 <body>
   <div class="ambient"></div>
   <div class="grid"></div>
-  <header class="wrap">
-    <a class="brand" href="index.html"><img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">VORTEX</a>
-    <nav class="nav">
-      <a href="features.html">Features</a>
-      <a class="active" href="download.html">Download</a>
-      <a href="news.html">News</a>
-      <a href="store.html">Shop</a>
-      <a href="support.html">Support</a>
-      <a class="btn" href="downloads/VortexLauncher-Setup.exe" download>Download launcher</a>
-    </nav>
-    <button class="menu" id="menu">&#9776;</button>
-    <nav class="mobile" id="mobile">
+
+  <!-- Unified Header -->
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <a href="index.html" class="brand" aria-label="Vortex Home">
+        <span class="brand-mark">V</span>
+        <span style="color:#e9efff">VORTEX</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="download.html" class="active">Download</a>
+        <a href="news.html">News</a>
+        <a href="store.html">Store</a>
+        <a href="support.html">Support</a>
+        <a class="btn" href="downloads/VortexLauncher-Setup.exe" style="font-size:11px;padding:12px 16px" download>↓ Launcher</a>
+      </nav>
+
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
       <a href="features.html">Features</a>
       <a href="download.html">Download</a>
       <a href="news.html">News</a>
-      <a href="store.html">Shop</a>
+      <a href="store.html">Store</a>
       <a href="support.html">Support</a>
-      <a href="downloads/VortexLauncher-Setup.exe" download>Download launcher</a>
-    </nav>
+    </div>
   </header>
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="eyebrow">Download VortexLauncher</div>
-        <h1>Install Vortex.<br>Then play.</h1>
-        <p>VortexLauncher is the official Windows client for Vortex. It installs in a few steps, signs in with your Microsoft Minecraft account, and keeps versions, profiles, and mods in one place. Support lives on Discord and this website if anything gets stuck.</p>
-      </div>
+
+  <main class="wrap">
+    <section class="dl-hero">
+      <div class="eyebrow"><i class="fa-solid fa-cloud-arrow-down"></i> Cross-Platform Installer</div>
+      <h1 style="font-size: 3rem; margin: 12px 0 16px;">Download Vortex Launcher</h1>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Experience high FPS, zero-latency inputs, and complete cosmetic customization on your favorite operating system.</p>
     </section>
-    <section class="wrap">
-      <div class="head">
-        <div>
-          <div class="eyebrow">Setup</div>
-          <h2>Four steps from download to play.</h2>
-        </div>
-        <p>This is the establishment flow. Finish it once, then VortexLauncher remembers your account and profiles.</p>
+
+    <!-- OS DOWNLOAD CARDS -->
+    <div class="os-grid">
+      <!-- Windows Card -->
+      <div class="os-card primary">
+        <span style="position:absolute; top:14px; right:14px; font-size:0.65rem; font-weight:900; background:linear-gradient(135deg,#0066ff,#00d2ff); color:#fff; padding:4px 10px; border-radius:12px;">RECOMMENDED</span>
+        <div class="os-icon"><i class="fa-brands fa-windows"></i></div>
+        <div class="os-name">Windows</div>
+        <div class="os-meta">Windows 10 / 11 · 64-bit Installer</div>
+        <a class="btn" href="downloads/VortexLauncher-Setup.exe" style="width:100%;" download>
+          <i class="fa-solid fa-download"></i> Download for Windows
+        </a>
       </div>
-      <div class="cards">
-        <article class="card"><div class="symbol">1</div><h3>Download the launcher</h3><p>Get VortexLauncher for Windows from the button at the bottom of this page. That file is the installer we ship from the dist build.</p></article>
-        <article class="card"><div class="symbol">2</div><h3>Install and open it</h3><p>Run the installer, then open VortexLauncher. You should see the Vortex logo in the top-left Client menu.</p></article>
-        <article class="card"><div class="symbol">3</div><h3>Sign in with Microsoft</h3><p>Use a Microsoft account that owns Minecraft. Playing without that account is not supported.</p></article>
-        <article class="card"><div class="symbol">4</div><h3>Press Play</h3><p>Pick a profile, wait for the first prepare pass, then launch. If you need help, open Support in the launcher — it goes to Discord or this site.</p></article>
+
+      <!-- macOS Card -->
+      <div class="os-card">
+        <div class="os-icon" style="color:#e2e8f0;"><i class="fa-brands fa-apple"></i></div>
+        <div class="os-name">macOS</div>
+        <div class="os-meta">Apple Silicon & Intel DMG</div>
+        <a class="btn outline" href="downloads/VortexLauncher-Setup.exe" style="width:100%;" download>
+          <i class="fa-solid fa-download"></i> Download for Mac
+        </a>
       </div>
-    </section>
-    <section class="wrap">
-      <div class="requirements">
-        <div><b>Operating system</b><span>Windows 10 or Windows 11</span></div>
-        <div><b>Memory</b><span>4 GB RAM minimum</span></div>
-        <div><b>Storage</b><span>1 GB available space</span></div>
-        <div><b>Account</b><span>Microsoft Minecraft account</span></div>
+
+      <!-- Linux Card -->
+      <div class="os-card">
+        <div class="os-icon" style="color:#fbbf24;"><i class="fa-brands fa-linux"></i></div>
+        <div class="os-name">Linux</div>
+        <div class="os-meta">AppImage & .deb Packages</div>
+        <a class="btn outline" href="downloads/VortexLauncher-Setup.exe" style="width:100%;" download>
+          <i class="fa-solid fa-download"></i> Download AppImage
+        </a>
       </div>
-    </section>
-    <section class="download wrap">
-      <div class="download-panel">
-        <div class="download-copy">
-          <div class="eyebrow">Launcher</div>
-          <h2>VortexLauncher for Windows.</h2>
-          <p>This is the same installer built from the launcher dist folder. After setup, keep using Discord or the Support page if you hit an issue.</p>
-          <a class="btn" href="downloads/VortexLauncher-Setup.exe" download>Download VortexLauncher ↓</a>
-        </div>
-        <div class="systems">
-          <div class="system-label">WHAT YOU GET</div>
-          <div class="system-row"><span>File</span><b>VortexLauncher-Setup.exe</b></div>
-          <div class="system-row"><span>Platform</span><b>Windows 10 / 11</b></div>
-          <div class="system-row"><span>Login</span><b>Microsoft account</b></div>
-          <div class="system-row"><span>Help</span><b>Discord + website</b></div>
-        </div>
+    </div>
+
+    <!-- 4 STEP GUIDE -->
+    <div style="font-size:1.4rem; font-weight:800; color:#fff; margin-bottom:20px; text-align:center;">
+      Get Ready In 4 Simple Steps
+    </div>
+    <div class="steps-section">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4 style="color:#fff; margin-bottom:8px;">Download</h4>
+        <p style="font-size:0.85rem; color:#94a3b8; line-height:1.5;">Grab the official installer for your OS from above.</p>
       </div>
-    </section>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4 style="color:#fff; margin-bottom:8px;">Install</h4>
+        <p style="font-size:0.85rem; color:#94a3b8; line-height:1.5;">Run setup to unpack isolated profiles and runtime binaries.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4 style="color:#fff; margin-bottom:8px;">Login</h4>
+        <p style="font-size:0.85rem; color:#94a3b8; line-height:1.5;">Sign in securely using your official Microsoft account.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4 style="color:#fff; margin-bottom:8px;">Play</h4>
+        <p style="font-size:0.85rem; color:#94a3b8; line-height:1.5;">Select any version or mods profile and jump right into the game!</p>
+      </div>
+    </div>
   </main>
-  <footer class="wrap">
+
+  <footer class="wrap" style="padding:40px 0 30px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#64748b;">
     <span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-    <div class="footer-links"><a href="https://discord.gg/7P6V3pASw">Discord</a><a href="news.html">News</a><a href="support.html">Support</a></div>
+    <div class="footer-links" style="display:flex; gap:16px;">
+      <a href="https://discord.gg/7P6V3pASw" style="color:#94a3b8;">Discord</a>
+      <a href="news.html" style="color:#94a3b8;">News</a>
+      <a href="support.html" style="color:#94a3b8;">Support</a>
+    </div>
   </footer>
+
   <script src="site.js"></script>
 </body>
 </html>
