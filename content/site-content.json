@@ -1,4 +1,14 @@
 {
   "version": 1,
-  "news": []
+  "news": [
+    {
+      "id": "news-mtd3fg41-o49t",
+      "title": "Vortex-Kits",
+      "category": "RELEASE NOTES",
+      "summary": "Ye",
+      "body": "Ye",
+      "publishedAt": "2026-08-28",
+      "author": "momy4605"
+    }
+  ]
 }
