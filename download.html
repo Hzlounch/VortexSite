@@ -3,121 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download Vortex Client — Windows, macOS & Linux</title>
-  <meta name="description" content="Download the free Vortex Client launcher for Windows 10/11, macOS Apple Silicon & Intel, and Linux AppImage.">
+  <title>Download Vortex Client</title>
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
   <style>
-    .dl-header-section {
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-    .os-downloads-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin: 40px 0 60px;
-    }
-    .os-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(15px);
-    }
-    .os-box.recommended {
-      border-color: var(--border-glow);
-      box-shadow: 0 0 40px rgba(0, 210, 255, 0.18);
-    }
-    .os-box:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 210, 255, 0.3);
-    }
-    .os-badge-top {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      font-size: 0.68rem;
-      font-weight: 900;
-      padding: 4px 10px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #0066ff, #00d2ff);
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .os-big-icon {
-      font-size: 3.8rem;
-      color: var(--primary);
-      margin: 10px 0 20px;
-      text-shadow: 0 0 25px var(--primary-glow);
-    }
-    .os-platform-title {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .os-version-sub {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-    .os-btn-group {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: auto;
-    }
-    .sys-specs-box {
-      background: rgba(14, 20, 32, 0.5);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px;
-      margin-bottom: 80px;
-    }
-    .specs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .spec-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      padding: 16px 20px;
-    }
-    .spec-label {
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-    .spec-val {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #fff;
-    }
+    .dl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px; }
+    
+    .dl-card { background: rgba(14, 20, 32, 0.6); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.05); border-radius: 30px; padding: 50px 30px; text-align: center; position: relative; overflow: hidden; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+    .dl-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 30px 80px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,210,255,0.1); }
+    
+    .dl-icon { font-size: 5rem; margin-bottom: 20px; transition: 0.4s; }
+    .dl-card.win:hover .dl-icon { color: #00a4ef; filter: drop-shadow(0 0 20px rgba(0,164,239,0.5)); transform: scale(1.1); }
+    .dl-card.mac:hover .dl-icon { color: #fff; filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); transform: scale(1.1); }
+    .dl-card.lin:hover .dl-icon { color: #f5a623; filter: drop-shadow(0 0 20px rgba(245,166,35,0.5)); transform: scale(1.1); }
+    
+    .dl-title { font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 10px; }
+    .dl-meta { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 30px; }
+    
+    .dl-btn { display: inline-block; padding: 16px 40px; border-radius: 100px; background: rgba(255,255,255,0.05); color: #fff; font-weight: 800; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+    .dl-card:hover .dl-btn { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,210,255,0.4); transform: translateY(-2px); }
+    
+    .req-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 30px; max-width: 800px; margin: 0 auto; text-align: left; }
+    .req-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; color: var(--text-sub); }
+    .req-list li { display: flex; align-items: center; gap: 12px; }
+    .req-list i { color: var(--primary); }
   </style>
 </head>
 <body>
   <div class="ambient"></div>
-  
-  <!-- PREMIUM PARTICLES BACKGROUND -->
   <div id="particles-js"></div>
 
   <!-- NAVIGATION -->
@@ -143,118 +57,70 @@
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn glow-btn">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileNav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="features.html" class="nav-link">Features</a>
-      <a href="download.html" class="nav-link active">Download</a>
-      <a href="store.html" class="nav-link">Store</a>
-      <a href="socials.html" class="nav-link">Socials</a>
-      <a href="news.html" class="nav-link">News</a>
-      <a href="support.html" class="nav-link">Support</a>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="dl-header-section">
-      <div class="badge-glow">
-        <i class="fa-solid fa-cloud-arrow-down"></i>
-        <span>CROSS-PLATFORM INSTALLERS</span>
+  <main>
+    <section class="hero-section wrap reveal">
+      <div class="badge-glow floating-badge">
+        <i class="fa-solid fa-rocket"></i> VORTEX INSTALLER
       </div>
-      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">Get Vortex Client v2.5</h1>
-      <p class="hero-desc">Choose your operating system below to download the latest high-performance build. Java runtime is automatically bundled.</p>
+      <h1 class="hero-title reveal-delay-1">
+        Choose Your <span class="gradient-text animated-gradient">Platform</span>
+      </h1>
+      <p class="hero-desc reveal-delay-2">
+        Vortex is optimized for all major operating systems. Download the installer, login with your Minecraft account, and instantly jump into the action.
+      </p>
     </section>
 
-    <!-- OPERATING SYSTEM CARDS -->
-    <div class="os-downloads-grid">
-      <!-- Windows Card -->
-      <div class="os-box recommended">
-        <span class="os-badge-top">Recommended</span>
-        <div class="os-big-icon"><i class="fa-brands fa-windows"></i></div>
-        <div class="os-platform-title">Windows</div>
-        <div class="os-version-sub">Windows 10 / 11 · 64-bit Architecture</div>
-        <div class="os-btn-group">
-          <a href="downloads/VortexLauncher-Setup.exe" class="btn btn-primary" download>
-            <i class="fa-solid fa-download"></i> Download .EXE Installer
-          </a>
-          <a href="downloads/VortexLauncher-Setup.exe" class="btn btn-secondary" style="font-size:0.85rem;" download>
-            <i class="fa-solid fa-box-archive"></i> Portable .ZIP Build
-          </a>
+    <!-- DOWNLOAD CARDS -->
+    <section class="wrap reveal reveal-delay-3" style="max-width: 1100px; padding-bottom: 60px;">
+      <div class="dl-grid">
+        
+        <!-- Windows -->
+        <div class="dl-card win" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2">
+          <i class="fa-brands fa-windows dl-icon"></i>
+          <h2 class="dl-title">Windows</h2>
+          <div class="dl-meta">Windows 10 & 11 (64-bit)</div>
+          <div class="dl-btn"><i class="fa-solid fa-download"></i> Download</div>
         </div>
+
+        <!-- macOS -->
+        <div class="dl-card mac" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2">
+          <i class="fa-brands fa-apple dl-icon"></i>
+          <h2 class="dl-title">macOS</h2>
+          <div class="dl-meta">Intel & Apple Silicon (M1/M2)</div>
+          <div class="dl-btn"><i class="fa-solid fa-download"></i> Download</div>
+        </div>
+
+        <!-- Linux -->
+        <div class="dl-card lin" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2">
+          <i class="fa-brands fa-linux dl-icon"></i>
+          <h2 class="dl-title">Linux</h2>
+          <div class="dl-meta">AppImage / .deb / .rpm</div>
+          <div class="dl-btn"><i class="fa-solid fa-download"></i> Download</div>
+        </div>
+
       </div>
 
-      <!-- macOS Card -->
-      <div class="os-box">
-        <div class="os-big-icon" style="color:#e2e8f0; text-shadow:0 0 25px rgba(255,255,255,0.4);"><i class="fa-brands fa-apple"></i></div>
-        <div class="os-platform-title">macOS</div>
-        <div class="os-version-sub">macOS 12+ · Apple Silicon &amp; Intel</div>
-        <div class="os-btn-group">
-          <a href="downloads/VortexLauncher-Setup.exe" class="btn btn-secondary" download>
-            <i class="fa-solid fa-download"></i> Apple Silicon (.DMG)
-          </a>
-          <a href="downloads/VortexLauncher-Setup.exe" class="btn btn-secondary" style="font-size:0.85rem;" download>
-            <i class="fa-solid fa-download"></i> Intel x64 (.DMG)
-          </a>
-        </div>
+      <!-- SYSTEM REQS -->
+      <div class="req-box reveal">
+        <h3 style="color:#fff; font-size:1.4rem; margin-bottom:10px;"><i class="fa-solid fa-microchip"></i> System Requirements</h3>
+        <p style="color:var(--text-sub); font-size:0.95rem;">Vortex is highly optimized to run on both potato PCs and high-end rigs. Here is what we recommend for the best experience.</p>
+        <ul class="req-list">
+          <li><i class="fa-solid fa-check"></i> OS: Windows 10/11, macOS 10.14+, Ubuntu 20.04+</li>
+          <li><i class="fa-solid fa-check"></i> CPU: Intel Core i3 or AMD equivalent</li>
+          <li><i class="fa-solid fa-check"></i> RAM: Minimum 4GB (8GB recommended)</li>
+          <li><i class="fa-solid fa-check"></i> GPU: OpenGL 4.5 compatible graphics</li>
+          <li><i class="fa-solid fa-check"></i> Storage: 2GB available space</li>
+          <li><i class="fa-solid fa-check"></i> Java: Built-in (No manual Java install required)</li>
+        </ul>
       </div>
-
-      <!-- Linux Card -->
-      <div class="os-box">
-        <div class="os-big-icon" style="color:var(--accent-gold); text-shadow:0 0 25px rgba(251,191,36,0.4);"><i class="fa-brands fa-linux"></i></div>
-        <div class="os-platform-title">Linux</div>
-        <div class="os-version-sub">Ubuntu, Arch, Debian, Fedora</div>
-        <div class="os-btn-group">
-          <a href="downloads/VortexLauncher-Setup.exe" class="btn btn-secondary" download>
-            <i class="fa-solid fa-download"></i> Universal AppImage
-          </a>
-          <a href="downloads/VortexLauncher-Setup.exe" class="btn btn-secondary" style="font-size:0.85rem;" download>
-            <i class="fa-solid fa-cube"></i> Debian (.DEB) Package
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SYSTEM REQUIREMENTS -->
-    <div class="sys-specs-box">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-        <div>
-          <span style="font-size:0.75rem; font-weight:800; letter-spacing:1px; color:var(--primary); text-transform:uppercase;">SPECIFICATIONS</span>
-          <h3 style="font-size:1.6rem; font-weight:900; color:#fff; margin-top:4px;">System Requirements</h3>
-        </div>
-        <span style="font-size:0.85rem; color:var(--accent-green); font-weight:700;"><i class="fa-solid fa-circle-check"></i> Java Runtime 21 Bundled</span>
-      </div>
-
-      <div class="specs-grid">
-        <div class="spec-item">
-          <div class="spec-label">Operating System</div>
-          <div class="spec-val">Windows 10+, macOS 12+, or Linux 64-bit</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-label">Memory (RAM)</div>
-          <div class="spec-val">4 GB Minimum (8 GB Recommended)</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-label">Storage Space</div>
-          <div class="spec-val">1.2 GB Available SSD Space</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-label">Minecraft Account</div>
-          <div class="spec-val">Official Microsoft Account</div>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="footer-top">
@@ -262,34 +128,12 @@
           <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
           <span class="brand-text">VORTEX CLIENT</span>
         </div>
-
-        <div class="footer-social-icons">
-          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-        <div class="footer-links-row">
-          <a href="features.html">Features</a>
-          <a href="download.html">Download</a>
-          <a href="store.html">Store</a>
-          <a href="socials.html">Socials</a>
-          <a href="news.html">News</a>
-          <a href="support.html">Support</a>
-        </div>
       </div>
     </div>
   </footer>
 
-  <!-- EXTERNAL LIBRARIES FOR PREMIUM EFFECTS -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
 </body>
