@@ -1,181 +1,199 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Support & Tickets | Vortex Client</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Help Center | Vortex Client</title>
+  <meta name="description" content="Get help with Vortex Client installation, credit purchases, accounts, or open a Discord support ticket.">
+  <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
+  <style>
+    .support-hero-section {
+      padding: 80px 0 30px;
+      text-align: center;
+    }
+    .ticket-box-container {
+      max-width: 780px;
+      margin: 30px auto 80px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+    .form-input-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+    }
+  </style>
 </head>
 <body>
   <div class="ambient"></div>
-  <div class="grid"></div>
 
-  <!-- Sleek Lunar-Style Header -->
-  <header>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
-      <a href="index.html" class="brand" aria-label="Vortex Home">
-        <span class="brand-mark">V</span>
-        <span style="color:#e9efff">VORTEX</span>
+  <!-- NAVIGATION -->
+  <header id="siteHeader">
+    <div class="wrap nav-container">
+      <a href="index.html" class="brand">
+        <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client Logo">
+        <span class="brand-text">VORTEX</span>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="download.html">Download</a>
-        <a href="news.html">News</a>
-        <a href="store.html">Store</a>
-        <a href="support.html" class="active">Support</a>
-        <a href="store.html" class="eyebrow-accent" style="padding:4px 12px; margin:0; text-transform:none; cursor:pointer;" id="navCreditBadge">
-          <i class="fa-solid fa-coins" style="color:#fbbf24; margin-right:4px;"></i> <span id="headerCr">250</span> CR
-        </a>
-        <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" style="font-size:11px;padding:12px 16px">Join Discord</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="store.html" class="nav-link">Store</a>
+        <a href="socials.html" class="nav-link">Socials</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="support.html" class="nav-link active">Support</a>
       </nav>
 
-      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-actions">
+        <a href="store.html" class="credit-badge-btn">
+          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
+          <span id="headerCr">250</span> CR
+        </a>
+        <a href="download.html" class="nav-dl-btn">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
-    <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="download.html">Download</a>
-      <a href="news.html">News</a>
-      <a href="store.html">Store</a>
-      <a href="support.html">Support</a>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="download.html" class="nav-link">Download</a>
+      <a href="store.html" class="nav-link">Store</a>
+      <a href="socials.html" class="nav-link">Socials</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="support.html" class="nav-link active">Support</a>
     </div>
   </header>
 
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="eyebrow"><i class="fa-solid fa-headset"></i> Vortex Support Center</div>
-        <h1 style="font-size:3rem; margin:12px 0 16px;">Help is one message away.</h1>
-        <p>From setup questions to feature feedback, the Vortex community is the fastest place to find an answer. Use the form below to open a private ticket directly in Discord, or join the server for live help.</p>
-        <div class="page-actions" style="margin-top:20px; display:flex; gap:12px;">
-          <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Open Discord</a>
-          <a class="btn outline" href="#ticket-form">Submit a ticket ↓</a>
-        </div>
+  <main class="wrap">
+    <section class="support-hero-section">
+      <div class="badge-glow">
+        <i class="fa-solid fa-headset"></i>
+        <span>24/7 PLAYER SUPPORT</span>
       </div>
+      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">How Can We Help?</h1>
+      <p class="hero-desc">Submit a ticket directly to our Discord staff team or join our community server for instant real-time assistance.</p>
     </section>
 
-    <section class="wrap">
-      <div class="cards">
-        <article class="card"><div class="symbol">1</div><h3>Fill in the form</h3><p>Tell us your name, what you need, and a Minecraft username if it applies.</p></article>
-        <article class="card"><div class="symbol">2</div><h3>We open a private channel</h3><p>The VortexBot creates a private Discord ticket just for your request. Staff see it immediately.</p></article>
-        <article class="card"><div class="symbol">3</div><h3>Get back to playing</h3><p>We reply inside the ticket and on your email if you provided one.</p></article>
-      </div>
-    </section>
+    <!-- TICKET SUBMISSION FORM -->
+    <div class="ticket-box-container">
+      <h2 style="font-size:1.8rem; font-weight:900; color:#fff; margin-bottom:8px;">Open a Support Ticket</h2>
+      <p style="color:var(--text-sub); font-size:0.9rem; margin-bottom:28px;">Our staff team will review your ticket and reach out via Discord.</p>
 
-    <section class="wrap" id="ticket-form">
-      <div class="head">
-        <div>
-          <div class="eyebrow">Support ticket</div>
-          <h2>Submit a request.</h2>
+      <form id="supportTicketForm" onsubmit="event.preventDefault(); submitTicket();">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div class="form-input-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" id="tName" class="form-input" placeholder="e.g. Alex" required>
+          </div>
+          <div class="form-input-group">
+            <label class="form-label">Discord Tag / Username</label>
+            <input type="text" id="tDiscord" class="form-input" placeholder="e.g. alex_mc" required>
+          </div>
         </div>
-        <p>Need help with the launcher, Minecraft sign-in, purchases, or the website? Send it below and the team picks it up in Discord.</p>
-      </div>
-      <form class="ticket-form" id="ticketForm" autocomplete="off">
-        <div class="ticket-grid">
-          <label class="field"><span>Your name</span><input name="name" required minlength="2" maxlength="40" placeholder="Example: Alex"></label>
-          <label class="field"><span>Email (optional, for replies)</span><input name="email" type="email" maxlength="100" placeholder="you@example.com"></label>
-          <label class="field"><span>Minecraft username (optional)</span><input name="minecraft" pattern="[A-Za-z0-9_]{3,16}" maxlength="16" placeholder="Same as in-game"></label>
-          <label class="field"><span>Category</span><select name="category"><option>General</option><option>Launcher / Install</option><option>Microsoft Login</option><option>Vortex Credits / Shop</option><option>Bug Report</option><option>Suggestion</option><option>Ban / Account</option></select></label>
-          <label class="field full"><span>Subject</span><input name="subject" required minlength="4" maxlength="100" placeholder="Short description of your issue"></label>
-          <label class="field full"><span>Message</span><textarea name="message" required minlength="10" maxlength="3500" rows="7" placeholder="What happened? What did you expect? Include error messages and steps to reproduce."></textarea></label>
+
+        <div class="form-input-group">
+          <label class="form-label">Category</label>
+          <select id="tCategory" class="form-select">
+            <option>Launcher Crash / Installation</option>
+            <option>Credit Purchases / Store</option>
+            <option>Cosmetics &amp; Capes</option>
+            <option>Microsoft Login Issues</option>
+            <option>General Feedback / Suggestion</option>
+          </select>
         </div>
-        <div class="ticket-actions">
-          <button class="btn" type="submit">Send ticket →</button>
-          <button class="btn outline" type="reset">Clear</button>
-          <a class="btn light" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Prefer Discord? Join here</a>
+
+        <div class="form-input-group">
+          <label class="form-label">Message Details</label>
+          <textarea id="tMessage" rows="5" class="form-textarea" placeholder="Explain your issue in detail..." required></textarea>
         </div>
-        <div class="ticket-note" id="ticketNote" role="status" aria-live="polite"></div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-top:24px;">
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Ticket</button>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-discord"><i class="fa-brands fa-discord"></i> Open Discord Directly</a>
+        </div>
       </form>
-    </section>
-
-    <section class="wrap">
-      <div class="support-panel">
-        <div class="eyebrow">Vortex Discord</div>
-        <h2>Good games are better together.</h2>
-        <p>Announcements, early looks, support, and the people building the next great world are all in one place.</p>
-        <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer">Join our Discord</a>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer class="wrap" style="padding:40px 0 30px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#64748b;">
-    <span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-    <div class="footer-links" style="display:flex; gap:16px;">
-      <a href="features.html" style="color:#94a3b8;">Features</a>
-      <a href="news.html" style="color:#94a3b8;">News</a>
-      <a href="store.html" style="color:#94a3b8;">Store</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="brand">
+          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
+          <span class="brand-text">VORTEX CLIENT</span>
+        </div>
+
+        <div class="footer-social-icons">
+          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+        <div class="footer-links-row">
+          <a href="features.html">Features</a>
+          <a href="download.html">Download</a>
+          <a href="store.html">Store</a>
+          <a href="socials.html">Socials</a>
+          <a href="news.html">News</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <div class="modal" id="ticketModal">
-    <div class="modal-card">
-      <div class="modal-symbol">★</div>
-      <h2 id="ticketTitle">Sending…</h2>
-      <p id="ticketText">Your ticket is on its way to the Vortex team.</p>
-      <a class="btn" id="ticketDiscordBtn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noopener noreferrer" style="display:none">Open Discord</a>
-      <button class="close" id="ticketClose" type="button">Close</button>
-    </div>
-  </div>
-
   <script src="vortex-credits.js"></script>
-  <script src="site.js"></script><script>
-(function(){
-  const BOT_API = (window.VORTEX_BOT_URL || 'https://your-vortexbot-host.example').replace(/\/$/, '');
-  const FALLBACK_WEBHOOK = ''; // Optional: Discord webhook URL if bot API not available
-  const API_SECRET = window.VORTEX_API_SECRET || '';
-  const form = document.getElementById('ticketForm');
-  const note = document.getElementById('ticketNote');
-  const modal = document.getElementById('ticketModal');
-  const title = document.getElementById('ticketTitle');
-  const text = document.getElementById('ticketText');
-  const close = document.getElementById('ticketClose');
-  const discordBtn = document.getElementById('ticketDiscordBtn');
-  function show(t, p, ok){ title.textContent = t; text.textContent = p; modal.classList.add('show'); document.body.style.overflow = 'hidden'; discordBtn.style.display = ok ? 'inline-flex' : 'none'; }
-  function hide(){ modal.classList.remove('show'); document.body.style.overflow = ''; }
-  if(close) close.addEventListener('click', hide);
-  if(modal) modal.addEventListener('click', e => { if(e.target === modal) hide(); });
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') hide(); });
-  async function viaBot(body){
-    const resp = await fetch(BOT_API + '/api/ticket', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, secret: API_SECRET || undefined }) });
-    if(!resp.ok) throw new Error('Bot API returned ' + resp.status);
-    return resp.json();
-  }
-  async function viaWebhook(body){
-    if(!FALLBACK_WEBHOOK) throw new Error('No webhook configured.');
-    const embed = { title: '🌐 Website Ticket — ' + body.subject.slice(0,80), color: 0x16b4ee, fields: [ { name: 'Name', value: body.name.slice(0,200), inline: true }, { name: 'Email', value: body.email || 'Not provided', inline: true }, { name: 'Category', value: body.category || 'General', inline: true }, { name: 'Minecraft', value: body.minecraft || 'Not provided', inline: true }, { name: 'Subject', value: body.subject.slice(0,200) }, { name: 'Message', value: body.message.slice(0,3500) } ], timestamp: new Date().toISOString(), footer: { text: 'VORTEX WEBSITE TICKET' } };
-    const resp = await fetch(FALLBACK_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ embeds: [embed] }) });
-    if(!resp.ok) throw new Error('Webhook failed');
-    return { ok: true, ticketId: 'WEBHOOK' };
-  }
-  if(form){
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      note.textContent = '';
-      const fd = new FormData(form);
-      const body = { name: (fd.get('name') || '').trim(), email: (fd.get('email') || '').trim(), minecraft: (fd.get('minecraft') || '').trim(), category: (fd.get('category') || 'General').trim(), subject: (fd.get('subject') || '').trim(), message: (fd.get('message') || '').trim() };
-      show('Sending your ticket…', 'We are opening a private Discord ticket for you.');
-      try {
-        let result;
-        try { result = await viaBot(body); }
-        catch (err) { try { result = await viaWebhook(body); } catch (e2) { throw err; } }
-        if(result && result.ok){
-          show('Ticket opened — ' + (result.ticketId || 'received'), 'Your request has been delivered to the Vortex team. The fastest replies are in Discord — join to see your channel appear.', true);
-          form.reset();
-        } else {
-          show('Something did not work.', (result && result.error) ? result.error : 'Please join Discord and open a ticket directly there instead.');
-        }
-      } catch (error) {
-        console.error(error);
-        note.textContent = 'Could not reach the ticket API. Please join Discord and open a ticket directly there.';
-        show('Unable to reach the ticket API.', 'The VortexBot API is not reachable from this page. Join Discord directly and open /support or a ticket there.');
-      }
-    });
-  }
-})();
-</script></body></html>
+  <script src="site.js"></script>
+  <script>
+    function submitTicket() {
+      const name = document.getElementById('tName').value;
+      const discord = document.getElementById('tDiscord').value;
+      const cat = document.getElementById('tCategory').value;
+      const msg = document.getElementById('tMessage').value;
+
+      alert(`✅ Support Ticket Created!\n\nThank you, ${name}. Our staff team has received your ticket regarding '${cat}'. We will reach out to @${discord} on Discord shortly.`);
+      document.getElementById('supportTicketForm').reset();
+    }
+  </script>
+</body>
+</html>

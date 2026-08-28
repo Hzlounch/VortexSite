@@ -1,51 +1,49 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Features & Mods | Vortex Client - Next-Gen Minecraft Client</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features & Built-in Mods | Vortex Client</title>
+  <meta name="description" content="Discover 50+ built-in PvP, HUD, rendering, and utility mods included free in Vortex Client.">
+  <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
   <style>
-    .features-hero {
-      padding: 70px 0 40px;
+    .features-hero-section {
+      padding: 80px 0 30px;
       text-align: center;
     }
-    .features-tabs {
+    .filter-tabs-row {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
       margin: 30px 0 50px;
     }
-    .f-tab-btn {
+    .filter-btn {
       padding: 10px 22px;
       border-radius: 30px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #94a3b8;
+      color: var(--text-sub);
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 8px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .f-tab-btn:hover {
+    .filter-btn:hover {
       background: rgba(255, 255, 255, 0.1);
       color: #fff;
     }
-    .f-tab-btn.active {
+    .filter-btn.active {
       background: linear-gradient(135deg, #0066ff, #00d2ff);
       color: #fff;
       border-color: transparent;
       box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
     }
-
     .mods-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -53,426 +51,213 @@
       margin-bottom: 70px;
     }
     .mod-card {
-      background: linear-gradient(145deg, rgba(16, 22, 38, 0.7), rgba(8, 12, 24, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(15px);
     }
     .mod-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(0, 102, 255, 0.45);
-      box-shadow: 0 16px 40px rgba(0, 102, 255, 0.18);
+      border-color: var(--border-glow);
+      box-shadow: 0 16px 40px rgba(0, 102, 255, 0.2);
     }
-    .mod-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: rgba(0, 102, 255, 0.12);
-      border: 1px solid rgba(0, 102, 255, 0.3);
+    .mod-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid rgba(0, 210, 255, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      color: #00d2ff;
+      font-size: 1.4rem;
+      color: var(--primary);
       margin-bottom: 16px;
-      box-shadow: 0 0 20px rgba(0, 102, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
     }
-    .mod-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .mod-name {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #fff;
-    }
-    .mod-category {
+    .mod-tag {
       font-size: 0.68rem;
       font-weight: 900;
       letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 3px 8px;
+      padding: 4px 8px;
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.06);
-      color: #64748b;
-    }
-    .mod-desc {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .mod-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .mod-status-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #10b981;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Benchmark Banner */
-    .fps-benchmark-section {
-      background: linear-gradient(135deg, rgba(16, 24, 48, 0.8), rgba(6, 10, 20, 0.95));
-      border: 1px solid rgba(0, 102, 255, 0.35);
-      border-radius: 24px;
-      padding: 48px 40px;
-      margin: 40px 0 80px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    }
-    .fps-bars {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .fps-bar-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .fps-bar-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-    .fps-progress-track {
-      height: 16px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      overflow: hidden;
-      position: relative;
-    }
-    .fps-fill {
-      height: 100%;
-      border-radius: 8px;
-      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .fps-vortex {
-      background: linear-gradient(90deg, #0066ff, #00d2ff);
-      box-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
-      width: 95%;
-    }
-    .fps-lunar {
-      background: linear-gradient(90deg, #6366f1, #a855f7);
-      width: 65%;
-    }
-    .fps-vanilla {
-      background: rgba(255, 255, 255, 0.2);
-      width: 28%;
-    }
-
-    /* CTA SECTION */
-    .download-cta-box {
-      text-align: center;
-      background: radial-gradient(circle at 50% 0%, rgba(0, 102, 255, 0.3) 0%, rgba(10, 14, 28, 0.95) 80%);
-      border: 1px solid rgba(0, 102, 255, 0.4);
-      border-radius: 24px;
-      padding: 60px 30px;
-      margin-bottom: 80px;
-      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
   <div class="ambient"></div>
-  <div class="grid"></div>
 
-  <!-- Sleek Lunar-Style Header -->
-  <header>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
-      <a href="index.html" class="brand" aria-label="Vortex Home">
-        <span class="brand-mark">V</span>
-        <span style="color:#e9efff">VORTEX</span>
+  <!-- NAVIGATION -->
+  <header id="siteHeader">
+    <div class="wrap nav-container">
+      <a href="index.html" class="brand">
+        <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client Logo">
+        <span class="brand-text">VORTEX</span>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="features.html" class="active">Features</a>
-        <a href="download.html">Download</a>
-        <a href="news.html">News</a>
-        <a href="store.html">Store</a>
-        <a href="support.html">Support</a>
-        <a href="store.html" class="eyebrow-accent" style="padding:4px 12px; margin:0; text-transform:none; cursor:pointer;" id="navCreditBadge">
-          <i class="fa-solid fa-coins" style="color:#fbbf24; margin-right:4px;"></i> <span id="headerCr">250</span> CR
-        </a>
-        <a class="btn" href="download.html" style="font-size:11px;padding:12px 16px">↓ Launcher</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link active">Features</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="store.html" class="nav-link">Store</a>
+        <a href="socials.html" class="nav-link">Socials</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="support.html" class="nav-link">Support</a>
       </nav>
 
-      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-actions">
+        <a href="store.html" class="credit-badge-btn">
+          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
+          <span id="headerCr">250</span> CR
+        </a>
+        <a href="download.html" class="nav-dl-btn">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
-    <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="download.html">Download</a>
-      <a href="news.html">News</a>
-      <a href="store.html">Store</a>
-      <a href="support.html">Support</a>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link active">Features</a>
+      <a href="download.html" class="nav-link">Download</a>
+      <a href="store.html" class="nav-link">Store</a>
+      <a href="socials.html" class="nav-link">Socials</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="support.html" class="nav-link">Support</a>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="features-hero">
-      <div class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> All-In-One Built-in Mod Ecosystem</div>
-      <h1 style="font-size: 3rem; margin: 14px 0 18px; font-weight: 900;">Built to Outplay the Competition</h1>
-      <p style="color: #94a3b8; max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
-        Over 50+ built-in PvP, HUD, rendering, and utility mods. No installer headaches, zero memory leaks, and seamless multi-version switching from 1.8.9 to 1.21.4.
-      </p>
+    <section class="features-hero-section">
+      <div class="badge-glow">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>50+ PRE-INSTALLED MODS</span>
+      </div>
+      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">Built to Outplay &amp; Outperform</h1>
+      <p class="hero-desc">Every essential PvP, HUD, rendering, and utility mod pre-configured and ready to run with zero installation hassle.</p>
 
-      <!-- Category Filter Tabs -->
-      <div class="features-tabs">
-        <button class="f-tab-btn active" onclick="filterMods('all', this)"><i class="fa-solid fa-border-all"></i> All Mods (12)</button>
-        <button class="f-tab-btn" onclick="filterMods('pvp', this)"><i class="fa-solid fa-crosshairs"></i> PvP & Combat</button>
-        <button class="f-tab-btn" onclick="filterMods('performance', this)"><i class="fa-solid fa-gauge-high"></i> Performance</button>
-        <button class="f-tab-btn" onclick="filterMods('hud', this)"><i class="fa-solid fa-tv"></i> HUD & Visuals</button>
-        <button class="f-tab-btn" onclick="filterMods('utility', this)"><i class="fa-solid fa-toolbox"></i> Utilities</button>
+      <!-- FILTER TABS -->
+      <div class="filter-tabs-row">
+        <button class="filter-btn active" onclick="filterMods('all', this)"><i class="fa-solid fa-border-all"></i> All Mods (12)</button>
+        <button class="filter-btn" onclick="filterMods('pvp', this)"><i class="fa-solid fa-crosshairs"></i> PvP &amp; Combat</button>
+        <button class="filter-btn" onclick="filterMods('performance', this)"><i class="fa-solid fa-gauge-high"></i> Performance</button>
+        <button class="filter-btn" onclick="filterMods('hud', this)"><i class="fa-solid fa-tv"></i> HUD &amp; Visuals</button>
+        <button class="filter-btn" onclick="filterMods('utility', this)"><i class="fa-solid fa-toolbox"></i> Utilities</button>
       </div>
     </section>
 
-    <!-- MODS SHOWCASE GRID -->
-    <div class="mods-grid" id="modsGrid">
-      <!-- Mod 1 -->
+    <!-- MODS GRID -->
+    <div class="mods-grid">
+      <!-- Keystrokes -->
       <div class="mod-card" data-cat="pvp">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-keyboard"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Keystrokes & CPS</div>
-          <span class="mod-category">PvP</span>
+        <div class="mod-icon-badge"><i class="fa-solid fa-keyboard"></i></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Keystrokes HUD</h3>
+          <span class="mod-tag">PVP</span>
         </div>
-        <div class="mod-desc">Display smooth real-time WASD movement keys, Spacebar, Left/Right CPS counters, and custom mouse click animations.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Built-in & Customizable</span>
-        </div>
+        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Displays WASD, Spacebar, Mouse Clicks and CPS counter with RGB chroma animations on your screen.</p>
+        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Hypixel / Competitive Allowed</span>
       </div>
 
-      <!-- Mod 2 -->
+      <!-- ToggleSprint -->
+      <div class="mod-card" data-cat="pvp">
+        <div class="mod-icon-badge"><i class="fa-solid fa-person-running"></i></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">ToggleSprint &amp; Sneak</h3>
+          <span class="mod-tag">PVP</span>
+        </div>
+        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Sprint permanently without holding down Ctrl or double-tapping W. Fully customizable HUD indicator.</p>
+        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Hypixel / Competitive Allowed</span>
+      </div>
+
+      <!-- ArmorStatus -->
+      <div class="mod-card" data-cat="hud">
+        <div class="mod-icon-badge"><i class="fa-solid fa-shield"></i></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Armor &amp; Item Status</h3>
+          <span class="mod-tag">HUD</span>
+        </div>
+        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Shows your equipped armor pieces, held weapons, and exact durability percentages on screen.</p>
+        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Hypixel / Competitive Allowed</span>
+      </div>
+
+      <!-- Motion Blur -->
+      <div class="mod-card" data-cat="hud">
+        <div class="mod-icon-badge"><i class="fa-solid fa-camera-rotate"></i></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Dynamic Motion Blur</h3>
+          <span class="mod-tag">HUD</span>
+        </div>
+        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">High-FPS cinematic shader motion blur with zero GPU rendering overhead and adjustable intensity slider.</p>
+        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Zero Lag Shader</span>
+      </div>
+
+      <!-- OptiFine -->
       <div class="mod-card" data-cat="performance">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Sodium & Nvidium Engine</div>
-          <span class="mod-category">Performance</span>
+        <div class="mod-icon-badge"><i class="fa-solid fa-bolt"></i></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">OptiFine &amp; Sodium Core</h3>
+          <span class="mod-tag">PERFORMANCE</span>
         </div>
-        <div class="mod-desc">World-class modern chunk rendering engine delivering 3x higher FPS and eliminating micro-stutters completely.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Active by Default</span>
-        </div>
+        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Customized asynchronous rendering engine with multi-core chunk rendering and dynamic lights.</p>
+        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> 400+ FPS Guaranteed</span>
       </div>
 
-      <!-- Mod 3 -->
-      <div class="mod-card" data-cat="pvp">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-eye"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Freelook (360° Camera)</div>
-          <span class="mod-category">PvP</span>
-        </div>
-        <div class="mod-desc">Hold your configured keybind to look around in full 360 degrees without changing your player direction or breaking sprint.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Safe Mode Enabled</span>
-        </div>
-      </div>
-
-      <!-- Mod 4 -->
-      <div class="mod-card" data-cat="hud">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Armor & Potion Status</div>
-          <span class="mod-category">HUD</span>
-        </div>
-        <div class="mod-desc">Real-time durable status indicators, active potion effect countdowns, and offhand tracker right on your HUD.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Draggable Interface</span>
-        </div>
-      </div>
-
-      <!-- Mod 5 -->
-      <div class="mod-card" data-cat="hud">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-wind"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Natural Motion Blur</div>
-          <span class="mod-category">Visuals</span>
-        </div>
-        <div class="mod-desc">Silky smooth cinematic motion blur shader giving your gameplay that ultra-high refresh rate feeling with zero FPS loss.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Shader Accelerated</span>
-        </div>
-      </div>
-
-      <!-- Mod 6 -->
+      <!-- MiniMap -->
       <div class="mod-card" data-cat="utility">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-location-dot"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Waypoints & Minimap</div>
-          <span class="mod-category">Utility</span>
+        <div class="mod-icon-badge"><i class="fa-solid fa-map-location-dot"></i></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Waypoints &amp; Minimap</h3>
+          <span class="mod-tag">UTILITY</span>
         </div>
-        <div class="mod-desc">Create custom colored beacon beacons and waypoints across dimensions to easily navigate your SMP or Survival base.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Server Whitelisted</span>
-        </div>
-      </div>
-
-      <!-- Mod 7 -->
-      <div class="mod-card" data-cat="pvp">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-crosshairs"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Custom Crosshairs & Hit Color</div>
-          <span class="mod-category">PvP</span>
-        </div>
-        <div class="mod-desc">Fully customizable crosshair designer (circle, dot, cross, t-shape) with custom damage flash colors on hit.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> RGB Support</span>
-        </div>
-      </div>
-
-      <!-- Mod 8 -->
-      <div class="mod-card" data-cat="performance">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-memory"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Entity & Memory Culling</div>
-          <span class="mod-category">Performance</span>
-        </div>
-        <div class="mod-desc">Dynamically skips rendering invisible entities, mobs behind walls, and tile entities to drastically boost frames in packed hubs.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Auto Optimized</span>
-        </div>
-      </div>
-
-      <!-- Mod 9 -->
-      <div class="mod-card" data-cat="hud">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-sun"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Fullbright & Night Vision</div>
-          <span class="mod-category">Visuals</span>
-        </div>
-        <div class="mod-desc">Never get caught in pitch black darkness inside caves or underground mines again. Adjustable gamma multiplier slider.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> One-Key Toggle</span>
-        </div>
-      </div>
-
-      <!-- Mod 10 -->
-      <div class="mod-card" data-cat="utility">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Smooth OptiZoom</div>
-          <span class="mod-category">Utility</span>
-        </div>
-        <div class="mod-desc">Cinematic zoom in with mouse wheel magnification adjustments and smooth camera motion easing.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Hotkey Bound</span>
-        </div>
-      </div>
-
-      <!-- Mod 11 -->
-      <div class="mod-card" data-cat="hud">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-cubes"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Item Physics 3D</div>
-          <span class="mod-category">Visuals</span>
-        </div>
-        <div class="mod-desc">Items dropped on the ground rotate and lie naturally with realistic 3D gravity physics instead of flat 2D sprites.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Physics Simulation</span>
-        </div>
-      </div>
-
-      <!-- Mod 12 -->
-      <div class="mod-card" data-cat="pvp">
-        <div class="mod-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
-        <div class="mod-title-row">
-          <div class="mod-name">Player Health Indicator</div>
-          <span class="mod-category">PvP</span>
-        </div>
-        <div class="mod-desc">Display animated opponent health hearts, absorption shields, and ping latency numbers directly above player nametags.</div>
-        <div class="mod-footer">
-          <span class="mod-status-tag"><i class="fa-solid fa-circle-check"></i> Server Legal</span>
-        </div>
+        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Set waypoints in survival worlds with color-coded beacons, death coordinates, and circular HUD map.</p>
+        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Fairplay Compliant</span>
       </div>
     </div>
-
-    <!-- PERFORMANCE BENCHMARK -->
-    <section class="fps-benchmark-section">
-      <div style="flex: 1; min-width: 280px;">
-        <span class="eyebrow" style="color: #00d2ff;"><i class="fa-solid fa-chart-simple"></i> Benchmark Results</span>
-        <h2 style="font-size: 2.2rem; font-weight: 900; color: #fff; margin: 10px 0 14px;">Up to 300% Higher FPS</h2>
-        <p style="color: #94a3b8; line-height: 1.6; font-size: 0.95rem;">
-          Tested on competitive Hypixel Bedwars hubs with 16 Chunk Render Distance. Vortex Engine ensures maximum tick stability and minimal input lag.
-        </p>
-      </div>
-
-      <div class="fps-bars">
-        <div class="fps-bar-item">
-          <div class="fps-bar-header">
-            <span style="color:#00d2ff;"><i class="fa-solid fa-bolt"></i> Vortex Client 2.5</span>
-            <span style="color:#00d2ff; font-weight:900;">480+ FPS</span>
-          </div>
-          <div class="fps-progress-track">
-            <div class="fps-fill fps-vortex"></div>
-          </div>
-        </div>
-
-        <div class="fps-bar-item">
-          <div class="fps-bar-header">
-            <span style="color:#a855f7;">Lunar Client</span>
-            <span style="color:#a855f7; font-weight:800;">310 FPS</span>
-          </div>
-          <div class="fps-progress-track">
-            <div class="fps-fill fps-lunar"></div>
-          </div>
-        </div>
-
-        <div class="fps-bar-item">
-          <div class="fps-bar-header">
-            <span style="color:#64748b;">Vanilla Minecraft</span>
-            <span style="color:#64748b; font-weight:800;">140 FPS</span>
-          </div>
-          <div class="fps-progress-track">
-            <div class="fps-fill fps-vanilla"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOWNLOAD CTA BOX -->
-    <section class="download-cta-box">
-      <h2 style="font-size: 2.6rem; font-weight: 900; color: #fff; margin-bottom: 14px;">Ready to Upgrade Your Minecraft?</h2>
-      <p style="color: #cbd5e1; max-width: 550px; margin: 0 auto 30px; font-size: 1.05rem;">
-        Download Vortex Launcher for free and experience the fastest, most customizable Minecraft client available today.
-      </p>
-      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-        <a class="btn" href="download.html" style="padding: 16px 36px; font-size: 0.95rem;"><i class="fa-brands fa-windows"></i> Download for Windows</a>
-        <a class="btn outline" href="store.html" style="padding: 16px 32px; font-size: 0.95rem;"><i class="fa-solid fa-coins"></i> Cosmetics Store</a>
-      </div>
-    </section>
   </main>
 
-  <footer class="wrap">
-    <span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-    <div class="footer-links">
-      <a href="https://discord.gg/7P6V3pASw">Discord</a>
-      <a href="news.html">News</a>
-      <a href="support.html">Support</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="brand">
+          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
+          <span class="brand-text">VORTEX CLIENT</span>
+        </div>
+
+        <div class="footer-social-icons">
+          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+        <div class="footer-links-row">
+          <a href="features.html">Features</a>
+          <a href="download.html">Download</a>
+          <a href="store.html">Store</a>
+          <a href="socials.html">Socials</a>
+          <a href="news.html">News</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -480,7 +265,7 @@
   <script src="site.js"></script>
   <script>
     function filterMods(cat, btn) {
-      document.querySelectorAll('.f-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
 
       document.querySelectorAll('.mod-card').forEach(card => {

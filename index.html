@@ -1,561 +1,217 @@
-<!DOCTYPE html>
-<html lang="en" class="enhanced">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vortex — The Next-Gen Minecraft Launcher</title>
-<meta name="description" content="Vortex Launcher is a premium Minecraft launcher with store, cosmetics, credits, instant play, mods support and a lively Discord community." />
-<meta name="theme-color" content="#05060d" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="site.css" />
-<link rel="icon" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg" type="image/jpeg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Client — The Next-Gen Minecraft Client</title>
+  <meta name="description" content="Vortex Client is a free all-in-one Minecraft client with built-in mods, high FPS optimization, cosmetics, and cross-platform support.">
+  <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
 </head>
-<body id="body">
+<body>
+  <div class="ambient"></div>
 
-<div class="ambient" aria-hidden="true"></div>
-<div class="grid" aria-hidden="true"></div>
-<div class="noise" aria-hidden="true"></div>
-<div class="scroll-progress" id="scrollBar" aria-hidden="true"></div>
-
-<!-- HEADER -->
-<header id="siteHeader">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
-    <a href="index.html" class="brand" aria-label="Vortex Home">
-      <span class="brand-mark">V</span>
-      <span style="color:#e9efff">VORTEX</span>
-    </a>
-
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="index.html" class="active">Home</a>
-      <a href="features.html">Features</a>
-      <a href="download.html">Download</a>
-      <a href="news.html">News</a>
-      <a href="store.html">Store</a>
-      <a href="support.html">Support</a>
-      <a href="store.html" class="eyebrow-accent" style="padding:4px 12px; margin:0; text-transform:none; cursor:pointer;" id="navCreditBadge">
-        <i class="fa-solid fa-coins" style="color:#fbbf24; margin-right:4px;"></i> <span id="headerCr">250</span> CR
+  <!-- NAVIGATION -->
+  <header id="siteHeader">
+    <div class="wrap nav-container">
+      <a href="index.html" class="brand">
+        <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client Logo">
+        <span class="brand-text">VORTEX</span>
       </a>
-      <a class="btn" href="download.html" style="font-size:11px;padding:12px 16px">↓ Launcher</a>
-    </nav>
 
-    <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-  </div>
-  <div class="mobile" id="mobileNav" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="features.html">Features</a>
-    <a href="download.html">Download</a>
-    <a href="news.html">News</a>
-    <a href="store.html">Store</a>
-    <a href="support.html">Support</a>
-  </div>
-</header>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="store.html" class="nav-link">Store</a>
+        <a href="socials.html" class="nav-link">Socials</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="scene-wrap" aria-hidden="true">
-    <canvas id="scene" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
-    <div class="hero-particles" id="particles"></div>
-  </div>
-
-  <div class="hero-content">
-    <span class="eyebrow-accent" data-reveal><span class="live-dot"></span>v2.5 · Next-Gen Release</span>
-    <h1 data-reveal class="delay-1">
-      <span class="glow gradient-text">Launch Faster.</span><br/>
-      Play Beyond Limits.
-    </h1>
-    <p data-reveal class="delay-2">
-      Vortex is the ultimate all-in-one Minecraft client crafted for maximum FPS, zero-latency inputs, pro-grade cosmetics, and seamless Discord integration.
-    </p>
-
-    <div class="setup-row" data-reveal class="delay-3">
-      <div class="setup-step">
-        <b>01 · Install</b>
-        <span>Download the Vortex launcher in one click for Windows, Mac, or Linux.</span>
-      </div>
-      <div class="setup-step">
-        <b>02 · Login</b>
-        <span>Sign in with your official Microsoft account for secure cloud sync.</span>
-      </div>
-      <div class="setup-step">
-        <b>03 · Launch</b>
-        <span>Get your 250 CR welcome bonus, equip cosmetics, and enjoy ultra-smooth gameplay.</span>
-      </div>
-    </div>
-
-    <div class="actions" data-reveal>
-      <a class="btn" href="download.html">↓ Download Vortex</a>
-      <a class="btn outline" href="store.html">Browse Store →</a>
-    </div>
-
-    <div class="platforms" data-reveal>Windows · macOS · Linux</div>
-  </div>
-
-  <!-- Floating Launcher Mockup -->
-  <div class="launcher" role="img" aria-label="Vortex Launcher preview">
-    <div class="launch-top">
-      <div class="traffic-dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
-      <span class="launch-title">Vortex Launcher · v1.2.0</span>
-      <span class="launch-mark">VORTEX</span>
-      <span class="launch-status"><span class="live-dot"></span>ONLINE</span>
-    </div>
-    <div class="launch-body">
-      <aside class="launch-menu" aria-label="Launcher navigation">
-        <button class="launch-tab active"><b>▶</b> HOME</button>
-        <button class="launch-tab"><b>⚙</b> INSTANCES</button>
-        <button class="launch-tab"><b>◆</b> CREDITS</button>
-        <button class="launch-tab"><b>🛒</b> STORE</button>
-        <button class="launch-tab"><b>👥</b> ACCOUNT</button>
-      </aside>
-      <section class="launch-main" aria-label="Launcher dashboard">
-        <div class="launch-kicker">SELECTED INSTANCE</div>
-        <div class="launch-heading">
-          <div>
-            <strong>Vanilla + OptiFine 1.21.3</strong>
-            <p>Ready to launch · 4 mods active · 22,840 players online</p>
-          </div>
-          <div class="launch-clock" id="launchClock">21:04:17</div>
-        </div>
-        <div class="launch-meter">
-          <span>LOAD PROFILE</span>
-          <div class="progress"><i style="width:88%"></i></div>
-          <b>88%</b>
-        </div>
-        <div class="launch-footer">
-          <span class="launch-server"><i></i>mc.vortexlauncher.com</span>
-          <button class="play" onclick="scrollToDownload()">
-            <span class="play-icon">▶</span> PLAY NOW
-          </button>
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats" style="padding:0">
-  <div class="wrap stat-grid">
-    <div class="stat" data-reveal><strong id="sPlayers">0</strong><span>Active Players</span></div>
-    <div class="stat" data-reveal class="delay-1"><strong id="sInstalls">0</strong><span>Total Installs</span></div>
-    <div class="stat" data-reveal class="delay-2"><strong id="sCredits">0</strong><span>Credits Awarded</span></div>
-    <div class="stat" data-reveal class="delay-3"><strong id="sMods">0</strong><span>Mods Supported</span></div>
-  </div>
-</section>
-
-<!-- KEY PILLARS (Lunar-inspired but Vortex-exclusive) -->
-<section class="pillars" id="pillars">
-  <div class="wrap">
-    <div class="pillar-grid">
-      <article class="pillar" data-reveal>
-        <div class="pillar-icon" style="--p:#7c5cff;--p2:#c4b5fd">⬇</div>
-        <h3>One Download<br/>To Launch</h3>
-        <p>A single installer gives you everything — versions, mod loaders, profiles and cosmetics. No Java setup, no manual downloads.</p>
-        <b>Single Install</b>
-      </article>
-      <article class="pillar" data-reveal class="delay-1">
-        <div class="pillar-icon" style="--p:#22d3ee;--p2:#a5f3fc">🧩</div>
-        <h3>720+<br/>Modifications</h3>
-        <p>Every mod you need, performance-tested and conflict-checked. Forge, Fabric, NeoForge and Quilt — all in one launcher.</p>
-        <b>Countless Mods</b>
-      </article>
-      <article class="pillar" data-reveal class="delay-2">
-        <div class="pillar-icon" style="--p:#2563eb;--p2:#93c5fd">🚀</div>
-        <h3>More Than 2x<br/>Boosted Frames</h3>
-        <p>Smart JVM tuning, native optimizations and RAM auto-allocation deliver measurable FPS gains on every machine.</p>
-        <b>Boosted Frames</b>
-      </article>
-      <article class="pillar" data-reveal class="delay-3">
-        <div class="pillar-icon" style="--p:#86ffc1;--p2:#bbf7d0">💎</div>
-        <h3>Vortex Credits<br/>Economy</h3>
-        <p>Claim 250 CR welcome bonus, unlock capes &amp; wings, or transfer credits seamlessly between site and launcher.</p>
-        <b>Cosmetics Only</b>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- LIVE PERFORMANCE BENCHMARK -->
-<section class="wrap" style="margin: 60px auto;">
-  <div style="background: linear-gradient(135deg, rgba(16, 24, 48, 0.8), rgba(6, 10, 20, 0.95)); border: 1px solid rgba(0, 102, 255, 0.35); border-radius: 24px; padding: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);">
-    <div style="flex:1; min-width:280px;">
-      <span class="eyebrow"><i class="fa-solid fa-gauge-high"></i> FPS Performance Comparison</span>
-      <h2 style="font-size: 2.2rem; margin: 10px 0 14px; font-weight: 900;">Dominate With Max Framerates</h2>
-      <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Vortex Engine utilizes custom asynchronous chunk loaders, GPU memory culling, and streamlined entity renderers to deliver superior frame rates over any other client.</p>
-    </div>
-    <div style="flex:1.2; min-width:300px; display:flex; flex-direction:column; gap:18px;">
-      <div>
-        <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.9rem; margin-bottom:6px; color:#fff;">
-          <span>🚀 Vortex Client v2.5</span>
-          <span style="color:#00d2ff; font-weight:900;">485+ FPS</span>
-        </div>
-        <div style="height:14px; border-radius:8px; background:rgba(255,255,255,0.06); overflow:hidden;">
-          <div style="height:100%; width:96%; background:linear-gradient(90deg, #0066ff, #00d2ff); box-shadow:0 0 15px rgba(0,210,255,0.8); border-radius:8px;"></div>
-        </div>
-      </div>
-      <div>
-        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.85rem; margin-bottom:6px; color:#94a3b8;">
-          <span>Lunar Client (Fabric)</span>
-          <span style="color:#a855f7;">320 FPS</span>
-        </div>
-        <div style="height:14px; border-radius:8px; background:rgba(255,255,255,0.06); overflow:hidden;">
-          <div style="height:100%; width:64%; background:linear-gradient(90deg, #6366f1, #a855f7); border-radius:8px;"></div>
-        </div>
-      </div>
-      <div>
-        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.85rem; margin-bottom:6px; color:#64748b;">
-          <span>Vanilla Minecraft (Default)</span>
-          <span>115 FPS</span>
-        </div>
-        <div style="height:14px; border-radius:8px; background:rgba(255,255,255,0.06); overflow:hidden;">
-          <div style="height:100%; width:24%; background:rgba(255,255,255,0.2); border-radius:8px;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="howitworks" id="how">
-  <div class="wrap">
-    <div class="head" style="text-align:center;justify-content:center;flex-direction:column;gap:16px;margin-bottom:64px">
-      <span class="eyebrow">— 3 Steps to Play</span>
-      <h2 style="text-align:center">Get Vortex running in <span class="grad">under a minute.</span></h2>
-      <p style="max-width:620px;text-align:center;margin:auto;color:var(--muted);font-size:15px;line-height:1.8">No confusing setup. No Java wizardry. Just download, sign in, and launch straight into the game with your cosmetics ready.</p>
-    </div>
-    <div class="steps">
-      <div class="step" data-reveal>
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h3>Download the Installer</h3>
-          <p>One click gets you the full Vortex package — Windows, macOS and Linux builds are always up to date. Java is bundled, so no extra installs.</p>
-        </div>
-        <div class="step-arrow">→</div>
-      </div>
-      <div class="step" data-reveal class="delay-1">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h3>Sign in with Microsoft</h3>
-          <p>Official Microsoft account authentication keeps your world safe. Link Discord for bonus drops, tickets and wallet syncing.</p>
-        </div>
-        <div class="step-arrow">→</div>
-      </div>
-      <div class="step" data-reveal class="delay-2">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h3>Hit Play &amp; Earn 250 CR</h3>
-          <p>Your one-time 250 CR welcome bonus lands the moment you first launch. Unlock a cape, equip wings, or save up for Vortex Plus.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DOWNLOAD -->
-<section class="download" id="download">
-  <div class="wrap">
-    <div class="download-panel">
-      <div class="download-copy">
-        <span class="eyebrow">— Download</span>
-        <h2 style="margin-top:16px;font-size:clamp(34px,4.4vw,54px);font-weight:900;letter-spacing:-.07em;line-height:.95">
-          Install <span class="grad">Vortex</span> in under a minute.
-        </h2>
-        <p>Pick your platform below and launch straight into the game. Updates arrive automatically and cloud-sync keeps your worlds & profiles safe.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;position:relative;z-index:1">
-          <a class="btn" href="download.html">↓ Windows (64-bit)</a>
-          <a class="btn outline" href="download.html">See all versions</a>
-        </div>
-      </div>
-
-      <div class="systems">
-        <div class="system-label">SUPPORTED PLATFORMS · LIVE STATUS</div>
-        <div class="system-row"><span>⌁ Windows 10 / 11</span><b>Recommended · 120 MB</b></div>
-        <div class="system-row"><span>⌁ macOS 12+ (Intel & Apple)</span><b>Stable · 124 MB</b></div>
-        <div class="system-row"><span>⌁ Linux (AppImage · .deb)</span><b>Stable · 118 MB</b></div>
-        <div class="system-row"><span>⌁ Java Runtime</span><b>Bundled — No setup</b></div>
-        <div class="system-row"><span>⌁ Cloud save sync</span><b>Enabled by default</b></div>
-        <div class="system-row"><span>⌁ Auto-updates</span><b>Silent · Zero downtime</b></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWS -->
-<section class="news">
-  <div class="wrap">
-    <div class="head">
-      <div data-reveal>
-        <span class="eyebrow">— News</span>
-        <h2>The latest from <span class="grad">Vortex HQ</span>.</h2>
-      </div>
-      <a href="news.html" class="story" data-reveal class="delay-1">See all news →</a>
-    </div>
-
-    <div class="news-layout">
-      <article class="featured-news" data-reveal>
-        <span class="date">18 March 2026 · Major Update</span>
-        <h3>Vortex 1.2.0 launches: new credit system, store refresh & zero-friction mod install.</h3>
-        <button class="story" onclick="location.href='news.html'">Read the release notes</button>
-      </article>
-
-      <div class="news-list" data-reveal class="delay-1">
-        <button class="news-item" onclick="location.href='news.html'">
-          <span class="date">17 March 2026 · Security</span>
-          <h3>Why we moved to one-time welcome bonuses instead of daily claims.</h3>
-          <span>3 min read · Credits, Economy</span>
-        </button>
-        <button class="news-item" onclick="location.href='news.html'">
-          <span class="date">12 March 2026 · Community</span>
-          <h3>Spring cosmetics drop: 9 new capes & 3 wing sets coming to the store.</h3>
-          <span>5 min read · Store, Cosmetics</span>
-        </button>
-        <button class="news-item" onclick="location.href='news.html'">
-          <span class="date">05 March 2026 · Tech</span>
-          <h3>Behind the launcher: how we doubled FPS without sacrificing stability.</h3>
-          <span>6 min read · Optimization</span>
-        </button>
-        <button class="news-item" onclick="location.href='news.html'">
-          <span class="date">27 February 2026 · Events</span>
-          <h3>Weekend event: earn bonus credits by playing with linked Discord.</h3>
-          <span>2 min read · Events, Discord</span>
+      <div class="nav-actions">
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
+          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
+          <span id="headerCr">250</span> CR
+        </a>
+        <a href="download.html" class="nav-dl-btn">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- COMMUNITY -->
-<section class="community">
-  <div class="wrap">
-    <div class="community-panel" data-reveal>
-      <div class="community-copy">
-        <span class="eyebrow-accent"><span class="live-dot"></span>JOIN THE VORTEX</span>
-        <h2 style="margin-top:18px">A community of <span class="grad">128,000+</span> players, building together.</h2>
-        <p style="margin-top:18px;max-width:520px;color:var(--muted);font-size:15px;line-height:1.8">Jump into our Discord for weekly drops, credit giveaways, mod-pack votes, 24/7 support tickets and exclusive early-access cosmetics before they hit the store.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
-          <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noreferrer">🎮 Join Our Discord</a>
-          <a class="btn outline" href="socials.html">See all Socials →</a>
-        </div>
-        <div class="community-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px">
-          <div>
-            <strong style="font-size:34px;font-weight:900;letter-spacing:-.06em;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent">128K+</strong>
-            <span style="display:block;margin-top:6px;color:#6e7da0;font:600 11px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase">Discord Members</span>
-          </div>
-          <div>
-            <strong style="font-size:34px;font-weight:900;letter-spacing:-.06em;background:linear-gradient(135deg,#fff,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent">4,200+</strong>
-            <span style="display:block;margin-top:6px;color:#6e7da0;font:600 11px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase">Players Online Now</span>
-          </div>
-          <div>
-            <strong style="font-size:34px;font-weight:900;letter-spacing:-.06em;background:linear-gradient(135deg,#fff,#86ffc1);-webkit-background-clip:text;background-clip:text;color:transparent">24/7</strong>
-            <span style="display:block;margin-top:6px;color:#6e7da0;font:600 11px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase">Human Support</span>
-          </div>
-        </div>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="download.html" class="nav-link">Download</a>
+      <a href="store.html" class="nav-link">Store</a>
+      <a href="socials.html" class="nav-link">Socials</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="support.html" class="nav-link">Support</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section wrap">
+      <div class="badge-glow">
+        <div class="dot-pulse"></div>
+        <span>VORTEX v2.5 NOW LIVE</span>
       </div>
-      <div class="community-visual" aria-hidden="true">
-        <div class="discord-card">
-          <div class="dc-top">
-            <span class="dc-logo">V</span>
+
+      <h1 class="hero-title">
+        The Ultimate Minecraft<br>
+        <span class="gradient-text">Experience &amp; Launcher</span>
+      </h1>
+
+      <p class="hero-desc">
+        Engineered for maximum FPS, zero-latency inputs, built-in PvP &amp; Hypixel mods, exclusive cosmetics, and seamless cross-platform performance.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="download.html" class="btn btn-primary">
+          <i class="fa-solid fa-download"></i> Download Free for Windows
+        </a>
+        <a href="features.html" class="btn btn-secondary">
+          <i class="fa-solid fa-layer-group"></i> Explore All Features
+        </a>
+      </div>
+
+      <!-- CLIENT DASHBOARD MOCKUP -->
+      <div class="hero-mockup-wrapper">
+        <div class="hero-mockup-inner">
+          <div class="mockup-top-bar">
+            <div class="mockup-dots">
+              <div class="mockup-dot red"></div>
+              <div class="mockup-dot yellow"></div>
+              <div class="mockup-dot green"></div>
+            </div>
+            <div class="mockup-title">VORTEX CLIENT · MISSION CONTROL v2.5</div>
+          </div>
+          <div class="mockup-content">
             <div>
-              <div class="dc-title">VortexLauncher HQ</div>
-              <div class="dc-sub"><span class="dc-online"></span> 4,218 online · 128,490 members</div>
+              <span style="font-size:0.75rem; font-weight:800; color:var(--primary); letter-spacing:1px; text-transform:uppercase;">ACTIVE PROFILE</span>
+              <h2 style="font-size:1.8rem; font-weight:900; color:#fff; margin:6px 0 10px;">Competitive PvP (1.8.9 &amp; 1.21.4)</h2>
+              <p style="color:var(--text-sub); font-size:0.9rem; margin-bottom:20px;">OptiFine, Keystrokes, CPS Counter, ToggleSprint, Dynamic Motion Blur, &amp; Smart Culling active.</p>
+              <div style="display:flex; gap:12px;">
+                <a href="download.html" class="btn btn-primary" style="padding:10px 22px; font-size:0.85rem;"><i class="fa-solid fa-play"></i> Launch Client</a>
+                <a href="store.html" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;"><i class="fa-solid fa-coins"></i> 250 CR Free</a>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; padding:20px; text-align:center;">
+              <div style="font-size:2.4rem; font-weight:900; color:var(--primary); text-shadow:0 0 20px var(--primary-glow);">480+</div>
+              <div style="font-size:0.8rem; font-weight:800; color:#fff; letter-spacing:1px;">AVERAGE FPS</div>
+              <div style="font-size:0.75rem; color:var(--accent-green); margin-top:4px;">+40% Performance Boost</div>
             </div>
           </div>
-          <div class="dc-chat">
-            <div class="dc-msg"><div class="dc-av" style="background:linear-gradient(135deg,#7c5cff,#22d3ee)">S</div><div><b>Staff</b><span>Cosmetic drop #42 is live — new capes in the store!</span></div></div>
-            <div class="dc-msg"><div class="dc-av" style="background:linear-gradient(135deg,#86ffc1,#22d3ee)">L</div><div><b>Lena</b><span>Just claimed my welcome 100 CR ty vortex 💎</span></div></div>
-            <div class="dc-msg"><div class="dc-av" style="background:linear-gradient(135deg,#fde68a,#f59e0b)">K</div><div><b>Kai</b><span>Anyone want to 1v1 on mc.vortexlauncher.com? 🙋</span></div></div>
-            <div class="dc-msg you"><div class="dc-av" style="background:linear-gradient(135deg,#c4b5fd,#2563eb)">Y</div><div><b>You</b><span>Downloaded the launcher! It's actually insane how fast it loads.</span></div></div>
-          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- STORE -->
-<section class="store">
-  <div class="wrap">
-    <div class="head">
-      <div data-reveal>
-        <span class="eyebrow">— Store preview</span>
-        <h2>Dress your character. <span class="grad">Stand out.</span></h2>
-      </div>
-      <p data-reveal class="delay-1">Unlock cosmetics with Vortex Credits. Claim your 100 CR welcome bonus once you install the launcher and link your Discord account.</p>
-    </div>
-
-    <div class="tabs" data-reveal role="tablist" aria-label="Store categories">
-      <button class="active" data-filter="all" role="tab" aria-selected="true">All</button>
-      <button data-filter="cape" role="tab">Capes</button>
-      <button data-filter="wings" role="tab">Wings</button>
-      <button data-filter="boost" role="tab">Boosts</button>
-    </div>
-
-    <div class="shop-grid" id="shopGrid">
-      <article class="item" data-cat="cape" data-reveal>
-        <div class="visual"><div class="cape" aria-hidden="true"></div></div>
-        <div class="item-copy">
-          <div class="item-top">
-            <h3>Aurora Gradient Cape</h3>
-            <span class="badge">NEW</span>
-          </div>
-          <p>A flowing purple→cyan gradient cape with subtle shimmer as you move.</p>
-          <div class="price"><b>340</b> <span style="color:#a5b4fc">CR</span></div>
-          <button class="cta" onclick="toast('Added to your wishlist. Open launcher to purchase.','warn')">+ Wishlist</button>
-        </div>
-      </article>
-
-      <article class="item" data-cat="wings" data-reveal class="delay-1">
-        <div class="visual"><div class="wings" aria-hidden="true"></div></div>
-        <div class="item-copy">
-          <div class="item-top">
-            <h3>Cyan Wings Set</h3>
-            <span class="badge">TOP</span>
-          </div>
-          <p>Legendary cyan wings with crystal refractions. Equipped server-side.</p>
-          <div class="price"><b>520</b> <span style="color:#a5b4fc">CR</span></div>
-          <button class="cta" onclick="toast('Added to your wishlist. Open launcher to purchase.','warn')">+ Wishlist</button>
-        </div>
-      </article>
-
-      <article class="item" data-cat="boost" data-reveal class="delay-2">
-        <div class="visual"><div class="plus" aria-hidden="true">+</div></div>
-        <div class="item-copy">
-          <div class="item-top">
-            <h3>Credit Boost · 7 days</h3>
-            <span class="badge">LIMITED</span>
-          </div>
-          <p>Doubles all credits earned from drops & events for the next 7 days.</p>
-          <div class="price"><b>180</b> <span style="color:#a5b4fc">CR</span></div>
-          <button class="cta" onclick="toast('Added to your wishlist. Open launcher to purchase.','warn')">+ Wishlist</button>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="wrap">
-    <div class="faq-layout">
-      <div class="faq-copy" data-reveal>
-        <span class="eyebrow">— FAQ</span>
-        <h2 style="margin-top:16px;font-size:clamp(36px,4.4vw,56px);font-weight:900;letter-spacing:-.07em;line-height:.95">
-          Quick answers to <span class="grad">frequent questions.</span>
-        </h2>
-        <p>Didn't find what you needed? Open a ticket in Discord or via the Support page — our team responds within 24 hours.</p>
-      </div>
-
-      <div class="faq-list" data-reveal class="delay-1">
-        <details open>
-          <summary>Is Vortex free to use?</summary>
-          <p>Yes. The launcher, cloud sync, mods, instances and linking are all free. The optional credit store unlocks cosmetics and boosts that never affect gameplay balance.</p>
-        </details>
-        <details>
-          <summary>How do I get the 100 CR welcome bonus?</summary>
-          <p>Install the launcher, open it once, then link your Discord account inside the Credits desk. The welcome bonus is a <b>one-time</b> reward — there are no daily resets, so your economy stays fair.</p>
-        </details>
-        <details>
-          <summary>Which Minecraft versions are supported?</summary>
-          <p>Every release from 1.8.9 up to the latest snapshot, including mod loaders: Forge, Fabric, NeoForge and Quilt. Mod packs install in one click and auto-update.</p>
-        </details>
-        <details>
-          <summary>Will I keep my worlds & mods?</summary>
-          <p>Absolutely. Vortex stores worlds locally AND offers optional encrypted cloud sync. You can switch computers and keep everything.</p>
-        </details>
-        <details>
-          <summary>How do I report bugs or open a ticket?</summary>
-          <p>Use the Support page here on the website, or go to the Discord and run <code>/ticket</code> with VortexBot. Staff will receive it instantly.</p>
-        </details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SUPPORT CTA -->
-<section class="support">
-  <div class="wrap">
-    <div class="support-panel" data-reveal>
-      <span class="eyebrow-accent"><span class="live-dot"></span>24 / 7 · Human support</span>
-      <h2>Need a hand? We've got <span class="grad">your back</span>.</h2>
-      <p>Join the Discord community to chat with thousands of Vortex players, or open a private ticket for billing, linking and launcher issues.</p>
-      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:1">
-        <a class="btn" href="https://discord.gg/7P6V3pASw" target="_blank" rel="noreferrer">Join Discord</a>
-        <a class="btn outline" href="support.html">Open Support Ticket</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="wrap">
-  <div>© 2026 Vortex Launcher · Crafted with ♥ for the community.</div>
-  <div class="footer-links">
-    <a href="news.html">News</a>
-    <a href="store.html">Store</a>
-    <a href="support.html">Support</a>
-    <a href="download.html">Download</a>
-  </div>
-</footer>
-
-<!-- CREDIT BAR -->
-<div class="credit-bar" id="creditBar" role="status" aria-live="polite" style="display:none">
-  <b id="creditBalance">◆ 0</b>
-  <span style="color:#8591b5;margin-right:4px">CR</span>
-  <div style="width:1px;height:22px;background:rgba(148,163,255,.18)"></div>
-  <input id="redeemInput" type="text" placeholder="Paste redeem code (VX1-...) or transfer code" />
-  <div class="credit-bar-actions">
-    <button id="redeemBtn" type="button">Redeem</button>
-    <button id="creditBtn" type="button">+100 Welcome</button>
-    <button id="exportBtn" type="button">Export</button>
-    <button id="walletBtn" class="wallet-btn" type="button">◆ Wallet</button>
-  </div>
-  <small id="creditMessage" style="color:#a5b4fc">Launcher wallet ready.</small>
-</div>
-
-<!-- WALLET MODAL -->
-<div class="modal" id="walletModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vortex Wallet Dashboard">
-  <div class="modal-card" style="width:min(780px,100%);max-height:90vh;overflow:auto;text-align:left;padding:30px">
-    <div class="wallet-card" style="margin:0">
-      <div class="wallet-head">
+    <!-- LIVE FPS BENCHMARK COMPARISON -->
+    <section class="wrap">
+      <div class="fps-box">
         <div>
-          <div style="color:#a5b4fc;font:700 11px 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase">VORTEX WALLET</div>
-          <div class="wallet-balance" style="margin-top:6px"><b id="walletBalance">0</b><span>CREDITS</span></div>
+          <span class="badge-glow" style="margin-bottom:12px;"><i class="fa-solid fa-gauge-high"></i> Benchmark Telemetry</span>
+          <h2 style="font-size:2.2rem; font-weight:900; color:#fff; margin-bottom:12px;">Boosted Frames. Zero Lag.</h2>
+          <p style="color:var(--text-sub); font-size:0.95rem; line-height:1.6;">Our tailored GPU pipeline and customized JVM allocations ensure steady, unthrottled performance during intense Bedwars, PotPvP, and Survival games.</p>
         </div>
-        <button class="btn outline" onclick="document.getElementById('walletModal').classList.remove('show');document.getElementById('walletModal').setAttribute('aria-hidden','true')">× Close</button>
+
+        <div>
+          <div class="fps-bar-item">
+            <div class="fps-bar-info">
+              <span><i class="fa-solid fa-bolt" style="color:var(--primary);"></i> Vortex Client v2.5</span>
+              <span style="color:var(--primary); font-weight:900;">485 FPS</span>
+            </div>
+            <div class="fps-track"><div class="fps-fill-vortex"></div></div>
+          </div>
+
+          <div class="fps-bar-item">
+            <div class="fps-bar-info">
+              <span>Lunar Client (Fabric)</span>
+              <span style="color:#a855f7;">320 FPS</span>
+            </div>
+            <div class="fps-track"><div class="fps-fill-lunar"></div></div>
+          </div>
+
+          <div class="fps-bar-item" style="margin-bottom:0;">
+            <div class="fps-bar-info">
+              <span>Vanilla Minecraft</span>
+              <span style="color:var(--text-muted);">115 FPS</span>
+            </div>
+            <div class="fps-track"><div class="fps-fill-vanilla"></div></div>
+          </div>
+        </div>
       </div>
-      <div class="wallet-owned" id="walletOwnedGrid">
-        <div class="wallet-item"><div class="thumb">🧾</div><div><h4>Welcome Bonus (One-time)</h4><span id="welcomeStatus">Not claimed yet</span></div></div>
+    </section>
+
+    <!-- FEATURE PILLARS -->
+    <section class="wrap" style="padding:40px 0 80px;">
+      <div style="text-align:center; margin-bottom:40px;">
+        <span class="badge-glow">ALL-IN-ONE CLIENT</span>
+        <h2 style="font-size:2.6rem; font-weight:900; color:#fff;">Everything You Need, Built-In</h2>
       </div>
-      <div class="wallet-history">
-        <h3>Recent activity</h3>
-        <ul id="walletHistory"><li style="grid-template-columns:1fr"><span style="color:#67878a">Activity will show here after you claim the welcome bonus or use a redeem code.</span></li></ul>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+          <h3 class="card-title">PvP &amp; Combat Enhancements</h3>
+          <p class="card-desc">Keystrokes, CPS Monitor, Combo Tracker, Reach Display, and ToggleSprint tuned for competitive superiority.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 class="card-title">Built-In Cosmetics &amp; Capes</h3>
+          <p class="card-desc">Equip Quantum Capes, Cyber Wings, Plasma Halos, and particle auras directly visible to all Vortex players.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-coins"></i></div>
+          <h3 class="card-title">Vortex Credits Economy</h3>
+          <p class="card-desc">Get 250 CR on first launch. Buy credits, send transfer codes, and unlock exclusive rewards with no pay-to-win mechanics.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="brand">
+          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
+          <span class="brand-text">VORTEX CLIENT</span>
+        </div>
+
+        <div class="footer-social-icons">
+          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+        <div class="footer-links-row">
+          <a href="features.html">Features</a>
+          <a href="download.html">Download</a>
+          <a href="store.html">Store</a>
+          <a href="socials.html">Socials</a>
+          <a href="news.html">News</a>
+          <a href="support.html">Support</a>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </footer>
 
-<!-- Ticket Modal (for Support) -->
-<div class="modal" id="ticketModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Open a ticket">
-  <div class="modal-card" style="width:min(560px,100%);text-align:left;padding:30px">
-    <div class="modal-symbol">✉</div>
-    <h2 style="text-align:center">Open a support ticket</h2>
-    <p style="text-align:center">We'll respond on the linked Discord. You can also use the ticket command on our server.</p>
-    <div class="ticket-form" style="padding:24px 4px 4px;box-shadow:none;margin:0;border:0;background:transparent">
-      <div class="ticket-grid">
-        <div class="field"><span>Discord name</span><input id="tUser" type="text" placeholder="Username#0000 or @handle" /></div>
-        <div class="field"><span>Category</span><select id="tCategory"><option>Launcher issue</option><option>Payment / Credits</option><option>Account link</option><option>Bug report</option><option>Other</option></select></div>
-        <div class="field full"><span>Describe your issue</span><textarea id="tMessage" rows="4" placeholder="Be specific — launcher version, when it happens, steps to reproduce..."></textarea></div>
-      </div>
-      <div class="ticket-actions">
-        <button class="btn" id="sendTicketBtn">Send ticket →</button>
-        <button class="btn outline" onclick="document.getElementById('ticketModal').classList.remove('show')">Cancel</button>
-        <div class="ticket-note" id="ticketNote">&nbsp;</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="vortex-credits.js"></script>
-<script src="site.js"></script>
+  <script src="vortex-credits.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>
