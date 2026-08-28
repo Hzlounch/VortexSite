@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,6 +11,9 @@
 </head>
 <body>
   <div class="ambient"></div>
+  
+  <!-- PREMIUM PARTICLES BACKGROUND -->
+  <div id="particles-js"></div>
 
   <!-- NAVIGATION -->
   <header id="siteHeader">
@@ -35,7 +38,7 @@
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn">
+        <a href="download.html" class="nav-dl-btn glow-btn">
           <i class="fa-solid fa-download"></i> Download
         </a>
         <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -58,23 +61,23 @@
 
   <main>
     <!-- HERO SECTION -->
-    <section class="hero-section wrap">
-      <div class="badge-glow">
+    <section class="hero-section wrap reveal">
+      <div class="badge-glow floating-badge">
         <div class="dot-pulse"></div>
         <span>VORTEX v2.5 NOW LIVE</span>
       </div>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title reveal-delay-1">
         The Ultimate Minecraft<br>
-        <span class="gradient-text">Experience &amp; Launcher</span>
+        <span class="gradient-text animated-gradient">Experience &amp; Launcher</span>
       </h1>
 
-      <p class="hero-desc">
+      <p class="hero-desc reveal-delay-2">
         Engineered for maximum FPS, zero-latency inputs, built-in PvP &amp; Hypixel mods, exclusive cosmetics, and seamless cross-platform performance.
       </p>
 
-      <div class="hero-buttons">
-        <a href="download.html" class="btn btn-primary">
+      <div class="hero-buttons reveal-delay-3">
+        <a href="download.html" class="btn btn-primary glow-btn">
           <i class="fa-solid fa-download"></i> Download Free for Windows
         </a>
         <a href="features.html" class="btn btn-secondary">
@@ -83,7 +86,7 @@
       </div>
 
       <!-- CLIENT DASHBOARD MOCKUP -->
-      <div class="hero-mockup-wrapper">
+      <div class="hero-mockup-wrapper floating-mockup reveal-delay-4">
         <div class="hero-mockup-inner">
           <div class="mockup-top-bar">
             <div class="mockup-dots">
@@ -103,10 +106,10 @@
                 <a href="store.html" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;"><i class="fa-solid fa-coins"></i> 250 CR Free</a>
               </div>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; padding:20px; text-align:center;">
-              <div style="font-size:2.4rem; font-weight:900; color:var(--primary); text-shadow:0 0 20px var(--primary-glow);">480+</div>
-              <div style="font-size:0.8rem; font-weight:800; color:#fff; letter-spacing:1px;">AVERAGE FPS</div>
-              <div style="font-size:0.75rem; color:var(--accent-green); margin-top:4px;">+40% Performance Boost</div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; padding:20px; text-align:center;" class="fps-glass-card">
+              <div class="fps-counter" style="font-size:3rem; font-weight:900; color:var(--primary); text-shadow:0 0 30px var(--primary-glow);">480+</div>
+              <div style="font-size:0.85rem; font-weight:800; color:#fff; letter-spacing:1px;">AVERAGE FPS</div>
+              <div style="font-size:0.8rem; color:var(--accent-green); margin-top:6px;">+40% Performance Boost</div>
             </div>
           </div>
         </div>
@@ -114,21 +117,21 @@
     </section>
 
     <!-- LIVE FPS BENCHMARK COMPARISON -->
-    <section class="wrap">
+    <section class="wrap reveal">
       <div class="fps-box">
         <div>
           <span class="badge-glow" style="margin-bottom:12px;"><i class="fa-solid fa-gauge-high"></i> Benchmark Telemetry</span>
           <h2 style="font-size:2.2rem; font-weight:900; color:#fff; margin-bottom:12px;">Boosted Frames. Zero Lag.</h2>
-          <p style="color:var(--text-sub); font-size:0.95rem; line-height:1.6;">Our tailored GPU pipeline and customized JVM allocations ensure steady, unthrottled performance during intense Bedwars, PotPvP, and Survival games.</p>
+          <p style="color:var(--text-sub); font-size:0.95rem; line-height:1.6;">Our tailored GPU pipeline and customized JVM allocations ensure steady, unthrottled performance during intense Bedwars, PotPvP, and Survival games. We out-perform the competition.</p>
         </div>
 
         <div>
           <div class="fps-bar-item">
             <div class="fps-bar-info">
               <span><i class="fa-solid fa-bolt" style="color:var(--primary);"></i> Vortex Client v2.5</span>
-              <span style="color:var(--primary); font-weight:900;">485 FPS</span>
+              <span style="color:var(--primary); font-weight:900; font-size:1.1rem;">485 FPS</span>
             </div>
-            <div class="fps-track"><div class="fps-fill-vortex"></div></div>
+            <div class="fps-track"><div class="fps-fill-vortex animated-bar" style="width: 96%;"></div></div>
           </div>
 
           <div class="fps-bar-item">
@@ -136,7 +139,7 @@
               <span>Lunar Client (Fabric)</span>
               <span style="color:#a855f7;">320 FPS</span>
             </div>
-            <div class="fps-track"><div class="fps-fill-lunar"></div></div>
+            <div class="fps-track"><div class="fps-fill-lunar animated-bar" style="width: 65%;"></div></div>
           </div>
 
           <div class="fps-bar-item" style="margin-bottom:0;">
@@ -144,33 +147,36 @@
               <span>Vanilla Minecraft</span>
               <span style="color:var(--text-muted);">115 FPS</span>
             </div>
-            <div class="fps-track"><div class="fps-fill-vanilla"></div></div>
+            <div class="fps-track"><div class="fps-fill-vanilla animated-bar" style="width: 25%;"></div></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FEATURE PILLARS -->
-    <section class="wrap" style="padding:40px 0 80px;">
-      <div style="text-align:center; margin-bottom:40px;">
+    <section class="wrap reveal" style="padding:40px 0 80px;">
+      <div style="text-align:center; margin-bottom:50px;">
         <span class="badge-glow">ALL-IN-ONE CLIENT</span>
-        <h2 style="font-size:2.6rem; font-weight:900; color:#fff;">Everything You Need, Built-In</h2>
+        <h2 style="font-size:2.8rem; font-weight:900; color:#fff;">Everything You Need, Built-In</h2>
       </div>
 
       <div class="card-grid">
-        <div class="feature-card">
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg"></div>
           <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
           <h3 class="card-title">PvP &amp; Combat Enhancements</h3>
           <p class="card-desc">Keystrokes, CPS Monitor, Combo Tracker, Reach Display, and ToggleSprint tuned for competitive superiority.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg secondary"></div>
           <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
           <h3 class="card-title">Built-In Cosmetics &amp; Capes</h3>
           <p class="card-desc">Equip Quantum Capes, Cyber Wings, Plasma Halos, and particle auras directly visible to all Vortex players.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg gold"></div>
           <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-coins"></i></div>
           <h3 class="card-title">Vortex Credits Economy</h3>
           <p class="card-desc">Get 250 CR on first launch. Buy credits, send transfer codes, and unlock exclusive rewards with no pay-to-win mechanics.</p>
@@ -198,7 +204,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+        <span>© 2026 Vortex Client. The Next Generation Minecraft Client.</span>
         <div class="footer-links-row">
           <a href="features.html">Features</a>
           <a href="download.html">Download</a>
@@ -211,6 +217,11 @@
     </div>
   </footer>
 
+  <!-- EXTERNAL LIBRARIES FOR PREMIUM EFFECTS -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  
+  <!-- SITE SCRIPTS -->
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
 </body>

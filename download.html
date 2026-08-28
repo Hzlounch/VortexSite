@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -116,6 +116,9 @@
 </head>
 <body>
   <div class="ambient"></div>
+  
+  <!-- PREMIUM PARTICLES BACKGROUND -->
+  <div id="particles-js"></div>
 
   <!-- NAVIGATION -->
   <header id="siteHeader">
@@ -136,11 +139,11 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn">
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn">
+        <a href="download.html" class="nav-dl-btn glow-btn">
           <i class="fa-solid fa-download"></i> Download
         </a>
         <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -282,6 +285,10 @@
       </div>
     </div>
   </footer>
+
+  <!-- EXTERNAL LIBRARIES FOR PREMIUM EFFECTS -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
