@@ -1,59 +1,71 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support & Help Center | Vortex Client</title>
-  <meta name="description" content="Get help with Vortex Client installation, credit purchases, accounts, or open a Discord support ticket.">
+  <title>Vortex Support & Tickets</title>
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
   <style>
-    .support-hero-section {
-      padding: 80px 0 30px;
-      text-align: center;
-    }
-    .ticket-box-container {
-      max-width: 780px;
-      margin: 30px auto 80px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    }
-    .form-input-group {
-      margin-bottom: 20px;
-    }
-    .form-label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      background: var(--bg-input);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      color: #fff;
-      font-size: 0.95rem;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
-    }
+    /* Premium Support Dashboard Styles */
+    .dashboard-wrap { max-width: 1000px; margin: 40px auto 100px; padding: 0 24px; }
+    .ticket-glass { background: rgba(14, 20, 32, 0.6); backdrop-filter: blur(25px); border: 1px solid rgba(0,210,255,0.2); border-radius: 24px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
+    
+    .auth-view { text-align: center; padding: 60px 20px; }
+    .auth-view input { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 16px 24px; border-radius: 12px; font-size: 1.1rem; width: 100%; max-width: 400px; margin: 20px auto; outline: none; transition: 0.3s; text-align: center; }
+    .auth-view input:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(0,210,255,0.3); }
+    
+    .dashboard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 30px; }
+    .dashboard-header h2 { font-size: 1.8rem; font-weight: 800; }
+    .user-badge { background: rgba(124, 92, 255, 0.2); border: 1px solid var(--secondary); padding: 8px 16px; border-radius: 20px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    
+    .ticket-list { display: grid; gap: 16px; }
+    .ticket-item { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); padding: 20px 24px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
+    .ticket-item:hover { background: rgba(22, 32, 50, 0.9); border-color: var(--primary); transform: translateY(-4px); }
+    .t-title { font-weight: 800; font-size: 1.2rem; margin-bottom: 6px; }
+    .t-meta { font-size: 0.85rem; color: var(--text-sub); display: flex; gap: 16px; }
+    
+    .status-badge { padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+    .status-waiting { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.4); }
+    .status-answered { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.4); }
+    .status-closed { background: rgba(244, 63, 94, 0.15); color: var(--accent-pink); border: 1px solid rgba(244, 63, 94, 0.4); }
+
+    /* Create Ticket Form */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .input-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-sub); margin-bottom: 8px; }
+    .input-group input, .input-group select, .input-group textarea { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; color: #fff; outline: none; transition: 0.3s; font-family: inherit; }
+    .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(0,210,255,0.2); }
+    
+    /* Chat View */
+    .chat-view { display: flex; flex-direction: column; height: 600px; }
+    .chat-header { display: flex; gap: 16px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 20px; }
+    .back-btn { background: rgba(255,255,255,0.05); border: none; color: #fff; width: 40px; height: 40px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+    .back-btn:hover { background: rgba(255,255,255,0.1); }
+    
+    .chat-messages { flex: 1; overflow-y: auto; padding-right: 10px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+    .chat-messages::-webkit-scrollbar { width: 6px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+    
+    .msg-bubble { max-width: 80%; padding: 16px 20px; border-radius: 16px; font-size: 0.95rem; line-height: 1.5; }
+    .msg-user { background: rgba(0, 210, 255, 0.15); border: 1px solid rgba(0, 210, 255, 0.3); align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg-staff { background: rgba(124, 92, 255, 0.15); border: 1px solid rgba(124, 92, 255, 0.3); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .msg-meta { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 6px; font-weight: 700; }
+    
+    .chat-input { display: flex; gap: 12px; }
+    .chat-input input { flex: 1; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 16px 24px; border-radius: 14px; color: #fff; outline: none; transition: 0.3s; }
+    .chat-input input:focus { border-color: var(--primary); }
+    .chat-input button { padding: 0 30px; border-radius: 14px; border: none; font-weight: 800; cursor: pointer; background: var(--primary); color: #000; transition: 0.2s; }
+    .chat-input button:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,210,255,0.4); }
+
+    [data-view] { display: none; }
+    [data-view].active { display: block; animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <div class="ambient"></div>
+  <div id="particles-js"></div>
 
   <!-- NAVIGATION -->
   <header id="siteHeader">
@@ -74,125 +86,262 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn">
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileNav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="features.html" class="nav-link">Features</a>
-      <a href="download.html" class="nav-link">Download</a>
-      <a href="store.html" class="nav-link">Store</a>
-      <a href="socials.html" class="nav-link">Socials</a>
-      <a href="news.html" class="nav-link">News</a>
-      <a href="support.html" class="nav-link active">Support</a>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="support-hero-section">
-      <div class="badge-glow">
-        <i class="fa-solid fa-headset"></i>
-        <span>24/7 PLAYER SUPPORT</span>
+  <main class="dashboard-wrap">
+    <div class="ticket-glass">
+      
+      <!-- VIEW 1: AUTH / LOGIN -->
+      <div id="viewAuth" data-view class="auth-view active">
+        <div class="card-icon" style="margin:0 auto 24px;"><i class="fa-brands fa-discord"></i></div>
+        <h1 style="font-size:2.5rem; font-weight:900; margin-bottom:12px;">Vortex Support</h1>
+        <p style="color:var(--text-sub); margin-bottom:30px;">Enter your Discord username to manage your tickets.</p>
+        <input type="text" id="authInput" placeholder="e.g. hzlounch" onkeydown="if(event.key==='Enter') login()">
+        <br>
+        <button class="btn btn-primary glow-btn" onclick="login()">Access Support <i class="fa-solid fa-arrow-right"></i></button>
       </div>
-      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">How Can We Help?</h1>
-      <p class="hero-desc">Submit a ticket directly to our Discord staff team or join our community server for instant real-time assistance.</p>
-    </section>
 
-    <!-- TICKET SUBMISSION FORM -->
-    <div class="ticket-box-container">
-      <h2 style="font-size:1.8rem; font-weight:900; color:#fff; margin-bottom:8px;">Open a Support Ticket</h2>
-      <p style="color:var(--text-sub); font-size:0.9rem; margin-bottom:28px;">Our staff team will review your ticket and reach out via Discord.</p>
-
-      <form id="supportTicketForm" onsubmit="event.preventDefault(); submitTicket();">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-          <div class="form-input-group">
-            <label class="form-label">Your Name</label>
-            <input type="text" id="tName" class="form-input" placeholder="e.g. Alex" required>
-          </div>
-          <div class="form-input-group">
-            <label class="form-label">Discord Tag / Username</label>
-            <input type="text" id="tDiscord" class="form-input" placeholder="e.g. alex_mc" required>
+      <!-- VIEW 2: DASHBOARD -->
+      <div id="viewDashboard" data-view>
+        <div class="dashboard-header">
+          <h2>My Tickets</h2>
+          <div class="user-badge" onclick="logout()" title="Click to logout">
+            <i class="fa-brands fa-discord"></i> <span id="dashUser"></span>
           </div>
         </div>
-
-        <div class="form-input-group">
-          <label class="form-label">Category</label>
-          <select id="tCategory" class="form-select">
-            <option>Launcher Crash / Installation</option>
-            <option>Credit Purchases / Store</option>
-            <option>Cosmetics &amp; Capes</option>
-            <option>Microsoft Login Issues</option>
-            <option>General Feedback / Suggestion</option>
-          </select>
+        
+        <div id="ticketList" class="ticket-list" style="margin-bottom: 30px;">
+          <!-- Tickets injected here -->
         </div>
 
-        <div class="form-input-group">
-          <label class="form-label">Message Details</label>
-          <textarea id="tMessage" rows="5" class="form-textarea" placeholder="Explain your issue in detail..." required></textarea>
-        </div>
+        <button class="btn btn-primary" onclick="showView('viewCreate')" style="width:100%;">
+          <i class="fa-solid fa-plus"></i> Create New Ticket
+        </button>
+      </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-top:24px;">
-          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Ticket</button>
-          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-discord"><i class="fa-brands fa-discord"></i> Open Discord Directly</a>
+      <!-- VIEW 3: CREATE TICKET -->
+      <div id="viewCreate" data-view>
+        <div class="dashboard-header">
+          <h2>Create Ticket</h2>
+          <button class="back-btn" onclick="showView('viewDashboard')"><i class="fa-solid fa-arrow-left"></i></button>
         </div>
-      </form>
+        
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Category</label>
+            <select id="tCategory">
+              <option>General Support</option>
+              <option>Bug Report</option>
+              <option>Store & Credits</option>
+              <option>Ban Appeal</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Minecraft Username (Optional)</label>
+            <input type="text" id="tMinecraft" placeholder="Steve">
+          </div>
+        </div>
+        <div class="input-group" style="margin-bottom:20px;">
+          <label>Subject</label>
+          <input type="text" id="tSubject" placeholder="Brief summary of your issue">
+        </div>
+        <div class="input-group" style="margin-bottom:30px;">
+          <label>Message</label>
+          <textarea id="tMessage" rows="6" placeholder="Describe your issue in detail..."></textarea>
+        </div>
+        
+        <button class="btn btn-primary glow-btn" id="sendBtn" onclick="createTicket()" style="width:100%;">
+          <i class="fa-solid fa-paper-plane"></i> Send Ticket
+        </button>
+      </div>
+
+      <!-- VIEW 4: CHAT -->
+      <div id="viewChat" data-view class="chat-view">
+        <div class="chat-header">
+          <button class="back-btn" onclick="showView('viewDashboard')"><i class="fa-solid fa-arrow-left"></i></button>
+          <div>
+            <h2 id="chatSubject" style="font-size:1.4rem;">Ticket Subject</h2>
+            <div id="chatMeta" class="t-meta">Category • Status</div>
+          </div>
+        </div>
+        
+        <div id="chatMessages" class="chat-messages">
+          <!-- Messages injected here -->
+        </div>
+        
+        <div class="chat-input" id="chatInputArea">
+          <input type="text" id="replyInput" placeholder="Type your reply..." onkeydown="if(event.key==='Enter') sendReply()">
+          <button onclick="sendReply()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="brand">
-          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
-          <span class="brand-text">VORTEX CLIENT</span>
-        </div>
-
-        <div class="footer-social-icons">
-          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-        <div class="footer-links-row">
-          <a href="features.html">Features</a>
-          <a href="download.html">Download</a>
-          <a href="store.html">Store</a>
-          <a href="socials.html">Socials</a>
-          <a href="news.html">News</a>
-          <a href="support.html">Support</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
   <script>
-    function submitTicket() {
-      const name = document.getElementById('tName').value;
-      const discord = document.getElementById('tDiscord').value;
-      const cat = document.getElementById('tCategory').value;
-      const msg = document.getElementById('tMessage').value;
+    let currentUser = localStorage.getItem('vortex_discord_name') || '';
+    let currentTicketId = null;
 
-      alert(`✅ Support Ticket Created!\n\nThank you, ${name}. Our staff team has received your ticket regarding '${cat}'. We will reach out to @${discord} on Discord shortly.`);
-      document.getElementById('supportTicketForm').reset();
+    function showView(id) {
+      document.querySelectorAll('[data-view]').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    if(currentUser) {
+      document.getElementById('dashUser').innerText = currentUser;
+      showView('viewDashboard');
+      loadTickets();
+    } else {
+      showView('viewAuth');
+    }
+
+    function login() {
+      const val = document.getElementById('authInput').value.trim();
+      if(val.length < 2) return alert('Enter a valid Discord username');
+      currentUser = val;
+      localStorage.setItem('vortex_discord_name', currentUser);
+      document.getElementById('dashUser').innerText = currentUser;
+      showView('viewDashboard');
+      loadTickets();
+    }
+
+    function logout() {
+      localStorage.removeItem('vortex_discord_name');
+      currentUser = '';
+      showView('viewAuth');
+    }
+
+    async function loadTickets() {
+      const list = document.getElementById('ticketList');
+      list.innerHTML = '<div style="text-align:center; color:var(--text-sub); padding:40px;"><i class="fa-solid fa-circle-notch fa-spin fa-2x"></i></div>';
+      try {
+        const res = await fetch(`/api/tickets/${currentUser}`);
+        const data = await res.json();
+        
+        if(!data.tickets || data.tickets.length === 0) {
+          list.innerHTML = '<div style="text-align:center; padding:30px; background:rgba(0,0,0,0.2); border-radius:12px; color:var(--text-sub);">No tickets found. You can create one below!</div>';
+          return;
+        }
+
+        list.innerHTML = '';
+        data.tickets.forEach(t => {
+          let badgeClass = 'status-waiting';
+          if(t.status === 'Answered') badgeClass = 'status-answered';
+          if(!t.open || t.status === 'Closed') badgeClass = 'status-closed';
+
+          list.innerHTML += `
+            <div class="ticket-item" onclick="openTicket('${t.id}')">
+              <div>
+                <div class="t-title">${t.subject}</div>
+                <div class="t-meta">
+                  <span><i class="fa-solid fa-hashtag"></i> ${t.id}</span>
+                  <span><i class="fa-solid fa-tag"></i> ${t.category}</span>
+                </div>
+              </div>
+              <div class="status-badge ${badgeClass}">${t.status || 'Waiting'}</div>
+            </div>
+          `;
+        });
+      } catch(e) {
+        list.innerHTML = '<div style="color:#ef4444;">Failed to load tickets. Ensure Bot is running.</div>';
+      }
+    }
+
+    async function createTicket() {
+      const cat = document.getElementById('tCategory').value;
+      const mc = document.getElementById('tMinecraft').value;
+      const sub = document.getElementById('tSubject').value;
+      const msg = document.getElementById('tMessage').value;
+      
+      if(!sub || !msg) return alert('Subject and Message are required.');
+      
+      document.getElementById('sendBtn').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      
+      try {
+        await fetch('/api/ticket', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ name: currentUser, subject: sub, category: cat, message: msg, minecraft: mc })
+        });
+        document.getElementById('tSubject').value = '';
+        document.getElementById('tMessage').value = '';
+        showView('viewDashboard');
+        loadTickets();
+      } catch(e) {
+        alert('Error creating ticket.');
+      }
+      document.getElementById('sendBtn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Ticket';
+    }
+
+    async function openTicket(id) {
+      currentTicketId = id;
+      showView('viewChat');
+      document.getElementById('chatMessages').innerHTML = '<div style="text-align:center; padding:40px;"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>';
+      
+      try {
+        const res = await fetch(`/api/tickets/view/${id}`);
+        const data = await res.json();
+        const t = data.ticket;
+        
+        document.getElementById('chatSubject').innerText = t.subject;
+        document.getElementById('chatMeta').innerHTML = `<span>ID: ${t.id}</span> &bull; <span>${t.status || 'Waiting'}</span>`;
+        
+        const chatBox = document.getElementById('chatMessages');
+        chatBox.innerHTML = '';
+        
+        // Initial Message
+        chatBox.innerHTML += `
+          <div class="msg-bubble msg-user">
+            <div class="msg-meta">${t.name} (You) • Original Message</div>
+            <div>${t.message}</div>
+          </div>
+        `;
+        
+        // Replies
+        if(t.messages && t.messages.length > 0) {
+          t.messages.forEach(m => {
+            const isMe = !m.isStaff;
+            chatBox.innerHTML += `
+              <div class="msg-bubble ${isMe ? 'msg-user' : 'msg-staff'}">
+                <div class="msg-meta">${m.author} ${isMe ? '(You)' : '<span style="color:var(--accent-gold);"><i class="fa-solid fa-shield"></i> Staff</span>'}</div>
+                <div>${m.content}</div>
+              </div>
+            `;
+          });
+        }
+        chatBox.scrollTop = chatBox.scrollHeight;
+        document.getElementById('chatInputArea').style.display = t.open ? 'flex' : 'none';
+      } catch(e) {
+        document.getElementById('chatMessages').innerHTML = '<div style="color:red;">Error loading chat.</div>';
+      }
+    }
+
+    async function sendReply() {
+      const input = document.getElementById('replyInput');
+      const val = input.value.trim();
+      if(!val || !currentTicketId) return;
+      
+      input.value = '';
+      try {
+        await fetch(`/api/tickets/${currentTicketId}/reply`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ message: val, author: currentUser })
+        });
+        openTicket(currentTicketId); // reload chat
+      } catch(e) {
+        alert('Error sending reply.');
+      }
     }
   </script>
 </body>
