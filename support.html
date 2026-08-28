@@ -192,8 +192,9 @@
   <script src="site.js"></script>
   
   <script>
-    // IF YOU OPEN FROM DESKTOP file://, POINT FETCH TO YOUR BOT.
-    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8080' : '';
+    // IF YOU OPEN FROM DESKTOP file://, POINT FETCH TO LOCALHOST.
+    // IF ON VERCEL, POINT TO DISCLOUD API.
+    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8080' : 'https://vortexapi.discloud.app';
     
     let currentUser = localStorage.getItem('vortex_discord_name') || '';
     let currentAvatar = localStorage.getItem('vortex_discord_avatar') || '';
