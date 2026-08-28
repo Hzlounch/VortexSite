@@ -575,6 +575,18 @@
     trySync();
   }, 260);
 
+  // Update header live credit badge
+  const updateHeaderCredits = () => {
+    const el = document.getElementById('headerCr');
+    if (el && window.VortexCredits) {
+      const w = VortexCredits.load();
+      el.innerText = w.credits || 0;
+    }
+  };
+  window.addEventListener('DOMContentLoaded', updateHeaderCredits);
+  window.addEventListener('vortex-credits', updateHeaderCredits);
+  updateHeaderCredits();
+
   // ESC close modals
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
