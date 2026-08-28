@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vortex Store & Credits</title>
+  <title>Vortex Store</title>
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
   <div class="ambient"></div>
-  <div id="particles-js"></div>
+  <canvas id="vortex-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></canvas>
 
-  <!-- NAVIGATION -->
   <header id="siteHeader">
     <div class="wrap nav-container">
       <a href="index.html" class="brand">
         <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client Logo">
         <span class="brand-text">VORTEX</span>
       </a>
-
       <nav class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="features.html" class="nav-link">Features</a>
@@ -29,98 +27,103 @@
         <a href="news.html" class="nav-link">News</a>
         <a href="support.html" class="nav-link">Support</a>
       </nav>
-
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge">
-          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
-          <span id="headerCr">250</span> CR
-        </a>
-        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge"><i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> <span id="headerCr">250</span> CR</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero-section wrap reveal">
-      <div class="badge-glow floating-badge">
-        <i class="fa-solid fa-store"></i> VORTEX ECONOMY
-      </div>
-      <h1 class="hero-title reveal-delay-1">
-        Unlock Premium<br>
-        <span class="gradient-text animated-gradient" style="background: linear-gradient(270deg, #fbbf24, #f59e0b, #fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Cosmetics & Features</span>
+      <h1 class="hero-title reveal-delay-1" style="font-size: 4rem; text-shadow: 0 0 40px rgba(251, 191, 36, 0.5);">
+        Vortex <span class="gradient-text animated-gradient" style="background: linear-gradient(270deg, #fbbf24, #f59e0b, #fbbf24); -webkit-background-clip:text;">Economy</span>
       </h1>
-      <p class="hero-desc reveal-delay-2">
-        Use Vortex Credits (CR) to unlock custom capes, exclusive wings, and particle effects. Never pay-to-win.
+      <p class="hero-desc reveal-delay-2" style="font-size: 1.3rem;">
+        Purchase credits to unlock exclusive cosmetics, capes, wings, and emotes. Support the development of Vortex.
       </p>
     </section>
 
-    <!-- STORE CARDS -->
-    <section class="wrap reveal reveal-delay-3" style="padding-bottom:100px;">
-      <div class="card-grid">
-        <!-- 250 CR Card -->
-        <div class="feature-card" data-tilt>
-          <div class="card-glow-bg gold"></div>
-          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-coins"></i></div>
-          <h3 class="card-title">250 Vortex Credits</h3>
-          <p class="card-desc">Perfect for unlocking your first cape or custom particle aura.</p>
-          <div style="margin-top:20px; font-size:1.8rem; font-weight:900; color:#fff;">$4.99</div>
-          <button class="btn btn-primary glow-btn" style="width:100%; margin-top:20px; background:linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow:0 10px 30px rgba(251,191,36,0.3);">Purchase</button>
-        </div>
+    <!-- ULTIMATE STORE GRID -->
+    <section class="wrap reveal reveal-delay-3" style="max-width: 1200px;">
+      <div class="ultimate-grid">
+        
+        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.5">
+          <div class="card-body" style="text-align: center;">
+            <div class="badge-animated" style="background: linear-gradient(90deg, #10b981, #047857); left:50%; transform:translateX(-50%); top:-20px;">STARTER</div>
+            <i class="fa-solid fa-coins card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#fbbf24; filter:drop-shadow(0 0 20px #fbbf24); margin:20px 0;"></i>
+            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem;">250 CR</h2>
+            <p class="c-desc">Perfect for unlocking your first cape or custom particle aura.</p>
+            <div style="font-size: 2rem; font-weight: 900; color:#fff; margin-bottom: 20px;">$4.99</div>
+            <button class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow:0 10px 30px rgba(251,191,36,0.3);">Purchase Now</button>
+          </div>
+        </article>
 
-        <!-- 500 CR Card -->
-        <div class="feature-card" data-tilt style="border-color:var(--accent-gold); transform:scale(1.05); z-index:10; background:rgba(22, 32, 50, 0.75);">
-          <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); background:var(--accent-gold); color:#000; padding:4px 16px; border-bottom-left-radius:8px; border-bottom-right-radius:8px; font-weight:900; font-size:0.75rem; letter-spacing:1px;">MOST POPULAR</div>
-          <div class="card-glow-bg gold" style="opacity:0.2;"></div>
-          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.5); box-shadow:0 0 30px rgba(251,191,36,0.4);"><i class="fa-solid fa-sack-dollar"></i></div>
-          <h3 class="card-title">600 Vortex Credits</h3>
-          <p class="card-desc">Includes +100 bonus credits! Unlock multiple premium cosmetics.</p>
-          <div style="margin-top:20px; font-size:2rem; font-weight:900; color:#fff;">$9.99</div>
-          <button class="btn btn-primary glow-btn" style="width:100%; margin-top:20px; background:linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow:0 10px 30px rgba(251,191,36,0.5);">Purchase</button>
-        </div>
+        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.5" style="border: 2px solid #fbbf24; transform: scale(1.05); z-index: 10;">
+          <div class="card-body" style="text-align: center; background: rgba(251, 191, 36, 0.05);">
+            <div class="badge-animated" style="background: linear-gradient(90deg, #f59e0b, #b45309); left:50%; transform:translateX(-50%); top:-20px; box-shadow:0 10px 30px #f59e0b;">MOST POPULAR</div>
+            <i class="fa-solid fa-sack-dollar card-icon-huge" style="position:static; font-size:6rem; opacity:1; color:#fbbf24; filter:drop-shadow(0 0 40px #fbbf24); margin:10px 0 20px;"></i>
+            <h2 class="c-title" style="margin-top:20px; font-size:3rem; text-shadow:0 0 20px #fbbf24;">600 CR</h2>
+            <p class="c-desc" style="color:#fff; font-weight:600;">Includes +100 bonus credits! Unlock multiple premium cosmetics.</p>
+            <div style="font-size: 2.5rem; font-weight: 900; color:#fff; margin-bottom: 20px;">$9.99</div>
+            <button class="btn btn-primary glow-btn" style="width:100%; font-size:1.3rem; background:linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow:0 10px 40px rgba(251,191,36,0.6);">Purchase Now</button>
+          </div>
+        </article>
 
-        <!-- 1500 CR Card -->
-        <div class="feature-card" data-tilt>
-          <div class="card-glow-bg secondary"></div>
-          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-gem"></i></div>
-          <h3 class="card-title">1500 Vortex Credits</h3>
-          <p class="card-desc">For the ultimate Vortex supporters. Unlocks the exclusive supporter badge.</p>
-          <div style="margin-top:20px; font-size:1.8rem; font-weight:900; color:#fff;">$19.99</div>
-          <button class="btn btn-primary glow-btn" style="width:100%; margin-top:20px; background:linear-gradient(135deg, #6366f1, #a855f7); box-shadow:0 10px 30px rgba(168,85,247,0.4);">Purchase</button>
-        </div>
+        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.5">
+          <div class="card-body" style="text-align: center;">
+            <div class="badge-animated" style="background: linear-gradient(90deg, #8b5cf6, #6d28d9); left:50%; transform:translateX(-50%); top:-20px;">ULTIMATE</div>
+            <i class="fa-solid fa-gem card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#a855f7; filter:drop-shadow(0 0 30px #a855f7); margin:20px 0;"></i>
+            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem;">1500 CR</h2>
+            <p class="c-desc">For the ultimate Vortex supporters. Unlocks the exclusive supporter badge.</p>
+            <div style="font-size: 2rem; font-weight: 900; color:#fff; margin-bottom: 20px;">$19.99</div>
+            <button class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:linear-gradient(135deg, #8b5cf6, #c084fc); box-shadow:0 10px 30px rgba(168,85,247,0.4);">Purchase Now</button>
+          </div>
+        </article>
+
       </div>
     </section>
-
-    <!-- TRANSFER CODE SYSTEM -->
-    <section class="wrap reveal" style="padding-bottom:100px;">
-      <div class="fps-box" style="grid-template-columns:1fr; text-align:center;">
-        <div>
-          <span class="badge-glow"><i class="fa-solid fa-money-bill-transfer"></i> Credit Transfers</span>
-          <h2 style="font-size:2.2rem; font-weight:900; color:#fff; margin-bottom:12px;">Gift Credits to Friends</h2>
-          <p style="color:var(--text-sub); font-size:0.95rem; line-height:1.6; max-width:600px; margin:0 auto 30px;">
-            Export your balance into a secure Transfer Code via the Discord Bot (`/credits-export`), then send it to a friend. They can redeem it directly in the client!
-          </p>
-          <button class="btn btn-secondary glow-btn" onclick="alert('Join Discord and type /credits-export to create a code!')"><i class="fa-brands fa-discord"></i> Open Discord to Transfer</button>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="brand">
-          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
-          <span class="brand-text">VORTEX CLIENT</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
+  <script>
+    const canvas = document.getElementById('vortex-canvas');
+    if(canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+      window.addEventListener('resize', resize); resize();
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.angle = Math.random() * Math.PI * 2;
+          this.radius = Math.random() * (width > height ? width : height);
+          this.speed = (Math.random() * 0.005) + 0.001;
+          this.size = Math.random() * 2;
+          this.hue = Math.random() * 60 + 180;
+        }
+        update() {
+          this.angle -= this.speed;
+          this.radius -= this.radius * 0.005;
+          if(this.radius < 1) this.reset();
+        }
+        draw() {
+          const x = width/2 + Math.cos(this.angle) * this.radius;
+          const y = height/2 + Math.sin(this.angle) * this.radius;
+          ctx.beginPath(); ctx.arc(x, y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `hsl(${this.hue}, 100%, 70%)`; ctx.fill();
+        }
+      }
+      for(let i=0; i<300; i++) particles.push(new Particle());
+      function animate() {
+        ctx.fillStyle = 'rgba(4, 5, 8, 0.15)'; ctx.fillRect(0, 0, width, height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>

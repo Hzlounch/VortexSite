@@ -8,25 +8,94 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
   <style>
-    .news-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding-bottom: 100px; }
-    .news-card { display: flex; flex-direction: column; background: rgba(14, 20, 32, 0.6); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; overflow: hidden; transition: 0.4s; }
-    .news-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0, 210, 255, 0.1); }
+    /* 1000000000x PREMIUM NEWS STYLES */
     
-    .news-img { width: 100%; height: 250px; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
-    .news-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,20,32,1), transparent); }
+    /* SCROLLING TICKER */
+    .news-ticker-wrap { width: 100%; background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b); border-bottom: 2px solid #6366f1; padding: 12px 0; overflow: hidden; position: relative; z-index: 10; box-shadow: 0 5px 25px rgba(99, 102, 241, 0.4); }
+    .ticker-content { display: flex; white-space: nowrap; animation: ticker 20s linear infinite; font-weight: 900; font-size: 1.1rem; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+    .ticker-content span { padding: 0 50px; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    .ticker-content i { color: #fbbf24; margin-right: 10px; animation: pulseGlow 1.5s infinite; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes pulseGlow { 0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px #fbbf24); transform: scale(1); } 50% { opacity: 0.7; filter: drop-shadow(0 0 15px #fbbf24); transform: scale(1.2); } }
+
+    /* ULTIMATE NEWS GRID */
+    .news-grid { display: grid; grid-template-columns: 1fr; gap: 60px; padding-bottom: 100px; }
     
-    .news-content { padding: 40px; position: relative; }
-    .news-tag { position: absolute; top: -20px; left: 40px; background: var(--primary); color: #000; padding: 8px 16px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3); }
-    .news-date { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    .news-title { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.2; }
-    .news-desc { color: var(--text-sub); line-height: 1.7; margin-bottom: 24px; font-size: 1.05rem; }
+    .ultimate-card { 
+      position: relative; 
+      display: flex; 
+      flex-direction: column; 
+      border-radius: 30px; 
+      background: rgba(10, 15, 25, 0.8);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1);
+      overflow: hidden; 
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      cursor: pointer;
+    }
     
-    @media(min-width: 768px) {
-      .news-card { flex-direction: row; align-items: stretch; }
-      .news-img { width: 40%; height: auto; border-bottom: none; border-right: 1px solid rgba(255,255,255,0.05); }
-      .news-img::after { background: linear-gradient(to right, transparent, rgba(14,20,32,1)); }
-      .news-content { width: 60%; }
-      .news-tag { top: 40px; right: 40px; left: auto; }
+    /* ANIMATED BORDER GLOW */
+    .ultimate-card::before {
+      content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+      z-index: -1;
+      border-radius: 32px;
+      background-size: 400%;
+      opacity: 0;
+      transition: opacity 0.5s;
+      animation: glowingBorder 20s linear infinite;
+    }
+    .ultimate-card:hover::before { opacity: 1; }
+    @keyframes glowingBorder { 0% { background-position: 0 0; } 50% { background-position: 400% 0; } 100% { background-position: 0 0; } }
+
+    .ultimate-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 30px 80px rgba(0, 210, 255, 0.3); }
+
+    /* IMAGE PARALLAX FX */
+    .card-img-wrap { width: 100%; height: 280px; overflow: hidden; position: relative; }
+    .card-img { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .ultimate-card:hover .card-img { transform: scale(1.15) rotate(2deg); }
+    .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 15, 25, 1) 0%, transparent 100%); z-index: 1; }
+
+    /* CONTENT FX */
+    .card-body { padding: 40px; position: relative; z-index: 2; }
+    
+    .badge-animated { 
+      position: absolute; top: -25px; left: 40px; 
+      background: linear-gradient(90deg, #f59e0b, #ef4444); 
+      color: #fff; padding: 10px 24px; border-radius: 50px; 
+      font-weight: 900; font-size: 0.9rem; letter-spacing: 2px; 
+      box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5); 
+      text-transform: uppercase;
+      animation: bounceFloat 3s ease-in-out infinite;
+    }
+    @keyframes bounceFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .c-date { color: var(--primary); font-weight: 800; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-shadow: 0 0 10px rgba(0,210,255,0.4); }
+    
+    /* SHINING TEXT */
+    .c-title { font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.2; position: relative; display: inline-block; }
+    .ultimate-card:hover .c-title {
+      background: linear-gradient(90deg, #fff, var(--primary), #fff);
+      background-size: 200% auto;
+      color: #000;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 2s linear infinite;
+    }
+    @keyframes shine { to { background-position: 200% center; } }
+
+    .c-desc { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 30px; font-size: 1.1rem; }
+    
+    .read-btn { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; transition: 0.3s; }
+    .ultimate-card:hover .read-btn { color: var(--primary); text-shadow: 0 0 15px var(--primary); gap: 15px; }
+
+    @media(min-width: 900px) {
+      .ultimate-card { flex-direction: row; align-items: stretch; height: 350px; }
+      .card-img-wrap { width: 45%; height: 100%; border-radius: 30px 0 0 30px; }
+      .card-img-overlay { background: linear-gradient(to right, transparent 0%, rgba(10, 15, 25, 1) 100%); }
+      .card-body { width: 55%; display: flex; flex-direction: column; justify-content: center; }
+      .badge-animated { top: 40px; right: 40px; left: auto; }
     }
   </style>
 </head>
@@ -62,50 +131,79 @@
     </div>
   </header>
 
+  <!-- BREAKING NEWS TICKER -->
+  <div class="news-ticker-wrap">
+    <div class="ticker-content">
+      <span><i class="fa-solid fa-fire"></i> VORTEX V2 PERFORMANCE UPDATE IS NOW LIVE! DOUBLE YOUR FPS!</span>
+      <span><i class="fa-solid fa-bolt"></i> NEW DRAGON WINGS ADDED TO THE STORE</span>
+      <span><i class="fa-solid fa-trophy"></i> VORTEX CLIENT REACHES 100K PLAYERS</span>
+      <span><i class="fa-solid fa-fire"></i> VORTEX V2 PERFORMANCE UPDATE IS NOW LIVE! DOUBLE YOUR FPS!</span>
+      <span><i class="fa-solid fa-bolt"></i> NEW DRAGON WINGS ADDED TO THE STORE</span>
+      <span><i class="fa-solid fa-trophy"></i> VORTEX CLIENT REACHES 100K PLAYERS</span>
+    </div>
+  </div>
+
   <main>
     <section class="hero-section wrap reveal">
-      <div class="badge-glow floating-badge">
-        <i class="fa-solid fa-newspaper"></i> LATEST UPDATES
-      </div>
-      <h1 class="hero-title reveal-delay-1">
-        Vortex <span class="gradient-text animated-gradient">News</span>
+      <h1 class="hero-title reveal-delay-1" style="font-size: 4rem; text-shadow: 0 0 40px rgba(0, 210, 255, 0.5);">
+        <span class="gradient-text animated-gradient">Vortex</span> Updates
       </h1>
-      <p class="hero-desc reveal-delay-2">
-        Stay up to date with the latest client patches, new features, and community announcements.
+      <p class="hero-desc reveal-delay-2" style="font-size: 1.3rem;">
+        Everything happening in the Vortex universe. New mods, cosmetic drops, and community events.
       </p>
     </section>
 
-    <!-- NEWS GRID -->
-    <section class="wrap reveal reveal-delay-3" style="max-width: 1000px;">
+    <!-- ULTIMATE NEWS GRID -->
+    <section class="wrap reveal reveal-delay-3" style="max-width: 1100px;">
       <div class="news-grid">
         
-        <!-- ARTICLE 1 -->
-        <article class="news-card" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.2">
-          <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80');"></div>
-          <div class="news-content">
-            <div class="news-tag">MAJOR UPDATE</div>
-            <div class="news-date"><i class="fa-regular fa-calendar"></i> August 28, 2026</div>
-            <h2 class="news-title">Vortex V2: The Performance Update</h2>
-            <p class="news-desc">We've completely rewritten the rendering engine for Vortex. Enjoy up to 2x more FPS on average, significantly reduced memory usage, and brand new cosmetic options in the store.</p>
-            <a href="#" class="btn btn-secondary glow-btn">Read Full Patch Notes</a>
+        <!-- CARD 1 -->
+        <article class="ultimate-card" data-tilt data-tilt-max="3" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.3">
+          <div class="card-img-wrap">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80');"></div>
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="badge-animated">MAJOR UPDATE</div>
+            <div class="c-date"><i class="fa-solid fa-bolt"></i> August 28, 2026</div>
+            <h2 class="c-title">Vortex V2: The Performance Overhaul</h2>
+            <p class="c-desc">We've completely rebuilt our rendering engine from the ground up. Say goodbye to lag spikes and hello to butter-smooth 1000+ FPS gameplay. Plus, brand new UI animations across the entire client!</p>
+            <div class="read-btn">Read Patch Notes <i class="fa-solid fa-arrow-right"></i></div>
           </div>
         </article>
 
-        <!-- ARTICLE 2 -->
-        <article class="news-card" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.2">
-          <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80');"></div>
-          <div class="news-content">
-            <div class="news-tag" style="background:var(--accent-gold);">STORE</div>
-            <div class="news-date"><i class="fa-regular fa-calendar"></i> August 15, 2026</div>
-            <h2 class="news-title">New Dragon Wings Cosmetic</h2>
-            <p class="news-desc">Stand out in the lobbies with the brand new animated Dragon Wings! Available now in the Vortex Store for 1500 Credits. Features custom idle animations and dynamic flight physics.</p>
-            <a href="store.html" class="btn btn-secondary glow-btn">View in Store</a>
+        <!-- CARD 2 -->
+        <article class="ultimate-card" data-tilt data-tilt-max="3" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.3">
+          <div class="card-img-wrap">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80');"></div>
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="badge-animated" style="background: linear-gradient(90deg, #ec4899, #8b5cf6);">COSMETICS</div>
+            <div class="c-date" style="color:#ec4899; text-shadow:0 0 10px rgba(236, 72, 153, 0.4);"><i class="fa-solid fa-gem"></i> August 15, 2026</div>
+            <h2 class="c-title">Animated Dragon Wings Drop</h2>
+            <p class="c-desc">Rule the lobbies with our newest and most requested cosmetic: Animated Dragon Wings. Featuring custom idle flapping animations, dynamic sprint physics, and chroma RGB support!</p>
+            <div class="read-btn">View in Store <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </article>
+        
+        <!-- CARD 3 -->
+        <article class="ultimate-card" data-tilt data-tilt-max="3" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.3">
+          <div class="card-img-wrap">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80');"></div>
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="badge-animated" style="background: linear-gradient(90deg, #10b981, #047857);">COMMUNITY</div>
+            <div class="c-date" style="color:#10b981; text-shadow:0 0 10px rgba(16, 185, 129, 0.4);"><i class="fa-solid fa-users"></i> August 01, 2026</div>
+            <h2 class="c-title">100,000 Players Reached!</h2>
+            <p class="c-desc">Thank you to everyone who supported Vortex Client! To celebrate reaching 100K active users, we are giving away an exclusive 'Vortex Pioneer' cape to everyone who logs in this weekend.</p>
+            <div class="read-btn">Claim Your Cape <i class="fa-solid fa-arrow-right"></i></div>
           </div>
         </article>
 
       </div>
     </section>
-
   </main>
 
   <footer>

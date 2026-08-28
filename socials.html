@@ -1,88 +1,23 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Official Socials | Vortex Client</title>
-  <meta name="description" content="Follow Vortex Client official social channels across YouTube, TikTok, Instagram, GitHub, and Discord.">
+  <title>Vortex Socials</title>
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
-  <style>
-    .social-banner {
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-    .social-hub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin: 40px 0 80px;
-    }
-    .social-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(15px);
-    }
-    .social-box:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-glow);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 210, 255, 0.2);
-    }
-    .social-box-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .social-icon-large {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-    }
-    .social-handle {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #fff;
-    }
-    .social-platform {
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .social-desc {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-  </style>
 </head>
 <body>
   <div class="ambient"></div>
+  <canvas id="vortex-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></canvas>
 
-  <!-- NAVIGATION -->
   <header id="siteHeader">
     <div class="wrap nav-container">
       <a href="index.html" class="brand">
         <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client Logo">
         <span class="brand-text">VORTEX</span>
       </a>
-
       <nav class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="features.html" class="nav-link">Features</a>
@@ -92,155 +27,98 @@
         <a href="news.html" class="nav-link">News</a>
         <a href="support.html" class="nav-link">Support</a>
       </nav>
-
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn">
-          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
-          <span id="headerCr">250</span> CR
-        </a>
-        <a href="download.html" class="nav-dl-btn">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge"><i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> <span id="headerCr">250</span> CR</a>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileNav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="features.html" class="nav-link">Features</a>
-      <a href="download.html" class="nav-link">Download</a>
-      <a href="store.html" class="nav-link">Store</a>
-      <a href="socials.html" class="nav-link active">Socials</a>
-      <a href="news.html" class="nav-link">News</a>
-      <a href="support.html" class="nav-link">Support</a>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="social-banner">
-      <div class="badge-glow">
-        <i class="fa-solid fa-hashtag"></i>
-        <span>COMMUNITY SIGNAL</span>
-      </div>
-      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">Official Vortex Socials</h1>
-      <p class="hero-desc">Connect with 128,000+ players, watch sneak peeks, and get the latest news on our official channels.</p>
+  <main>
+    <section class="hero-section wrap reveal">
+      <h1 class="hero-title reveal-delay-1" style="font-size: 4rem; text-shadow: 0 0 40px rgba(0, 210, 255, 0.5);">
+        Join the <span class="gradient-text animated-gradient">Community</span>
+      </h1>
+      <p class="hero-desc reveal-delay-2" style="font-size: 1.3rem;">
+        Connect with thousands of other players. Follow us for updates, giveaways, and exclusive leaks!
+      </p>
     </section>
 
-    <!-- SOCIAL CHANNELS GRID -->
-    <div class="social-hub-grid">
-      <!-- Discord -->
-      <div class="social-box" style="border-color:rgba(88,101,242,0.4);">
-        <div>
-          <div class="social-box-header">
-            <div class="social-icon-large" style="background:rgba(88,101,242,0.15); color:#5865f2; box-shadow:0 0 20px rgba(88,101,242,0.3);"><i class="fa-brands fa-discord"></i></div>
-            <div>
-              <div class="social-platform">Official Community</div>
-              <div class="social-handle">Vortex Client Discord</div>
-            </div>
+    <!-- ULTIMATE SOCIALS GRID -->
+    <section class="wrap reveal reveal-delay-3" style="max-width: 1200px;">
+      <div class="ultimate-grid">
+        
+        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4" style="border: 1px solid rgba(88,101,242,0.5);">
+          <div class="card-body" style="text-align:center;">
+            <div class="badge-animated" style="background: #5865f2; left:50%; transform:translateX(-50%); top:-20px; box-shadow:0 10px 30px rgba(88,101,242,0.5);">100K+ MEMBERS</div>
+            <i class="fa-brands fa-discord card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#5865f2; filter:drop-shadow(0 0 30px #5865f2); margin:20px 0;"></i>
+            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem; text-shadow:0 0 20px #5865f2;">Discord</h2>
+            <p class="c-desc">The central hub of Vortex. Open tickets, chat with staff, and find players.</p>
+            <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:#5865f2; box-shadow:0 10px 30px rgba(88,101,242,0.4);">Join Server</a>
           </div>
-          <div class="social-desc">Join 128,000+ members for 24/7 staff tickets, credit giveaways, custom cape drops, and PvP tournaments.</div>
-        </div>
-        <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-discord" style="width:100%;"><i class="fa-brands fa-discord"></i> Join Discord Server</a>
-      </div>
+        </article>
 
-      <!-- YouTube -->
-      <div class="social-box" style="border-color:rgba(239,68,68,0.4);">
-        <div>
-          <div class="social-box-header">
-            <div class="social-icon-large" style="background:rgba(239,68,68,0.15); color:#ef4444; box-shadow:0 0 20px rgba(239,68,68,0.3);"><i class="fa-brands fa-youtube"></i></div>
-            <div>
-              <div class="social-platform">YouTube Channel</div>
-              <div class="social-handle">@vortexlauncher</div>
-            </div>
+        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4" style="border: 1px solid rgba(255,0,0,0.5);">
+          <div class="card-body" style="text-align:center;">
+            <i class="fa-brands fa-youtube card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#ff0000; filter:drop-shadow(0 0 30px #ff0000); margin:20px 0;"></i>
+            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem; text-shadow:0 0 20px #ff0000;">YouTube</h2>
+            <p class="c-desc">Watch official trailers, feature showcases, and top plays from the community.</p>
+            <a href="https://youtube.com/@vortexlauncher" target="_blank" class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:#ff0000; box-shadow:0 10px 30px rgba(255,0,0,0.4);">Subscribe</a>
           </div>
-          <div class="social-desc">Watch official trailers, FPS optimization guides, mod highlights, and major version release walkthroughs.</div>
-        </div>
-        <a href="https://youtube.com/@vortexlauncher" target="_blank" class="btn btn-secondary" style="width:100%;"><i class="fa-brands fa-youtube" style="color:#ef4444;"></i> Subscribe on YouTube</a>
-      </div>
+        </article>
 
-      <!-- TikTok -->
-      <div class="social-box" style="border-color:rgba(0,210,255,0.4);">
-        <div>
-          <div class="social-box-header">
-            <div class="social-icon-large" style="background:rgba(0,210,255,0.15); color:#00d2ff; box-shadow:0 0 20px rgba(0,210,255,0.3);"><i class="fa-brands fa-tiktok"></i></div>
-            <div>
-              <div class="social-platform">Shorts &amp; Clips</div>
-              <div class="social-handle">@vortexlauncher4</div>
-            </div>
+        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4" style="border: 1px solid rgba(255,0,80,0.5);">
+          <div class="card-body" style="text-align:center;">
+            <i class="fa-brands fa-tiktok card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#ff0050; filter:drop-shadow(0 0 30px #ff0050); margin:20px 0;"></i>
+            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem; text-shadow:0 0 20px #ff0050;">TikTok</h2>
+            <p class="c-desc">Short clips, funny moments, and quick tips for using Vortex.</p>
+            <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:linear-gradient(45deg, #00f2fe, #4facfe, #ff0050); box-shadow:0 10px 30px rgba(255,0,80,0.4);">Follow Us</a>
           </div>
-          <div class="social-desc">Viral PvP gameplay clips, cosmetic showcases, update teasers, and community highlights.</div>
-        </div>
-        <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="btn btn-secondary" style="width:100%;"><i class="fa-brands fa-tiktok"></i> Follow on TikTok</a>
-      </div>
+        </article>
 
-      <!-- Instagram -->
-      <div class="social-box" style="border-color:rgba(236,72,153,0.4);">
-        <div>
-          <div class="social-box-header">
-            <div class="social-icon-large" style="background:rgba(236,72,153,0.15); color:#ec4899; box-shadow:0 0 20px rgba(236,72,153,0.3);"><i class="fa-brands fa-instagram"></i></div>
-            <div>
-              <div class="social-platform">Visual Drops</div>
-              <div class="social-handle">@vortexlauncherq</div>
-            </div>
-          </div>
-          <div class="social-desc">Behind-the-scenes artwork, high-resolution cosmetic previews, and launch announcements.</div>
-        </div>
-        <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="btn btn-secondary" style="width:100%;"><i class="fa-brands fa-instagram" style="color:#ec4899;"></i> Follow on Instagram</a>
       </div>
-
-      <!-- GitHub -->
-      <div class="social-box" style="border-color:rgba(255,255,255,0.2);">
-        <div>
-          <div class="social-box-header">
-            <div class="social-icon-large" style="background:rgba(255,255,255,0.08); color:#fff;"><i class="fa-brands fa-github"></i></div>
-            <div>
-              <div class="social-platform">Open Source Repository</div>
-              <div class="social-handle">@Hzlounch</div>
-            </div>
-          </div>
-          <div class="social-desc">Inspect our public repos, submit bug reports, track development milestones, and contribute to Vortex.</div>
-        </div>
-        <a href="https://github.com/Hzlounch" target="_blank" class="btn btn-secondary" style="width:100%;"><i class="fa-brands fa-github"></i> View GitHub Profile</a>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="brand">
-          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
-          <span class="brand-text">VORTEX CLIENT</span>
-        </div>
-
-        <div class="footer-social-icons">
-          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-        <div class="footer-links-row">
-          <a href="features.html">Features</a>
-          <a href="download.html">Download</a>
-          <a href="store.html">Store</a>
-          <a href="socials.html">Socials</a>
-          <a href="news.html">News</a>
-          <a href="support.html">Support</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
+  <script>
+    const canvas = document.getElementById('vortex-canvas');
+    if(canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+      window.addEventListener('resize', resize); resize();
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.angle = Math.random() * Math.PI * 2;
+          this.radius = Math.random() * (width > height ? width : height);
+          this.speed = (Math.random() * 0.005) + 0.001;
+          this.size = Math.random() * 2;
+          this.hue = Math.random() * 60 + 180;
+        }
+        update() {
+          this.angle -= this.speed;
+          this.radius -= this.radius * 0.005;
+          if(this.radius < 1) this.reset();
+        }
+        draw() {
+          const x = width/2 + Math.cos(this.angle) * this.radius;
+          const y = height/2 + Math.sin(this.angle) * this.radius;
+          ctx.beginPath(); ctx.arc(x, y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `hsl(${this.hue}, 100%, 70%)`; ctx.fill();
+        }
+      }
+      for(let i=0; i<300; i++) particles.push(new Particle());
+      function animate() {
+        ctx.fillStyle = 'rgba(4, 5, 8, 0.15)'; ctx.fillRect(0, 0, width, height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>
