@@ -7,6 +7,23 @@
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
+  <style>
+    .social-card { display: flex; align-items: center; gap: 24px; padding: 30px; background: rgba(14, 20, 32, 0.6); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; transition: 0.4s; cursor: pointer; text-decoration: none; color: #fff; }
+    .social-card:hover { transform: translateY(-5px); background: rgba(22, 32, 50, 0.8); }
+    .s-icon { font-size: 3rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 20px; background: rgba(255,255,255,0.05); transition: 0.4s; }
+    
+    .social-card.discord:hover { border-color: #5865f2; box-shadow: 0 10px 40px rgba(88, 101, 242, 0.3); }
+    .social-card.discord:hover .s-icon { background: #5865f2; color: #fff; box-shadow: 0 0 20px rgba(88,101,242,0.5); }
+    
+    .social-card.youtube:hover { border-color: #ff0000; box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3); }
+    .social-card.youtube:hover .s-icon { background: #ff0000; color: #fff; box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+    
+    .social-card.tiktok:hover { border-color: #ff0050; box-shadow: 0 10px 40px rgba(255, 0, 80, 0.3); }
+    .social-card.tiktok:hover .s-icon { background: linear-gradient(45deg, #00f2fe, #4facfe, #ff0050); color: #fff; box-shadow: 0 0 20px rgba(255,0,80,0.5); }
+    
+    .s-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+    .s-desc { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; }
+  </style>
 </head>
 <body>
   <div class="ambient"></div>
@@ -28,7 +45,7 @@
         <a href="support.html" class="nav-link">Support</a>
       </nav>
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge"><i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> <span id="headerCr">250</span> CR</a>
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge"><i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> <span id="headerCr">250</span> CR</a>
       </div>
     </div>
   </header>
@@ -43,37 +60,32 @@
       </p>
     </section>
 
-    <!-- ULTIMATE SOCIALS GRID -->
-    <section class="wrap reveal reveal-delay-3" style="max-width: 1200px;">
-      <div class="ultimate-grid">
+    <section class="wrap reveal reveal-delay-3" style="max-width: 900px; padding-bottom:100px;">
+      <div style="display: grid; gap: 24px;">
         
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4" style="border: 1px solid rgba(88,101,242,0.5);">
-          <div class="card-body" style="text-align:center;">
-            <div class="badge-animated" style="background: #5865f2; left:50%; transform:translateX(-50%); top:-20px; box-shadow:0 10px 30px rgba(88,101,242,0.5);">100K+ MEMBERS</div>
-            <i class="fa-brands fa-discord card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#5865f2; filter:drop-shadow(0 0 30px #5865f2); margin:20px 0;"></i>
-            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem; text-shadow:0 0 20px #5865f2;">Discord</h2>
-            <p class="c-desc">The central hub of Vortex. Open tickets, chat with staff, and find players.</p>
-            <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:#5865f2; box-shadow:0 10px 30px rgba(88,101,242,0.4);">Join Server</a>
+        <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-card discord" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.1">
+          <div class="s-icon"><i class="fa-brands fa-discord"></i></div>
+          <div>
+            <div class="s-title">Discord Server</div>
+            <div class="s-desc">The central hub of Vortex. Open tickets, chat with staff, and find players. Over 100K members!</div>
           </div>
-        </article>
+        </a>
 
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4" style="border: 1px solid rgba(255,0,0,0.5);">
-          <div class="card-body" style="text-align:center;">
-            <i class="fa-brands fa-youtube card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#ff0000; filter:drop-shadow(0 0 30px #ff0000); margin:20px 0;"></i>
-            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem; text-shadow:0 0 20px #ff0000;">YouTube</h2>
-            <p class="c-desc">Watch official trailers, feature showcases, and top plays from the community.</p>
-            <a href="https://youtube.com/@vortexlauncher" target="_blank" class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:#ff0000; box-shadow:0 10px 30px rgba(255,0,0,0.4);">Subscribe</a>
+        <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-card youtube" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.1">
+          <div class="s-icon"><i class="fa-brands fa-youtube"></i></div>
+          <div>
+            <div class="s-title">YouTube Channel</div>
+            <div class="s-desc">Watch official trailers, feature showcases, and top plays from the community.</div>
           </div>
-        </article>
+        </a>
 
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4" style="border: 1px solid rgba(255,0,80,0.5);">
-          <div class="card-body" style="text-align:center;">
-            <i class="fa-brands fa-tiktok card-icon-huge" style="position:static; font-size:5rem; opacity:1; color:#ff0050; filter:drop-shadow(0 0 30px #ff0050); margin:20px 0;"></i>
-            <h2 class="c-title" style="margin-top:20px; font-size:2.5rem; text-shadow:0 0 20px #ff0050;">TikTok</h2>
-            <p class="c-desc">Short clips, funny moments, and quick tips for using Vortex.</p>
-            <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="btn btn-primary glow-btn" style="width:100%; font-size:1.2rem; background:linear-gradient(45deg, #00f2fe, #4facfe, #ff0050); box-shadow:0 10px 30px rgba(255,0,80,0.4);">Follow Us</a>
+        <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-card tiktok" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.1">
+          <div class="s-icon"><i class="fa-brands fa-tiktok"></i></div>
+          <div>
+            <div class="s-title">TikTok</div>
+            <div class="s-desc">Short clips, funny moments, and quick tips for using Vortex.</div>
           </div>
-        </article>
+        </a>
 
       </div>
     </section>
