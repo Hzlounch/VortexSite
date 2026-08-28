@@ -3,83 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>News | Vortex</title>
+  <title>News & Updates | Vortex Client</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
+  <style>
+    .news-hero {
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+    .featured-banner {
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(15, 20, 35, 0.85)), radial-gradient(circle at top right, rgba(0, 210, 255, 0.25), transparent);
+      border: 1px solid rgba(0, 102, 255, 0.4);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .news-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(0, 102, 255, 0.3);
+      color: #60a5fa;
+      border: 1px solid rgba(0, 102, 255, 0.5);
+      width: fit-content;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .news-card {
+      background: rgba(15, 20, 35, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      color: inherit;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 102, 255, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 102, 255, 0.15);
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #64748b;
+      font-weight: 700;
+    }
+    .news-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .news-snippet {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .news-link {
+      margin-top: auto;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #00d2ff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
 </head>
 <body>
   <div class="ambient"></div>
   <div class="grid"></div>
+
   <header class="wrap">
-    <a class="brand" href="index.html"><img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">VORTEX</a>
+    <a class="brand" href="index.html">
+      <img src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex logo">
+      VORTEX
+    </a>
     <nav class="nav">
+      <a href="index.html">Home</a>
       <a href="features.html">Features</a>
       <a href="download.html">Download</a>
       <a class="active" href="news.html">News</a>
       <a href="store.html">Shop</a>
       <a href="support.html">Support</a>
-      <a class="btn" href="download.html">Get Vortex</a>
+      <a class="btn" href="download.html">Get Launcher</a>
     </nav>
     <button class="menu" id="menu">&#9776;</button>
-    <nav class="mobile" id="mobile">
-      <a href="features.html">Features</a>
-      <a href="download.html">Download</a>
-      <a href="news.html">News</a>
-      <a href="store.html">Shop</a>
-      <a href="support.html">Support</a>
-    </nav>
   </header>
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="eyebrow">Latest news</div>
-        <h1>What shipped<br>this week.</h1>
-        <p>Launcher 1.2, Vortex Credits, and the setup path from the website into Play. Cosmetics stay cosmetic.</p>
-      </div>
+
+  <main class="wrap">
+    <section class="news-hero">
+      <div class="eyebrow"><i class="fa-solid fa-bullhorn"></i> Official Announcements</div>
+      <h1 style="font-size: 2.8rem; margin: 12px 0 16px;">Vortex Changelog & News</h1>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Stay updated with the latest launcher releases, cosmetic drops, performance engine updates and community events.</p>
     </section>
-    <section class="wrap">
-      <article class="featured-news">
-        <span class="meta">LATEST / AUG 23, 2026</span>
-        <h2>VortexLauncher 1.2 is the public build.</h2>
-        <p>Windows installer, Microsoft login, and the first credit shop now ship together. Install, sign in with a Microsoft Minecraft account, then move credits from this site into the launcher with a transfer code.</p>
-      </article>
-      <div class="list">
-        <a class="list-item" href="release-notes.html">
-          <span class="meta">RELEASE NOTES / 1.2</span>
-          <div>
-            <h3>A cleaner launch, a sharper way to play.</h3>
-            <p>What is taking shape in the VortexLauncher 1.2 build.</p>
-          </div>
-          <span class="more">READ UPDATE →</span>
-        </a>
-        <button class="list-item" type="button">
-          <span class="meta">SHOP / CREDITS</span>
-          <div>
-            <h3>Vortex Credits are live on the site and launcher.</h3>
-            <p>Claim a one-time 100 CR welcome bonus, spend on cosmetics, then send the balance to VortexLauncher.</p>
-          </div>
-          <span class="more">OPEN SHOP →</span>
-        </button>
-        <a class="list-item" href="download.html">
-          <span class="meta">GUIDE / SETUP</span>
-          <div>
-            <h3>Four steps from download to Play.</h3>
-            <p>Install, Microsoft sign-in, profile, launch. Support stays on Discord and the site.</p>
-          </div>
-          <span class="more">SETUP →</span>
-        </a>
+
+    <!-- FEATURED NEWS -->
+    <article class="featured-banner">
+      <span class="news-badge"><i class="fa-solid fa-bolt"></i> MAJOR UPDATE · v2.5 PUBLIC</span>
+      <h2 style="font-size: 1.9rem; font-weight: 900; color: #fff;">Vortex Engine 2.5 & Mission Control Log Window Released</h2>
+      <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.6; max-width: 800px;">
+        Featuring our new standalone Mission Control console with real-time log parsing, automated profile isolation, zero-lag rendering engine, and the all-new Vortex Credits Daily Streak rewards.
+      </p>
+      <div style="display: flex; gap: 12px; margin-top: 8px;">
+        <a href="download.html" class="btn" style="padding: 10px 20px; font-size: 0.85rem;"><i class="fa-solid fa-download"></i> Download v2.5</a>
+        <a href="store.html" class="btn" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; font-size: 0.85rem;"><i class="fa-solid fa-bag-shopping"></i> Visit Shop</a>
       </div>
-    </section>
+    </article>
+
+    <!-- NEWS GRID -->
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-meta">
+          <span style="color:#00d2ff;">ENGINE</span>
+          <span>Aug 28, 2026</span>
+        </div>
+        <h3 class="news-title">Fabric & Sodium Performance Pipeline</h3>
+        <p class="news-snippet">Our custom render pipeline boosts Minecraft FPS by up to 250% while reducing memory usage on modern 1.20 and 1.21 versions.</p>
+        <span class="news-link">Read technical details <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <div class="news-card">
+        <div class="news-meta">
+          <span style="color:#a855f7;">COSMETICS</span>
+          <span>Aug 26, 2026</span>
+        </div>
+        <h3 class="news-title">Quantum Capes & Cyber Wings Wave 1</h3>
+        <p class="news-snippet">The first wave of animated cosmetics is now available in the Vortex Shop. Claim free credits every day with our login streak system.</p>
+        <span class="news-link">Browse cosmetics <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <div class="news-card">
+        <div class="news-meta">
+          <span style="color:#10b981;">COMMUNITY</span>
+          <span>Aug 24, 2026</span>
+        </div>
+        <h3 class="news-title">Join the Vortex Discord Community</h3>
+        <p class="news-snippet">Connect with thousands of players, participate in daily credit giveaways, report bugs directly to developers, and share profile configs.</p>
+        <span class="news-link">Join Discord <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </div>
   </main>
+
   <footer class="wrap">
     <span>Copyright 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-    <div class="footer-links"><a href="https://discord.gg/7P6V3pASw">Discord</a><a href="features.html">Features</a><a href="support.html">Support</a></div>
+    <div class="footer-links">
+      <a href="https://discord.gg/7P6V3pASw">Discord</a>
+      <a href="news.html">News</a>
+      <a href="support.html">Support</a>
+    </div>
   </footer>
+
   <script src="site.js"></script>
-  <script>
-    document.querySelectorAll('.list-item')[1]?.addEventListener('click', () => { location.href = 'store.html'; });
-  </script>
 </body>
 </html>

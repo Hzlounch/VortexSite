@@ -1,42 +1,100 @@
+/**
+ * Vortex Credits System v2.5 - Enhanced Web & Launcher Integration
+ * Features: Daily Streak, Level & XP, Cosmetics Inventory, Gift Box, Transfer Codes
+ */
 (function (root) {
-  const KEY = 'vortex_wallet_v1';
-  const USED = 'vortex_used_codes_v1';
-  const HISTORY = 'vortex_history_v1';
+  const KEY = 'vortex_wallet_v2';
+  const OLD_KEY = 'vortex_wallet_v1';
+  const USED = 'vortex_used_codes_v2';
+  const HISTORY = 'vortex_history_v2';
+  const SECRET_V2 = 'VORTEX-CREDIT-v2-ENHANCED';
   const SECRET_V1 = 'VORTEX-CREDIT-v1';
-  const SECRET_V2 = 'VORTEX-CREDIT-v2';
   const API_BASE = (root.VORTEX_BOT_URL || '').replace(/\/$/, '');
-  const ITEM_LABELS = { cape: 'Vortex Cape', wings: 'Quantum Wings', plus: 'Vortex Plus' };
-  const ITEM_COSTS = { cape: 400, wings: 650, plus: 900 };
+
+  const ITEM_CATALOG = {
+    cape: { id: 'cape', title: 'Vortex Quantum Cape', cost: 400, type: 'cape', rarity: 'epic', desc: 'Signature animated cyan energy cape with pulsing trails.' },
+    wings: { id: 'wings', title: 'Aether Cyber Wings', cost: 650, type: 'wings', rarity: 'legendary', desc: 'Holographic cyber wings radiating neon particles on jump.' },
+    halo: { id: 'halo', title: 'Celestial Plasma Halo', cost: 500, type: 'halo', rarity: 'epic', desc: 'Floating plasma crown with dynamic color cycling.' },
+    aura: { id: 'aura', title: 'Void Rift Aura', cost: 800, type: 'aura', rarity: 'mythic', desc: 'Surrounding vortex gravitational distortion and particle vortex.' },
+    plus: { id: 'plus', title: 'Vortex Plus Subscription', cost: 900, type: 'rank', rarity: 'mythic', desc: 'Unlocks all cosmetic previews, custom nametag gradient, and 2x daily credits.' }
+  };
+
+  const ITEM_LABELS = Object.fromEntries(Object.entries(ITEM_CATALOG).map(([k, v]) => [k, v.title]));
+  const ITEM_COSTS = Object.fromEntries(Object.entries(ITEM_CATALOG).map(([k, v]) => [k, v.cost]));
 
   function load() {
+    let state = {
+      credits: 0,
+      xp: 0,
+      level: 1,
+      streak: 0,
+      lastDaily: 0,
+      welcome: false,
+      owned: [],
+      equipped: {},
+      mysteryBoxes: 1,
+      linkedMc: '',
+      linkedAt: 0
+    };
+
     try {
-      return Object.assign({ credits: 0, claimed: '', owned: [], welcome: false, linkedMc: '', linkedAt: 0 },
-        JSON.parse(localStorage.getItem(KEY) || '{}'));
-    } catch {
-      return { credits: 0, claimed: '', owned: [], welcome: false, linkedMc: '', linkedAt: 0 };
+      const v2 = localStorage.getItem(KEY);
+      if (v2) {
+        state = Object.assign(state, JSON.parse(v2));
+      } else {
+        const v1 = localStorage.getItem(OLD_KEY);
+        if (v1) {
+          const parsedV1 = JSON.parse(v1);
+          state = Object.assign(state, parsedV1, { xp: (parsedV1.credits || 0) * 2, level: Math.max(1, Math.floor((parsedV1.credits || 0) / 100)) });
+        }
+      }
+    } catch (e) {
+      console.warn('[VortexCredits] Error loading wallet:', e);
     }
+    return state;
   }
 
   function save(wallet) {
+    // Recalculate level
+    wallet.level = Math.max(1, Math.floor(Math.sqrt((wallet.xp || 0) / 50)) + 1);
     localStorage.setItem(KEY, JSON.stringify(wallet));
-    root.dispatchEvent(new CustomEvent('vortex-credits', { detail: wallet }));
+    
+    // Dispatch custom event for UI reactivity
+    if (typeof root.dispatchEvent === 'function') {
+      root.dispatchEvent(new CustomEvent('vortex-credits', { detail: wallet }));
+    }
+    // BroadcastChannel sync across tabs & launcher webviews
+    try {
+      if (typeof root.BroadcastChannel !== 'undefined') {
+        if (!root._vortexCreditChannel) root._vortexCreditChannel = new BroadcastChannel('vortex_credit_sync');
+        root._vortexCreditChannel.postMessage({ type: 'WALLET_SYNC', wallet });
+      }
+    } catch(e) {}
   }
 
   function loadHistory() {
     try { return JSON.parse(localStorage.getItem(HISTORY) || '[]'); } catch { return []; }
   }
+
   function saveHistory(list) {
-    const trimmed = (list || []).slice(-50);
+    const trimmed = (list || []).slice(-80);
     localStorage.setItem(HISTORY, JSON.stringify(trimmed));
   }
+
   function addTx(kind, amount, label, extra) {
     const list = loadHistory();
-    list.push({ kind, amount: Number(amount) || 0, label, ts: Date.now(), extra: extra || null });
+    const tx = { kind, amount: Number(amount) || 0, label, ts: Date.now(), extra: extra || null };
+    list.push(tx);
     saveHistory(list);
-    root.dispatchEvent(new CustomEvent('vortex-credits-tx', { detail: list.slice(-20).reverse() }));
+    if (typeof root.dispatchEvent === 'function') {
+      root.dispatchEvent(new CustomEvent('vortex-credits-tx', { detail: list.slice(-20).reverse() }));
+    }
     return list;
   }
-  function recentHistory(n) { return loadHistory().slice(-(n || 10)).reverse(); }
+
+  function recentHistory(n) {
+    return loadHistory().slice(-(n || 15)).reverse();
+  }
 
   function hash(value) {
     let h = 2166136261;
@@ -48,47 +106,146 @@
     const wallet = load();
     if (!wallet.welcome) {
       wallet.welcome = true;
-      wallet.credits += 100;
+      wallet.credits += 150;
+      wallet.xp += 300;
+      wallet.mysteryBoxes = (wallet.mysteryBoxes || 0) + 1;
       save(wallet);
-      addTx('welcome', 100, 'Welcome bonus — first visit');
+      addTx('welcome', 150, 'Welcome Reward (+150 CR, +1 Mystery Box)');
     }
     return wallet;
   }
 
-  function daily() {
+  function claimDaily() {
     const wallet = load();
-    if (wallet.welcome) return { ok: false, message: 'Welcome bonus already claimed. Join Discord for drops!', wallet };
-    wallet.welcome = true;
-    wallet.credits += 100;
+    const now = Date.now();
+    const ONE_DAY = 24 * 60 * 60 * 1000;
+    const timeSinceLast = now - (wallet.lastDaily || 0);
+
+    if (wallet.lastDaily && timeSinceLast < ONE_DAY) {
+      const remainingMs = ONE_DAY - timeSinceLast;
+      const hours = Math.floor(remainingMs / (1000 * 60 * 60));
+      const mins = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+      return {
+        ok: false,
+        message: `Daily reward already claimed! Next reward in ${hours}h ${mins}m.`,
+        wallet,
+        cooldown: remainingMs
+      };
+    }
+
+    // Check streak
+    if (wallet.lastDaily && timeSinceLast < (2 * ONE_DAY)) {
+      wallet.streak = (wallet.streak || 0) + 1;
+    } else {
+      wallet.streak = 1;
+    }
+
+    const baseReward = 50;
+    const streakBonus = Math.min(200, (wallet.streak - 1) * 25);
+    const total = baseReward + streakBonus;
+
+    wallet.credits += total;
+    wallet.xp += total * 2;
+    wallet.lastDaily = now;
+
+    let bonusMsg = '';
+    if (wallet.streak % 7 === 0) {
+      wallet.mysteryBoxes = (wallet.mysteryBoxes || 0) + 1;
+      bonusMsg = ' + 1 Mystery Box (7-Day Streak!)';
+    }
+
     save(wallet);
-    addTx('welcome', 100, 'Welcome bonus');
-    return { ok: true, message: '+100 Vortex Credits welcome bonus claimed.', wallet };
+    addTx('daily', total, `Daily Login Streak: Day ${wallet.streak} (+${total} CR${bonusMsg})`);
+
+    return {
+      ok: true,
+      amount: total,
+      streak: wallet.streak,
+      message: `Claimed +${total} CR! (Day ${wallet.streak} Streak${bonusMsg})`,
+      wallet
+    };
   }
 
-  function spend(id, cost) {
+  function openMysteryBox() {
     const wallet = load();
-    if (wallet.owned.includes(id)) return { ok: false, message: 'Already owned.', wallet };
-    const price = Number(cost) || ITEM_COSTS[id] || 0;
-    if (wallet.credits < price) return { ok: false, message: 'Not enough credits.', wallet };
+    if (!wallet.mysteryBoxes || wallet.mysteryBoxes < 1) {
+      return { ok: false, message: 'No Mystery Boxes available to open!' };
+    }
+
+    wallet.mysteryBoxes -= 1;
+    const roll = Math.random() * 100;
+    let rewardCredits = 50;
+    let rewardItem = null;
+
+    if (roll < 55) {
+      rewardCredits = 100 + Math.floor(Math.random() * 150);
+    } else if (roll < 85) {
+      rewardCredits = 250 + Math.floor(Math.random() * 250);
+    } else {
+      rewardCredits = 500;
+      // Chance for an unowned item
+      const unowned = Object.keys(ITEM_CATALOG).filter(id => !wallet.owned.includes(id));
+      if (unowned.length > 0) {
+        rewardItem = unowned[Math.floor(Math.random() * unowned.length)];
+        wallet.owned.push(rewardItem);
+      }
+    }
+
+    wallet.credits += rewardCredits;
+    wallet.xp += rewardCredits * 3;
+    save(wallet);
+
+    const desc = rewardItem ? `JACKPOT! +${rewardCredits} CR & Unlocked ${ITEM_LABELS[rewardItem]}!` : `+${rewardCredits} CR from Mystery Box!`;
+    addTx('mystery_box', rewardCredits, desc, { item: rewardItem });
+
+    return {
+      ok: true,
+      credits: rewardCredits,
+      item: rewardItem ? ITEM_CATALOG[rewardItem] : null,
+      message: desc,
+      wallet
+    };
+  }
+
+  function spend(id, customCost) {
+    const wallet = load();
+    if (wallet.owned.includes(id)) return { ok: false, message: 'Item is already in your inventory.', wallet };
+    const price = Number(customCost) || ITEM_COSTS[id] || 0;
+    if (wallet.credits < price) return { ok: false, message: `Insufficient credits! You need ${price - wallet.credits} more CR.`, wallet };
+    
     wallet.credits -= price;
+    wallet.xp += price * 4;
     wallet.owned.push(id);
     save(wallet);
     addTx('spend', -price, 'Unlocked ' + (ITEM_LABELS[id] || id), { item: id });
-    return { ok: true, message: 'Unlocked.', wallet };
+    return { ok: true, message: `Successfully unlocked ${ITEM_LABELS[id] || id}!`, wallet };
   }
 
-  function owned(id) { return load().owned.includes(id); }
+  function equip(id, category) {
+    const wallet = load();
+    if (!wallet.owned.includes(id)) return { ok: false, message: 'Item not owned!' };
+    wallet.equipped = wallet.equipped || {};
+    const cat = category || (ITEM_CATALOG[id] && ITEM_CATALOG[id].type) || 'cosmetic';
+    wallet.equipped[cat] = (wallet.equipped[cat] === id) ? null : id; // toggle
+    save(wallet);
+    return { ok: true, equipped: wallet.equipped, wallet };
+  }
+
+  function owned(id) {
+    return load().owned.includes(id);
+  }
 
   function exportCode(amount) {
     const wallet = load();
     const n = Math.min(wallet.credits, Math.max(0, Number(amount) || wallet.credits));
-    if (n < 1) return { ok: false, message: 'No credits to send.', wallet };
+    if (n < 1) return { ok: false, message: 'No credits available to export.', wallet };
+    
     wallet.credits -= n;
     save(wallet);
     const id = Math.random().toString(36).slice(2, 8);
     const payload = `${n}.${id}.${Date.now()}`;
     const code = `VX2-${payload}-${hash(payload + SECRET_V2).slice(0, 6)}`;
-    addTx('export', -n, 'Transfer code created');
+    addTx('export', -n, `Created Transfer Code for ${n} CR`);
     return { ok: true, code, amount: n, wallet };
   }
 
@@ -97,66 +254,54 @@
     const m2 = raw.match(/^VX2-(\d+)\.([a-z0-9]+)\.(\d+)-([a-f0-9]+)$/i);
     const m1 = raw.match(/^VX1-(\d+)\.([a-z0-9]+)\.(\d+)-([a-f0-9]+)$/i);
     const match = m2 || m1;
-    if (!match) return { ok: false, message: 'Invalid transfer code.', wallet: load() };
+    
+    if (!match) return { ok: false, message: 'Invalid format! Code must start with VX2- or VX1-', wallet: load() };
     const payload = `${match[1]}.${match[2]}.${match[3]}`;
     const secret = m2 ? SECRET_V2 : SECRET_V1;
+    
     if (hash(payload + secret).slice(0, 6).toLowerCase() !== match[4].toLowerCase()) {
-      return { ok: false, message: 'Code checksum failed.', wallet: load() };
+      return { ok: false, message: 'Security checksum validation failed.', wallet: load() };
     }
+    
     const used = JSON.parse(localStorage.getItem(USED) || '[]');
-    if (used.includes(match[2])) return { ok: false, message: 'This code was already redeemed here.', wallet: load() };
+    if (used.includes(match[2])) return { ok: false, message: 'This transfer code has already been redeemed!', wallet: load() };
+    
     used.push(match[2]);
     localStorage.setItem(USED, JSON.stringify(used));
+    
     const wallet = load();
     const n = Number(match[1]);
     wallet.credits += n;
+    wallet.xp += n * 2;
     save(wallet);
-    addTx('redeem', n, 'Transfer code redeemed');
-    return { ok: true, amount: n, message: `+${n} credits received.`, wallet };
-  }
-
-  async function apiFetch(verb, path, body) {
-    if (!API_BASE) return { ok: false, offline: true, error: 'API not configured.' };
-    try {
-      const resp = await fetch(API_BASE + path, {
-        method: verb,
-        headers: { 'Content-Type': 'application/json' },
-        body: body ? JSON.stringify(body) : undefined
-      });
-      return await resp.json().catch(() => ({ ok: resp.ok, status: resp.status }));
-    } catch (err) {
-      return { ok: false, offline: true, error: String(err && err.message || err) };
-    }
-  }
-
-  async function syncFromApi(mcUser) {
-    if (!mcUser) return { ok: false, error: 'No Minecraft user linked.' };
-    const data = await apiFetch('GET', '/api/credits/' + encodeURIComponent(mcUser));
-    if (!data || !data.ok) return { ok: false, error: (data && data.error) || 'Sync failed.' };
-    const wallet = load();
-    const serverBalance = Number(data.balance) || Number(data.credits) || 0;
-    const newCredits = Math.max(wallet.credits, serverBalance);
-    const serverOwned = Array.isArray(data.owned) ? data.owned : [];
-    const mergedOwned = Array.from(new Set([...wallet.owned, ...serverOwned]));
-    if (newCredits !== wallet.credits || mergedOwned.length !== wallet.owned.length) {
-      wallet.credits = newCredits;
-      wallet.owned = mergedOwned;
-      save(wallet);
-    }
-    return { ok: true, wallet, remote: data };
+    addTx('redeem', n, `Redeemed Transfer Code (+${n} CR)`);
+    return { ok: true, amount: n, message: `Successfully claimed +${n} Vortex Credits!`, wallet };
   }
 
   function linkMc(mcUser) {
-    if (!/^[A-Za-z0-9_]{3,16}$/.test(mcUser || '')) return { ok: false, error: 'Invalid Minecraft username.' };
+    if (!/^[A-Za-z0-9_]{3,16}$/.test(mcUser || '')) return { ok: false, error: 'Invalid Minecraft username (3-16 chars).' };
     const wallet = load();
     wallet.linkedMc = mcUser.trim();
     wallet.linkedAt = Date.now();
     save(wallet);
-    return { ok: true, wallet };
+    addTx('link', 50, `Linked Minecraft Account: ${mcUser.trim()}`);
+    return { ok: true, wallet, message: `Linked account: ${mcUser.trim()}` };
   }
 
+  // Cross-tab sync listener
+  try {
+    if (typeof root.BroadcastChannel !== 'undefined') {
+      const channel = new BroadcastChannel('vortex_credit_sync');
+      channel.onmessage = (e) => {
+        if (e.data && e.data.type === 'WALLET_SYNC' && typeof root.dispatchEvent === 'function') {
+          root.dispatchEvent(new CustomEvent('vortex-credits', { detail: e.data.wallet }));
+        }
+      };
+    }
+  } catch(e) {}
+
   root.VortexCredits = {
-    load, save, welcome, daily, spend, exportCode, redeem, owned,
-    recentHistory, ITEM_LABELS, ITEM_COSTS, linkMc, syncFromApi, apiFetch
+    load, save, welcome, daily: claimDaily, claimDaily, openMysteryBox, spend, equip, exportCode, redeem, owned,
+    recentHistory, ITEM_CATALOG, ITEM_LABELS, ITEM_COSTS, linkMc
   };
 })(typeof window !== 'undefined' ? window : globalThis);
