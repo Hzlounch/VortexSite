@@ -58,8 +58,8 @@
     .chat-input button { padding: 0 30px; border-radius: 14px; border: none; font-weight: 800; cursor: pointer; background: var(--primary); color: #000; transition: 0.2s; }
     .chat-input button:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,210,255,0.4); }
 
-    [data-view] { display: none; }
-    [data-view].active { display: block; animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    [data-view] { display: none !important; }
+    [data-view].view-active { display: block !important; animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
@@ -95,11 +95,11 @@
     </div>
   </header>
 
-  <main class="dashboard-wrap">
+  <main class="dashboard-wrap reveal view-active">
     <div class="ticket-glass">
       
       <!-- VIEW 1: AUTH / LOGIN -->
-      <div id="viewAuth" data-view class="auth-view active">
+      <div id="viewAuth" data-view class="auth-view view-active">
         <div class="card-icon" style="margin:0 auto 24px;"><i class="fa-brands fa-discord"></i></div>
         <h1 style="font-size:2.5rem; font-weight:900; margin-bottom:12px;">Vortex Support</h1>
         <p style="color:var(--text-sub); margin-bottom:30px;">Enter your Discord username to manage your tickets.</p>
@@ -121,7 +121,7 @@
           <!-- Tickets injected here -->
         </div>
 
-        <button class="btn btn-primary" onclick="showView('viewCreate')" style="width:100%;">
+        <button class="btn btn-primary glow-btn" onclick="showView('viewCreate')" style="width:100%;">
           <i class="fa-solid fa-plus"></i> Create New Ticket
         </button>
       </div>
@@ -185,39 +185,77 @@
     </div>
   </main>
 
+  <!-- EXTERNAL LIBRARIES -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
+  
   <script>
+    // IF YOU OPEN FROM DESKTOP file://, POINT FETCH TO YOUR BOT.
+    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8080' : '';
+    
     let currentUser = localStorage.getItem('vortex_discord_name') || '';
+    let currentAvatar = localStorage.getItem('vortex_discord_avatar') || '';
     let currentTicketId = null;
 
     function showView(id) {
-      document.querySelectorAll('[data-view]').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('[data-view]').forEach(el => el.classList.remove('view-active'));
+      document.getElementById(id).classList.add('view-active');
     }
 
     if(currentUser) {
-      document.getElementById('dashUser').innerText = currentUser;
+      updateUserBadge();
       showView('viewDashboard');
       loadTickets();
     } else {
       showView('viewAuth');
     }
+    
+    function updateUserBadge() {
+      const badge = document.getElementById('dashUser');
+      if(currentAvatar) {
+        badge.innerHTML = `<img src="${currentAvatar}" style="width:24px; height:24px; border-radius:50%;"> ${currentUser}`;
+      } else {
+        badge.innerHTML = `<i class="fa-brands fa-discord"></i> ${currentUser}`;
+      }
+    }
 
-    function login() {
+    async function login() {
       const val = document.getElementById('authInput').value.trim();
-      if(val.length < 2) return alert('Enter a valid Discord username');
-      currentUser = val;
-      localStorage.setItem('vortex_discord_name', currentUser);
-      document.getElementById('dashUser').innerText = currentUser;
-      showView('viewDashboard');
-      loadTickets();
+      if(val.length < 2) return alert('Lütfen geçerli bir kullanıcı adı girin.');
+      
+      const btn = document.getElementById('loginBtn');
+      if(btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Doğrulanıyor...';
+      
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/${val}`);
+        const data = await res.json();
+        
+        if(!data.ok) {
+          if(btn) btn.innerHTML = 'Access Support <i class="fa-solid fa-arrow-right"></i>';
+          return alert(data.message || 'Discord hesabı bulunamadı. Lütfen sunucumuzda olduğunuzdan ve gerçek kullanıcı adınızı (örn: momy4605) girdiğinizden emin olun.');
+        }
+        
+        currentUser = data.username;
+        currentAvatar = data.avatar;
+        localStorage.setItem('vortex_discord_name', currentUser);
+        localStorage.setItem('vortex_discord_avatar', currentAvatar);
+        
+        updateUserBadge();
+        showView('viewDashboard');
+        loadTickets();
+      } catch(e) {
+        alert('Sunucuya bağlanılamadı. Botun açık olduğundan emin olun.');
+      }
+      if(btn) btn.innerHTML = 'Access Support <i class="fa-solid fa-arrow-right"></i>';
     }
 
     function logout() {
       localStorage.removeItem('vortex_discord_name');
+      localStorage.removeItem('vortex_discord_avatar');
       currentUser = '';
+      currentAvatar = '';
       showView('viewAuth');
     }
 
@@ -225,7 +263,7 @@
       const list = document.getElementById('ticketList');
       list.innerHTML = '<div style="text-align:center; color:var(--text-sub); padding:40px;"><i class="fa-solid fa-circle-notch fa-spin fa-2x"></i></div>';
       try {
-        const res = await fetch(`/api/tickets/${currentUser}`);
+        const res = await fetch(`${API_BASE}/api/tickets/${currentUser}`);
         const data = await res.json();
         
         if(!data.tickets || data.tickets.length === 0) {
@@ -234,7 +272,7 @@
         }
 
         list.innerHTML = '';
-        data.tickets.forEach(t => {
+        data.tickets.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt)).forEach(t => {
           let badgeClass = 'status-waiting';
           if(t.status === 'Answered') badgeClass = 'status-answered';
           if(!t.open || t.status === 'Closed') badgeClass = 'status-closed';
@@ -253,7 +291,7 @@
           `;
         });
       } catch(e) {
-        list.innerHTML = '<div style="color:#ef4444;">Failed to load tickets. Ensure Bot is running.</div>';
+        list.innerHTML = '<div style="color:#ef4444; text-align:center; padding:20px;">Failed to load tickets. Ensure Bot is running on port 8080.</div>';
       }
     }
 
@@ -268,7 +306,7 @@
       document.getElementById('sendBtn').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
       
       try {
-        await fetch('/api/ticket', {
+        await fetch(`${API_BASE}/api/ticket`, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({ name: currentUser, subject: sub, category: cat, message: msg, minecraft: mc })
@@ -289,7 +327,7 @@
       document.getElementById('chatMessages').innerHTML = '<div style="text-align:center; padding:40px;"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>';
       
       try {
-        const res = await fetch(`/api/tickets/view/${id}`);
+        const res = await fetch(`${API_BASE}/api/tickets/view/${id}`);
         const data = await res.json();
         const t = data.ticket;
         
@@ -299,7 +337,6 @@
         const chatBox = document.getElementById('chatMessages');
         chatBox.innerHTML = '';
         
-        // Initial Message
         chatBox.innerHTML += `
           <div class="msg-bubble msg-user">
             <div class="msg-meta">${t.name} (You) • Original Message</div>
@@ -307,7 +344,6 @@
           </div>
         `;
         
-        // Replies
         if(t.messages && t.messages.length > 0) {
           t.messages.forEach(m => {
             const isMe = !m.isStaff;
@@ -319,10 +355,11 @@
             `;
           });
         }
-        chatBox.scrollTop = chatBox.scrollHeight;
+        
+        setTimeout(() => { chatBox.scrollTop = chatBox.scrollHeight; }, 100);
         document.getElementById('chatInputArea').style.display = t.open ? 'flex' : 'none';
       } catch(e) {
-        document.getElementById('chatMessages').innerHTML = '<div style="color:red;">Error loading chat.</div>';
+        document.getElementById('chatMessages').innerHTML = '<div style="color:red; text-align:center; padding:20px;">Error loading chat.</div>';
       }
     }
 
@@ -333,12 +370,12 @@
       
       input.value = '';
       try {
-        await fetch(`/api/tickets/${currentTicketId}/reply`, {
+        await fetch(`${API_BASE}/api/tickets/${currentTicketId}/reply`, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({ message: val, author: currentUser })
         });
-        openTicket(currentTicketId); // reload chat
+        openTicket(currentTicketId);
       } catch(e) {
         alert('Error sending reply.');
       }

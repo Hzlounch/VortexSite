@@ -1,100 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features & Built-in Mods | Vortex Client</title>
-  <meta name="description" content="Discover 50+ built-in PvP, HUD, rendering, and utility mods included free in Vortex Client.">
+  <title>Vortex Features</title>
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
-  <style>
-    .features-hero-section {
-      padding: 80px 0 30px;
-      text-align: center;
-    }
-    .filter-tabs-row {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 30px 0 50px;
-    }
-    .filter-btn {
-      padding: 10px 22px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-sub);
-      font-weight: 800;
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .filter-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-    }
-    .filter-btn.active {
-      background: linear-gradient(135deg, #0066ff, #00d2ff);
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
-    }
-    .mods-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 70px;
-    }
-    .mod-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(15px);
-    }
-    .mod-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-glow);
-      box-shadow: 0 16px 40px rgba(0, 102, 255, 0.2);
-    }
-    .mod-icon-badge {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(0, 210, 255, 0.1);
-      border: 1px solid rgba(0, 210, 255, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin-bottom: 16px;
-      box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
-    }
-    .mod-tag {
-      font-size: 0.68rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 8px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-muted);
-    }
-  </style>
 </head>
 <body>
   <div class="ambient"></div>
+  <div id="particles-js"></div>
 
   <!-- NAVIGATION -->
   <header id="siteHeader">
@@ -115,121 +31,83 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn">
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn">
+        <a href="download.html" class="nav-dl-btn glow-btn">
           <i class="fa-solid fa-download"></i> Download
         </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileNav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="features.html" class="nav-link active">Features</a>
-      <a href="download.html" class="nav-link">Download</a>
-      <a href="store.html" class="nav-link">Store</a>
-      <a href="socials.html" class="nav-link">Socials</a>
-      <a href="news.html" class="nav-link">News</a>
-      <a href="support.html" class="nav-link">Support</a>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="features-hero-section">
-      <div class="badge-glow">
-        <i class="fa-solid fa-layer-group"></i>
-        <span>50+ PRE-INSTALLED MODS</span>
+  <main>
+    <section class="hero-section wrap reveal">
+      <div class="badge-glow floating-badge">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> 200+ BUILT-IN MODS
       </div>
-      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">Built to Outplay &amp; Outperform</h1>
-      <p class="hero-desc">Every essential PvP, HUD, rendering, and utility mod pre-configured and ready to run with zero installation hassle.</p>
-
-      <!-- FILTER TABS -->
-      <div class="filter-tabs-row">
-        <button class="filter-btn active" onclick="filterMods('all', this)"><i class="fa-solid fa-border-all"></i> All Mods (12)</button>
-        <button class="filter-btn" onclick="filterMods('pvp', this)"><i class="fa-solid fa-crosshairs"></i> PvP &amp; Combat</button>
-        <button class="filter-btn" onclick="filterMods('performance', this)"><i class="fa-solid fa-gauge-high"></i> Performance</button>
-        <button class="filter-btn" onclick="filterMods('hud', this)"><i class="fa-solid fa-tv"></i> HUD &amp; Visuals</button>
-        <button class="filter-btn" onclick="filterMods('utility', this)"><i class="fa-solid fa-toolbox"></i> Utilities</button>
-      </div>
+      <h1 class="hero-title reveal-delay-1">
+        Everything You Need,<br>
+        <span class="gradient-text animated-gradient">Already Included.</span>
+      </h1>
+      <p class="hero-desc reveal-delay-2">
+        Vortex comes pre-packaged with all the top PvP, Survival, and Hypixel mods. Say goodbye to manual installations and mod conflicts.
+      </p>
     </section>
 
     <!-- MODS GRID -->
-    <div class="mods-grid">
-      <!-- Keystrokes -->
-      <div class="mod-card" data-cat="pvp">
-        <div class="mod-icon-badge"><i class="fa-solid fa-keyboard"></i></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Keystrokes HUD</h3>
-          <span class="mod-tag">PVP</span>
+    <section class="wrap reveal reveal-delay-3" style="padding-bottom:100px;">
+      <div class="card-grid">
+        
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg"></div>
+          <div class="card-icon"><i class="fa-solid fa-keyboard"></i></div>
+          <h3 class="card-title">Keystrokes</h3>
+          <p class="card-desc">Display your WASD, mouse clicks, and spacebar on screen in real-time. Fully customizable colors and Chroma RGB modes.</p>
         </div>
-        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Displays WASD, Spacebar, Mouse Clicks and CPS counter with RGB chroma animations on your screen.</p>
-        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Hypixel / Competitive Allowed</span>
-      </div>
 
-      <!-- ToggleSprint -->
-      <div class="mod-card" data-cat="pvp">
-        <div class="mod-icon-badge"><i class="fa-solid fa-person-running"></i></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">ToggleSprint &amp; Sneak</h3>
-          <span class="mod-tag">PVP</span>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg secondary"></div>
+          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-eye"></i></div>
+          <h3 class="card-title">OptiFine & FPS Boost</h3>
+          <p class="card-desc">Smart culling, optimized chunk loading, and built-in OptiFine integration double your frames compared to vanilla.</p>
         </div>
-        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Sprint permanently without holding down Ctrl or double-tapping W. Fully customizable HUD indicator.</p>
-        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Hypixel / Competitive Allowed</span>
-      </div>
 
-      <!-- ArmorStatus -->
-      <div class="mod-card" data-cat="hud">
-        <div class="mod-icon-badge"><i class="fa-solid fa-shield"></i></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Armor &amp; Item Status</h3>
-          <span class="mod-tag">HUD</span>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg gold"></div>
+          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-crosshairs"></i></div>
+          <h3 class="card-title">Crosshair Customizer</h3>
+          <p class="card-desc">Design your own crosshair. Adjust thickness, gap, dot, dynamic coloring, and target highlighting.</p>
         </div>
-        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Shows your equipped armor pieces, held weapons, and exact durability percentages on screen.</p>
-        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Hypixel / Competitive Allowed</span>
-      </div>
 
-      <!-- Motion Blur -->
-      <div class="mod-card" data-cat="hud">
-        <div class="mod-icon-badge"><i class="fa-solid fa-camera-rotate"></i></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Dynamic Motion Blur</h3>
-          <span class="mod-tag">HUD</span>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg" style="background:var(--accent-pink);"></div>
+          <div class="card-icon" style="color:var(--accent-pink); border-color:rgba(244,63,94,0.3);"><i class="fa-solid fa-person-running"></i></div>
+          <h3 class="card-title">ToggleSprint</h3>
+          <p class="card-desc">Never hold the sprint key again. Automatically sprint and sneak with on-screen HUD status indicators.</p>
         </div>
-        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">High-FPS cinematic shader motion blur with zero GPU rendering overhead and adjustable intensity slider.</p>
-        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Zero Lag Shader</span>
-      </div>
 
-      <!-- OptiFine -->
-      <div class="mod-card" data-cat="performance">
-        <div class="mod-icon-badge"><i class="fa-solid fa-bolt"></i></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">OptiFine &amp; Sodium Core</h3>
-          <span class="mod-tag">PERFORMANCE</span>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg" style="background:var(--accent-green);"></div>
+          <div class="card-icon" style="color:var(--accent-green); border-color:rgba(16,185,129,0.3);"><i class="fa-solid fa-stopwatch"></i></div>
+          <h3 class="card-title">CPS Counter</h3>
+          <p class="card-desc">Track your clicks per second for both Left and Right clicks. Perfect for bridging and PvP training.</p>
         </div>
-        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Customized asynchronous rendering engine with multi-core chunk rendering and dynamic lights.</p>
-        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> 400+ FPS Guaranteed</span>
-      </div>
 
-      <!-- MiniMap -->
-      <div class="mod-card" data-cat="utility">
-        <div class="mod-icon-badge"><i class="fa-solid fa-map-location-dot"></i></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 style="font-size:1.25rem; font-weight:800; color:#fff;">Waypoints &amp; Minimap</h3>
-          <span class="mod-tag">UTILITY</span>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg secondary"></div>
+          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-swords"></i></div>
+          <h3 class="card-title">Hitbox Display</h3>
+          <p class="card-desc">F3+B but better. Highlight player hitboxes with custom colors and line thickness for precise aiming.</p>
         </div>
-        <p style="color:var(--text-sub); font-size:0.88rem; line-height:1.5; margin-bottom:14px;">Set waypoints in survival worlds with color-coded beacons, death coordinates, and circular HUD map.</p>
-        <span style="color:var(--accent-green); font-weight:700; font-size:0.8rem; margin-top:auto;"><i class="fa-solid fa-circle-check"></i> Fairplay Compliant</span>
+
       </div>
-    </div>
+    </section>
+
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="footer-top">
@@ -237,45 +115,13 @@
           <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
           <span class="brand-text">VORTEX CLIENT</span>
         </div>
-
-        <div class="footer-social-icons">
-          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-        <div class="footer-links-row">
-          <a href="features.html">Features</a>
-          <a href="download.html">Download</a>
-          <a href="store.html">Store</a>
-          <a href="socials.html">Socials</a>
-          <a href="news.html">News</a>
-          <a href="support.html">Support</a>
-        </div>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
-  <script>
-    function filterMods(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-
-      document.querySelectorAll('.mod-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>

@@ -1,132 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store & Cosmetics | Vortex Client</title>
-  <meta name="description" content="Purchase Vortex Credits, capes, wings, halos, and in-game cosmetic visual perks.">
+  <title>Vortex Store & Credits</title>
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
-  <style>
-    .store-hero-section {
-      padding: 80px 0 30px;
-      text-align: center;
-    }
-    .wallet-banner-box {
-      background: linear-gradient(135deg, rgba(16, 24, 48, 0.85), rgba(8, 12, 24, 0.95));
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      padding: 28px 36px;
-      margin: 20px auto 50px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 10px 40px rgba(0, 210, 255, 0.15);
-    }
-    .wallet-stat-num {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--primary);
-      text-shadow: 0 0 20px var(--primary-glow);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .package-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin: 30px 0 60px;
-    }
-    .pack-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(15px);
-    }
-    .pack-card.featured {
-      border-color: var(--border-glow);
-      box-shadow: 0 0 30px rgba(0, 210, 255, 0.25);
-    }
-    .pack-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2);
-    }
-    .pack-icon {
-      font-size: 3rem;
-      color: var(--accent-gold);
-      margin: 12px 0 16px;
-      text-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
-    }
-    .pack-amount {
-      font-size: 2rem;
-      font-weight: 900;
-      color: #fff;
-    }
-    .pack-bonus {
-      font-size: 0.82rem;
-      color: var(--accent-green);
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-    .pack-price {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    .cosmetic-items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-      margin: 30px 0 80px;
-    }
-    .cosmetic-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(15px);
-    }
-    .cosmetic-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-secondary);
-      box-shadow: 0 16px 40px rgba(124, 92, 255, 0.25);
-    }
-    .cosmetic-preview-box {
-      height: 160px;
-      border-radius: 14px;
-      background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, rgba(5, 8, 16, 0.8) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.8rem;
-      color: var(--primary);
-      margin-bottom: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-  </style>
 </head>
 <body>
   <div class="ambient"></div>
+  <div id="particles-js"></div>
 
   <!-- NAVIGATION -->
   <header id="siteHeader">
@@ -147,114 +31,82 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn">
+        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileNav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="features.html" class="nav-link">Features</a>
-      <a href="download.html" class="nav-link">Download</a>
-      <a href="store.html" class="nav-link active">Store</a>
-      <a href="socials.html" class="nav-link">Socials</a>
-      <a href="news.html" class="nav-link">News</a>
-      <a href="support.html" class="nav-link">Support</a>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="store-hero-section">
-      <div class="badge-glow">
-        <i class="fa-solid fa-store"></i>
-        <span>COSMETIC STORE &amp; VAULT</span>
+  <main>
+    <!-- HERO -->
+    <section class="hero-section wrap reveal">
+      <div class="badge-glow floating-badge">
+        <i class="fa-solid fa-store"></i> VORTEX ECONOMY
       </div>
-      <h1 class="hero-title" style="font-size:3.2rem; margin-bottom:12px;">Vortex Credits &amp; Cosmetics</h1>
-      <p class="hero-desc">Unlock signature capes, animated wings, halos, and custom name gradients using Vortex Credits.</p>
+      <h1 class="hero-title reveal-delay-1">
+        Unlock Premium<br>
+        <span class="gradient-text animated-gradient" style="background: linear-gradient(270deg, #fbbf24, #f59e0b, #fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Cosmetics & Features</span>
+      </h1>
+      <p class="hero-desc reveal-delay-2">
+        Use Vortex Credits (CR) to unlock custom capes, exclusive wings, and particle effects. Never pay-to-win.
+      </p>
     </section>
 
-    <!-- WALLET LIVE BANNER -->
-    <div class="wallet-banner-box">
-      <div>
-        <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">CURRENT WALLET BALANCE</span>
-        <div class="wallet-stat-num">
-          <i class="fa-solid fa-coins" style="font-size:1.5rem; color:var(--accent-gold);"></i>
-          <span id="valCredits">250</span> CR
+    <!-- STORE CARDS -->
+    <section class="wrap reveal reveal-delay-3" style="padding-bottom:100px;">
+      <div class="card-grid">
+        <!-- 250 CR Card -->
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg gold"></div>
+          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-coins"></i></div>
+          <h3 class="card-title">250 Vortex Credits</h3>
+          <p class="card-desc">Perfect for unlocking your first cape or custom particle aura.</p>
+          <div style="margin-top:20px; font-size:1.8rem; font-weight:900; color:#fff;">$4.99</div>
+          <button class="btn btn-primary glow-btn" style="width:100%; margin-top:20px; background:linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow:0 10px 30px rgba(251,191,36,0.3);">Purchase</button>
+        </div>
+
+        <!-- 500 CR Card -->
+        <div class="feature-card" data-tilt style="border-color:var(--accent-gold); transform:scale(1.05); z-index:10; background:rgba(22, 32, 50, 0.75);">
+          <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); background:var(--accent-gold); color:#000; padding:4px 16px; border-bottom-left-radius:8px; border-bottom-right-radius:8px; font-weight:900; font-size:0.75rem; letter-spacing:1px;">MOST POPULAR</div>
+          <div class="card-glow-bg gold" style="opacity:0.2;"></div>
+          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.5); box-shadow:0 0 30px rgba(251,191,36,0.4);"><i class="fa-solid fa-sack-dollar"></i></div>
+          <h3 class="card-title">600 Vortex Credits</h3>
+          <p class="card-desc">Includes +100 bonus credits! Unlock multiple premium cosmetics.</p>
+          <div style="margin-top:20px; font-size:2rem; font-weight:900; color:#fff;">$9.99</div>
+          <button class="btn btn-primary glow-btn" style="width:100%; margin-top:20px; background:linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow:0 10px 30px rgba(251,191,36,0.5);">Purchase</button>
+        </div>
+
+        <!-- 1500 CR Card -->
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg secondary"></div>
+          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-gem"></i></div>
+          <h3 class="card-title">1500 Vortex Credits</h3>
+          <p class="card-desc">For the ultimate Vortex supporters. Unlocks the exclusive supporter badge.</p>
+          <div style="margin-top:20px; font-size:1.8rem; font-weight:900; color:#fff;">$19.99</div>
+          <button class="btn btn-primary glow-btn" style="width:100%; margin-top:20px; background:linear-gradient(135deg, #6366f1, #a855f7); box-shadow:0 10px 30px rgba(168,85,247,0.4);">Purchase</button>
         </div>
       </div>
+    </section>
 
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="#buyPacks" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Buy Credits</a>
-        <button class="btn btn-secondary" onclick="handleTransferModal()"><i class="fa-solid fa-arrow-right-arrow-left"></i> Transfer Code</button>
+    <!-- TRANSFER CODE SYSTEM -->
+    <section class="wrap reveal" style="padding-bottom:100px;">
+      <div class="fps-box" style="grid-template-columns:1fr; text-align:center;">
+        <div>
+          <span class="badge-glow"><i class="fa-solid fa-money-bill-transfer"></i> Credit Transfers</span>
+          <h2 style="font-size:2.2rem; font-weight:900; color:#fff; margin-bottom:12px;">Gift Credits to Friends</h2>
+          <p style="color:var(--text-sub); font-size:0.95rem; line-height:1.6; max-width:600px; margin:0 auto 30px;">
+            Export your balance into a secure Transfer Code via the Discord Bot (`/credits-export`), then send it to a friend. They can redeem it directly in the client!
+          </p>
+          <button class="btn btn-secondary glow-btn" onclick="alert('Join Discord and type /credits-export to create a code!')"><i class="fa-brands fa-discord"></i> Open Discord to Transfer</button>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- BUY CREDITS PACKAGES -->
-    <div style="margin-bottom:20px;" id="buyPacks">
-      <span class="badge-glow" style="margin-bottom:10px;"><i class="fa-solid fa-coins"></i> CREDIT PACKAGES</span>
-      <h2 style="font-size:2rem; font-weight:900; color:#fff;">Purchase Vortex Credits</h2>
-    </div>
-
-    <div class="package-grid">
-      <!-- Pack 1 -->
-      <div class="pack-card">
-        <div class="pack-icon"><i class="fa-solid fa-coins"></i></div>
-        <div class="pack-amount">500 CR</div>
-        <div class="pack-bonus">Starter Pack</div>
-        <div class="pack-price">$4.99</div>
-        <button class="btn btn-secondary" style="width:100%;" onclick="purchaseCredits(500, 4.99)">Purchase</button>
-      </div>
-
-      <!-- Pack 2 (Featured) -->
-      <div class="pack-card featured">
-        <span style="position:absolute; top:12px; right:12px; font-size:0.65rem; font-weight:900; background:linear-gradient(135deg,#0066ff,#00d2ff); color:#fff; padding:4px 8px; border-radius:12px;">BEST VALUE</span>
-        <div class="pack-icon" style="color:var(--primary);"><i class="fa-solid fa-sack-dollar"></i></div>
-        <div class="pack-amount">1,250 CR</div>
-        <div class="pack-bonus">+250 Bonus Credits</div>
-        <div class="pack-price">$9.99</div>
-        <button class="btn btn-primary" style="width:100%;" onclick="purchaseCredits(1250, 9.99)">Purchase</button>
-      </div>
-
-      <!-- Pack 3 -->
-      <div class="pack-card">
-        <div class="pack-icon" style="color:var(--secondary);"><i class="fa-solid fa-vault"></i></div>
-        <div class="pack-amount">3,000 CR</div>
-        <div class="pack-bonus">+500 Bonus Credits</div>
-        <div class="pack-price">$19.99</div>
-        <button class="btn btn-secondary" style="width:100%;" onclick="purchaseCredits(3000, 19.99)">Purchase</button>
-      </div>
-
-      <!-- Pack 4 -->
-      <div class="pack-card">
-        <div class="pack-icon" style="color:var(--accent-pink);"><i class="fa-solid fa-crown"></i></div>
-        <div class="pack-amount">8,500 CR</div>
-        <div class="pack-bonus">+1,500 Bonus Credits</div>
-        <div class="pack-price">$49.99</div>
-        <button class="btn btn-secondary" style="width:100%;" onclick="purchaseCredits(8500, 49.99)">Purchase</button>
-      </div>
-    </div>
-
-    <!-- COSMETICS GRID -->
-    <div style="margin-bottom:20px;">
-      <span class="badge-glow" style="margin-bottom:10px;"><i class="fa-solid fa-shirt"></i> IN-GAME COSMETICS</span>
-      <h2 style="font-size:2rem; font-weight:900; color:#fff;">Exclusive Wearables</h2>
-    </div>
-
-    <div class="cosmetic-items-grid" id="storeGrid">
-      <!-- Injected by JS -->
-    </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="footer-top">
@@ -262,120 +114,13 @@
           <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
           <span class="brand-text">VORTEX CLIENT</span>
         </div>
-
-        <div class="footer-social-icons">
-          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
-        <div class="footer-links-row">
-          <a href="features.html">Features</a>
-          <a href="download.html">Download</a>
-          <a href="store.html">Store</a>
-          <a href="socials.html">Socials</a>
-          <a href="news.html">News</a>
-          <a href="support.html">Support</a>
-        </div>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
-  <script>
-    function refreshWalletUI() {
-      const w = VortexCredits.load();
-      const el = document.getElementById('valCredits');
-      if (el) el.innerText = w.credits || 0;
-      renderStoreCards();
-    }
-
-    function purchaseCredits(amount, usdPrice) {
-      if (confirm(`Confirm purchase of ${amount} Vortex Credits for $${usdPrice}?`)) {
-        const res = VortexCredits.buyCredits(amount, usdPrice);
-        if (res.ok) {
-          alert(`🎉 Payment Successful!\n+${amount} Vortex Credits added to your account.`);
-          refreshWalletUI();
-        }
-      }
-    }
-
-    function renderStoreCards() {
-      const grid = document.getElementById('storeGrid');
-      if (!grid || !window.VortexCredits) return;
-      const catalog = VortexCredits.ITEM_CATALOG;
-      const wallet = VortexCredits.load();
-
-      const icons = {
-        cape: '<i class="fa-solid fa-vest-patches"></i>',
-        wings: '<i class="fa-solid fa-feather"></i>',
-        halo: '<i class="fa-solid fa-ring"></i>',
-        aura: '<i class="fa-solid fa-atom"></i>',
-        plus: '<i class="fa-solid fa-crown" style="color:var(--accent-gold);"></i>'
-      };
-
-      grid.innerHTML = Object.values(catalog).map(item => {
-        const isOwned = wallet.owned.includes(item.id);
-        const iconHtml = icons[item.id] || '<i class="fa-solid fa-cube"></i>';
-
-        return `
-          <div class="cosmetic-card">
-            <div class="cosmetic-preview-box">
-              ${iconHtml}
-            </div>
-            <h3 style="font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:6px;">${item.title}</h3>
-            <p style="color:var(--text-sub); font-size:0.85rem; line-height:1.5; margin-bottom:20px; flex-grow:1;">${item.desc}</p>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
-              <span style="font-size:1.15rem; font-weight:900; color:var(--primary);">${item.cost} CR</span>
-              ${isOwned
-                ? '<span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); color:var(--accent-green); padding:8px 14px; border-radius:8px; font-weight:800; font-size:0.82rem;"><i class="fa-solid fa-check"></i> Owned</span>'
-                : `<button class="btn btn-primary" style="padding:8px 16px; font-size:0.82rem;" onclick="buyItem('${item.id}', ${item.cost})"><i class="fa-solid fa-bolt"></i> Unlock</button>`
-              }
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function buyItem(id, cost) {
-      const res = VortexCredits.spend(id, cost);
-      alert(res.message);
-      refreshWalletUI();
-    }
-
-    function handleTransferModal() {
-      const choice = prompt("Type '1' to Generate a Launcher Code, or '2' to Redeem a Code:");
-      if (choice === '1') {
-        const amount = prompt("How many credits do you want to transfer to launcher?", "100");
-        if (amount) {
-          const res = VortexCredits.exportCode(amount);
-          if (res.ok) {
-            prompt("Copy your Launcher Code and enter it in Vortex Client:", res.code);
-            refreshWalletUI();
-          } else {
-            alert(res.message);
-          }
-        }
-      } else if (choice === '2') {
-        const code = prompt("Paste your VX2 / VX1 Code here:");
-        if (code) {
-          const res = VortexCredits.redeem(code);
-          alert(res.message);
-          refreshWalletUI();
-        }
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      VortexCredits.welcome();
-      refreshWalletUI();
-    });
-  </script>
 </body>
 </html>
