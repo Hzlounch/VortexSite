@@ -123,10 +123,16 @@ header.scrolled{height:70px;background:rgba(5,6,13,.85);border-bottom-color:rgba
 .brand{
   display:flex;align-items:center;gap:12px;
   text-decoration:none;
-  font:900 14px Manrope,sans-serif;letter-spacing:.24em;
+  font:900 15px Manrope,sans-serif;letter-spacing:.2em;
+  color:#fff;
+}
+.brand img{
+  width:36px;height:36px;border-radius:10px;object-fit:cover;
+  box-shadow:0 0 16px rgba(0,102,255,0.5);
+  border:1px solid rgba(0,210,255,0.4);
 }
 .brand-mark{
-  width:42px;height:42px;border-radius:12px;
+  width:38px;height:38px;border-radius:10px;
   background:
     radial-gradient(circle at 30% 30%, #c4b5fd, transparent 45%),
     linear-gradient(135deg,#7c5cff,#2563eb 60%,#22d3ee);
