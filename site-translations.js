@@ -53,7 +53,7 @@ const VORTEX_TRANSLATIONS = {
     store_subtitle: "Enhance your appearance with exclusive capes, halos, wings, and cosmetics.",
     store_balance: "Your Balance",
     store_buy_cr: "Buy Credits",
-    store_item_buy: "Equip / Buy",
+    store_item_buy: "View Details",
 
     // Support
     support_title: "Vortex Support Center",
@@ -118,7 +118,7 @@ const VORTEX_TRANSLATIONS = {
     store_subtitle: "Özel pelerinler, halolar, kanatlar ve kozmetiklerle görünümünüzü özelleştirin.",
     store_balance: "Bakiyeniz",
     store_buy_cr: "Kredi Satın Al",
-    store_item_buy: "Kullan / Satın Al",
+    store_item_buy: "Detayları Gör",
 
     // Support
     support_title: "Vortex Destek Merkezi",
@@ -183,7 +183,7 @@ const VORTEX_TRANSLATIONS = {
     store_subtitle: "Dostosuj swój wygląd dzięki wyjątkowym pelerynom, skrzydłom i efektom.",
     store_balance: "Twoje Saldo",
     store_buy_cr: "Kup Kredyty",
-    store_item_buy: "Załóż / Kup",
+    store_item_buy: "Zobacz Szczegóły",
 
     // Support
     support_title: "Centrum Pomocy Vortex",
