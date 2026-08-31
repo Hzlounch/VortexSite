@@ -50,10 +50,10 @@ const VORTEX_TRANSLATIONS = {
 
     // Store
     store_title: "VortexLauncher Store",
-    store_subtitle: "Enhance your appearance with exclusive capes, halos, wings, and cosmetics.",
+    store_subtitle: "Enhance your appearance in-game with official HD capes, 3D wings, halos, and cosmetics.",
     store_balance: "Your Balance",
     store_buy_cr: "Buy Credits",
-    store_item_buy: "View Details",
+    store_item_buy: "Buy Cosmetics",
 
     // Support
     support_title: "Vortex Support Center",
@@ -115,10 +115,10 @@ const VORTEX_TRANSLATIONS = {
 
     // Store
     store_title: "VortexLauncher Mağazası",
-    store_subtitle: "Özel pelerinler, halolar, kanatlar ve kozmetiklerle görünümünüzü özelleştirin.",
+    store_subtitle: "Oyundaki görünümünüzü resmi HD pelerinler, 3D kanatlar ve kozmetiklerle özelleştirin.",
     store_balance: "Bakiyeniz",
     store_buy_cr: "Kredi Satın Al",
-    store_item_buy: "Detayları Gör",
+    store_item_buy: "Kozmetik Satın Al",
 
     // Support
     support_title: "Vortex Destek Merkezi",
@@ -180,10 +180,10 @@ const VORTEX_TRANSLATIONS = {
 
     // Store
     store_title: "Sklep VortexLauncher",
-    store_subtitle: "Dostosuj swój wygląd dzięki wyjątkowym pelerynom, skrzydłom i efektom.",
+    store_subtitle: "Dostosuj swój wygląd w grze dzięki pelerynom HD, skrzydłom 3D i efektom.",
     store_balance: "Twoje Saldo",
     store_buy_cr: "Kup Kredyty",
-    store_item_buy: "Zobacz Szczegóły",
+    store_item_buy: "Kup Kosmetyki",
 
     // Support
     support_title: "Centrum Pomocy Vortex",
