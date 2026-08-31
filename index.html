@@ -11,8 +11,6 @@
 </head>
 <body>
   <div class="ambient"></div>
-  
-  <!-- PREMIUM VORTEX GALAXY BACKGROUND -->
   <canvas id="vortex-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></canvas>
 
   <!-- NAVIGATION -->
@@ -34,16 +32,14 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
+        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
         <a href="download.html" class="nav-dl-btn glow-btn">
           <i class="fa-solid fa-download"></i> Download
         </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
 
@@ -101,9 +97,9 @@
               <span style="font-size:0.75rem; font-weight:800; color:var(--primary); letter-spacing:1px; text-transform:uppercase;">ACTIVE PROFILE</span>
               <h2 style="font-size:1.8rem; font-weight:900; color:#fff; margin:6px 0 10px;">Competitive PvP (1.8.9 &amp; 1.21.4)</h2>
               <p style="color:var(--text-sub); font-size:0.9rem; margin-bottom:20px;">OptiFine, Keystrokes, CPS Counter, ToggleSprint, Dynamic Motion Blur, &amp; Smart Culling active.</p>
-              <div style="display:flex; gap:12px;">
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
                 <a href="download.html" class="btn btn-primary" style="padding:10px 22px; font-size:0.85rem;"><i class="fa-solid fa-play"></i> Launch Client</a>
-                <a href="store.html" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;"><i class="fa-solid fa-coins"></i> 250 CR Free</a>
+                <a href="store.html" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;"><i class="fa-solid fa-coins"></i> Free Starter CR</a>
               </div>
             </div>
             <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; padding:20px; text-align:center;" class="fps-glass-card">
@@ -179,7 +175,7 @@
           <div class="card-glow-bg gold"></div>
           <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-coins"></i></div>
           <h3 class="card-title">Vortex Credits Economy</h3>
-          <p class="card-desc">Get 250 CR on first launch. Buy credits, send transfer codes, and unlock exclusive rewards with no pay-to-win mechanics.</p>
+          <p class="card-desc">Get starter credits on launch. Buy credits, send transfer codes, and unlock exclusive cosmetics with zero pay-to-win mechanics.</p>
         </div>
       </div>
     </section>
@@ -206,6 +202,7 @@
       <div class="footer-bottom">
         <span>© 2026 Vortex Client. The Next Generation Minecraft Client.</span>
         <div class="footer-links-row">
+          <a href="index.html">Home</a>
           <a href="features.html">Features</a>
           <a href="download.html">Download</a>
           <a href="store.html">Store</a>
@@ -217,38 +214,27 @@
     </div>
   </footer>
 
-  <!-- EXTERNAL LIBRARIES FOR PREMIUM EFFECTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-  
-  <!-- SITE SCRIPTS -->
   <script src="vortex-credits.js"></script>
+  <script src="vortex-experience.js"></script>
   <script src="site.js"></script>
 
-  <!-- PREMIUM VORTEX BACKGROUND ANIMATION -->
+  <!-- GALAXY CANVAS SCRIPT -->
   <script>
     const canvas = document.getElementById('vortex-canvas');
     if(canvas) {
       const ctx = canvas.getContext('2d');
-      let width, height;
-      let particles = [];
-      
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
+      let width, height, particles = [];
+      function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+      window.addEventListener('resize', resize); resize();
       class Particle {
-        constructor() {
-          this.reset();
-        }
+        constructor() { this.reset(); }
         reset() {
           this.angle = Math.random() * Math.PI * 2;
           this.radius = Math.random() * (width > height ? width : height);
           this.speed = (Math.random() * 0.005) + 0.001;
           this.size = Math.random() * 2;
-          this.hue = Math.random() * 60 + 180; // Blue/Cyan to Purple
+          this.hue = Math.random() * 60 + 180;
         }
         update() {
           this.angle -= this.speed;
@@ -258,24 +244,14 @@
         draw() {
           const x = width/2 + Math.cos(this.angle) * this.radius;
           const y = height/2 + Math.sin(this.angle) * this.radius;
-          ctx.beginPath();
-          ctx.arc(x, y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `hsl(${this.hue}, 100%, 70%)`;
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(x, y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `hsl(${this.hue}, 100%, 70%)`; ctx.fill();
         }
       }
-
-      for(let i = 0; i < 500; i++) {
-        particles.push(new Particle());
-      }
-
+      for(let i=0; i<300; i++) particles.push(new Particle());
       function animate() {
-        ctx.fillStyle = 'rgba(4, 5, 8, 0.15)'; // Trail effect
-        ctx.fillRect(0, 0, width, height);
-        particles.forEach(p => {
-          p.update();
-          p.draw();
-        });
+        ctx.fillStyle = 'rgba(4, 5, 8, 0.15)'; ctx.fillRect(0, 0, width, height);
+        particles.forEach(p => { p.update(); p.draw(); });
         requestAnimationFrame(animate);
       }
       animate();

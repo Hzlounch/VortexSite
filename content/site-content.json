@@ -2,12 +2,30 @@
   "version": 1,
   "news": [
     {
-      "id": "news-mtd3fg41-o49t",
-      "title": "Vortex-Kits",
-      "category": "RELEASE NOTES",
-      "summary": "Ye",
-      "body": "Ye",
+      "id": "news-v25-perf",
+      "title": "Vortex v2.5 Performance & GPU Engine Update",
+      "category": "MAJOR UPDATE",
+      "summary": "Our biggest performance overhaul yet. Featuring rewritten rendering pipelines, zero-latency keystrokes, and dynamic chunk culling.",
+      "body": "We are thrilled to announce Vortex Client v2.5! This update delivers up to 2x FPS gains across all Minecraft versions from 1.8.9 to 1.21.4.\n\n### What's New in v2.5:\n- **Custom JVM & GPU Pipeline**: Drastically reduces micro-stutters and input lag on high refresh rate displays.\n- **Smart Culling**: Hides unneeded entity and chunk rendering behind walls.\n- **Updated Keystrokes & CPS**: Added RGB Chroma modes and customizable layout positions.\n- **Cosmetics Sync**: Instantly equips capes, wings, and halos bought from the Vortex Web Store.",
       "publishedAt": "2026-08-28",
+      "author": "Vortex Team"
+    },
+    {
+      "id": "news-dragon-wings",
+      "title": "New Aether Cyber Wings & Plasma Halos",
+      "category": "COSMETICS",
+      "summary": "Stand out in lobby servers with animated holographic wings and dynamic floating plasma crowns now available in the Vortex Store.",
+      "body": "Express yourself with brand new cosmetic effects!\n\nAll cosmetics unlocked on the web store are tied to your linked Minecraft IGN and rendered natively for all Vortex Client users in multiplayer lobbies and games.\n\nClaim 250 Free CR on your first store launch and equip your signature style today!",
+      "publishedAt": "2026-08-15",
+      "author": "Vortex Store"
+    },
+    {
+      "id": "news-kits-release",
+      "title": "Vortex Kits & Custom PVP Profiles",
+      "category": "PVP & MODS",
+      "summary": "One-click PVP profiles tailored for Hypixel Bedwars, Skywars, PotPVP, and Practice servers.",
+      "body": "No more spending hours configuring individual mods! Vortex now includes pre-packaged profiles tailored for your favorite gamemodes.\n\nIncluded Profiles:\n- **Competitive PvP**: ToggleSprint, CPS Tracker, Keystrokes, Reach Display, Dynamic Motion Blur.\n- **Survival & SMP**: Waypoints, Fullbright, Minimap, Armor Status.\n- **Hypixel Bedwars**: Bedwars Stats, Resource Pack Cleaner, Auto GG.",
+      "publishedAt": "2026-08-01",
       "author": "momy4605"
     }
   ]
