@@ -2,6 +2,16 @@
   "version": 1,
   "news": [
     {
+      "id": "news-mthq81h0-xz2l",
+      "title": "Vortex Launcher",
+      "category": "CRATES",
+      "imageUrl": "",
+      "summary": "Welcome TO Voretex",
+      "body": "Welcome",
+      "publishedAt": "2026-08-31",
+      "author": "momy4605"
+    },
+    {
       "id": "news-mtd3fg41-o49t",
       "title": "Vortex-Kits",
       "category": "RELEASE NOTES",
