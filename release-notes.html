@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Release Notes — VortexLauncher</title>
+  <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div class="ambient"></div>
+  <canvas id="vortex-canvas"></canvas>
+
+    <header id="siteHeader">
+    <div class="wrap nav-container">
+      <a href="index.html" class="brand">
+        <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="VortexLauncher Logo">
+        <span class="brand-text">VORTEXLAUNCHER</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link " data-i18n="nav_home">Home</a>
+        <a href="news.html" class="nav-link " data-i18n="nav_news">News</a>
+        <a href="release-notes.html" class="nav-link active" data-i18n="nav_changelog">Changelog</a>
+        <a href="features.html" class="nav-link " data-i18n="nav_features">Features</a>
+        <a href="support.html" class="nav-link " data-i18n="nav_support">Support</a>
+        <a href="socials.html" class="nav-link " data-i18n="nav_socials">Socials</a>
+        <a href="store.html" class="nav-link " data-i18n="nav_store">Store</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector">
+          <button class="lang-btn-current" id="langToggle">
+            <i class="fa-solid fa-globe"></i>
+            <span id="currentLangLabel">EN</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+            <button class="lang-btn" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="lang-btn" data-lang="pl">🇵🇱 Polski</button>
+          </div>
+        </div>
+
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
+          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
+          <span id="headerCr">250</span> CR
+        </a>
+        <a href="download.html" class="btn btn-primary nav-dl-btn">
+          <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html" class="nav-link " data-i18n="nav_home">Home</a>
+      <a href="news.html" class="nav-link " data-i18n="nav_news">News</a>
+      <a href="release-notes.html" class="nav-link active" data-i18n="nav_changelog">Changelog</a>
+      <a href="features.html" class="nav-link " data-i18n="nav_features">Features</a>
+      <a href="support.html" class="nav-link " data-i18n="nav_support">Support</a>
+      <a href="socials.html" class="nav-link " data-i18n="nav_socials">Socials</a>
+      <a href="store.html" class="nav-link " data-i18n="nav_store">Store</a>
+      <a href="download.html" class="nav-link highlight " data-i18n="nav_download">Download</a>
+    </div>
+  </header>
+
+  <main class="wrap reveal" style="padding: 80px 0;">
+    <div style="text-align:center; max-width:800px; margin:0 auto 60px;">
+      <span class="badge-glow" data-i18n="nav_release_notes">RELEASE NOTES</span>
+      <h1 style="font-size:3.2rem; font-weight:900; margin-bottom:18px;">VortexLauncher Changelog</h1>
+      <p style="color:var(--text-sub); font-size:1.1rem;">Full history of improvements, bug fixes, and feature additions.</p>
+    </div>
+
+    <div style="max-width:800px; margin:0 auto; background:rgba(15,20,32,0.6); border:1px solid var(--border); border-radius:20px; padding:40px; backdrop-filter:blur(20px);">
+      <h2 style="color:var(--primary); font-weight:900; margin-bottom:16px;">v3.0.0 — Major Release</h2>
+      <ul style="color:var(--text-sub); line-height:1.8; margin-left:20px;">
+        <li>Rebranded to VortexLauncher with complete visual overhaul.</li>
+        <li>Added multi-language support: English (EN), Turkish (TR), and Polish (PL).</li>
+        <li>Enhanced 3D particle canvas and Lunar Client inspired glassmorphism styling.</li>
+        <li>Upgraded performance mods pipeline supporting Minecraft 1.8.9 through 1.21.4.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-bottom">
+        <span data-i18n="footer_text">© 2026 VortexLauncher. The Next Generation Minecraft Launcher.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vortex-credits.js"></script>
+  <script src="site-translations.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download VortexLauncher — MultiOS Support</title>
+  <meta name="description" content="Download VortexLauncher for Windows, macOS, and Linux. Built-in mods, high FPS optimization, and custom cosmetics.">
+  <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div class="mc-hero-art"></div>
+  <canvas id="vortex-canvas"></canvas>
+
+    <header id="siteHeader">
+    <div class="wrap nav-container">
+      <a href="index.html" class="brand">
+        <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="VortexLauncher Logo">
+        <span class="brand-text">VORTEXLAUNCHER</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link " data-i18n="nav_home">Home</a>
+        <a href="news.html" class="nav-link " data-i18n="nav_news">News</a>
+        <a href="release-notes.html" class="nav-link " data-i18n="nav_changelog">Changelog</a>
+        <a href="features.html" class="nav-link " data-i18n="nav_features">Features</a>
+        <a href="support.html" class="nav-link " data-i18n="nav_support">Support</a>
+        <a href="socials.html" class="nav-link " data-i18n="nav_socials">Socials</a>
+        <a href="store.html" class="nav-link " data-i18n="nav_store">Store</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector">
+          <button class="lang-btn-current" id="langToggle">
+            <i class="fa-solid fa-globe"></i>
+            <span id="currentLangLabel">EN</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+            <button class="lang-btn" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="lang-btn" data-lang="pl">🇵🇱 Polski</button>
+          </div>
+        </div>
+
+        <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
+          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
+          <span id="headerCr">250</span> CR
+        </a>
+        <a href="download.html" class="btn btn-primary nav-dl-btn">
+          <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html" class="nav-link " data-i18n="nav_home">Home</a>
+      <a href="news.html" class="nav-link " data-i18n="nav_news">News</a>
+      <a href="release-notes.html" class="nav-link " data-i18n="nav_changelog">Changelog</a>
+      <a href="features.html" class="nav-link " data-i18n="nav_features">Features</a>
+      <a href="support.html" class="nav-link " data-i18n="nav_support">Support</a>
+      <a href="socials.html" class="nav-link " data-i18n="nav_socials">Socials</a>
+      <a href="store.html" class="nav-link " data-i18n="nav_store">Store</a>
+      <a href="download.html" class="nav-link highlight active" data-i18n="nav_download">Download</a>
+    </div>
+  </header>
+
+  <main class="wrap reveal" style="padding: 80px 0;">
+    <div style="text-align:center; max-width:800px; margin:0 auto 60px;">
+      <span style="font-size:0.85rem; font-weight:800; color:var(--primary); text-transform:uppercase; letter-spacing:1.5px;" data-i18n="nav_download">FREE DOWNLOAD</span>
+      <h1 style="font-size:3.2rem; font-weight:900; margin:12px 0;">Download VortexLauncher</h1>
+      <p style="color:var(--text-sub); font-size:1.1rem; line-height:1.7;">Windows, macOS, and Linux support! Choose your operating system below to begin.</p>
+    </div>
+
+    <div class="news-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <!-- WINDOWS -->
+      <div class="news-card" style="text-align:center;">
+        <div style="font-size:2.5rem; color:var(--primary); margin-bottom:16px;"><i class="fa-brands fa-windows"></i></div>
+        <h3 class="news-title">Windows</h3>
+        <p class="news-desc">Windows 10 / 11 (64-bit setup executable)</p>
+        <a href="javascript:void(0)" onclick="alert('VortexLauncher Setup download starting...')" class="btn btn-primary" style="width:100%;">
+          <i class="fa-solid fa-download"></i> Download Windows
+        </a>
+      </div>
+
+      <!-- MACOS -->
+      <div class="news-card" style="text-align:center;">
+        <div style="font-size:2.5rem; color:var(--secondary); margin-bottom:16px;"><i class="fa-brands fa-apple"></i></div>
+        <h3 class="news-title">macOS</h3>
+        <p class="news-desc">macOS 11+ (Universal Intel &amp; Apple Silicon DMG)</p>
+        <a href="javascript:void(0)" onclick="alert('VortexLauncher DMG download starting...')" class="btn btn-secondary" style="width:100%;">
+          <i class="fa-solid fa-download"></i> Download macOS
+        </a>
+      </div>
+
+      <!-- LINUX -->
+      <div class="news-card" style="text-align:center;">
+        <div style="font-size:2.5rem; color:var(--accent-cyan); margin-bottom:16px;"><i class="fa-brands fa-linux"></i></div>
+        <h3 class="news-title">Linux</h3>
+        <p class="news-desc">AppImage / Flatpak / Debian packages</p>
+        <a href="javascript:void(0)" onclick="alert('VortexLauncher AppImage download starting...')" class="btn btn-secondary" style="width:100%;">
+          <i class="fa-solid fa-download"></i> Download Linux
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-bottom">
+        <span data-i18n="footer_text">© 2026 VortexLauncher. Not affiliated with Mojang AB or Microsoft.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vortex-credits.js"></script>
+  <script src="site-translations.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
