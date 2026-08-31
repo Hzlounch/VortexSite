@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vortex Features</title>
+  <title>Features — Vortex Client</title>
+  <meta name="description" content="Explore Vortex Client features: PvP keystrokes, CPS tracker, OptiFine performance boost, crosshair editor, and built-in cosmetics.">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
@@ -12,12 +13,14 @@
   <div class="ambient"></div>
   <canvas id="vortex-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></canvas>
 
+  <!-- NAVIGATION -->
   <header id="siteHeader">
     <div class="wrap nav-container">
       <a href="index.html" class="brand">
         <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client Logo">
         <span class="brand-text">VORTEX</span>
       </a>
+
       <nav class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="features.html" class="nav-link active">Features</a>
@@ -27,76 +30,138 @@
         <a href="news.html" class="nav-link">News</a>
         <a href="support.html" class="nav-link">Support</a>
       </nav>
+
       <div class="nav-actions">
-        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge"><i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> <span id="headerCr">250</span> CR</a>
+        <a href="store.html" class="credit-badge-btn glow-btn" id="navCreditBadge">
+          <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
+          <span id="headerCr">250</span> CR
+        </a>
+        <a href="download.html" class="nav-dl-btn glow-btn">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
       </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link active">Features</a>
+      <a href="download.html" class="nav-link">Download</a>
+      <a href="store.html" class="nav-link">Store</a>
+      <a href="socials.html" class="nav-link">Socials</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="support.html" class="nav-link">Support</a>
     </div>
   </header>
 
   <main>
     <section class="hero-section wrap reveal">
-      <h1 class="hero-title reveal-delay-1" style="font-size: 4rem; text-shadow: 0 0 40px rgba(0, 210, 255, 0.5);">
+      <div class="badge-glow floating-badge">
+        <i class="fa-solid fa-layer-group"></i> ALL-IN-ONE CLIENT
+      </div>
+      <h1 class="hero-title reveal-delay-1">
         Everything You <span class="gradient-text animated-gradient">Need</span>
       </h1>
-      <p class="hero-desc reveal-delay-2" style="font-size: 1.3rem;">
-        Vortex comes pre-packaged with all the top PvP, Survival, and Hypixel mods. No manual installations.
+      <p class="hero-desc reveal-delay-2">
+        Vortex comes pre-packaged with all top PvP, Survival, and Hypixel mods. No manual installations required.
       </p>
     </section>
 
-    <!-- ULTIMATE FEATURES GRID -->
-    <section class="wrap reveal reveal-delay-3" style="max-width: 1200px;">
-      <div class="ultimate-grid">
+    <!-- FEATURES GRID -->
+    <section class="wrap reveal reveal-delay-3" style="max-width: 1200px; padding-bottom: 100px;">
+      <div class="card-grid">
         
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4">
-          <div class="card-body">
-            <div class="badge-animated" style="background: linear-gradient(90deg, #3b82f6, #2563eb);">PVP MODS</div>
-            <h2 class="c-title" style="margin-top:20px;">Keystrokes & CPS</h2>
-            <p class="c-desc">Display your WASD, mouse clicks, and spacebar on screen in real-time. Fully customizable colors, Chroma RGB modes, and built-in CPS tracking for bridging.</p>
-            <i class="fa-solid fa-keyboard card-icon-huge"></i>
-          </div>
-        </article>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg"></div>
+          <div class="card-icon"><i class="fa-solid fa-keyboard"></i></div>
+          <h3 class="card-title">Keystrokes &amp; CPS Tracker</h3>
+          <p class="card-desc">Display WASD keys, mouse clicks, and spacebar in real-time. Includes Chroma RGB lighting effects and bridging CPS analytics.</p>
+        </div>
 
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4">
-          <div class="card-body">
-            <div class="badge-animated" style="background: linear-gradient(90deg, #10b981, #047857);">PERFORMANCE</div>
-            <h2 class="c-title" style="margin-top:20px;">OptiFine & FPS Boost</h2>
-            <p class="c-desc">Smart culling, optimized chunk loading, and built-in OptiFine integration. We guarantee double your frames compared to vanilla Minecraft.</p>
-            <i class="fa-solid fa-gauge-high card-icon-huge"></i>
-          </div>
-        </article>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg secondary"></div>
+          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-gauge-high"></i></div>
+          <h3 class="card-title">OptiFine &amp; Smart FPS Boost</h3>
+          <p class="card-desc">Smart culling, optimized chunk allocation, and native OptiFine shaders integration guaranteeing 2x frame rates.</p>
+        </div>
 
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4">
-          <div class="card-body">
-            <div class="badge-animated" style="background: linear-gradient(90deg, #f59e0b, #d97706);">CUSTOMIZATION</div>
-            <h2 class="c-title" style="margin-top:20px;">Crosshair Editor</h2>
-            <p class="c-desc">Design your own crosshair perfectly. Adjust thickness, gap, dot, dynamic coloring, and target highlighting when hovering over enemies.</p>
-            <i class="fa-solid fa-crosshairs card-icon-huge"></i>
-          </div>
-        </article>
-        
-        <article class="ultimate-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.4">
-          <div class="card-body">
-            <div class="badge-animated" style="background: linear-gradient(90deg, #8b5cf6, #6d28d9);">QOL MODS</div>
-            <h2 class="c-title" style="margin-top:20px;">ToggleSprint & Sneak</h2>
-            <p class="c-desc">Never hold the sprint key again. Automatically sprint and sneak with beautiful on-screen HUD status indicators.</p>
-            <i class="fa-solid fa-person-running card-icon-huge"></i>
-          </div>
-        </article>
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg gold"></div>
+          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-crosshairs"></i></div>
+          <h3 class="card-title">Dynamic Crosshair Editor</h3>
+          <p class="card-desc">Customize thickness, gap, dot, dynamic color changing, and enemy target highlighting.</p>
+        </div>
+
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg"></div>
+          <div class="card-icon"><i class="fa-solid fa-person-running"></i></div>
+          <h3 class="card-title">ToggleSprint &amp; Sneak</h3>
+          <p class="card-desc">Hold-free sprinting and sneaking with customizable on-screen HUD status indicators.</p>
+        </div>
+
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg secondary"></div>
+          <div class="card-icon" style="color:var(--secondary); border-color:var(--border-secondary);"><i class="fa-solid fa-shirt"></i></div>
+          <h3 class="card-title">Cosmetics &amp; Capes Sync</h3>
+          <p class="card-desc">Equip animated capes, holographic wings, and plasma halos visible to all Vortex players across all servers.</p>
+        </div>
+
+        <div class="feature-card" data-tilt>
+          <div class="card-glow-bg gold"></div>
+          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-sliders"></i></div>
+          <h3 class="card-title">Custom HUD Layouts</h3>
+          <p class="card-desc">Drag and drop any HUD element anywhere on screen with grid snapping and scaling options.</p>
+        </div>
 
       </div>
     </section>
   </main>
 
-  <!-- RE-USE THE SAME VORTEX CANVAS SCRIPT FOR BACKGROUND IF WANTED -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="brand">
+          <img class="brand-logo-img" src="vortex_logo_1787259818226 - Kopya - Kopya.jpg" alt="Vortex Client">
+          <span class="brand-text">VORTEX CLIENT</span>
+        </div>
+
+        <div class="footer-social-icons">
+          <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social-icon-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/Hzlounch" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social-icon-btn" title="Discord" style="color:#5865f2;"><i class="fa-brands fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Vortex Client. The Next Generation Minecraft Client.</span>
+        <div class="footer-links-row">
+          <a href="index.html">Home</a>
+          <a href="features.html">Features</a>
+          <a href="download.html">Download</a>
+          <a href="store.html">Store</a>
+          <a href="socials.html">Socials</a>
+          <a href="news.html">News</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
+  <script src="vortex-experience.js"></script>
   <script src="site.js"></script>
+
+  <!-- GALAXY CANVAS SCRIPT -->
   <script>
     const canvas = document.getElementById('vortex-canvas');
     if(canvas) {
       const ctx = canvas.getContext('2d');
-      let width, height;
-      let particles = [];
+      let width, height, particles = [];
       function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
       window.addEventListener('resize', resize); resize();
       class Particle {

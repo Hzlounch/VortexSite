@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VORTEX CLIENT — THE NEXT-GEN JAVASCRIPT LOGIC
+   VORTEX CLIENT — GLOBAL INTERACTIVITY & EVENT HANDLERS v2.5
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateHeaderCredits() {
     const el = document.getElementById('headerCr');
     if (el && window.VortexCredits) {
-      const w = VortexCredits.load();
+      const w = window.VortexCredits.load();
       el.innerText = w.credits || 0;
     }
   }
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < reveals.length; i++) {
       const windowHeight = window.innerHeight;
       const elementTop = reveals[i].getBoundingClientRect().top;
-      const elementVisible = 100;
+      const elementVisible = 80;
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add('active');
       }
@@ -54,42 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll(); // Trigger immediately on load
 
-  // 5. Initialize Particles.js (Premium Effect)
-  if (typeof particlesJS !== 'undefined') {
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: ["#00d2ff", "#7c5cff", "#10b981"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.1, width: 1 },
-        move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "bubble" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          bubble: { distance: 200, size: 6, duration: 2, opacity: 0.8, speed: 3 },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  }
-
-  // 6. Vanilla Tilt 3D Effect for Cards
+  // 5. Initialize VanillaTilt 3D Effect for Cards
   if (typeof VanillaTilt !== 'undefined') {
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-      max: 15,
+      max: 12,
       speed: 400,
       glare: true,
       "max-glare": 0.2,
-      scale: 1.05
+      scale: 1.02
     });
   }
 });
