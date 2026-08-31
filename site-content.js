@@ -24,7 +24,6 @@
     // Render on news.html
     const newsList = document.querySelector('.list') || document.querySelector('.news-grid');
     if (newsList && (location.pathname.endsWith('/news.html') || location.pathname.includes('news'))) {
-      // Clear initial static items if needed or append dynamically
       const existingManaged = newsList.querySelectorAll('.vortex-managed-news');
       existingManaged.forEach(el => el.remove());
 
@@ -63,13 +62,13 @@
   const loadAllNews = async () => {
     let combinedPosts = [];
 
-    // Local Storage News (added via web console or bot relay)
+    // Local Storage News (added via web console or bot relay / WebSocket / API)
     try {
       const localData = JSON.parse(localStorage.getItem('vortex_news_posts') || '[]');
       if (Array.isArray(localData)) combinedPosts.push(...localData);
     } catch (e) {}
 
-    // Static site-content.json file (updated via discord bot backend script)
+    // Static site-content.json file
     try {
       const res = await fetch('content/site-content.json', { cache: 'no-store' });
       if (res.ok) {
@@ -93,6 +92,41 @@
     uniquePosts.sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
 
     renderNewsToPage(uniquePosts);
+    return uniquePosts;
+  };
+
+  // Expose global API for Discord Bot and external integrations
+  window.VortexNewsAPI = {
+    addPost: (post) => {
+      if (!post || !post.title) return false;
+      const newPost = {
+        id: post.id || 'bot-' + Date.now(),
+        title: post.title,
+        category: post.category || 'ANNOUNCEMENT',
+        summary: post.summary || '',
+        body: post.body || post.summary || '',
+        publishedAt: post.publishedAt || new Date().toISOString(),
+        author: post.author || 'Vortex Bot'
+      };
+
+      let existing = [];
+      try {
+        existing = JSON.parse(localStorage.getItem('vortex_news_posts') || '[]');
+      } catch (e) {}
+
+      existing.unshift(newPost);
+      localStorage.setItem('vortex_news_posts', JSON.stringify(existing));
+      loadAllNews();
+
+      // Dispatch custom event for real-time listeners
+      window.dispatchEvent(new CustomEvent('vortex:news-added', { detail: newPost }));
+      return true;
+    },
+    clearBotPosts: () => {
+      localStorage.removeItem('vortex_news_posts');
+      loadAllNews();
+    },
+    refresh: loadAllNews
   };
 
   // Inject Overlay CSS
