@@ -4,102 +4,60 @@
 
 const VORTEX_TRANSLATIONS = {
   en: {
-    // Navigation & Common
+    // Navigation
     nav_home: "Home",
-    nav_features: "Features",
-    nav_download: "Download",
-    nav_store: "Store",
-    nav_socials: "Socials",
     nav_news: "News",
+    nav_changelog: "Changelog",
+    nav_features: "Features",
     nav_support: "Support",
-    nav_release_notes: "Release Notes",
-    nav_perf_guide: "Performance Guide",
-    nav_download_btn: "Download Launcher",
+    nav_socials: "Socials",
+    nav_store: "Store",
+    nav_download: "Download",
+    nav_download_btn: "Download",
 
-    // Ticker / Banner
+    // Ticker
     ticker_text: "VORTEXLAUNCHER v3.0 IS HERE! UNLEASH MAXIMUM FPS & ZERO LATENCY COMPETITIVE MINECRAFT PLAY!",
 
-    // Hero Index
-    hero_badge: "VORTEXLAUNCHER v3.0 NOW LIVE",
-    hero_title_1: "The Ultimate Minecraft",
-    hero_title_2: "Launcher & Experience",
-    hero_desc: "Engineered for maximum FPS, zero-latency input response, built-in PvP mods, custom cosmetics, and seamless Minecraft version management.",
-    hero_btn_download: "Download Free for Windows",
-    hero_btn_features: "Explore Features",
-    mockup_active_profile: "ACTIVE PROFILE",
-    mockup_profile_title: "Competitive PvP (1.8.9 & 1.21.4)",
-    mockup_profile_desc: "OptiFine, Sodium, Keystrokes, CPS Counter, ToggleSprint, Dynamic Motion Blur, & Smart Culling active.",
-    mockup_launch: "Launch Game",
-    mockup_cr_free: "250 CR Free",
-    mockup_avg_fps: "AVERAGE FPS",
-    mockup_fps_boost: "+55% Performance Boost",
+    // Hero
+    lunar_hero_sub: "A launcher for all modern versions of Minecraft!",
 
-    // Stats
-    stat_fps: "AVERAGE FPS",
-    stat_mods: "BUILT-IN MODS",
-    stat_latency: "INPUT LATENCY",
-    stat_versions: "MC VERSIONS",
+    // 4-Grid Features
+    f_sub_1: "ONE DOWNLOAD TO LAUNCH",
+    f_title_1: "Single Install",
+    f_desc_1: "Launch all Minecraft versions seamlessly from 1.8.9 to 1.21.4 with one setup.",
+    f_sub_2: "60+ MODIFICATIONS",
+    f_title_2: "Countless Mods",
+    f_desc_2: "Built-in Keystrokes, CPS counter, Reach display, and OptiFine / Sodium mods.",
+    f_sub_3: "MORE THAN 2X",
+    f_title_3: "Boosted Frames",
+    f_desc_3: "Custom GPU pipeline and JVM optimizations for maximum framerates.",
+    f_sub_4: "WINDOWS, MACOS, LINUX",
+    f_title_4: "MultiOS Support",
+    f_desc_4: "Native launcher binaries built for Windows 10/11, macOS Apple Silicon/Intel, and Linux.",
 
-    // FPS Comparison
-    fps_badge: "Benchmark Telemetry",
-    fps_title: "Boosted Frames. Zero Lag.",
-    fps_desc: "Our tailored GPU pipeline and customized JVM memory allocations ensure steady, unthrottled performance during intense Bedwars, PotPvP, and Survival games.",
-    fps_vortex: "VortexLauncher v3.0",
-    fps_lunar: "Lunar Client (Fabric)",
-    fps_vanilla: "Vanilla Minecraft",
+    // Partner
+    partner_badge: "OFFICIAL HARDWARE & NETWORK PARTNER",
+    partner_title: "Vortex Performance Engine x Hardware Acceleration",
+    partner_desc: "Engineered for zero stuttering, instant chunk loading, and unthrottled competitive gameplay with low-latency GPU pipelines.",
+    partner_btn: "Experience Vortex",
 
-    // Features Section
-    pillars_badge: "ALL-IN-ONE LAUNCHER",
-    pillars_title: "Everything You Need, Built-In",
-    f1_title: "PvP & Combat Enhancements",
-    f1_desc: "Keystrokes, CPS Monitor, Combo Tracker, Reach Display, and ToggleSprint tuned for competitive superiority.",
-    f2_title: "Built-In Cosmetics & Capes",
-    f2_desc: "Equip Quantum Capes, Cyber Wings, Plasma Halos, and particle auras directly visible to all VortexLauncher players.",
-    f3_title: "Vortex Credits Economy",
-    f3_desc: "Get 250 CR on first launch. Buy credits, send transfer codes, and unlock exclusive rewards with no pay-to-win mechanics.",
+    // News
+    news_badge: "LATEST UPDATES",
+    news_grid_title: "Client News & Announcements",
 
-    // Download Page
-    dl_title: "Download VortexLauncher",
-    dl_subtitle: "Available for Windows, macOS, and Linux. Choose your operating system below to begin your high-performance Minecraft experience.",
-    dl_win: "Download for Windows",
-    dl_mac: "Download for macOS",
-    dl_linux: "Download for Linux",
-    dl_sys_req: "System Requirements",
-    dl_req_min: "Minimum: 64-bit OS, 4GB RAM, Java 17+",
-    dl_req_rec: "Recommended: 8GB+ RAM, Dedicated GPU, SSD Storage",
+    // CTA
+    cta_desc: "Boosted frames, all the popular mods, multi OS support, and completely free! So what are you waiting for - Download today!",
 
-    // Features Page
-    feat_hero_title: "Next-Gen Features for Gamers",
-    feat_hero_desc: "Packed with over 60+ customizable mods, performance boosters, and visual enhancements.",
-    feat_fps_opt: "FPS Optimization Core",
-    feat_fps_opt_desc: "Sodium, Lithium, and custom Culling algorithms integrated out of the box for double the framerate.",
-    feat_mods: "Custom PvP Mods",
-    feat_mods_desc: "Keystrokes, Armor Status, Direction HUD, Auto GG, and CPS Counter all fully customizable.",
-    feat_cosmetics: "3D Cosmetics & Capes",
-    feat_cosmetics_desc: "Stand out with animated capes, wings, hats, and trail effects synced across the Vortex network.",
-    feat_profiles: "Cloud Profiles & Launching",
-    feat_profiles_desc: "Save your settings to the cloud and launch any version from 1.8.9 to 1.21.4 in seconds.",
-
-    // Store Page
+    // Store
     store_title: "VortexLauncher Store",
     store_subtitle: "Enhance your appearance with exclusive capes, halos, wings, and cosmetics.",
     store_balance: "Your Balance",
     store_buy_cr: "Buy Credits",
-    store_redeem: "Redeem Code",
     store_item_buy: "Equip / Buy",
 
-    // Socials Page
-    socials_title: "Join Our Community",
-    socials_subtitle: "Connect with thousands of VortexLauncher players, stay updated on new releases, and get support.",
-
-    // News & Release Notes Page
-    news_title: "VortexLauncher News & Updates",
-    news_subtitle: "Stay tuned with the latest patch notes, feature updates, and community announcements.",
-
-    // Support Page
+    // Support
     support_title: "Vortex Support Center",
     support_subtitle: "Have a question or running into an issue? We are here to help you get the best experience.",
-    support_faq: "Frequently Asked Questions",
     support_q1: "How do I install VortexLauncher?",
     support_a1: "Simply download the installer for your OS from our Download page and run the setup file.",
     support_q2: "Is VortexLauncher free to use?",
@@ -107,107 +65,64 @@ const VORTEX_TRANSLATIONS = {
     support_contact: "Contact Support",
 
     // Footer
-    footer_text: "© 2026 VortexLauncher. The Next Generation Minecraft Launcher.",
-    footer_rights: "All rights reserved. Not affiliated with Mojang AB or Microsoft."
+    footer_text: "© 2026 VortexLauncher. Not affiliated with Mojang AB or Microsoft."
   },
 
   tr: {
-    // Navigation & Common
+    // Navigation
     nav_home: "Anasayfa",
-    nav_features: "Özellikler",
-    nav_download: "İndir",
-    nav_store: "Mağaza",
-    nav_socials: "Sosyal Medya",
     nav_news: "Haberler",
+    nav_changelog: "Sürüm Notları",
+    nav_features: "Özellikler",
     nav_support: "Destek",
-    nav_release_notes: "Sürüm Notları",
-    nav_perf_guide: "Performans Rehberi",
-    nav_download_btn: "Launcher'ı İndir",
+    nav_socials: "Sosyal Medya",
+    nav_store: "Mağaza",
+    nav_download: "İndir",
+    nav_download_btn: "İndir",
 
-    // Ticker / Banner
+    // Ticker
     ticker_text: "VORTEXLAUNCHER v3.0 YAYINDA! MAKSİMUM FPS VE SIFIR GECİKME İLE MİNECRAFT KEYFİNİ ÇIKARIN!",
 
-    // Hero Index
-    hero_badge: "VORTEXLAUNCHER v3.0 CANLI",
-    hero_title_1: "Üstün Minecraft",
-    hero_title_2: "Başlatıcı ve Deneyim",
-    hero_desc: "Maksimum FPS, sıfır gecikmeli girdi yanıtı, yerleşik PvP modları, özel kozmetikler ve kesintisiz Minecraft sürüm yönetimi için tasarlandı.",
-    hero_btn_download: "Windows İçin Ücretsiz İndir",
-    hero_btn_features: "Özellikleri Keşfet",
-    mockup_active_profile: "AKTİF PROFİL",
-    mockup_profile_title: "Rekabetçi PvP (1.8.9 & 1.21.4)",
-    mockup_profile_desc: "OptiFine, Sodium, Keystrokes, CPS Sayacı, ToggleSprint, Dinamik Hareket Bulanıklığı ve Akıllı Ayıklama aktif.",
-    mockup_launch: "Oyunu Başlat",
-    mockup_cr_free: "250 CR Ücretsiz",
-    mockup_avg_fps: "ORTALAMA FPS",
-    mockup_fps_boost: "+%55 Performans Artışı",
+    // Hero
+    lunar_hero_sub: "Minecraft'ın tüm modern sürümleri için tek bir başlatıcı!",
 
-    // Stats
-    stat_fps: "ORTALAMA FPS",
-    stat_mods: "DAHİLİ MODLAR",
-    stat_latency: "GİRDİ GECİKMESİ",
-    stat_versions: "MC SÜRÜMLERİ",
+    // 4-Grid Features
+    f_sub_1: "TEK İNDİRME İLE BAŞLATIN",
+    f_title_1: "Tek Kurulum",
+    f_desc_1: "1.8.9'dan 1.21.4'e kadar tüm Minecraft sürümlerini tek kurulumla oynayın.",
+    f_sub_2: "60+ MOD VE ÖZELLİK",
+    f_title_2: "Sayısız Mod",
+    f_desc_2: "Dahili Keystrokes, CPS sayacı, Reach göstergesi ve OptiFine / Sodium modları.",
+    f_sub_3: "2 KATINDAN FAZLA",
+    f_title_3: "Yüksek FPS",
+    f_desc_3: "Maksimum kare hızları için özel GPU işlem hattı ve JVM optimizasyonları.",
+    f_sub_4: "WINDOWS, MACOS, LINUX",
+    f_title_4: "Çoklu İşletim Sistemi",
+    f_desc_4: "Windows 10/11, macOS Apple Silicon/Intel ve Linux için yerel başlatıcı.",
 
-    // FPS Comparison
-    fps_badge: "Performans Testi",
-    fps_title: "Yüksek Kare Hızı. Sıfır Kasma.",
-    fps_desc: "Özel GPU işlem hattımız ve özelleştirilmiş JVM bellek tahsislerimiz, yoğun Bedwars, PotPvP ve Hayatta Kalma oyunlarında kesintisiz performans sağlar.",
-    fps_vortex: "VortexLauncher v3.0",
-    fps_lunar: "Lunar Client (Fabric)",
-    fps_vanilla: "Orijinal Minecraft",
+    // Partner
+    partner_badge: "RESMİ DONANIM VE AĞ ORTAĞI",
+    partner_title: "Vortex Performans Motoru x Donanım Hızlandırma",
+    partner_desc: "Düşük gecikmeli GPU işlem hatlarıyla kesintisiz, anında harita yükleme ve takılmasız oyun deneyimi.",
+    partner_btn: "Vortex'i Deneyimleyin",
 
-    // Features Section
-    pillars_badge: "HEPSİ BİR ARADA BAŞLATICI",
-    pillars_title: "İhtiyacınız Olan Her Şey Dahil",
-    f1_title: "PvP & Savaş Geliştirmeleri",
-    f1_desc: "Rekabetçi üstünlük için tasarlanmış Keystrokes, CPS Monitörü, Kombo Takipçisi ve ToggleSprint.",
-    f2_title: "Dahili Kozmetikler & Pelerinler",
-    f2_desc: "Tüm VortexLauncher oyuncuları tarafından görülebilen Kuantum Pelerinler, Siber Kanatlar ve Plazma Halolar takın.",
-    f3_title: "Vortex Kredisi Ekonomisi",
-    f3_desc: "İlk açılışta 250 CR kazanın. Kredi satın alın, transfer kodları gönderin ve özel ödüllerin kilidini açın.",
+    // News
+    news_badge: "SON GÜNCELLEMELER",
+    news_grid_title: "Başlatıcı Haberleri ve Duyurular",
 
-    // Download Page
-    dl_title: "VortexLauncher İndir",
-    dl_subtitle: "Windows, macOS ve Linux için mevcuttur. Yüksek performanslı Minecraft deneyiminize başlamak için işletim sisteminizi seçin.",
-    dl_win: "Windows İçin İndir",
-    dl_mac: "macOS İçin İndir",
-    dl_linux: "Linux İçin İndir",
-    dl_sys_req: "Sistem Gereksinimleri",
-    dl_req_min: "Minimum: 64-bit İşletim Sistemi, 4GB RAM, Java 17+",
-    dl_req_rec: "Önerilen: 8GB+ RAM, Harici Ekran Kartı, SSD Depolama",
+    // CTA
+    cta_desc: "Yüksek FPS, en popüler modlar, çoklu işletim sistemi desteği ve tamamen ücretsiz! Daha ne bekliyorsunuz - Hemen indirin!",
 
-    // Features Page
-    feat_hero_title: "Oyuncular İçin Yeni Nesil Özellikler",
-    feat_hero_desc: "60'tan fazla özelleştirilebilir mod, performans artırıcılar ve görsel iyileştirmelerle donatıldı.",
-    feat_fps_opt: "FPS Optimizasyon Çekirdeği",
-    feat_fps_opt_desc: "Çift kat kare hızı için varsayılan olarak entegre edilmiş Sodium, Lithium ve özel Culling algoritmaları.",
-    feat_mods: "Özel PvP Modları",
-    feat_mods_desc: "Keystrokes, Zırh Durumu, Yön HUD, Auto GG ve CPS Sayacı tamamen özelleştirilebilir.",
-    feat_cosmetics: "3D Kozmetikler & Pelerinler",
-    feat_cosmetics_desc: "Vortex ağındaki herkesle senkronize hareketli pelerinler, kanatlar ve şapkalarla öne çıkın.",
-    feat_profiles: "Bulut Profilleri & Başlatma",
-    feat_profiles_desc: "Ayarlarınızı buluta kaydedin ve 1.8.9'dan 1.21.4'e kadar her sürümü saniyeler içinde başlatın.",
-
-    // Store Page
+    // Store
     store_title: "VortexLauncher Mağazası",
     store_subtitle: "Özel pelerinler, halolar, kanatlar ve kozmetiklerle görünümünüzü özelleştirin.",
     store_balance: "Bakiyeniz",
     store_buy_cr: "Kredi Satın Al",
-    store_redeem: "Kupon Kodu Kullan",
     store_item_buy: "Kullan / Satın Al",
 
-    // Socials Page
-    socials_title: "Topluluğumuza Katılın",
-    socials_subtitle: "Binlerce VortexLauncher oyuncusuyla iletişim kurun, güncellemelerden haberdar olun ve destek alın.",
-
-    // News & Release Notes Page
-    news_title: "VortexLauncher Haberler & Güncellemeler",
-    news_subtitle: "En son yama notları, özellik güncellemeleri ve topluluk duyurularından haberdar olun.",
-
-    // Support Page
+    // Support
     support_title: "Vortex Destek Merkezi",
     support_subtitle: "Bir sorunuz mu var veya bir sorunla mı karşılaştınız? En iyi deneyimi yaşamanız için buradayız.",
-    support_faq: "Sıkça Sorulan Sorular",
     support_q1: "VortexLauncher'ı nasıl kurarım?",
     support_a1: "İndirme sayfamızdan işletim sisteminize uygun kurulum dosyasını indirin ve çalıştırın.",
     support_q2: "VortexLauncher ücretsiz mi?",
@@ -215,107 +130,64 @@ const VORTEX_TRANSLATIONS = {
     support_contact: "Destekle İletişime Geçin",
 
     // Footer
-    footer_text: "© 2026 VortexLauncher. Yeni Nesil Minecraft Başlatıcısı.",
-    footer_rights: "Tüm hakları saklıdır. Mojang AB veya Microsoft ile bağlantılı değildir."
+    footer_text: "© 2026 VortexLauncher. Mojang AB veya Microsoft ile bağlantılı değildir."
   },
 
   pl: {
-    // Navigation & Common
+    // Navigation
     nav_home: "Strona Główna",
-    nav_features: "Funkcje",
-    nav_download: "Pobierz",
-    nav_store: "Sklep",
-    nav_socials: "Społeczność",
     nav_news: "Wiadomości",
+    nav_changelog: "Lista Zmian",
+    nav_features: "Funkcje",
     nav_support: "Pomoc",
-    nav_release_notes: "Lista Zmian",
-    nav_perf_guide: "Poradnik Wydajności",
-    nav_download_btn: "Pobierz Launcher",
+    nav_socials: "Społeczność",
+    nav_store: "Sklep",
+    nav_download: "Pobierz",
+    nav_download_btn: "Pobierz",
 
-    // Ticker / Banner
+    // Ticker
     ticker_text: "VORTEXLAUNCHER v3.0 JEST JUŻ DOSTĘPNY! ODBLOKUJ MAKSYMALNE FPS I ZERO OPÓŹNIEŃ W MINECRAFT!",
 
-    // Hero Index
-    hero_badge: "VORTEXLAUNCHER v3.0 DOKONANY",
-    hero_title_1: "Najlepszy Minecraft",
-    hero_title_2: "Launcher i Doświadczenie",
-    hero_desc: "Zaprojektowany z myślą o maksymalnej liczbie klatek na sekundę, braku opóźnień, wbudowanych modach PvP i płynnym zarządzaniu wersjami Minecraft.",
-    hero_btn_download: "Pobierz za Darmo dla Windows",
-    hero_btn_features: "Odkryj Funkcje",
-    mockup_active_profile: "AKTYWNY PROFIL",
-    mockup_profile_title: "Turniejowy PvP (1.8.9 i 1.21.4)",
-    mockup_profile_desc: "OptiFine, Sodium, Keystrokes, Licznik CPS, ToggleSprint, Dynamiczne Rozmycie Ruchu i Inteligentne Optymalizacje.",
-    mockup_launch: "Uruchom Grę",
-    mockup_cr_free: "250 CR Gratis",
-    mockup_avg_fps: "ŚREDNIE FPS",
-    mockup_fps_boost: "+55% Wzrost Wydajności",
+    // Hero
+    lunar_hero_sub: "Launcher dla wszystkich nowoczesnych wersji Minecrafta!",
 
-    // Stats
-    stat_fps: "ŚREDNIE FPS",
-    stat_mods: "WBUDOWANE MODY",
-    stat_latency: "OPÓŹNIENIE WEJŚCIA",
-    stat_versions: "WERSJE MC",
+    // 4-Grid Features
+    f_sub_1: "JEDNO POBRANIE ABY URUCHOMIĆ",
+    f_title_1: "Pojedyncza Instalacja",
+    f_desc_1: "Uruchamiaj wszystkie wersje Minecrafta od 1.8.9 do 1.21.4 za pomocą jednego programu.",
+    f_sub_2: "PONAD 60 MODYFIKACJI",
+    f_title_2: "Mody Baza",
+    f_desc_2: "Wbudowany Keystrokes, licznik CPS, wskaźnik Zasięgu oraz mody OptiFine i Sodium.",
+    f_sub_3: "PONAD 2X WIĘCEJ FPS",
+    f_title_3: "Zwiększone FPS",
+    f_desc_3: "Zoptymalizowany silnik GPU oraz pamięć JVM dla maksymalnych klatek na sekundę.",
+    f_sub_4: "WINDOWS, MACOS, LINUX",
+    f_title_4: "Wsparcie MultiOS",
+    f_desc_4: "Dedykowane wersje launchera dla systemów Windows 10/11, macOS oraz Linux.",
 
-    // FPS Comparison
-    fps_badge: "Wyniki Wydajności",
-    fps_title: "Więcej Klatek. Zero Lagów.",
-    fps_desc: "Nasz zoptymalizowany silnik GPU oraz dostosowane alokacje pamięci JVM zapewniają stabilną i płynną rozgrywkę w Bedwars i PvP.",
-    fps_vortex: "VortexLauncher v3.0",
-    fps_lunar: "Lunar Client (Fabric)",
-    fps_vanilla: "Standardowy Minecraft",
+    // Partner
+    partner_badge: "OFICJALNY PARTNER SPRZĘTOWY",
+    partner_title: "Silnik Wydajności Vortex x Akceleracja Sprzętowa",
+    partner_desc: "Zaprojektowany do płynnej gry, natychmiastowego ładowania świata i braku lagów.",
+    partner_btn: "Wypróbuj Vortex",
 
-    // Features Section
-    pillars_badge: "KOMPLETNY LAUNCHER",
-    pillars_title: "Wszystko, Czego Potrzebujesz",
-    f1_title: "Ulepszenia PvP i Walki",
-    f1_desc: "Keystrokes, Monitor CPS, Licznik Combo, Wskaźnik Zasięgu i ToggleSprint stworzone do rywalizacji.",
-    f2_title: "Wbudowane Kosmetyki i Peleryny",
-    f2_desc: "Załóż Peleryny Quantum, Cyber Skrzydła i Aureole Plasma widoczne dla wszystkich graczy VortexLauncher.",
-    f3_title: "Ekonomia Kredytów Vortex",
-    f3_desc: "Otrzymaj 250 CR na start. Kupuj kredyty, przesyłaj kody i odblokowuj wyjątkowe nagrody.",
+    // News
+    news_badge: "NAJNOWSZE AKTUALIZACJE",
+    news_grid_title: "Wiadomości i Ogłoszenia Launchera",
 
-    // Download Page
-    dl_title: "Pobierz VortexLauncher",
-    dl_subtitle: "Dostępne dla systemów Windows, macOS oraz Linux. Wybierz swój system operacyjny, aby rozpocząć płynną grę.",
-    dl_win: "Pobierz dla Windows",
-    dl_mac: "Pobierz dla macOS",
-    dl_linux: "Pobierz dla Linux",
-    dl_sys_req: "Wymagania Systemowe",
-    dl_req_min: "Minimalne: System 64-bit, 4GB RAM, Java 17+",
-    dl_req_rec: "Zalecane: 8GB+ RAM, Dedykowana Karta Graficzna, Dysk SSD",
+    // CTA
+    cta_desc: "Więcej FPS, popularne mody, wsparcie wielu systemów i całkowicie za darmo! Pobierz już dziś!",
 
-    // Features Page
-    feat_hero_title: "Nowoczesne Funkcje dla Graczy",
-    feat_hero_desc: "Ponad 60 konfigurowalnych modów, optymalizacje wydajności i ulepszenia wizualne.",
-    feat_fps_opt: "Rdzeń Optymalizacji FPS",
-    feat_fps_opt_desc: "Sodium, Lithium oraz autorskie algorytmy cullingowe podwajające liczbę klatek na sekundę.",
-    feat_mods: "Mody PvP",
-    feat_mods_desc: "Keystrokes, Stan Pancerza, Kompas HUD, Auto GG oraz Licznik CPS z pełną personalizacją.",
-    feat_cosmetics: "Kosmetyki 3D i Peleryny",
-    feat_cosmetics_desc: "Wyróżnij się animowanymi pelerynami, skrzydłami i czapkami zsynchronizowanymi w sieci Vortex.",
-    feat_profiles: "Profile w Chmurze",
-    feat_profiles_desc: "Zapisuj swoje ustawienia w chmurze i uruchamiaj dowolną wersję od 1.8.9 do 1.21.4 w kilka sekund.",
-
-    // Store Page
+    // Store
     store_title: "Sklep VortexLauncher",
     store_subtitle: "Dostosuj swój wygląd dzięki wyjątkowym pelerynom, skrzydłom i efektom.",
     store_balance: "Twoje Saldo",
     store_buy_cr: "Kup Kredyty",
-    store_redeem: "Użyj Kodu",
     store_item_buy: "Załóż / Kup",
 
-    // Socials Page
-    socials_title: "Dołącz do Społeczności",
-    socials_subtitle: "Połącz się z tysiącami graczy VortexLauncher, bądź na bieżąco z aktualizacjami i uzyskaj pomoc.",
-
-    // News & Release Notes Page
-    news_title: "Wiadomości i Aktualizacje VortexLauncher",
-    news_subtitle: "Bądź na bieżąco z najnowszymi informacjami i zapowiedziami.",
-
-    // Support Page
+    // Support
     support_title: "Centrum Pomocy Vortex",
     support_subtitle: "Masz pytanie lub napotkałeś problem? Jesteśmy tutaj, aby Ci pomóc.",
-    support_faq: "Często Zadawane Pytania",
     support_q1: "Jak zainstalować VortexLauncher?",
     support_a1: "Pobierz instalator dla swojego systemu z naszej strony pobierania i uruchom plik instalacyjny.",
     support_q2: "Czy VortexLauncher jest darmowy?",
@@ -323,8 +195,7 @@ const VORTEX_TRANSLATIONS = {
     support_contact: "Skontaktuj się z Pomocą",
 
     // Footer
-    footer_text: "© 2026 VortexLauncher. Launcher Minecraft Nowej Generacji.",
-    footer_rights: "Wszelkie prawa zastrzeżone. Niezwiązany z Mojang AB ani Microsoft."
+    footer_text: "© 2026 VortexLauncher. Niezwiązany z Mojang AB ani Microsoft."
   }
 };
 
@@ -353,12 +224,10 @@ window.VortexI18n = {
       }
     });
 
-    // Update active state on language switcher elements
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    // Dispatch custom event if scripts want to listen
     window.dispatchEvent(new CustomEvent('vortex-lang-change', { detail: { lang } }));
   }
 };

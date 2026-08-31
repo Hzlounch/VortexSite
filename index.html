@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VortexLauncher — The Next-Gen Minecraft Launcher & Client</title>
-  <meta name="description" content="VortexLauncher is a free all-in-one Minecraft launcher with built-in mods, maximum FPS optimization, cosmetics, and cross-platform support.">
+  <title>VortexLauncher — A Modpack for All Modern Versions of Minecraft</title>
+  <meta name="description" content="VortexLauncher is a free all-in-one Minecraft launcher with built-in mods, high FPS optimization, cosmetics, and multiOS support.">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
@@ -12,7 +12,6 @@
 <body>
   <!-- MINECRAFT BACKGROUND ARTWORK -->
   <div class="mc-hero-art"></div>
-  <div class="ambient"></div>
   <canvas id="vortex-canvas"></canvas>
 
   <!-- NEWS TICKER BANNER -->
@@ -23,7 +22,7 @@
     </div>
   </div>
 
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION BAR (LUNAR CLIENT EXACT STRUCTURE) -->
   <header id="siteHeader">
     <div class="wrap nav-container">
       <a href="index.html" class="brand">
@@ -33,12 +32,12 @@
 
       <nav class="nav-links">
         <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a>
-        <a href="features.html" class="nav-link" data-i18n="nav_features">Features</a>
-        <a href="download.html" class="nav-link" data-i18n="nav_download">Download</a>
-        <a href="store.html" class="nav-link" data-i18n="nav_store">Store</a>
-        <a href="socials.html" class="nav-link" data-i18n="nav_socials">Socials</a>
         <a href="news.html" class="nav-link" data-i18n="nav_news">News</a>
+        <a href="release-notes.html" class="nav-link" data-i18n="nav_changelog">Changelog</a>
+        <a href="features.html" class="nav-link" data-i18n="nav_features">Features</a>
         <a href="support.html" class="nav-link" data-i18n="nav_support">Support</a>
+        <a href="socials.html" class="nav-link" data-i18n="nav_socials">Socials</a>
+        <a href="store.html" class="nav-link" data-i18n="nav_store">Store</a>
       </nav>
 
       <div class="nav-actions">
@@ -60,166 +59,117 @@
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
           <span id="headerCr">250</span> CR
         </a>
-        <a href="download.html" class="nav-dl-btn">
-          <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download Launcher</span>
+        <a href="download.html" class="btn btn-primary" style="padding:10px 20px; font-size:0.85rem;">
+          <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
         </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileNav">
-      <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a>
-      <a href="features.html" class="nav-link" data-i18n="nav_features">Features</a>
-      <a href="download.html" class="nav-link" data-i18n="nav_download">Download</a>
-      <a href="store.html" class="nav-link" data-i18n="nav_store">Store</a>
-      <a href="socials.html" class="nav-link" data-i18n="nav_socials">Socials</a>
-      <a href="news.html" class="nav-link" data-i18n="nav_news">News</a>
-      <a href="support.html" class="nav-link" data-i18n="nav_support">Support</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section class="hero-section wrap reveal">
-      <div class="badge-glow">
-        <div class="dot-pulse"></div>
-        <span data-i18n="hero_badge">VORTEXLAUNCHER v3.0 NOW LIVE</span>
-      </div>
-
-      <h1 class="hero-title">
-        <span data-i18n="hero_title_1">The Ultimate Minecraft</span><br>
-        <span class="gradient-text" data-i18n="hero_title_2">Launcher &amp; Experience</span>
+    <!-- LUNAR HERO SECTION -->
+    <section class="lunar-hero wrap reveal">
+      <h1 class="lunar-hero-title">
+        VortexLauncher
       </h1>
-
-      <p class="hero-desc" data-i18n="hero_desc">
-        Engineered for maximum FPS, zero-latency input response, built-in PvP mods, custom cosmetics, and seamless Minecraft version management.
+      <p class="lunar-hero-sub" data-i18n="lunar_hero_sub">
+        A launcher for all modern versions of Minecraft!
       </p>
 
-      <div class="hero-buttons">
-        <a href="download.html" class="btn btn-primary">
-          <i class="fa-solid fa-download"></i> <span data-i18n="hero_btn_download">Download Free for Windows</span>
+      <div class="lunar-hero-btns">
+        <a href="download.html" class="btn btn-primary" style="padding:16px 36px; font-size:1.1rem;">
+          <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
         </a>
-        <a href="features.html" class="btn btn-secondary">
-          <i class="fa-solid fa-layer-group"></i> <span data-i18n="hero_btn_features">Explore Features</span>
+        <a href="store.html" class="btn btn-secondary" style="padding:16px 36px; font-size:1.1rem;">
+          <i class="fa-solid fa-store"></i> <span data-i18n="nav_store">Store</span>
         </a>
-      </div>
-
-      <!-- STATS COUNTER BAR -->
-      <div class="stats-bar">
-        <div class="stat-card">
-          <div class="stat-value">520+</div>
-          <div class="stat-label" data-i18n="stat_fps">AVERAGE FPS</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">60+</div>
-          <div class="stat-label" data-i18n="stat_mods">BUILT-IN MODS</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">0 ms</div>
-          <div class="stat-label" data-i18n="stat_latency">INPUT LATENCY</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">1.8.9 - 1.21.4</div>
-          <div class="stat-label" data-i18n="stat_versions">MC VERSIONS</div>
-        </div>
-      </div>
-
-      <!-- LAUNCHER DASHBOARD MOCKUP -->
-      <div class="hero-mockup-wrapper">
-        <div class="hero-mockup-inner">
-          <div class="mockup-top-bar">
-            <div class="mockup-dots">
-              <div class="mockup-dot red"></div>
-              <div class="mockup-dot yellow"></div>
-              <div class="mockup-dot green"></div>
-            </div>
-            <div class="mockup-title">VORTEXLAUNCHER · MISSION CONTROL v3.0</div>
-          </div>
-          <div class="mockup-content">
-            <div>
-              <span style="font-size:0.75rem; font-weight:800; color:var(--primary); letter-spacing:1px; text-transform:uppercase;" data-i18n="mockup_active_profile">ACTIVE PROFILE</span>
-              <h2 style="font-size:1.8rem; font-weight:900; color:#fff; margin:6px 0 10px;" data-i18n="mockup_profile_title">Competitive PvP (1.8.9 &amp; 1.21.4)</h2>
-              <p style="color:var(--text-sub); font-size:0.9rem; margin-bottom:20px;" data-i18n="mockup_profile_desc">OptiFine, Sodium, Keystrokes, CPS Counter, ToggleSprint, Dynamic Motion Blur, &amp; Smart Culling active.</p>
-              <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                <a href="download.html" class="btn btn-primary" style="padding:10px 22px; font-size:0.85rem;"><i class="fa-solid fa-play"></i> <span data-i18n="mockup_launch">Launch Game</span></a>
-                <a href="store.html" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;"><i class="fa-solid fa-coins"></i> <span data-i18n="mockup_cr_free">250 CR Free</span></a>
-              </div>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:18px; padding:24px; text-align:center;">
-              <div class="fps-counter" style="font-size:3.2rem; font-weight:900; color:var(--primary); text-shadow:0 0 30px var(--primary-glow);">520+</div>
-              <div style="font-size:0.85rem; font-weight:800; color:#fff; letter-spacing:1px;" data-i18n="mockup_avg_fps">AVERAGE FPS</div>
-              <div style="font-size:0.8rem; color:var(--accent-green); margin-top:6px;" data-i18n="mockup_fps_boost">+55% Performance Boost</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- FPS BENCHMARK COMPARISON -->
+    <!-- 4 FEATURE HIGHLIGHT CARDS (LUNAR 4-GRID) -->
     <section class="wrap reveal">
-      <div class="fps-box">
-        <div>
-          <span class="badge-glow"><i class="fa-solid fa-gauge-high"></i> <span data-i18n="fps_badge">Benchmark Telemetry</span></span>
-          <h2 style="font-size:2.2rem; font-weight:900; color:#fff; margin:12px 0;" data-i18n="fps_title">Boosted Frames. Zero Lag.</h2>
-          <p style="color:var(--text-sub); font-size:0.95rem; line-height:1.6;" data-i18n="fps_desc">Our tailored GPU pipeline and customized JVM memory allocations ensure steady, unthrottled performance during intense Bedwars, PotPvP, and Survival games.</p>
+      <div class="lunar-4grid">
+        <a href="features.html" class="lunar-card">
+          <div class="lunar-card-sub" data-i18n="f_sub_1">ONE DOWNLOAD TO LAUNCH</div>
+          <div class="lunar-card-title" data-i18n="f_title_1">Single Install</div>
+          <p style="color:var(--text-sub); font-size:0.9rem;" data-i18n="f_desc_1">Launch all Minecraft versions seamlessly from 1.8.9 to 1.21.4 with one setup.</p>
+        </a>
+
+        <a href="features.html" class="lunar-card">
+          <div class="lunar-card-sub" data-i18n="f_sub_2">60+ MODIFICATIONS</div>
+          <div class="lunar-card-title" data-i18n="f_title_2">Countless Mods</div>
+          <p style="color:var(--text-sub); font-size:0.9rem;" data-i18n="f_desc_2">Built-in Keystrokes, CPS counter, Reach display, and OptiFine / Sodium mods.</p>
+        </a>
+
+        <a href="features.html" class="lunar-card">
+          <div class="lunar-card-sub" data-i18n="f_sub_3">MORE THAN 2X</div>
+          <div class="lunar-card-title" data-i18n="f_title_3">Boosted Frames</div>
+          <p style="color:var(--text-sub); font-size:0.9rem;" data-i18n="f_desc_3">Custom GPU pipeline and JVM optimizations for maximum framerates.</p>
+        </a>
+
+        <a href="download.html" class="lunar-card">
+          <div class="lunar-card-sub" data-i18n="f_sub_4">WINDOWS, MACOS, LINUX</div>
+          <div class="lunar-card-title" data-i18n="f_title_4">MultiOS Support</div>
+          <p style="color:var(--text-sub); font-size:0.9rem;" data-i18n="f_desc_4">Native launcher binaries built for Windows 10/11, macOS Apple Silicon/Intel, and Linux.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- SPONSOR SHOWCASE (LUNAR APEX HOSTING STYLE) -->
+    <section class="wrap reveal">
+      <div class="partner-banner">
+        <div class="partner-text">
+          <span style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase; letter-spacing:1.5px;" data-i18n="partner_badge">OFFICIAL HARDWARE &amp; NETWORK PARTNER</span>
+          <h3 data-i18n="partner_title">Vortex Performance Engine x Hardware Acceleration</h3>
+          <p data-i18n="partner_desc">Engineered for zero stuttering, instant chunk loading, and unthrottled competitive gameplay with low-latency GPU pipelines.</p>
         </div>
-
         <div>
-          <div class="fps-bar-item">
-            <div class="fps-bar-info">
-              <span><i class="fa-solid fa-bolt" style="color:var(--primary);"></i> <span data-i18n="fps_vortex">VortexLauncher v3.0</span></span>
-              <span style="color:var(--primary); font-weight:900; font-size:1.1rem;">520 FPS</span>
-            </div>
-            <div class="fps-track"><div class="fps-fill-vortex animated-bar" style="width: 98%;"></div></div>
-          </div>
-
-          <div class="fps-bar-item">
-            <div class="fps-bar-info">
-              <span data-i18n="fps_lunar">Lunar Client (Fabric)</span>
-              <span style="color:#a855f7;">330 FPS</span>
-            </div>
-            <div class="fps-track"><div class="fps-fill-lunar animated-bar" style="width: 65%;"></div></div>
-          </div>
-
-          <div class="fps-bar-item" style="margin-bottom:0;">
-            <div class="fps-bar-info">
-              <span data-i18n="fps_vanilla">Vanilla Minecraft</span>
-              <span style="color:var(--text-muted);">115 FPS</span>
-            </div>
-            <div class="fps-track"><div class="fps-fill-vanilla animated-bar" style="width: 25%;"></div></div>
-          </div>
+          <a href="download.html" class="btn btn-primary">
+            <i class="fa-solid fa-bolt"></i> <span data-i18n="partner_btn">Experience Vortex</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE PILLARS -->
-    <section class="wrap reveal" style="padding:40px 0 80px;">
-      <div style="text-align:center; margin-bottom:50px;">
-        <span class="badge-glow" data-i18n="pillars_badge">ALL-IN-ONE LAUNCHER</span>
-        <h2 style="font-size:2.8rem; font-weight:900; color:#fff;" data-i18n="pillars_title">Everything You Need, Built-In</h2>
+    <!-- LATEST NEWS & BLOG GRID (LUNAR NEWS SECTION) -->
+    <section class="wrap reveal">
+      <div style="text-align:center; margin-bottom:40px;">
+        <span style="font-size:0.85rem; font-weight:800; color:var(--primary); text-transform:uppercase; letter-spacing:1.5px;" data-i18n="news_badge">LATEST UPDATES</span>
+        <h2 style="font-size:2.6rem; font-weight:900; color:#fff;" data-i18n="news_grid_title">Client News &amp; Announcements</h2>
       </div>
 
-      <div class="card-grid">
-        <div class="feature-card" data-tilt>
-          <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
-          <h3 class="card-title" data-i18n="f1_title">PvP &amp; Combat Enhancements</h3>
-          <p class="card-desc" data-i18n="f1_desc">Keystrokes, CPS Monitor, Combo Tracker, Reach Display, and ToggleSprint tuned for competitive superiority.</p>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-meta">ANNOUNCEMENT · FEB 2026</div>
+          <h3 class="news-title">VortexLauncher v3.0 Official Release</h3>
+          <p class="news-desc">Full 1.21.4 support, Sodium integration, multi-language engine (EN, TR, PL), and 3D cosmetics sync across all clients.</p>
+          <a href="news.html" style="font-weight:800; color:var(--primary); font-size:0.9rem;">Read More →</a>
         </div>
 
-        <div class="feature-card" data-tilt>
-          <div class="card-icon" style="color:var(--secondary); border-color:rgba(255,119,0,0.4);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-          <h3 class="card-title" data-i18n="f2_title">Built-In Cosmetics &amp; Capes</h3>
-          <p class="card-desc" data-i18n="f2_desc">Equip Quantum Capes, Cyber Wings, Plasma Halos, and particle auras directly visible to all VortexLauncher players.</p>
+        <div class="news-card">
+          <div class="news-meta">BLOG · JAN 2026</div>
+          <h3 class="news-title">Introducing Vortex Credits &amp; Cosmetics</h3>
+          <p class="news-desc">Claim 250 CR upon launcher launch and equip animated Quantum Capes, Cyber Wings, and Plasma Halos in-game.</p>
+          <a href="news.html" style="font-weight:800; color:var(--primary); font-size:0.9rem;">Read More →</a>
         </div>
 
-        <div class="feature-card" data-tilt>
-          <div class="card-icon" style="color:var(--accent-gold); border-color:rgba(251,191,36,0.3);"><i class="fa-solid fa-coins"></i></div>
-          <h3 class="card-title" data-i18n="f3_title">Vortex Credits Economy</h3>
-          <p class="card-desc" data-i18n="f3_desc">Get 250 CR on first launch. Buy credits, send transfer codes, and unlock exclusive rewards with no pay-to-win mechanics.</p>
+        <div class="news-card">
+          <div class="news-meta">PERFORMANCE · JAN 2026</div>
+          <h3 class="news-title">How Vortex Achieves 500+ FPS</h3>
+          <p class="news-desc">Deep dive into custom entity culling, JVM memory management, and asynchronous asset loading in VortexLauncher.</p>
+          <a href="news.html" style="font-weight:800; color:var(--primary); font-size:0.9rem;">Read More →</a>
         </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER (LUNAR FOOTER BANNER) -->
+    <section class="wrap reveal">
+      <div class="cta-banner">
+        <h2>VortexLauncher</h2>
+        <p data-i18n="cta_desc">Boosted frames, all the popular mods, multi OS support, and completely free! So what are you waiting for - Download today!</p>
+        <a href="download.html" class="btn btn-primary" style="padding:16px 40px; font-size:1.1rem;">
+          <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
+        </a>
       </div>
     </section>
   </main>
@@ -243,7 +193,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span data-i18n="footer_text">© 2026 VortexLauncher. The Next Generation Minecraft Launcher.</span>
+        <span>© 2026 VortexLauncher. Not affiliated with Mojang AB or Microsoft.</span>
         <div class="footer-links-row">
           <a href="features.html" data-i18n="nav_features">Features</a>
           <a href="download.html" data-i18n="nav_download">Download</a>
@@ -256,8 +206,6 @@
     </div>
   </footer>
 
-  <!-- LIBRARIES & SCRIPTS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script src="vortex-credits.js"></script>
   <script src="site-translations.js"></script>
   <script src="site.js"></script>
