@@ -34,6 +34,12 @@ const VORTEX_TRANSLATIONS = {
     mockup_avg_fps: "AVERAGE FPS",
     mockup_fps_boost: "+55% Performance Boost",
 
+    // Stats
+    stat_fps: "AVERAGE FPS",
+    stat_mods: "BUILT-IN MODS",
+    stat_latency: "INPUT LATENCY",
+    stat_versions: "MC VERSIONS",
+
     // FPS Comparison
     fps_badge: "Benchmark Telemetry",
     fps_title: "Boosted Frames. Zero Lag.",
@@ -119,7 +125,7 @@ const VORTEX_TRANSLATIONS = {
     nav_download_btn: "Launcher'ı İndir",
 
     // Ticker / Banner
-    ticker_text: "VORTEXLAUNCHER v3.0 YAYINDA! MAYSİMUM FPS VE SIFIR GECİKME İLE MİNECRAFT KEYFİNİ ÇIKARIN!",
+    ticker_text: "VORTEXLAUNCHER v3.0 YAYINDA! MAKSİMUM FPS VE SIFIR GECİKME İLE MİNECRAFT KEYFİNİ ÇIKARIN!",
 
     // Hero Index
     hero_badge: "VORTEXLAUNCHER v3.0 CANLI",
@@ -136,6 +142,12 @@ const VORTEX_TRANSLATIONS = {
     mockup_avg_fps: "ORTALAMA FPS",
     mockup_fps_boost: "+%55 Performans Artışı",
 
+    // Stats
+    stat_fps: "ORTALAMA FPS",
+    stat_mods: "DAHİLİ MODLAR",
+    stat_latency: "GİRDİ GECİKMESİ",
+    stat_versions: "MC SÜRÜMLERİ",
+
     // FPS Comparison
     fps_badge: "Performans Testi",
     fps_title: "Yüksek Kare Hızı. Sıfır Kasma.",
@@ -146,7 +158,7 @@ const VORTEX_TRANSLATIONS = {
 
     // Features Section
     pillars_badge: "HEPSİ BİR ARADA BAŞLATICI",
-    pillars_title: "İhtiyacınız Olân Her Şey Dahil",
+    pillars_title: "İhtiyacınız Olan Her Şey Dahil",
     f1_title: "PvP & Savaş Geliştirmeleri",
     f1_desc: "Rekabetçi üstünlük için tasarlanmış Keystrokes, CPS Monitörü, Kombo Takipçisi ve ToggleSprint.",
     f2_title: "Dahili Kozmetikler & Pelerinler",
@@ -237,6 +249,12 @@ const VORTEX_TRANSLATIONS = {
     mockup_cr_free: "250 CR Gratis",
     mockup_avg_fps: "ŚREDNIE FPS",
     mockup_fps_boost: "+55% Wzrost Wydajności",
+
+    // Stats
+    stat_fps: "ŚREDNIE FPS",
+    stat_mods: "WBUDOWANE MODY",
+    stat_latency: "OPÓŹNIENIE WEJŚCIA",
+    stat_versions: "WERSJE MC",
 
     // FPS Comparison
     fps_badge: "Wyniki Wydajności",
