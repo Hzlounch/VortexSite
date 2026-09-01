@@ -2,6 +2,16 @@
   "version": 1,
   "news": [
     {
+      "id": "news-mtj2vxol-hy4z",
+      "title": "Blog",
+      "category": "BLOG",
+      "imageUrl": "",
+      "summary": "Hi Everyone",
+      "body": "hşi",
+      "publishedAt": "2026-09-01",
+      "author": "momy4605"
+    },
+    {
       "id": "news-mthq81h0-xz2l",
       "title": "Vortex Launcher",
       "category": "CRATES",
