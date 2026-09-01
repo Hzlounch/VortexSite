@@ -49,11 +49,17 @@ const VORTEX_TRANSLATIONS = {
     cta_desc: "Boosted frames, all the popular mods, multi OS support, and completely free! So what are you waiting for - Download today!",
 
     // Store
-    store_title: "VortexLauncher Credit Store",
-    store_subtitle: "Buy Vortex Credits (CR) instantly using real currency (TRY / USD) for your Vortex account.",
+    store_hero_badge: "OFFICIAL VORTEX CREDITS STORE",
+    store_title: "BUY VORTEX CREDITS (CR)",
+    store_subtitle: "Top up your account balance with Vortex Credits (CR) securely via Credit/Debit Card, Shopier, PayTR, Papara, or Bank Wire.",
     store_balance: "Your Balance",
     store_buy_cr: "Buy Credits",
     store_item_buy: "Buy Credits",
+    store_select_amount: "Select Credit Top-Up Amount",
+    store_instant_delivery: "Instant Automated Delivery",
+    store_enter_promo: "Enter Promo Code...",
+    store_redeem_btn: "Redeem",
+    store_try_code: "Try code: VORTEX2026 (+1000 CR)",
 
     // Support
     support_title: "Vortex Support Center",
@@ -114,11 +120,17 @@ const VORTEX_TRANSLATIONS = {
     cta_desc: "Yüksek FPS, en popüler modlar, çoklu işletim sistemi desteği ve tamamen ücretsiz! Daha ne bekliyorsunuz - Hemen indirin!",
 
     // Store
-    store_title: "VortexLauncher Kredi Mağazası",
-    store_subtitle: "Gerçek para (TRY / USD) ile Vortex hesabınıza anında Vortex Kredisi (CR) yükleyin.",
+    store_hero_badge: "RESMİ VORTEX KREDİ MAĞAZASI",
+    store_title: "VORTEX KREDİSİ (CR) SATIN AL",
+    store_subtitle: "Kredi/Banka Kartı, Shopier, PayTR, Papara veya Havale/EFT ile hesabınıza anında Vortex Kredisi (CR) yükleyin.",
     store_balance: "Bakiyeniz",
     store_buy_cr: "Kredi Satın Al",
     store_item_buy: "Kredi Satın Al",
+    store_select_amount: "Kredi Yükleme Miktarını Seçin",
+    store_instant_delivery: "Anında Otomatik Teslimat",
+    store_enter_promo: "Promosyon Kodu...",
+    store_redeem_btn: "Kullan",
+    store_try_code: "Kodu dene: VORTEX2026 (+1000 CR)",
 
     // Support
     support_title: "Vortex Destek Merkezi",
@@ -179,11 +191,17 @@ const VORTEX_TRANSLATIONS = {
     cta_desc: "Więcej FPS, popularne mody, wsparcie wielu systemów i całkowicie za darmo! Pobierz już dziś!",
 
     // Store
-    store_title: "Sklep Kredytowy VortexLauncher",
-    store_subtitle: "Kupuj kredyty Vortex (CR) natychmiast za prawdziwą walutę (TRY / USD).",
+    store_hero_badge: "OFICJALNY SKLEP KREDYTOWY VORTEX",
+    store_title: "KUP KREDYTY VORTEX (CR)",
+    store_subtitle: "Doładuj swoje konto kredytami Vortex (CR) bezpiecznie za pomocą karty, Shopier, Papara lub przelewu.",
     store_balance: "Twoje Saldo",
     store_buy_cr: "Kup Kredyty",
     store_item_buy: "Kup Kredyty",
+    store_select_amount: "Wybierz Ilość Kredytów",
+    store_instant_delivery: "Natychmiastowa Dostawa Automatyczna",
+    store_enter_promo: "Kod Promocyjny...",
+    store_redeem_btn: "Użyj",
+    store_try_code: "Wypróbuj kod: VORTEX2026 (+1000 CR)",
 
     // Support
     support_title: "Centrum Pomocy Vortex",
@@ -212,11 +230,14 @@ window.VortexI18n = {
     localStorage.setItem('vortex_lang', lang);
     document.documentElement.lang = lang;
 
+    const labelEl = document.getElementById('currentLangLabel');
+    if (labelEl) labelEl.textContent = lang.toUpperCase();
+
     const dict = VORTEX_TRANSLATIONS[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) {
-        if (el.tagName === 'INPUT' && el.type === 'placeholder') {
+        if (el.tagName === 'INPUT' && (el.type === 'placeholder' || el.placeholder)) {
           el.placeholder = dict[key];
         } else {
           el.textContent = dict[key];

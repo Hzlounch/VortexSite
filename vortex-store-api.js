@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VORTEXLAUNCHER — OFFICIAL STORE & SECURE REAL MONEY PAYMENT GATEWAY API
+   VORTEXLAUNCHER — OFFICIAL STORE & VORTEX CREDITS TOP-UP API
    ========================================================================== */
 
 function makeCreditPackSvg(crAmount, color, tryPrice) {
@@ -120,10 +120,6 @@ const CREDIT_PACKAGES_CATALOG = [
 ];
 
 class VortexStoreManager {
-  constructor() {
-    this.merchantConfigKey = "vortex_merchant_config";
-  }
-
   getCatalog() {
     return CREDIT_PACKAGES_CATALOG;
   }
@@ -132,37 +128,21 @@ class VortexStoreManager {
     return window.VortexCredits ? window.VortexCredits.getBalance() : 1900;
   }
 
-  getMerchantConfig() {
-    try {
-      return JSON.parse(localStorage.getItem(this.merchantConfigKey)) || {
-        shopierKey: "",
-        paytrMerchantId: "",
-        paparaNumber: "",
-        iban: ""
-      };
-    } catch {
-      return { shopierKey: "", paytrMerchantId: "", paparaNumber: "", iban: "" };
-    }
-  }
-
-  saveMerchantConfig(cfg) {
-    localStorage.setItem(this.merchantConfigKey, JSON.stringify(cfg));
-  }
-
   processRealMoneyPayment(packId, paymentMethod, customerDetails) {
     const pack = CREDIT_PACKAGES_CATALOG.find(p => p.id === packId);
     if (!pack) return { success: false, message: "Package not found!" };
 
-    // Add credits to user wallet automatically
-    if (window.VortexCredits) {
-      window.VortexCredits.add(pack.crAmount);
+    let newTotal = this.credits;
+    if (window.VortexCredits && typeof window.VortexCredits.add === 'function') {
+      newTotal = window.VortexCredits.add(pack.crAmount);
     }
 
-    window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { packId, amount: pack.crAmount, paymentMethod } }));
+    window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { packId, amount: pack.crAmount, paymentMethod, newTotal } }));
 
     return {
       success: true,
-      message: `Payment of ₺${pack.tryPrice} via ${paymentMethod} verified! +${pack.crAmount.toLocaleString()} CR added to your wallet.`
+      newTotal,
+      message: `Payment Successful! +${pack.crAmount.toLocaleString()} CR added to your wallet! (Total: ${newTotal.toLocaleString()} CR)`
     };
   }
 
@@ -173,7 +153,11 @@ class VortexStoreManager {
         return { success: false, message: "Promo code VORTEX2026 already redeemed!" };
       }
       localStorage.setItem('vortex_promo_vortex2026', 'true');
-      if (window.VortexCredits) window.VortexCredits.add(1000);
+      let newTotal = this.credits;
+      if (window.VortexCredits && typeof window.VortexCredits.add === 'function') {
+        newTotal = window.VortexCredits.add(1000);
+      }
+      window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { action: 'promo', amount: 1000 } }));
       return { success: true, message: "+1000 Vortex Credits added to your account!" };
     }
     return { success: false, message: "Invalid promo code." };

@@ -262,7 +262,7 @@
       <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px;">
         <div style="max-width:620px;">
           <span class="badge-glow" style="margin-bottom:12px; border-color:#fbbf24; color:#fbbf24;"><i class="fa-solid fa-shield-halved"></i> 256-BIT ENCRYPTED CHECKOUT</span>
-          <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(251,191,36,0.4);">
+          <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(251,191,36,0.4);" data-i18n="store_title">
             BUY VORTEX CREDITS (CR)
           </h1>
           <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;">
@@ -547,14 +547,26 @@
       selectedPackItem = storeApi.getCatalog().find(i => i.id === itemId);
       if (!selectedPackItem) return;
 
-      document.getElementById('modalTitle').textContent = selectedPackItem.title;
-      document.getElementById('modalBadge').textContent = selectedPackItem.badge;
-      document.getElementById('modalDesc').textContent = selectedPackItem.description;
-      document.getElementById('modalTryPrice').textContent = `₺${selectedPackItem.tryPrice} TRY ($${selectedPackItem.usdPrice} USD)`;
-      document.getElementById('btnPayAmount').textContent = selectedPackItem.tryPrice;
-      document.getElementById('modalImg').src = selectedPackItem.imgUrl;
+      const titleEl = document.getElementById('modalTitle');
+      if (titleEl) titleEl.textContent = selectedPackItem.title;
 
-      document.getElementById('checkoutModal').style.display = 'grid';
+      const badgeEl = document.getElementById('modalBadge');
+      if (badgeEl) badgeEl.textContent = selectedPackItem.badge;
+
+      const descEl = document.getElementById('modalDesc');
+      if (descEl) descEl.textContent = selectedPackItem.description;
+
+      const priceEl = document.getElementById('modalTryPrice');
+      if (priceEl) priceEl.textContent = `₺${selectedPackItem.tryPrice} TRY ($${selectedPackItem.usdPrice} USD)`;
+
+      const btnPayEl = document.getElementById('btnPayAmount');
+      if (btnPayEl) btnPayEl.textContent = selectedPackItem.tryPrice;
+
+      const imgEl = document.getElementById('modalImg');
+      if (imgEl) imgEl.src = selectedPackItem.imgUrl;
+
+      const modalEl = document.getElementById('checkoutModal');
+      if (modalEl) modalEl.style.display = 'grid';
     }
 
     function closeCheckoutModal() {
