@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Official Store — VortexLauncher Cosmetics &amp; Cloaks</title>
-  <meta name="description" content="Official VortexLauncher Store inspired by Lunar Client. Unlock high-definition cloaks, 3D wings, halos, pets, and emotes using Vortex Credits (CR).">
+  <title>Official Store — VortexLauncher 100+ Real Cosmetics</title>
+  <meta name="description" content="Official VortexLauncher Store. Browse 100+ high-definition Minecraft cloaks, 3D wings, halos, pets, emotes, and hats using Vortex Credits (CR).">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
   <style>
-    /* LUNAR CLIENT STORE DESIGN SYSTEM */
     .lunar-hero-card {
       position: relative;
       border-radius: 24px;
@@ -99,6 +98,21 @@
       box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
     }
 
+    .pagination-btn {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pagination-btn.active, .pagination-btn:hover {
+      background: var(--primary);
+      color: #030812;
+    }
+
     /* TOAST NOTIFICATION STYLING */
     .vortex-toast-container {
       position: fixed;
@@ -177,7 +191,7 @@
 
         <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
-          <span id="headerCr">600</span> CR
+          <span id="headerCr">1000</span> CR
         </a>
         <a href="download.html" class="btn btn-primary nav-dl-btn">
           <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
@@ -227,7 +241,7 @@
 
     <!-- MAIN VIEW SWITCHER: STORE MARKETPLACE vs MY INVENTORY -->
     <div style="display:flex; justify-content:center; gap:16px; margin-bottom:30px;">
-      <button class="nav-tab-btn active" id="tabStoreBtn"><i class="fa-solid fa-store"></i> Store Marketplace</button>
+      <button class="nav-tab-btn active" id="tabStoreBtn"><i class="fa-solid fa-store"></i> Store Marketplace (100+ Items)</button>
       <button class="nav-tab-btn" id="tabInventoryBtn"><i class="fa-solid fa-box-archive"></i> My Inventory / Envanterim</button>
     </div>
 
@@ -238,12 +252,12 @@
         <div class="lunar-hero-overlay"></div>
         <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px;">
           <div style="max-width:620px;">
-            <span class="badge-glow" style="margin-bottom:12px; border-color:#00f0ff; color:#00f0ff;">OFFICIAL VORTEX x LUNAR STORE</span>
+            <span class="badge-glow" style="margin-bottom:12px; border-color:#00f0ff; color:#00f0ff;">OVER 100+ REAL MINECRAFT COSMETICS</span>
             <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(0,240,255,0.4);">
-              HIGH-DEFINITION CLOAKS &amp; 3D COSMETICS
+              100+ REAL CLOAKS, PETS &amp; 3D WINGS
             </h1>
             <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;">
-              Unlock official animated cloaks, 3D dragon wings, floating halos, and shoulder pets using Vortex Credits (CR). Items bind directly to your verified Minecraft account UUID.
+              Browse 100+ high-definition animated cloaks, 3D dragon wings, floating halos, shoulder pets, and emotes using Vortex Credits (CR).
             </p>
             <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
               <div style="display:flex; gap:8px;">
@@ -252,14 +266,14 @@
                   <i class="fa-solid fa-ticket"></i> Redeem
                 </button>
               </div>
-              <span style="font-size:0.8rem; color:#94a3b8;">Try code: <strong style="color:var(--accent-gold);">VORTEX2026</strong> or <strong style="color:var(--accent-gold);">FREEPET</strong></span>
+              <span style="font-size:0.8rem; color:#94a3b8;">Try code: <strong style="color:var(--accent-gold);">VORTEX2026</strong> (+500 CR)</span>
             </div>
           </div>
 
           <!-- BALANCE HUD -->
           <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(251, 191, 36, 0.4); border-radius:20px; padding:28px; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(0,0,0,0.6);">
             <div style="font-size:0.8rem; font-weight:800; color:var(--accent-gold); text-transform:uppercase; letter-spacing:1px;" data-i18n="store_balance">Your Balance</div>
-            <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">600</span> <span style="color:var(--accent-gold);">CR</span></div>
+            <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">1000</span> <span style="color:var(--accent-gold);">CR</span></div>
             <button onclick="showToast('Credits top-up modal will open in Vortex Client launcher.', false)" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:10px 0;">
               <i class="fa-solid fa-plus"></i> <span data-i18n="store_buy_cr">Buy Credits</span>
             </button>
@@ -275,19 +289,26 @@
           <button class="store-filter-btn" data-category="wings"><i class="fa-solid fa-feather"></i> Wings</button>
           <button class="store-filter-btn" data-category="halos"><i class="fa-solid fa-ring"></i> Halos</button>
           <button class="store-filter-btn" data-category="pets"><i class="fa-solid fa-dragon"></i> Pets</button>
+          <button class="store-filter-btn" data-category="emotes"><i class="fa-solid fa-masks-theater"></i> Emotes</button>
           <button class="store-filter-btn" data-category="hats"><i class="fa-solid fa-hat-wizard"></i> Hats &amp; Masks</button>
+          <button class="store-filter-btn" data-category="badges"><i class="fa-solid fa-award"></i> Badges</button>
           <button class="store-filter-btn" data-category="bundles"><i class="fa-solid fa-box-open"></i> Bundles</button>
         </div>
 
         <div style="position:relative; min-width:240px;">
           <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#64748b;"></i>
-          <input type="text" id="searchInput" placeholder="Search cosmetics..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
+          <input type="text" id="searchInput" placeholder="Search 100+ cosmetics..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
         </div>
       </div>
 
       <!-- COSMETICS MARKETPLACE GRID -->
       <div class="card-grid" id="marketplaceGrid">
         <!-- Populated via JS -->
+      </div>
+
+      <!-- PAGINATION BAR -->
+      <div style="display:flex; justify-content:center; gap:10px; margin-top:40px;" id="paginationBar">
+        <!-- Generated by JS -->
       </div>
     </div>
 
@@ -395,6 +416,8 @@
   <script>
     let activeCategory = 'all';
     let searchQuery = '';
+    let currentPage = 1;
+    const ITEMS_PER_PAGE = 12;
     let selectedModalItem = null;
 
     function showToast(message, isError = false) {
@@ -473,6 +496,7 @@
           document.querySelectorAll('#categoryGroup .store-filter-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           activeCategory = btn.getAttribute('data-category');
+          currentPage = 1;
           renderStoreAndInventory();
         });
       });
@@ -480,6 +504,7 @@
       // Search Input
       document.getElementById('searchInput').addEventListener('input', (e) => {
         searchQuery = e.target.value;
+        currentPage = 1;
         renderStoreAndInventory();
       });
 
@@ -513,6 +538,7 @@
 
     function renderMarketplaceView() {
       const grid = document.getElementById('marketplaceGrid');
+      const pagBar = document.getElementById('paginationBar');
       if (!grid) return;
 
       const api = window.VortexCosmeticaAPI;
@@ -528,10 +554,18 @@
         grid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #64748b;">
           <h3>No Items Found</h3>
         </div>`;
+        pagBar.innerHTML = '';
         return;
       }
 
-      grid.innerHTML = filtered.map(item => {
+      // Pagination
+      const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+      const paginatedItems = filtered.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+      grid.innerHTML = paginatedItems.map(item => {
         const owned = api.hasItem(item.id);
         const equipped = api.isEquipped(item.id);
 
@@ -574,9 +608,24 @@
         `;
       }).join('');
 
+      // Render Pagination
+      let pagHtml = '';
+      if (totalPages > 1) {
+        for (let p = 1; p <= totalPages; p++) {
+          pagHtml += `<button onclick="goToPage(${p})" class="pagination-btn ${p === currentPage ? 'active' : ''}">${p}</button>`;
+        }
+      }
+      pagBar.innerHTML = pagHtml;
+
       if (window.VanillaTilt) {
         VanillaTilt.init(grid.querySelectorAll('.cosmetic-card'), { max: 10, speed: 400 });
       }
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      renderMarketplaceView();
+      window.scrollTo({ top: 400, behavior: 'smooth' });
     }
 
     function renderInventoryView() {
