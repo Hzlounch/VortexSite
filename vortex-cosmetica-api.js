@@ -1,99 +1,104 @@
 /* ==========================================================================
-   VORTEXLAUNCHER x COSMETICA.CC — REAL MOJANG CDN CAPE & COSMETICS API ENGINE
-   Fetches authentic HD cape textures directly from Mojang & OptiFine Servers
+   VORTEXLAUNCHER x COSMETICA.CC — HIGH-END COSMETICS & CREDITS API ENGINE
+   Integrated with Lunar Client Store styling & smooth Toast notifications
    ========================================================================== */
 
 (() => {
-  const STORAGE_KEY_CREDITS = 'vortex_user_credits_v4';
-  const STORAGE_KEY_INVENTORY = 'vortex_user_inventory_v4';
-  const STORAGE_KEY_EQUIPPED = 'vortex_user_equipped_v4';
+  const STORAGE_KEY_CREDITS = 'vortex_user_credits_v5';
+  const STORAGE_KEY_INVENTORY = 'vortex_user_inventory_v5';
+  const STORAGE_KEY_EQUIPPED = 'vortex_user_equipped_v5';
 
-  // Authentic High-Resolution Cape Textures directly from Mojang CDN & OptiFine
-  const REAL_MOJANG_CDN_CATALOG = [
+  // High-End Rendered Lunar-Style Cosmetics Catalog
+  const LUNAR_STYLE_CATALOG = [
     {
-      id: 'mojang-migrator-cape',
-      title: 'Official Mojang Migrator Cape',
+      id: 'vortex-cyber-flame-cape',
+      title: 'Vortex HD Cyber Flame Cape',
       category: 'capes',
       price: 150,
       currency: 'CR',
       rarity: 'LEGENDARY',
-      rarityColor: '#a855f7',
-      // Real Mojang CDN Cape Texture URL
-      texturePngUrl: 'https://textures.minecraft.net/texture/bf03d6d538f72591e3262145e69e38f15d2f83120d5885f8188e7b398dfbd72f',
-      previewImgUrl: 'https://textures.minecraft.net/texture/bf03d6d538f72591e3262145e69e38f15d2f83120d5885f8188e7b398dfbd72f',
-      description: 'Official Mojang Migration Cape texture served directly from Mojang CDN servers.'
-    },
-    {
-      id: 'optifine-official-cape',
-      title: 'OptiFine Official OF Cape',
-      category: 'capes',
-      price: 100,
-      currency: 'CR',
-      rarity: 'RARE',
       rarityColor: '#00f0ff',
-      texturePngUrl: 'https://optifine.net/capes/Steve.png',
-      previewImgUrl: 'https://optifine.net/capes/Steve.png',
-      description: 'Official OptiFine OF Cape texture loaded directly from OptiFine Cape Server.'
+      icon: 'fa-shield-halved',
+      badge: 'FEATURED',
+      previewBg: 'linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(0, 136, 255, 0.1))',
+      description: 'Official HD animated cyber flame cape injected into Vortex Client across all Minecraft versions.'
     },
     {
-      id: 'minecon-2016-cape',
-      title: 'Official Minecon 2016 Cape',
-      category: 'capes',
+      id: 'vortex-cyber-wings-3d',
+      title: '3D Cybernetic Dragon Wings',
+      category: 'wings',
       price: 250,
       currency: 'CR',
       rarity: 'MYTHIC',
-      rarityColor: '#f43f5e',
-      texturePngUrl: 'https://textures.minecraft.net/texture/a2e8d97e6be9a8128328c0570b13f890a2a3e1f57f6a7d8c07d3b5b1e6211d3d',
-      previewImgUrl: 'https://textures.minecraft.net/texture/a2e8d97e6be9a8128328c0570b13f890a2a3e1f57f6a7d8c07d3b5b1e6211d3d',
-      description: 'Authentic Minecon 2016 Enderman Cape texture from Mojang Minecraft CDN.'
-    },
-    {
-      id: 'vortex-hd-cyber-cape',
-      title: 'Vortex HD Cybernetic Cape (1024x512)',
-      category: 'capes',
-      price: 200,
-      currency: 'CR',
-      rarity: 'EPIC',
-      rarityColor: '#00e5ff',
-      texturePngUrl: 'https://textures.minecraft.net/texture/c50c02875a6c382103f69911e3b5e43bf18288339f4d1e2e7b0e11802d24263e',
-      previewImgUrl: 'https://textures.minecraft.net/texture/c50c02875a6c382103f69911e3b5e43bf18288339f4d1e2e7b0e11802d24263e',
-      description: 'High-definition 1024x512 Cybernetic Animated Cape texture injected into player skin layer.'
-    },
-    {
-      id: 'cosmetica-dragon-wings-3d',
-      title: 'Cosmetica 3D Void Dragon Wings',
-      category: 'wings',
-      price: 300,
-      currency: 'CR',
-      rarity: 'MYTHIC',
       rarityColor: '#a855f7',
-      texturePngUrl: 'https://textures.minecraft.net/texture/f135b364843d1a89c379a02d2d9b626d7f023f9547d7c6e08c8e1a14f4e75618',
-      previewImgUrl: 'https://textures.minecraft.net/texture/f135b364843d1a89c379a02d2d9b626d7f023f9547d7c6e08c8e1a14f4e75618',
-      description: 'Official Cosmetica.cc 3D dragon wings model rendered in Fabric/Forge/Quilt.'
+      icon: 'fa-dragon',
+      badge: '3D MODEL',
+      previewBg: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1))',
+      description: 'Fully animated 3D cyber wings rendered in-game with dynamic particle emission trails.'
     },
     {
-      id: 'cosmetica-halo-cyan',
-      title: 'Cosmetica Floating Plasma Halo',
+      id: 'vortex-plasma-halo',
+      title: 'Floating Plasma Halo',
       category: 'halos',
-      price: 120,
+      price: 100,
       currency: 'CR',
       rarity: 'RARE',
+      rarityColor: '#00e5ff',
+      icon: 'fa-ring',
+      badge: 'HEADGEAR',
+      previewBg: 'linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(16, 185, 129, 0.1))',
+      description: 'Glowing plasma ring floating above player head in all Minecraft multiplayer servers.'
+    },
+    {
+      id: 'vortex-shuffle-emote',
+      title: 'Vortex Shuffle 60FPS Emote',
+      category: 'emotes',
+      price: 80,
+      currency: 'CR',
+      rarity: 'RARE',
+      rarityColor: '#f59e0b',
+      icon: 'fa-masks-theater',
+      badge: 'ANIMATED',
+      previewBg: 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.1))',
+      description: 'Custom dance shuffle emote animated in high 60 FPS for lobby flex.'
+    },
+    {
+      id: 'vortex-samurai-bandanna',
+      title: 'Cyber Samurai Bandanna Mask',
+      category: 'hats',
+      price: 120,
+      currency: 'CR',
+      rarity: 'EPIC',
       rarityColor: '#10b981',
-      texturePngUrl: 'https://textures.minecraft.net/texture/1a88b883072f8546b2853244248440d4f6610023a88c3a1e2f75357833544',
-      previewImgUrl: 'https://textures.minecraft.net/texture/1a88b883072f8546b2853244248440d4f6610023a88c3a1e2f75357833544',
-      description: 'Floating 3D plasma ring accessory above character head.'
+      icon: 'fa-mask',
+      badge: 'NEW',
+      previewBg: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 240, 255, 0.1))',
+      description: 'Cyan glowing samurai face mask bandanna equipped on player skin head.'
+    },
+    {
+      id: 'vortex-founder-bundle',
+      title: 'Vortex Founder 2026 Cosmetic Bundle',
+      category: 'bundles',
+      price: 350,
+      currency: 'CR',
+      rarity: 'MYTHIC',
+      rarityColor: '#f43f5e',
+      icon: 'fa-box-open',
+      badge: 'BUNDLE',
+      previewBg: 'linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(168, 85, 247, 0.1))',
+      description: 'Complete Founder bundle including Founder Cape, Cyber Wings, and Plasma Halo.'
     }
   ];
 
   class VortexCosmeticaAPI {
     constructor() {
-      this.credits = parseInt(localStorage.getItem(STORAGE_KEY_CREDITS) || '450', 10);
+      this.credits = parseInt(localStorage.getItem(STORAGE_KEY_CREDITS) || '500', 10);
       this.inventory = this.loadInventory();
       this.equipped = this.loadEquipped();
     }
 
     getCatalog() {
-      return REAL_MOJANG_CDN_CATALOG;
+      return LUNAR_STYLE_CATALOG;
     }
 
     loadInventory() {
@@ -101,7 +106,7 @@
         const stored = localStorage.getItem(STORAGE_KEY_INVENTORY);
         if (stored) return JSON.parse(stored);
       } catch (e) {}
-      return ['optifine-official-cape']; // Initial owned cape
+      return ['vortex-cyber-flame-cape']; // Default owned cape
     }
 
     loadEquipped() {
@@ -109,7 +114,7 @@
         const stored = localStorage.getItem(STORAGE_KEY_EQUIPPED);
         if (stored) return JSON.parse(stored);
       } catch (e) {}
-      return { capes: 'optifine-official-cape' };
+      return { capes: 'vortex-cyber-flame-cape' };
     }
 
     save() {
@@ -135,35 +140,34 @@
     }
 
     purchaseItemWithCredits(itemId) {
-      const item = REAL_MOJANG_CDN_CATALOG.find(i => i.id === itemId);
-      if (!item) return { success: false, message: 'Item not found in catalog.' };
+      const item = LUNAR_STYLE_CATALOG.find(i => i.id === itemId);
+      if (!item) return { success: false, message: 'Item not found in store.' };
 
       if (this.hasItem(itemId)) {
-        return { success: false, message: 'You already own this cosmetic in your inventory!' };
+        return { success: false, message: 'You already own this cosmetic!' };
       }
 
       if (this.credits < item.price) {
         return { success: false, message: `Insufficient Credits! You need ${item.price - this.credits} CR more.` };
       }
 
-      // Deduct Vortex Credits & Store License in Inventory
       this.credits -= item.price;
       this.inventory.push(itemId);
-      this.equipped[item.category] = itemId; // Auto-equip on buy
+      this.equipped[item.category] = itemId;
       this.save();
 
       return {
         success: true,
-        message: `Purchased ${item.title} for ${item.price} CR! Added to your Envanter / Inventory.`
+        message: `Purchased & Equipped ${item.title}! Added to your inventory.`
       };
     }
 
     toggleEquipInGame(itemId) {
-      const item = REAL_MOJANG_CDN_CATALOG.find(i => i.id === itemId);
+      const item = LUNAR_STYLE_CATALOG.find(i => i.id === itemId);
       if (!item) return { success: false, message: 'Item not found.' };
 
       if (!this.hasItem(itemId)) {
-        return { success: false, message: 'You must purchase this cosmetic with Vortex Credits first!' };
+        return { success: false, message: 'Purchase item with Vortex Credits first!' };
       }
 
       if (this.equipped[item.category] === itemId) {
@@ -174,29 +178,29 @@
 
       this.equipped[item.category] = itemId;
       this.save();
-      return { success: true, action: 'equipped', message: `Equipped ${item.title} to your Minecraft character!` };
+      return { success: true, action: 'equipped', message: `Equipped ${item.title} to your Minecraft profile!` };
     }
 
     redeemCreditCode(code) {
-      if (!code) return { success: false, message: 'Please enter a valid promo code.' };
+      if (!code) return { success: false, message: 'Please enter a promo code.' };
       const clean = code.trim().toUpperCase();
 
-      if (clean === 'MOJANG2026' || clean === 'VORTEX2026') {
+      if (clean === 'VORTEX2026' || clean === 'LUNAR2026') {
         this.credits += 300;
         this.save();
-        return { success: true, message: 'Code Redeemed! +300 Vortex Credits added to balance.' };
+        return { success: true, message: 'Promo Code Redeemed! +300 Vortex Credits added.' };
       }
 
-      if (clean === 'FREEOPTIFINE') {
-        if (!this.hasItem('optifine-official-cape')) {
-          this.inventory.push('optifine-official-cape');
+      if (clean === 'FREEWINGS') {
+        if (!this.hasItem('vortex-cyber-wings-3d')) {
+          this.inventory.push('vortex-cyber-wings-3d');
           this.save();
-          return { success: true, message: 'Code Redeemed! Unlocked Official OptiFine Cape!' };
+          return { success: true, message: 'Promo Code Redeemed! Unlocked 3D Cyber Wings!' };
         }
-        return { success: false, message: 'You already own the OptiFine Cape in your Envanter!' };
+        return { success: false, message: 'You already own the 3D Cyber Wings!' };
       }
 
-      return { success: false, message: 'Invalid or expired credit code.' };
+      return { success: false, message: 'Invalid or expired promo code.' };
     }
   }
 
