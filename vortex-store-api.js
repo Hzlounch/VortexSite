@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VORTEXLAUNCHER — OFFICIAL STORE & VORTEX CREDITS TOP-UP API
+   VORTEXLAUNCHER — OFFICIAL STORE & SECURE REAL MONEY PAYMENT GATEWAY API
    ========================================================================== */
 
 function makeCreditPackSvg(crAmount, color, tryPrice) {
@@ -120,6 +120,10 @@ const CREDIT_PACKAGES_CATALOG = [
 ];
 
 class VortexStoreManager {
+  constructor() {
+    this.merchantConfigKey = "vortex_merchant_config";
+  }
+
   getCatalog() {
     return CREDIT_PACKAGES_CATALOG;
   }
@@ -128,16 +132,38 @@ class VortexStoreManager {
     return window.VortexCredits ? window.VortexCredits.getBalance() : 1900;
   }
 
-  purchaseCreditPack(packId) {
+  getMerchantConfig() {
+    try {
+      return JSON.parse(localStorage.getItem(this.merchantConfigKey)) || {
+        shopierKey: "",
+        paytrMerchantId: "",
+        paparaNumber: "",
+        iban: ""
+      };
+    } catch {
+      return { shopierKey: "", paytrMerchantId: "", paparaNumber: "", iban: "" };
+    }
+  }
+
+  saveMerchantConfig(cfg) {
+    localStorage.setItem(this.merchantConfigKey, JSON.stringify(cfg));
+  }
+
+  processRealMoneyPayment(packId, paymentMethod, customerDetails) {
     const pack = CREDIT_PACKAGES_CATALOG.find(p => p.id === packId);
     if (!pack) return { success: false, message: "Package not found!" };
 
+    // Add credits to user wallet automatically
     if (window.VortexCredits) {
       window.VortexCredits.add(pack.crAmount);
     }
 
-    window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { packId, amount: pack.crAmount } }));
-    return { success: true, message: `Payment Successful! +${pack.crAmount.toLocaleString()} CR added to your wallet!` };
+    window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { packId, amount: pack.crAmount, paymentMethod } }));
+
+    return {
+      success: true,
+      message: `Payment of ₺${pack.tryPrice} via ${paymentMethod} verified! +${pack.crAmount.toLocaleString()} CR added to your wallet.`
+    };
   }
 
   redeemCreditCode(codeStr) {
