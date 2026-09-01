@@ -1,0 +1,9 @@
+{
+  "name": "VortexLauncher",
+  "short_name": "Vortex",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#071419",
+  "theme_color": "#071419",
+  "icons": [{"src": "vortex_logo_1787259818226 - Kopya - Kopya.jpg", "sizes": "512x512", "type": "image/jpeg"}]
+}
