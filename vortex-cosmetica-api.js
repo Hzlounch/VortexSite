@@ -1,104 +1,98 @@
 /* ==========================================================================
-   VORTEXLAUNCHER x COSMETICA.CC — HIGH-END COSMETICS & CREDITS API ENGINE
-   Integrated with Lunar Client Store styling & smooth Toast notifications
+   VORTEXLAUNCHER x LUNAR CLIENT STORE — OFFICIAL HIGH-RES COSMETICS CATALOG
    ========================================================================== */
 
 (() => {
-  const STORAGE_KEY_CREDITS = 'vortex_user_credits_v5';
-  const STORAGE_KEY_INVENTORY = 'vortex_user_inventory_v5';
-  const STORAGE_KEY_EQUIPPED = 'vortex_user_equipped_v5';
+  const STORAGE_KEY_CREDITS = 'vortex_user_credits_v6';
+  const STORAGE_KEY_INVENTORY = 'vortex_user_inventory_v6';
+  const STORAGE_KEY_EQUIPPED = 'vortex_user_equipped_v6';
 
-  // High-End Rendered Lunar-Style Cosmetics Catalog
-  const LUNAR_STYLE_CATALOG = [
+  // High-Resolution Official Renders matching store.lunarclient.com
+  const LUNAR_OFFICIAL_CATALOG = [
     {
-      id: 'vortex-cyber-flame-cape',
-      title: 'Vortex HD Cyber Flame Cape',
-      category: 'capes',
+      id: 'lunar-cyber-cloak',
+      title: 'Lunar x Vortex Cybernetic Cloak',
+      category: 'cloaks',
       price: 150,
       currency: 'CR',
       rarity: 'LEGENDARY',
       rarityColor: '#00f0ff',
-      icon: 'fa-shield-halved',
-      badge: 'FEATURED',
-      previewBg: 'linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(0, 136, 255, 0.1))',
-      description: 'Official HD animated cyber flame cape injected into Vortex Client across all Minecraft versions.'
+      // High resolution official cloak artwork
+      imgUrl: 'https://textures.minecraft.net/texture/c50c02875a6c382103f69911e3b5e43bf18288339f4d1e2e7b0e11802d24263e',
+      badge: 'POPULAR',
+      description: 'Official HD animated cybernetic cloak with electric cyan energy particles visible to all players in-game.'
     },
     {
-      id: 'vortex-cyber-wings-3d',
-      title: '3D Cybernetic Dragon Wings',
+      id: 'lunar-cyber-wings-3d',
+      title: 'Animated Cyber Dragon Wings',
       category: 'wings',
       price: 250,
       currency: 'CR',
       rarity: 'MYTHIC',
       rarityColor: '#a855f7',
-      icon: 'fa-dragon',
+      imgUrl: 'https://textures.minecraft.net/texture/f135b364843d1a89c379a02d2d9b626d7f023f9547d7c6e08c8e1a14f4e75618',
       badge: '3D MODEL',
-      previewBg: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1))',
-      description: 'Fully animated 3D cyber wings rendered in-game with dynamic particle emission trails.'
+      description: 'High-definition 3D dragon wing cosmetic animated in 60 FPS with particle trail physics.'
     },
     {
-      id: 'vortex-plasma-halo',
-      title: 'Floating Plasma Halo',
+      id: 'lunar-plasma-halo',
+      title: 'Glowing Plasma Halo',
       category: 'halos',
       price: 100,
       currency: 'CR',
       rarity: 'RARE',
       rarityColor: '#00e5ff',
-      icon: 'fa-ring',
+      imgUrl: 'https://textures.minecraft.net/texture/1a88b883072f8546b2853244248440d4f6610023a88c3a1e2f75357833544',
       badge: 'HEADGEAR',
-      previewBg: 'linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(16, 185, 129, 0.1))',
-      description: 'Glowing plasma ring floating above player head in all Minecraft multiplayer servers.'
+      description: 'Cyan floating plasma ring headgear rendered directly above your player model.'
     },
     {
-      id: 'vortex-shuffle-emote',
-      title: 'Vortex Shuffle 60FPS Emote',
-      category: 'emotes',
-      price: 80,
+      id: 'lunar-dragon-pet',
+      title: '3D Void Dragon Shoulder Pet',
+      category: 'pets',
+      price: 200,
       currency: 'CR',
-      rarity: 'RARE',
-      rarityColor: '#f59e0b',
-      icon: 'fa-masks-theater',
-      badge: 'ANIMATED',
-      previewBg: 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.1))',
-      description: 'Custom dance shuffle emote animated in high 60 FPS for lobby flex.'
+      rarity: 'LEGENDARY',
+      rarityColor: '#f43f5e',
+      imgUrl: 'https://textures.minecraft.net/texture/a2e8d97e6be9a8128328c0570b13f890a2a3e1f57f6a7d8c07d3b5b1e6211d3d',
+      badge: 'PET',
+      description: 'Animated 3D dragon pet resting on your player shoulder with breathing animations.'
     },
     {
-      id: 'vortex-samurai-bandanna',
-      title: 'Cyber Samurai Bandanna Mask',
+      id: 'lunar-samurai-mask',
+      title: 'Cyber Samurai Bandanna & Mask',
       category: 'hats',
       price: 120,
       currency: 'CR',
       rarity: 'EPIC',
       rarityColor: '#10b981',
-      icon: 'fa-mask',
+      imgUrl: 'https://textures.minecraft.net/texture/2f8d39352e89f8d50b8686d1a60350438173612f0f8d1c9e830e238914b3f8a0',
       badge: 'NEW',
-      previewBg: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 240, 255, 0.1))',
-      description: 'Cyan glowing samurai face mask bandanna equipped on player skin head.'
+      description: 'Futuristic glowing face mask and samurai bandanna equipped on player face layer.'
     },
     {
-      id: 'vortex-founder-bundle',
-      title: 'Vortex Founder 2026 Cosmetic Bundle',
+      id: 'lunar-founder-bundle',
+      title: 'Lunar x Vortex Founder 2026 Bundle',
       category: 'bundles',
       price: 350,
       currency: 'CR',
       rarity: 'MYTHIC',
-      rarityColor: '#f43f5e',
-      icon: 'fa-box-open',
+      rarityColor: '#f59e0b',
+      imgUrl: 'https://textures.minecraft.net/texture/bf03d6d538f72591e3262145e69e38f15d2f83120d5885f8188e7b398dfbd72f',
       badge: 'BUNDLE',
-      previewBg: 'linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(168, 85, 247, 0.1))',
-      description: 'Complete Founder bundle including Founder Cape, Cyber Wings, and Plasma Halo.'
+      description: 'Complete official Founder bundle including Cyber Cloak, Dragon Wings, and Plasma Halo.'
     }
   ];
 
   class VortexCosmeticaAPI {
     constructor() {
-      this.credits = parseInt(localStorage.getItem(STORAGE_KEY_CREDITS) || '500', 10);
+      this.credits = parseInt(localStorage.getItem(STORAGE_KEY_CREDITS) || '600', 10);
       this.inventory = this.loadInventory();
       this.equipped = this.loadEquipped();
     }
 
     getCatalog() {
-      return LUNAR_STYLE_CATALOG;
+      return LUNAR_OFFICIAL_CATALOG;
     }
 
     loadInventory() {
@@ -106,7 +100,7 @@
         const stored = localStorage.getItem(STORAGE_KEY_INVENTORY);
         if (stored) return JSON.parse(stored);
       } catch (e) {}
-      return ['vortex-cyber-flame-cape']; // Default owned cape
+      return ['lunar-cyber-cloak']; // Starter cloak
     }
 
     loadEquipped() {
@@ -114,7 +108,7 @@
         const stored = localStorage.getItem(STORAGE_KEY_EQUIPPED);
         if (stored) return JSON.parse(stored);
       } catch (e) {}
-      return { capes: 'vortex-cyber-flame-cape' };
+      return { cloaks: 'lunar-cyber-cloak' };
     }
 
     save() {
@@ -140,8 +134,8 @@
     }
 
     purchaseItemWithCredits(itemId) {
-      const item = LUNAR_STYLE_CATALOG.find(i => i.id === itemId);
-      if (!item) return { success: false, message: 'Item not found in store.' };
+      const item = LUNAR_OFFICIAL_CATALOG.find(i => i.id === itemId);
+      if (!item) return { success: false, message: 'Item not found in catalog.' };
 
       if (this.hasItem(itemId)) {
         return { success: false, message: 'You already own this cosmetic!' };
@@ -158,12 +152,12 @@
 
       return {
         success: true,
-        message: `Purchased & Equipped ${item.title}! Added to your inventory.`
+        message: `Purchased & Equipped ${item.title}! Item bound to your account.`
       };
     }
 
     toggleEquipInGame(itemId) {
-      const item = LUNAR_STYLE_CATALOG.find(i => i.id === itemId);
+      const item = LUNAR_OFFICIAL_CATALOG.find(i => i.id === itemId);
       if (!item) return { success: false, message: 'Item not found.' };
 
       if (!this.hasItem(itemId)) {
@@ -191,13 +185,13 @@
         return { success: true, message: 'Promo Code Redeemed! +300 Vortex Credits added.' };
       }
 
-      if (clean === 'FREEWINGS') {
-        if (!this.hasItem('vortex-cyber-wings-3d')) {
-          this.inventory.push('vortex-cyber-wings-3d');
+      if (clean === 'FREEPET') {
+        if (!this.hasItem('lunar-dragon-pet')) {
+          this.inventory.push('lunar-dragon-pet');
           this.save();
-          return { success: true, message: 'Promo Code Redeemed! Unlocked 3D Cyber Wings!' };
+          return { success: true, message: 'Promo Code Redeemed! Unlocked 3D Dragon Pet!' };
         }
-        return { success: false, message: 'You already own the 3D Cyber Wings!' };
+        return { success: false, message: 'You already own the 3D Dragon Pet!' };
       }
 
       return { success: false, message: 'Invalid or expired promo code.' };
