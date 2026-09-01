@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
 </head>
-<body class="dark">
-
+<body class="dark support">
   <div class="topbar">
     <div class="wrap nav">
       <a href="index.html" class="brand">
@@ -53,6 +52,18 @@
         <span class="badge"><i class="fa-solid fa-bolt"></i> Median reply: &lt; 15 min</span>
         <span class="badge"><i class="fa-solid fa-user-group"></i> 24/7 on Discord</span>
       </div>
+
+      <div class="auth-bar" id="authBar">
+        <a class="btn btn-outline" id="loginBtn" href="api/discord-login"><i class="fa-brands fa-discord"></i> Sign in with Discord</a>
+        <div class="auth-user" id="authUserWrap" style="display:none;">
+          <img id="authAvatar" src="" alt="">
+          <div>
+            <b id="authName">—</b>
+            <span id="authStatus">Signed in</span>
+          </div>
+          <button class="btn btn-outline sm" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Sign out</button>
+        </div>
+      </div>
     </section>
 
     <section class="cat-grid wrap" id="helpGrid">
@@ -80,6 +91,59 @@
         <p>Purchases, Vortex Credits (CR), cosmetic refunds, and account questions.</p>
         <span>4 articles <i class="fa-solid fa-arrow-right"></i></span>
       </a>
+    </section>
+
+    <section class="ticket-zone" id="tickets">
+      <div class="section-head row">
+        <div>
+          <div class="kicker">Tickets</div>
+          <h2>Open a ticket or track your request</h2>
+        </div>
+        <button class="btn btn-primary sm" id="toggleTicketForm"><i class="fa-solid fa-plus"></i> New Ticket</button>
+      </div>
+
+      <div class="ticket-layout" id="ticketLayout">
+        <div class="ticket-form-wrap" id="ticketFormWrap" style="display:none;">
+          <form class="ticket-form" id="ticketForm">
+            <div class="tf-grid">
+              <label>Subject
+                <input type="text" id="tfSubject" required maxlength="160" placeholder="Short summary of your issue">
+              </label>
+              <label>Category
+                <select id="tfCategory">
+                  <option>General</option>
+                  <option>Account</option>
+                  <option>Login</option>
+                  <option>Crashes</option>
+                  <option>Performance & FPS</option>
+                  <option>Mods & Cosmetics</option>
+                  <option>Store & Credits</option>
+                  <option>Ban Appeal</option>
+                  <option>Other</option>
+                </select>
+              </label>
+            </div>
+            <label>Minecraft username (optional)
+              <input type="text" id="tfMc" maxlength="16" placeholder="e.g. Steve">
+            </label>
+            <label>Message
+              <textarea id="tfMessage" required maxlength="3000" rows="5" placeholder="Describe the problem in detail — what happened, what did you try?"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit" id="tfSubmit">
+              <i class="fa-solid fa-paper-plane"></i> Submit Ticket
+            </button>
+            <p class="tf-note" id="tfNote" style="display:none;"></p>
+          </form>
+        </div>
+
+        <div class="ticket-board-wrap">
+          <div class="ticket-bar-row">
+            <span class="tf-note" id="ticketBarEmpty" style="display:none;">No tickets yet — create one and it will show up here and in Discord.</span>
+            <button class="btn btn-outline sm" id="mineToggle">My tickets</button>
+          </div>
+          <div id="ticketBoard"></div>
+        </div>
+      </div>
     </section>
 
     <section class="wrap">
@@ -216,6 +280,7 @@
   </footer>
 
   <script src="site.js"></script>
+  <script src="tickets.js"></script>
   <script>
     const input = document.getElementById('searchInput');
     input.addEventListener('input', () => {
@@ -225,6 +290,93 @@
         el.style.display = (!q || hay.includes(q)) ? '' : 'none';
       });
     });
+
+    (function () {
+      const loginFrom = location.search.includes('login=success');
+      const API = (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+        ? 'https://vortex-site-beta.vercel.app'
+        : '';
+
+      const userWrap = document.getElementById('authUserWrap');
+      const loginBtn = document.getElementById('loginBtn');
+      const authName = document.getElementById('authName');
+      const authAvatar = document.getElementById('authAvatar');
+      const authStatus = document.getElementById('authStatus');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const toggleForm = document.getElementById('toggleTicketForm');
+      const formWrap = document.getElementById('ticketFormWrap');
+      const form = document.getElementById('ticketForm');
+      const tfNote = document.getElementById('tfNote');
+      const tfSubmit = document.getElementById('tfSubmit');
+
+      function setUser(user) {
+        window.__vortexUser = user;
+        window.dispatchEvent(new CustomEvent('vortex:user'));
+        if (!user || !userWrap) return;
+        userWrap.style.display = 'flex';
+        if (authAvatar) authAvatar.src = user.avatar || '';
+        if (authName) authName.textContent = user.displayName || user.username || 'Signed in';
+        if (authStatus) authStatus.textContent = 'Signed in · ID ' + user.id;
+        if (loginBtn) loginBtn.style.display = 'none';
+      }
+
+      function checkSession() {
+        if (!API) { window.__vortexUser = null; return; }
+        fetch(API + '/api/me')
+          .then(r => (r.ok ? r.json() : Promise.reject(new Error('no session'))))
+          .then(user => setUser(user))
+          .catch(() => { window.__vortexUser = null; });
+      }
+
+      if (logoutBtn) logoutBtn.addEventListener('click', () => {
+        window.location.href = API ? API + '/api/logout' : 'api/logout';
+      });
+
+      if (toggleForm && formWrap) toggleForm.addEventListener('click', () => {
+        const hidden = formWrap.style.display === 'none';
+        formWrap.style.display = hidden ? 'block' : 'none';
+      });
+
+      if (form) form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const subject = document.getElementById('tfSubject').value.trim();
+        const category = document.getElementById('tfCategory').value;
+        const minecraft = document.getElementById('tfMc').value.trim();
+        const message = document.getElementById('tfMessage').value.trim();
+        if (!subject || !message) { tfNote.textContent = 'Please fill in subject and message.'; tfNote.style.display = 'block'; return; }
+        tfSubmit.disabled = true;
+        tfNote.style.display = 'none';
+        try {
+          const res = await fetch((API || '') + '/api/ticket', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subject, category, minecraft, message })
+          });
+          const data = await res.json();
+          if (res.ok && data.ok) {
+            form.reset();
+            formWrap.style.display = 'none';
+            tfNote.textContent = `Ticket ${data.ticketId} created! Status: ${data.status}. Our team will reply soon — track progress on the board below.`;
+            tfNote.style.display = 'block';
+            tfNote.style.color = 'var(--green)';
+            setTimeout(() => { tfNote.style.display = 'none'; window.dispatchEvent(new CustomEvent('vortex:reload-tickets')); }, 6000);
+          } else {
+            tfNote.textContent = (data && data.message) || 'Something went wrong — try again.';
+            tfNote.style.display = 'block';
+            tfNote.style.color = '#ff7a7a';
+          }
+        } catch (err) {
+          tfNote.textContent = 'Network error — make sure the site API is reachable.';
+          tfNote.style.display = 'block';
+          tfNote.style.color = '#ff7a7a';
+        } finally {
+          tfSubmit.disabled = false;
+        }
+      });
+
+      checkSession();
+      if (loginFrom) window.dispatchEvent(new CustomEvent('vortex:reload-tickets'));
+    })();
   </script>
 </body>
 </html>
