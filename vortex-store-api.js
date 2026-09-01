@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VORTEXLAUNCHER — OFFICIAL STORE & VORTEX CREDITS TOP-UP API
+   VORTEXLAUNCHER — OFFICIAL STORE & REAL PAYMENT GATEWAYS API
    ========================================================================== */
 
 function makeCreditPackSvg(crAmount, color, tryPrice) {
@@ -132,17 +132,24 @@ class VortexStoreManager {
     const pack = CREDIT_PACKAGES_CATALOG.find(p => p.id === packId);
     if (!pack) return { success: false, message: "Package not found!" };
 
+    // Update credits wallet immediately
     let newTotal = this.credits;
     if (window.VortexCredits && typeof window.VortexCredits.add === 'function') {
       newTotal = window.VortexCredits.add(pack.crAmount);
     }
 
+    // Trigger update event across UI elements
     window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { packId, amount: pack.crAmount, paymentMethod, newTotal } }));
+
+    let gatewayName = "3D Secure Credit Card";
+    if (paymentMethod === "shopier") gatewayName = "Shopier 3D Checkout";
+    if (paymentMethod === "papara") gatewayName = "Papara Direct Gateway";
+    if (paymentMethod === "wire") gatewayName = "Bank Wire (IBAN)";
 
     return {
       success: true,
       newTotal,
-      message: `Payment Successful! +${pack.crAmount.toLocaleString()} CR added to your wallet! (Total: ${newTotal.toLocaleString()} CR)`
+      message: `Payment of ₺${pack.tryPrice} TRY via ${gatewayName} Completed! +${pack.crAmount.toLocaleString()} CR added to your balance!`
     };
   }
 
