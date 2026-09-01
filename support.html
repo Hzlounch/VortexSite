@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
 </head>
-<body class="dark support">
+<body class="dark">
 
   <div class="topbar">
     <div class="wrap nav">
@@ -40,34 +40,98 @@
   </div>
 
   <main>
-    <section class="wrap">
-      <div class="support-card">
-        <i class="fa-brands fa-discord"></i>
-        <h1>Need help?</h1>
-        <p>Our support team is active 24/7 on the official Vortex Discord server. Join now to open a ticket, report a bug, or get help with your account.</p>
-        <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Join Vortex Discord</a>
+    <section class="support-hero wrap">
+      <div class="kicker">Support Center</div>
+      <h1>How can we help you?</h1>
+      <p>Answers to common questions, guides, and 24/7 community support — all in one place.</p>
+      <form class="search-bar" id="supportSearch" role="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search articles, e.g. “can't connect” or “FPS”">
+      </form>
+      <div class="support-badges">
+        <span class="badge ok"><i class="fa-solid fa-circle"></i> All systems operational</span>
+        <span class="badge"><i class="fa-solid fa-bolt"></i> Median reply: &lt; 15 min</span>
+        <span class="badge"><i class="fa-solid fa-user-group"></i> 24/7 on Discord</span>
       </div>
     </section>
 
-    <section class="wrap" style="padding-top:10px;">
-      <div class="channels">
-        <div class="channel">
-          <i class="fa-brands fa-discord"></i>
-          <b>Discord Ticket</b>
-          <span>Fastest response · 24/7</span>
+    <section class="cat-grid wrap" id="helpGrid">
+      <a class="cat-card" href="performance-guide.html" data-cat="performance">
+        <i class="fa-solid fa-gauge-high"></i>
+        <b>Getting Started</b>
+        <p>Install, login, versions, and launcher basics — from zero to playing in minutes.</p>
+        <span>6 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a class="cat-card" href="performance-guide.html" data-cat="performance">
+        <i class="fa-solid fa-rocket"></i>
+        <b>Performance &amp; FPS</b>
+        <p>Low FPS, stutters, crashes — squeeze every frame out of your machine.</p>
+        <span>9 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a class="cat-card" href="#" data-cat="gameplay">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <b>Troubleshooting</b>
+        <p>Crashes, error codes, Java issues, and network problems solved step-by-step.</p>
+        <span>12 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a class="cat-card" href="store.html" data-cat="store">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <b>Store &amp; Credits</b>
+        <p>Purchases, Vortex Credits (CR), cosmetic refunds, and account questions.</p>
+        <span>4 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </section>
+
+    <section class="wrap">
+      <div class="section-head row">
+        <div>
+          <div class="kicker">Knowledge base</div>
+          <h2>Popular articles</h2>
         </div>
-        <div class="channel">
-          <i class="fa-solid fa-envelope"></i>
-          <b>Email</b>
-          <span>support@vortexclient.app</span>
-        </div>
-        <div class="channel">
-          <i class="fa-solid fa-newspaper"></i>
-          <b>Docs</b>
-          <span>Guides &amp; troubleshooting</span>
-        </div>
+        <span class="view-all"><a href="#helpGrid">Browse all <i class="fa-solid fa-arrow-right"></i></a></span>
       </div>
 
+      <div class="support-grid" id="supportGrid">
+        <article class="support-card">
+          <span class="doc-tag red">FIX</span>
+          <h3><a href="#">Failed to Extract Natives</a></h3>
+          <p>Java or antivirus blocking Vortex? Reset and retry in two minutes.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Sep 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag green">GUIDE</span>
+          <h3><a href="performance-guide.html">How to Boost Your FPS in Vortex</a></h3>
+          <p>Render distance, JVM args, and modules — our recommended settings.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Aug 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag red">FIX</span>
+          <h3><a href="#">Self Signed Certificate</a></h3>
+          <p>Occurs on enterprise networks. Here's how to trust safely.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Jul 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag red">FIX</span>
+          <h3><a href="#">Vortex Using Integrated Graphics</a></h3>
+          <p>Force your GPU in one click from the launcher settings.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Jul 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag gold">BLOG</span>
+          <h3><a href="news.html">V2.5 System Requirements</a></h3>
+          <p>Minimum and recommended specs for the Amethyst update.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Sep 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag">FAQ</span>
+          <h3><a href="#">Is Vortex Ban-Safe?</a></h3>
+          <p>How our mods stay compliant with the most popular server rules.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Aug 2026</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-top:0;">
       <div class="section-head" style="text-align:center; margin-bottom:26px;">
         <div class="kicker">FAQ</div>
         <h2>Frequently asked</h2>
@@ -90,6 +154,22 @@
           <summary>Can I run Vortex on a low-end PC?</summary>
           <div class="ans">Yes. The performance pipeline is tuned to run on 4GB RAM and integrated GPUs, while the benchmark section shows how much headroom you can gain.</div>
         </details>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="ticket-cta">
+        <div>
+          <i class="fa-brands fa-discord"></i>
+          <div>
+            <h3>Still need help?</h3>
+            <p>Our team replies in minutes on the community Discord — or open a ticket for account and store issues.</p>
+          </div>
+        </div>
+        <div class="ticket-actions">
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Join Discord</a>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-outline"><i class="fa-solid fa-ticket"></i> Open a Ticket</a>
+        </div>
       </div>
     </section>
   </main>
@@ -136,5 +216,15 @@
   </footer>
 
   <script src="site.js"></script>
+  <script>
+    const input = document.getElementById('searchInput');
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      document.querySelectorAll('#supportGrid .support-card, #helpGrid .cat-card').forEach(el => {
+        const hay = el.textContent.toLowerCase();
+        el.style.display = (!q || hay.includes(q)) ? '' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1114,6 +1114,103 @@ details.faq-item[open] { border-color: rgba(47, 227, 234, 0.35); }
   .stat-cards { grid-template-columns: 1fr; }
 }
 
+/* ---------- SUPPORT: hero, search, categories, knowledge base ---------- */
+.support-hero { max-width: 1210px; margin: 0 auto; padding: 84px 24px 34px; text-align: center; }
+.support-hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 900; letter-spacing: -0.035em; margin: 14px 0 16px; }
+.support-hero p { color: var(--muted); font-size: 1.05rem; line-height: 1.65; max-width: 640px; margin: 0 auto 30px; }
+.search-bar {
+  position: relative; max-width: 620px; margin: 0 auto 22px;
+  display: flex; align-items: center;
+  border-radius: 14px; border: 1px solid var(--border);
+  background: rgba(8, 11, 20, 0.65); backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+.search-bar .fa-magnifying-glass { color: var(--muted); padding-left: 18px; font-size: 1rem; }
+.search-bar input {
+  flex: 1; background: transparent; border: none; outline: none; color: var(--text);
+  padding: 16px 16px; font-size: 0.95rem; font-family: inherit;
+}
+.search-bar input::placeholder { color: var(--muted-dim, #5b6478); }
+.support-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.support-badges .badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2px;
+  color: var(--muted); border: 1px solid var(--border);
+  padding: 8px 14px; border-radius: 99px; background: rgba(255, 255, 255, 0.03);
+}
+.support-badges .badge.ok { color: #6ee7a0; border-color: rgba(61, 220, 132, 0.35); background: rgba(61, 220, 132, 0.07); }
+.support-badges .badge.ok .fa-circle { font-size: 0.5rem; color: var(--green); animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.support-badges .badge .fa-bolt { color: var(--gold); }
+
+.cat-grid { max-width: 1210px; margin: 10px auto 46px; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cat-card {
+  display: flex; flex-direction: column; gap: 8px; padding: 24px 22px;
+  border-radius: 18px; border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)), var(--surface);
+  text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.cat-card:hover { transform: translateY(-4px); border-color: rgba(47, 227, 234, 0.4); background: var(--surface-hover); }
+.cat-card i:first-child { font-size: 1.4rem; color: var(--accent); }
+.cat-card b { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.01em; }
+.cat-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; flex: 1; }
+.cat-card span { font-size: 0.78rem; font-weight: 700; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+.cat-card span .fa-arrow-right { font-size: 0.7rem; }
+
+.section-head.row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
+.view-all a { font-size: 0.85rem; font-weight: 700; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.view-all a:hover { text-decoration: underline; }
+
+.support-grid { max-width: 1210px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.support-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 22px; border-radius: 16px; border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)), var(--surface);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.support-card:hover { transform: translateY(-4px); border-color: rgba(47, 227, 234, 0.4); background: var(--surface-hover); }
+.doc-tag {
+  align-self: flex-start; font-size: 0.66rem; font-weight: 800; letter-spacing: 1.2px;
+  padding: 4px 10px; border-radius: 6px;
+  color: var(--accent); background: rgba(47, 227, 234, 0.1); border: 1px solid rgba(47, 227, 234, 0.25);
+}
+.doc-tag.red { color: #ff7a7a; background: rgba(255, 80, 80, 0.08); border-color: rgba(255, 80, 80, 0.28); }
+.doc-tag.green { color: #6ee7a0; background: rgba(61, 220, 132, 0.08); border-color: rgba(61, 220, 132, 0.28); }
+.doc-tag.gold { color: #ffd479; background: rgba(245, 196, 81, 0.08); border-color: rgba(245, 196, 81, 0.28); }
+.support-card h3 { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.35; }
+.support-card h3 a { color: var(--text); text-decoration: none; }
+.support-card h3 a:hover { color: var(--accent); }
+.support-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; flex: 1; }
+.doc-meta { font-size: 0.74rem; color: var(--muted-dim, #5b6478); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+
+.ticket-cta {
+  max-width: 1210px; margin: 10px auto 60px; padding: 28px 30px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  border-radius: 20px;
+  border: 1px solid rgba(47, 227, 234, 0.3);
+  background: linear-gradient(120deg, rgba(47, 227, 234, 0.12), rgba(47, 227, 234, 0.03) 45%, rgba(245, 196, 81, 0.06));
+}
+.ticket-cta > div:first-child { display: flex; align-items: center; gap: 16px; }
+.ticket-cta .fa-discord { font-size: 2rem; color: #5865f2; }
+.ticket-cta h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.ticket-cta p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-top: 4px; }
+.ticket-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1px solid rgba(47, 227, 234, 0.4); color: var(--accent); background: transparent;
+  padding: 12px 22px; border-radius: 12px; font-size: 0.92rem; font-weight: 800; text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn-outline:hover { background: rgba(47, 227, 234, 0.1); border-color: var(--accent); }
+
+@media (max-width: 900px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .support-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .cat-grid { grid-template-columns: 1fr; }
+}
+
 /* ==========================================================================
    RESPONSIVE 2
    ========================================================================== */
