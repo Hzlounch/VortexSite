@@ -3,6 +3,10 @@
 // staff ticket webhook. The Discord bot captures the embed and stores the ticket.
 const ME_URL = 'https://discord.com/api/v10/users/@me';
 
+// In-memory dedupe of recent submissions (prevents double-created tickets)
+const recent = new Map();
+const recentIds = new Map();
+
 function parseCookie(cookie) {
   const out = {};
   (cookie || '').split(';').forEach(part => {
@@ -24,7 +28,18 @@ module.exports = async (req, res) => {
   const category = String(body.category || 'General').trim() || 'General';
   const minecraft = String(body.minecraft || '').trim();
   const message = String(body.message || '').trim();
+  const nonce = String(body.nonce || '').trim();
   if (!subject || !message) return res.status(400).json({ ok: false, message: 'Subject and message are required.' });
+  if (subject.length > 200 || message.length > 3000 || minecraft.length > 16) {
+    return res.status(400).json({ ok: false, message: 'One of the fields is too long.' });
+  }
+
+  // Idempotency guard: identical submission within 10 minutes is ignored
+  const now = Date.now();
+  if (recent.size > 400) recent.clear();
+  for (const [k, t] of recent.entries()) { if (now - t > 600000) recent.delete(k); }
+  const dupKey = nonce || `raw|${subject}|${message}`.slice(0, 180);
+  if (recent.has(dupKey)) return res.json({ ok: true, ticketId: recentIds.get(dupKey) || 'WT-DUPLICATE', status: 'Waiting for Staff', duplicate: true });
 
   let name = 'Guest';
   let discordId = '';
@@ -43,6 +58,8 @@ module.exports = async (req, res) => {
   }
 
   const ticketId = 'WT-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2, 5).toUpperCase();
+  recent.set(dupKey, Date.now());
+  recentIds.set(dupKey, ticketId);
   const embed = {
     title: `🌐 Ticket Created — ${ticketId}`,
     color: 0x16b4ee,

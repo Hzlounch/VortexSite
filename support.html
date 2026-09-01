@@ -138,6 +138,7 @@
             <label>Message
               <textarea id="tfMessage" required maxlength="3000" rows="5" placeholder="Describe the problem in detail — what happened, what did you try?"></textarea>
             </label>
+            <input type="hidden" id="tfNonce" value="">
             <button class="btn btn-primary" type="submit" id="tfSubmit">
               <i class="fa-solid fa-paper-plane"></i> Submit Ticket
             </button>
@@ -318,6 +319,7 @@
       const form = document.getElementById('ticketForm');
       const tfNote = document.getElementById('tfNote');
       const tfSubmit = document.getElementById('tfSubmit');
+      let ticketBusy = false;
 
       function setUser(user) {
         window.__vortexUser = user;
@@ -349,21 +351,26 @@
 
       if (form) form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if (ticketBusy) return;
+        ticketBusy = true;
         const subject = document.getElementById('tfSubject').value.trim();
         const category = document.getElementById('tfCategory').value;
         const minecraft = document.getElementById('tfMc').value.trim();
         const message = document.getElementById('tfMessage').value.trim();
-        if (!subject || !message) { tfNote.textContent = 'Please fill in subject and message.'; tfNote.style.display = 'block'; return; }
+        if (!subject || !message) { ticketBusy = false; tfNote.textContent = 'Please fill in subject and message.'; tfNote.style.display = 'block'; return; }
+        const nonce = document.getElementById('tfNonce');
+        if (nonce && !nonce.value) nonce.value = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
         tfSubmit.disabled = true;
         tfNote.style.display = 'none';
         try {
           const res = await fetch((API || '') + '/api/ticket', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ subject, category, minecraft, message })
+            body: JSON.stringify({ subject, category, minecraft, message, nonce: nonce ? nonce.value : '' })
           });
           const data = await res.json();
           if (res.ok && data.ok) {
+            if (nonce) nonce.value = '';
             form.reset();
             formWrap.style.display = 'none';
             tfNote.textContent = `Ticket ${data.ticketId} created! Status: ${data.status}. Our team will reply soon — track progress on the board below.`;
@@ -381,6 +388,7 @@
           tfNote.style.color = '#ff7a7a';
         } finally {
           tfSubmit.disabled = false;
+          ticketBusy = false;
         }
       });
 

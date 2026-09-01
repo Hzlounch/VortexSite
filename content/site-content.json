@@ -33,17 +33,5 @@
   ],
   "features": [],
   "updates": [],
-  "tickets": [
-    {
-      "id": "WT-MTJ794WH-F9P",
-      "name": "Hzlounch",
-      "minecraft": "Hzlounch",
-      "category": "Login",
-      "subject": "Fix",
-      "message": "aaaa",
-      "status": "Waiting for Staff",
-      "open": true,
-      "createdAt": "2026-09-01T21:48:58.987Z"
-    }
-  ]
+  "tickets": []
 }
