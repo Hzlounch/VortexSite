@@ -2,6 +2,16 @@
   "version": 1,
   "news": [
     {
+      "id": "news-mtj3ebfz-uvtd",
+      "title": "Blog",
+      "category": "BLOG",
+      "imageUrl": "",
+      "summary": "Blog",
+      "body": "Blog",
+      "publishedAt": "2026-09-01",
+      "author": "momy4605"
+    },
+    {
       "id": "news-mtj2vxol-hy4z",
       "title": "Blog",
       "category": "BLOG",
