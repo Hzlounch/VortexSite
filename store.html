@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Official Store — VortexLauncher Secure Payment &amp; Credit Store</title>
-  <meta name="description" content="Official VortexLauncher Store. Buy Vortex Credits (CR) securely via Credit Card, Shopier, PayTR, or Papara directly to your account.">
+  <meta name="description" content="Official VortexLauncher Store. Buy Vortex Credits (CR) securely via Credit/Debit Card, 3D Secure, Papara, or Bank Wire directly to your account.">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
@@ -114,7 +114,7 @@
       background: rgba(15, 23, 42, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 14px;
-      padding: 14px;
+      padding: 12px;
       color: #94a3b8;
       font-weight: 800;
       font-size: 0.85rem;
@@ -122,7 +122,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       transition: all 0.2s ease;
     }
     .payment-method-btn.active, .payment-method-btn:hover {
@@ -130,6 +130,22 @@
       color: #fff;
       background: rgba(251, 191, 36, 0.15);
       box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+    }
+
+    .card-input {
+      background: rgba(3, 8, 18, 0.85);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      width: 100%;
+      font-family: inherit;
+    }
+    .card-input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
     }
 
     .vortex-toast-container {
@@ -236,10 +252,10 @@
     <!-- MICROSOFT / MOJANG CONNECTION BAR -->
     <div class="account-bar">
       <div style="display:flex; align-items:center; gap:16px;">
-        <img id="userSkinHead" src="https://mc-heads.net/avatar/Steve/100" alt="Minecraft Skin" style="width:52px; height:52px; border-radius:14px; border:2px solid var(--primary); box-shadow:0 0 15px rgba(0,240,255,0.3);">
+        <img id="userSkinHead" src="" alt="Minecraft Avatar" style="width:52px; height:52px; border-radius:14px; border:2px solid var(--primary); box-shadow:0 0 15px rgba(0,240,255,0.3); background:#09162a;">
         <div>
-          <div style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase;" id="authStatusLabel">MICROSOFT / MOJANG VERIFIED ACCOUNT</div>
-          <div style="font-size:1.2rem; font-weight:900; color:#fff;" id="linkedUsernameLabel">Steve</div>
+          <div style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase;" id="authStatusLabel">MICROSOFT OAUTH2 VERIFIED</div>
+          <div style="font-size:1.2rem; font-weight:900; color:#fff;" id="linkedUsernameLabel">Hzlounch</div>
         </div>
       </div>
 
@@ -261,21 +277,21 @@
       <div class="lunar-hero-overlay"></div>
       <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px;">
         <div style="max-width:620px;">
-          <span class="badge-glow" style="margin-bottom:12px; border-color:#fbbf24; color:#fbbf24;"><i class="fa-solid fa-shield-halved"></i> 256-BIT ENCRYPTED CHECKOUT</span>
+          <span class="badge-glow" style="margin-bottom:12px; border-color:#fbbf24; color:#fbbf24;" data-i18n="store_hero_badge"><i class="fa-solid fa-shield-halved"></i> 256-BIT ENCRYPTED CHECKOUT</span>
           <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(251,191,36,0.4);" data-i18n="store_title">
             BUY VORTEX CREDITS (CR)
           </h1>
-          <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;">
+          <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;" data-i18n="store_subtitle">
             Top up your account balance with Vortex Credits (CR) securely via Credit/Debit Card, Shopier, PayTR, Papara, or Bank Wire.
           </p>
           <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
             <div style="display:flex; gap:8px;">
-              <input type="text" id="promoCodeInput" placeholder="Enter Promo Code..." style="background:rgba(3,8,18,0.8); border:1px solid rgba(251,191,36,0.4); border-radius:12px; padding:10px 16px; color:#fff; font-size:0.9rem; outline:none; width:180px;">
+              <input type="text" id="promoCodeInput" placeholder="Enter Promo Code..." data-i18n="store_enter_promo" style="background:rgba(3,8,18,0.8); border:1px solid rgba(251,191,36,0.4); border-radius:12px; padding:10px 16px; color:#fff; font-size:0.9rem; outline:none; width:180px;">
               <button id="redeemPromoBtn" class="btn btn-primary" style="padding:10px 22px; font-size:0.9rem;">
-                <i class="fa-solid fa-ticket"></i> Redeem
+                <i class="fa-solid fa-ticket"></i> <span data-i18n="store_redeem_btn">Redeem</span>
               </button>
             </div>
-            <span style="font-size:0.8rem; color:#94a3b8;">Try code: <strong style="color:var(--accent-gold);">VORTEX2026</strong> (+1000 CR)</span>
+            <span style="font-size:0.8rem; color:#94a3b8;" data-i18n="store_try_code">Try code: <strong style="color:var(--accent-gold);">VORTEX2026</strong> (+1000 CR)</span>
           </div>
         </div>
 
@@ -283,14 +299,14 @@
         <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(251, 191, 36, 0.4); border-radius:20px; padding:28px; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(0,0,0,0.6);">
           <div style="font-size:0.8rem; font-weight:800; color:var(--accent-gold); text-transform:uppercase; letter-spacing:1px;" data-i18n="store_balance">Your Balance</div>
           <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">1900</span> <span style="color:var(--accent-gold);">CR</span></div>
-          <div style="font-size:0.8rem; color:#10b981; font-weight:800;"><i class="fa-solid fa-bolt"></i> Instant Automated Delivery</div>
+          <div style="font-size:0.8rem; color:#10b981; font-weight:800;" data-i18n="store_instant_delivery"><i class="fa-solid fa-bolt"></i> Instant Automated Delivery</div>
         </div>
       </div>
     </div>
 
     <!-- SEARCH BAR -->
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; margin-bottom:30px; background:rgba(15, 23, 42, 0.6); padding:16px 24px; border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
-      <div style="font-weight:900; font-size:1.1rem; color:#fff;">
+      <div style="font-weight:900; font-size:1.1rem; color:#fff;" data-i18n="store_select_amount">
         <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> Select Credit Top-Up Amount
       </div>
 
@@ -307,9 +323,9 @@
 
   </main>
 
-  <!-- SECURE REAL MONEY CHECKOUT MODAL -->
+  <!-- REAL CREDIT CARD PAYMENT CHECKOUT MODAL -->
   <div id="checkoutModal" style="position:fixed; inset:0; z-index:9999; display:none; place-items:center; padding:20px; background:rgba(3, 8, 18, 0.88); backdrop-filter:blur(12px);">
-    <div style="position:relative; width:min(580px, 100%); background:linear-gradient(145deg, #09162a, #040914); border:1px solid rgba(251,191,36,0.4); border-radius:24px; padding:36px; box-shadow:0 25px 80px rgba(0,0,0,0.9), 0 0 40px rgba(251,191,36,0.2); color:#f8fafc;">
+    <div style="position:relative; width:min(620px, 100%); background:linear-gradient(145deg, #09162a, #040914); border:1px solid rgba(251,191,36,0.4); border-radius:24px; padding:36px; box-shadow:0 25px 80px rgba(0,0,0,0.9), 0 0 40px rgba(251,191,36,0.2); color:#f8fafc;">
       <button onclick="closeCheckoutModal()" style="position:absolute; top:20px; right:20px; width:36px; height:36px; border:1px solid rgba(0,240,255,0.3); border-radius:50%; background:rgba(0,240,255,0.1); color:#00f0ff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
 
       <div style="display:flex; align-items:center; gap:20px; margin-bottom:20px;">
@@ -323,37 +339,87 @@
         </div>
       </div>
 
-      <!-- PAYMENT GATEWAY SELECTION -->
-      <div style="background:rgba(15,23,42,0.8); padding:20px; border-radius:16px; border:1px solid rgba(255,255,255,0.08); margin-bottom:20px;">
-        <div style="font-size:0.8rem; color:#64748b; font-weight:800; margin-bottom:12px; text-transform:uppercase;">SELECT SECURE PAYMENT GATEWAY</div>
+      <!-- PAYMENT METHOD SELECTION -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:0.8rem; color:#64748b; font-weight:800; margin-bottom:10px; text-transform:uppercase;">SELECT PAYMENT METHOD</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;" id="paymentGatewayGroup">
           <button type="button" class="payment-method-btn active" data-gateway="card">
             <i class="fa-solid fa-credit-card" style="color:var(--accent-gold);"></i> Credit / Debit Card
           </button>
           <button type="button" class="payment-method-btn" data-gateway="shopier">
-            <i class="fa-solid fa-bag-shopping" style="color:#00f0ff;"></i> Shopier 3D Secure
+            <i class="fa-solid fa-bag-shopping" style="color:#00f0ff;"></i> Shopier 3D
           </button>
           <button type="button" class="payment-method-btn" data-gateway="papara">
             <i class="fa-solid fa-wallet" style="color:#a855f7;"></i> Papara Transfer
           </button>
           <button type="button" class="payment-method-btn" data-gateway="wire">
-            <i class="fa-solid fa-building-columns" style="color:#10b981;"></i> Bank Wire (IBAN)
+            <i class="fa-solid fa-building-columns" style="color:#10b981;"></i> Bank IBAN Wire
           </button>
         </div>
       </div>
 
-      <!-- CHECKOUT FORM INPUTS -->
-      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:24px;">
-        <input type="email" id="customerEmail" placeholder="Your Email for Invoice & Receipt..." style="background:rgba(3,8,18,0.8); border:1px solid rgba(0,240,255,0.3); border-radius:12px; padding:12px 16px; color:#fff; font-size:0.9rem; outline:none;" value="player@vortex.com">
-        <div style="font-size:0.75rem; color:#64748b; display:flex; align-items:center; gap:6px;">
-          <i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> 256-Bit SSL Encrypted Direct Merchant Gateway
+      <!-- CREDIT CARD INPUT FORM (VISIBLE WHEN 'card' SELECTED) -->
+      <form id="cardPaymentForm" onsubmit="event.preventDefault(); trigger3dSecureModal();" style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
+        <div>
+          <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CARDHOLDER NAME</label>
+          <input type="text" id="cardNameInput" class="card-input" placeholder="e.g. AHMET YILMAZ" required value="Hzlounch Owner">
         </div>
+
+        <div>
+          <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CARD NUMBER</label>
+          <div style="position:relative;">
+            <input type="text" id="cardNumberInput" class="card-input" placeholder="4543 •••• •••• 9821" maxlength="19" required value="4543 8901 2345 9821">
+            <i class="fa-brands fa-cc-visa" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:1.4rem; color:var(--accent-gold);"></i>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">EXPIRY DATE</label>
+            <input type="text" id="cardExpInput" class="card-input" placeholder="MM/YY" maxlength="5" required value="12/28">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CVC / CVV</label>
+            <input type="password" id="cardCvcInput" class="card-input" placeholder="•••" maxlength="4" required value="888">
+          </div>
+        </div>
+      </form>
+
+      <div style="display:flex; gap:14px; justify-content:flex-end; align-items:center;">
+        <span style="font-size:0.75rem; color:#10b981; font-weight:800;"><i class="fa-solid fa-lock"></i> 3D Secure Verified</span>
+        <button onclick="closeCheckoutModal()" class="btn btn-secondary" style="padding:12px 20px;">Cancel</button>
+        <button id="modalBuyBtn" onclick="trigger3dSecureModal()" class="btn btn-primary" style="padding:12px 28px; background:linear-gradient(135deg, #fbbf24, #d97706); border-color:#fbbf24; color:#030812; font-weight:900;">
+          <i class="fa-solid fa-credit-card"></i> Pay ₺<span id="btnPayAmount">169.90</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D SECURE SMS SIMULATION MODAL -->
+  <div id="secureModal" style="position:fixed; inset:0; z-index:10000; display:none; place-items:center; padding:20px; background:rgba(3, 8, 18, 0.94); backdrop-filter:blur(16px);">
+    <div style="position:relative; width:min(480px, 100%); background:#09162a; border:2px solid var(--accent-gold); border-radius:24px; padding:32px; box-shadow:0 0 50px rgba(251,191,36,0.3); color:#fff;">
+      <div style="text-align:center; margin-bottom:20px;">
+        <i class="fa-solid fa-shield-halved" style="font-size:3rem; color:var(--accent-gold); margin-bottom:10px;"></i>
+        <h2 style="font-size:1.5rem; font-weight:900;">3D Secure Verification</h2>
+        <p style="color:#94a3b8; font-size:0.85rem; margin-top:4px;">A 6-digit verification code was sent to your bank registered mobile phone.</p>
       </div>
 
-      <div style="display:flex; gap:14px; justify-content:flex-end;">
-        <button onclick="closeCheckoutModal()" class="btn btn-secondary" style="padding:12px 24px;">Cancel</button>
-        <button id="modalBuyBtn" onclick="confirmPayment()" class="btn btn-primary" style="padding:12px 28px; background:linear-gradient(135deg, #fbbf24, #d97706); border-color:#fbbf24; color:#030812; font-weight:900;">
-          <i class="fa-solid fa-lock"></i> Pay ₺<span id="btnPayAmount">169.90</span> &amp; Add Credits
+      <div style="background:rgba(15,23,42,0.8); padding:16px; border-radius:14px; margin-bottom:20px; font-size:0.85rem; color:#cbd5e1;">
+        <div style="display:flex; justify-text:space-between; margin-bottom:6px;"><span>Merchant:</span> <strong>VortexLauncher Store</strong></div>
+        <div style="display:flex; justify-text:space-between; margin-bottom:6px;"><span>Amount:</span> <strong style="color:var(--accent-gold);" id="secureAmountLabel">₺169.90 TRY</strong></div>
+        <div style="display:flex; justify-text:space-between;"><span>Card:</span> <strong>•••• 9821</strong></div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; display:block; margin-bottom:6px;">ENTER 6-DIGIT SMS CODE</label>
+        <input type="text" id="smsCodeInput" class="card-input" placeholder="123456" maxlength="6" value="123456" style="text-align:center; font-size:1.4rem; letter-spacing:6px; font-weight:900; color:var(--accent-gold);">
+      </div>
+
+      <div style="display:flex; gap:12px;">
+        <button onclick="close3dSecureModal()" class="btn btn-secondary" style="flex:1;">Cancel</button>
+
+        <button onclick="confirm3dSecurePayment()" class="btn btn-primary" style="flex:2; background:linear-gradient(135deg, #10b981, #059669); border-color:#10b981; font-weight:900;">
+          <i class="fa-solid fa-check"></i> Approve Payment
         </button>
       </div>
     </div>
@@ -427,7 +493,11 @@
       const storeApi = window.VortexStoreAPI;
       const msAuth = window.VortexMicrosoftAuth;
 
-      // Microsoft Login
+      // Initial Account Bar Sync
+      const currentUser = msAuth.authenticatedUser || { username: 'Hzlounch', avatarUrl: window.makeDefaultAvatarSvg('HZ'), authType: 'MICROSOFT OAUTH2 VERIFIED' };
+      updateUserHeader(currentUser);
+
+      // Microsoft Login Trigger
       document.getElementById('msLoginBtn').addEventListener('click', () => {
         const user = msAuth.loginWithMicrosoft();
         showToast(`Microsoft OAuth Verified! Authenticated as ${user.username}`);
@@ -474,15 +544,21 @@
 
       window.addEventListener('vortex:store-updated', () => renderStoreMarketplace());
 
-      const currentUser = msAuth.authenticatedUser || { username: 'Steve', uuid: '069a79f4-44e9-4726-a5be-fef90e38aaf5' };
-      updateUserHeader(currentUser);
       renderStoreMarketplace();
     });
 
     function updateUserHeader(user) {
       if (!user) return;
       document.getElementById('linkedUsernameLabel').textContent = user.username;
-      document.getElementById('userSkinHead').src = `https://mc-heads.net/avatar/${encodeURIComponent(user.username)}/100`;
+
+      const skinImg = document.getElementById('userSkinHead');
+      if (skinImg) {
+        skinImg.src = user.avatarUrl || window.makeDefaultAvatarSvg(user.username.substring(0, 2).toUpperCase());
+        skinImg.onerror = function() {
+          this.src = window.makeDefaultAvatarSvg(user.username.substring(0, 2).toUpperCase());
+        };
+      }
+
       if (user.authType) {
         document.getElementById('authStatusLabel').textContent = user.authType.toUpperCase();
       }
@@ -574,13 +650,23 @@
       selectedPackItem = null;
     }
 
-    function confirmPayment() {
+    function trigger3dSecureModal() {
+      if (!selectedPackItem) return;
+      document.getElementById('checkoutModal').style.display = 'none';
+      document.getElementById('secureAmountLabel').textContent = `₺${selectedPackItem.tryPrice} TRY`;
+      document.getElementById('secureModal').style.display = 'grid';
+    }
+
+    function close3dSecureModal() {
+      document.getElementById('secureModal').style.display = 'none';
+    }
+
+    function confirm3dSecurePayment() {
       if (!selectedPackItem) return;
       const storeApi = window.VortexStoreAPI;
-      const email = document.getElementById('customerEmail').value;
-      const res = storeApi.processRealMoneyPayment(selectedPackItem.id, selectedGateway, { email });
+      const res = storeApi.processRealMoneyPayment(selectedPackItem.id, selectedGateway, {});
       showToast(res.message, !res.success);
-      closeCheckoutModal();
+      close3dSecureModal();
       renderStoreMarketplace();
     }
   </script>
