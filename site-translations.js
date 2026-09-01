@@ -49,11 +49,11 @@ const VORTEX_TRANSLATIONS = {
     cta_desc: "Boosted frames, all the popular mods, multi OS support, and completely free! So what are you waiting for - Download today!",
 
     // Store
-    store_title: "VortexLauncher Store",
-    store_subtitle: "Upgrade your client experience with VIP/MVP ranks, FPS Booster Pro, Founder Badges, and Vortex Credit packages.",
+    store_title: "VortexLauncher Credit Store",
+    store_subtitle: "Buy Vortex Credits (CR) instantly using real currency (TRY / USD) for your Vortex account.",
     store_balance: "Your Balance",
     store_buy_cr: "Buy Credits",
-    store_item_buy: "Buy Package",
+    store_item_buy: "Buy Credits",
 
     // Support
     support_title: "Vortex Support Center",
@@ -114,11 +114,11 @@ const VORTEX_TRANSLATIONS = {
     cta_desc: "Yüksek FPS, en popüler modlar, çoklu işletim sistemi desteği ve tamamen ücretsiz! Daha ne bekliyorsunuz - Hemen indirin!",
 
     // Store
-    store_title: "VortexLauncher Mağazası",
-    store_subtitle: "VIP/MVP üyelikleri, FPS Booster Pro, Kurucu Rozetleri ve Vortex Kredi paketleri ile başlatıcınızı yükseltin.",
+    store_title: "VortexLauncher Kredi Mağazası",
+    store_subtitle: "Gerçek para (TRY / USD) ile Vortex hesabınıza anında Vortex Kredisi (CR) yükleyin.",
     store_balance: "Bakiyeniz",
     store_buy_cr: "Kredi Satın Al",
-    store_item_buy: "Paket Satın Al",
+    store_item_buy: "Kredi Satın Al",
 
     // Support
     support_title: "Vortex Destek Merkezi",
@@ -179,11 +179,11 @@ const VORTEX_TRANSLATIONS = {
     cta_desc: "Więcej FPS, popularne mody, wsparcie wielu systemów i całkowicie za darmo! Pobierz już dziś!",
 
     // Store
-    store_title: "Sklep VortexLauncher",
-    store_subtitle: "Ulepsz swój program uruchamiający dzięki rangom VIP/MVP, FPS Booster Pro i pakietom kredytowym.",
+    store_title: "Sklep Kredytowy VortexLauncher",
+    store_subtitle: "Kupuj kredyty Vortex (CR) natychmiast za prawdziwą walutę (TRY / USD).",
     store_balance: "Twoje Saldo",
     store_buy_cr: "Kup Kredyty",
-    store_item_buy: "Kup Pakiet",
+    store_item_buy: "Kup Kredyty",
 
     // Support
     support_title: "Centrum Pomocy Vortex",

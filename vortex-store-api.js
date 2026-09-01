@@ -1,21 +1,21 @@
 /* ==========================================================================
-   VORTEXLAUNCHER — OFFICIAL LAUNCHER STORE & PACKAGES API
+   VORTEXLAUNCHER — OFFICIAL STORE & VORTEX CREDITS TOP-UP API
    ========================================================================== */
 
-function makePackageSvg(title, iconColor, bgGradStart, bgGradEnd, subtitle) {
+function makeCreditPackSvg(crAmount, color, tryPrice) {
   const rawSvg = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" width="300" height="180">
       <defs>
-        <linearGradient id="grad_${title.replace(/\s+/g, '')}" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="${bgGradStart}" />
-          <stop offset="100%" stop-color="${bgGradEnd}" />
+        <linearGradient id="grad_${crAmount}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#09162a" />
+          <stop offset="100%" stop-color="#030812" />
         </linearGradient>
       </defs>
-      <rect width="300" height="180" rx="16" fill="url(#grad_${title.replace(/\s+/g, '')})"/>
-      <circle cx="150" cy="70" r="35" fill="rgba(255,255,255,0.08)" stroke="${iconColor}" stroke-width="3"/>
-      <text x="150" y="78" font-family="sans-serif" font-weight="900" font-size="28" fill="${iconColor}" text-anchor="middle">VX</text>
-      <text x="150" y="135" font-family="sans-serif" font-weight="900" font-size="16" fill="#ffffff" text-anchor="middle">${title.toUpperCase()}</text>
-      <text x="150" y="155" font-family="sans-serif" font-weight="700" font-size="11" fill="rgba(255,255,255,0.7)" text-anchor="middle">${subtitle.toUpperCase()}</text>
+      <rect width="300" height="180" rx="16" fill="url(#grad_${crAmount})" stroke="${color}" stroke-width="2"/>
+      <circle cx="150" cy="65" r="32" fill="rgba(255,215,0,0.1)" stroke="${color}" stroke-width="3"/>
+      <text x="150" y="74" font-family="sans-serif" font-weight="900" font-size="24" fill="${color}" text-anchor="middle">CR</text>
+      <text x="150" y="130" font-family="sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">+${crAmount.toLocaleString()} CR</text>
+      <text x="150" y="152" font-family="sans-serif" font-weight="800" font-size="13" fill="#fbbf24" text-anchor="middle">₺${tryPrice} TRY</text>
     </svg>
   `.trim();
 
@@ -26,102 +26,118 @@ function makePackageSvg(title, iconColor, bgGradStart, bgGradEnd, subtitle) {
   return 'data:image/svg+xml;base64,' + base64;
 }
 
-const STORE_PACKAGES_CATALOG = [
+const CREDIT_PACKAGES_CATALOG = [
   {
-    id: "vortex-rank-vip",
-    title: "Vortex VIP Pass",
-    category: "ranks",
-    price: 500,
-    tryPrice: "249.90",
-    badge: "RANK",
-    description: "Unlocks VIP launcher badge, priority chunk loading queue, exclusive VIP animated name tag, and +25% XP multiplier.",
-    imgUrl: makePackageSvg("Vortex VIP Pass", "#38bdf8", "#0f172a", "#0284c7", "Lifetime Rank Access")
+    id: "cr-pack-250",
+    title: "250 Vortex Credits",
+    crAmount: 250,
+    tryPrice: "49.90",
+    usdPrice: "1.99",
+    badge: "STARTER",
+    description: "Ideal starter credit pack for small launcher purchases.",
+    imgUrl: makeCreditPackSvg(250, "#38bdf8", "49.90")
   },
   {
-    id: "vortex-rank-mvp",
-    title: "Vortex MVP+ Subscription",
-    category: "ranks",
-    price: 1200,
-    tryPrice: "599.90",
-    badge: "POPULAR",
-    description: "Includes all VIP perks + Custom Animated Client Title, Dedicated Multi-threading JVM Profile, and Unlimited Cloud Settings Backups.",
-    imgUrl: makePackageSvg("Vortex MVP+ Pass", "#a855f7", "#1e1b4b", "#7e22ce", "Premium Subscription")
+    id: "cr-pack-500",
+    title: "500 Vortex Credits",
+    crAmount: 500,
+    tryPrice: "89.90",
+    usdPrice: "3.49",
+    badge: "BASIC",
+    description: "Standard credit package with bonus XP.",
+    imgUrl: makeCreditPackSvg(500, "#00f0ff", "89.90")
   },
   {
-    id: "vortex-fps-booster-pro",
-    title: "FPS Booster Pro Extension",
-    category: "features",
-    price: 800,
-    tryPrice: "399.90",
-    badge: "FEATURE",
-    description: "Advanced GPU memory pipeline, custom Sodium/Iris shader optimizers, and low-latency tick processing engine.",
-    imgUrl: makePackageSvg("FPS Booster Pro", "#10b981", "#064e3b", "#059669", "Performance Module")
-  },
-  {
-    id: "vortex-badge-founder",
-    title: "Founder Client Badge",
-    category: "badges",
-    price: 1500,
-    tryPrice: "749.90",
-    badge: "EXCLUSIVE",
-    description: "Exclusive glowing Founder shield badge displayed next to your username across all Vortex Client lobbies.",
-    imgUrl: makePackageSvg("Founder Badge", "#fbbf24", "#451a03", "#d97706", "Limited Collector Badge")
-  },
-  {
-    id: "vortex-credits-starter",
+    id: "cr-pack-1000",
     title: "1,000 Vortex Credits",
-    category: "credits",
-    price: 400,
-    tryPrice: "199.90",
-    badge: "CREDITS",
-    description: "Instant top-up of 1,000 Vortex Credits (CR) to spend on any launcher upgrades or future perks.",
-    imgUrl: makePackageSvg("1000 CR Pack", "#00f0ff", "#082f49", "#0284c7", "+1000 Credits Balance")
+    crAmount: 1000,
+    tryPrice: "169.90",
+    usdPrice: "6.99",
+    badge: "POPULAR",
+    description: "Our most popular credit top-up pack with +100 bonus CR.",
+    imgUrl: makeCreditPackSvg(1000, "#a855f7", "169.90")
   },
   {
-    id: "vortex-credits-mega",
+    id: "cr-pack-2500",
+    title: "2,500 Vortex Credits",
+    crAmount: 2500,
+    tryPrice: "399.90",
+    usdPrice: "14.99",
+    badge: "PRO PACK",
+    description: "Pro top-up pack offering +300 bonus CR.",
+    imgUrl: makeCreditPackSvg(2500, "#10b981", "399.90")
+  },
+  {
+    id: "cr-pack-5000",
     title: "5,000 Vortex Credits",
-    category: "credits",
-    price: 1800,
-    tryPrice: "899.90",
+    crAmount: 5000,
+    tryPrice: "749.90",
+    usdPrice: "29.99",
     badge: "BEST VALUE",
-    description: "Mega top-up bundle with 5,000 Vortex Credits (CR) + 500 bonus CR included.",
-    imgUrl: makePackageSvg("5000 CR Mega Pack", "#f43f5e", "#4c0519", "#e11d48", "+5500 Total Credits")
+    description: "Best value bundle with +750 bonus CR included.",
+    imgUrl: makeCreditPackSvg(5000, "#fbbf24", "749.90")
+  },
+  {
+    id: "cr-pack-10000",
+    title: "10,000 Vortex Credits",
+    crAmount: 10000,
+    tryPrice: "1,399.90",
+    usdPrice: "54.99",
+    badge: "VIP BUNDLE",
+    description: "VIP credit package with +2,000 bonus CR.",
+    imgUrl: makeCreditPackSvg(10000, "#f43f5e", "1,399.90")
+  },
+  {
+    id: "cr-pack-25000",
+    title: "25,000 Vortex Credits",
+    crAmount: 25000,
+    tryPrice: "3,299.90",
+    usdPrice: "129.99",
+    badge: "ULTIMATE",
+    description: "Ultimate top-up bundle with +5,000 bonus CR.",
+    imgUrl: makeCreditPackSvg(25000, "#ec4899", "3,299.90")
+  },
+  {
+    id: "cr-pack-50000",
+    title: "50,000 Vortex Credits",
+    crAmount: 50000,
+    tryPrice: "6,499.90",
+    usdPrice: "249.99",
+    badge: "TITAN",
+    description: "Titan credit pack with +12,000 bonus CR included.",
+    imgUrl: makeCreditPackSvg(50000, "#8b5cf6", "6,499.90")
+  },
+  {
+    id: "cr-pack-100000",
+    title: "100,000 Vortex Credits",
+    crAmount: 100000,
+    tryPrice: "11,999.90",
+    usdPrice: "449.99",
+    badge: "LEGENDARY WHALE",
+    description: "Legendary massive credit pack with +30,000 bonus CR for top supporters.",
+    imgUrl: makeCreditPackSvg(100000, "#eab308", "11,999.90")
   }
 ];
 
 class VortexStoreManager {
-  constructor() {
-    this.storageKey = "vortex_owned_packages";
-  }
-
   getCatalog() {
-    return STORE_PACKAGES_CATALOG;
+    return CREDIT_PACKAGES_CATALOG;
   }
 
   get credits() {
     return window.VortexCredits ? window.VortexCredits.getBalance() : 1900;
   }
 
-  hasPackage(pkgId) {
-    const owned = JSON.parse(localStorage.getItem(this.storageKey) || '[]');
-    return owned.includes(pkgId);
-  }
+  purchaseCreditPack(packId) {
+    const pack = CREDIT_PACKAGES_CATALOG.find(p => p.id === packId);
+    if (!pack) return { success: false, message: "Package not found!" };
 
-  purchasePackage(pkgId) {
-    const pkg = STORE_PACKAGES_CATALOG.find(p => p.id === pkgId);
-    if (!pkg) return { success: false, message: "Package not found!" };
-    if (this.hasPackage(pkgId)) return { success: false, message: "You already own this package!" };
-
-    if (!window.VortexCredits || !window.VortexCredits.spend(pkg.price)) {
-      return { success: false, message: "Insufficient Vortex Credits (CR) balance!" };
+    if (window.VortexCredits) {
+      window.VortexCredits.add(pack.crAmount);
     }
 
-    const owned = JSON.parse(localStorage.getItem(this.storageKey) || '[]');
-    owned.push(pkgId);
-    localStorage.setItem(this.storageKey, JSON.stringify(owned));
-
-    window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { pkgId, action: 'purchased' } }));
-    return { success: true, message: `Successfully purchased ${pkg.title}!` };
+    window.dispatchEvent(new CustomEvent('vortex:store-updated', { detail: { packId, amount: pack.crAmount } }));
+    return { success: true, message: `Payment Successful! +${pack.crAmount.toLocaleString()} CR added to your wallet!` };
   }
 
   redeemCreditCode(codeStr) {

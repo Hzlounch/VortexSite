@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Official Store — VortexLauncher Packages, Ranks &amp; Credits</title>
-  <meta name="description" content="Official VortexLauncher Store. Upgrade your client experience with VIP/MVP ranks, FPS Booster Pro, Founder Badges, and Vortex Credit packages.">
+  <title>Official Store — VortexLauncher Credit Top-Up Packages</title>
+  <meta name="description" content="Official VortexLauncher Store. Buy Vortex Credits (CR) with real currency (TRY/USD) to spend inside VortexLauncher.">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
@@ -13,9 +13,9 @@
       position: relative;
       border-radius: 24px;
       padding: 50px 44px;
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), rgba(168, 85, 247, 0.12)), url('vortex_logo_1787259818226 - Kopya - Kopya.jpg') center/cover;
-      border: 1px solid rgba(0, 240, 255, 0.4);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 240, 255, 0.25);
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), rgba(251, 191, 36, 0.12)), url('vortex_logo_1787259818226 - Kopya - Kopya.jpg') center/cover;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 191, 36, 0.2);
       margin-bottom: 35px;
       overflow: hidden;
     }
@@ -43,7 +43,7 @@
       background: #0d131f;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
-      padding: 16px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -53,14 +53,14 @@
     }
     .lunar-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(0, 240, 255, 0.4);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
+      border-color: rgba(251, 191, 36, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(251, 191, 36, 0.25);
     }
 
     .lunar-img-container {
       position: relative;
       width: 100%;
-      height: 180px;
+      height: 160px;
       border-radius: 14px;
       overflow: hidden;
       background: #070b12;
@@ -81,15 +81,15 @@
 
     .lunar-scalable-badge {
       position: absolute;
-      bottom: 10px;
+      top: 10px;
       right: 10px;
-      background: rgba(0, 240, 255, 0.9);
+      background: rgba(251, 191, 36, 0.95);
       color: #030812;
       font-size: 0.72rem;
       font-weight: 900;
       padding: 4px 10px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 240, 255, 0.4);
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
       display: flex;
       align-items: center;
       gap: 5px;
@@ -99,40 +99,15 @@
     .lunar-price-row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: #cbd5e1;
-      margin-top: 6px;
-    }
-    .lunar-price-cr {
-      color: var(--accent-gold);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .store-filter-btn {
-      background: rgba(3, 8, 18, 0.6);
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      color: #94a3b8;
-      padding: 9px 20px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .store-filter-btn:hover, .store-filter-btn.active {
-      background: rgba(0, 240, 255, 0.18);
-      border-color: var(--primary);
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 900;
       color: #fff;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+      margin-top: 10px;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .vortex-toast-container {
@@ -264,12 +239,12 @@
       <div class="lunar-hero-overlay"></div>
       <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px;">
         <div style="max-width:620px;">
-          <span class="badge-glow" style="margin-bottom:12px; border-color:#00f0ff; color:#00f0ff;">OFFICIAL VORTEXLAUNCHER STORE</span>
-          <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(0,240,255,0.4);">
-            LAUNCHER RANKS, PERKS &amp; CREDITS
+          <span class="badge-glow" style="margin-bottom:12px; border-color:#fbbf24; color:#fbbf24;">OFFICIAL VORTEX CREDITS STORE</span>
+          <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(251,191,36,0.4);">
+            BUY VORTEX CREDITS (CR)
           </h1>
           <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;">
-            Upgrade your client with VIP &amp; MVP+ launcher passes, FPS Booster Pro modules, Founder Badges, and Vortex Credit bundles.
+            Top up your account balance with Vortex Credits (CR) instantly using real currency (TRY / USD).
           </p>
           <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
             <div style="display:flex; gap:8px;">
@@ -286,71 +261,66 @@
         <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(251, 191, 36, 0.4); border-radius:20px; padding:28px; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(0,0,0,0.6);">
           <div style="font-size:0.8rem; font-weight:800; color:var(--accent-gold); text-transform:uppercase; letter-spacing:1px;" data-i18n="store_balance">Your Balance</div>
           <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">1900</span> <span style="color:var(--accent-gold);">CR</span></div>
-          <button onclick="showToast('Credit top-ups are processed instantly in Vortex Client.', false)" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:10px 0;">
-            <i class="fa-solid fa-plus"></i> <span data-i18n="store_buy_cr">Buy Credits</span>
-          </button>
+          <div style="font-size:0.8rem; color:#94a3b8;">Instant Automatic Delivery</div>
         </div>
       </div>
     </div>
 
-    <!-- CATEGORY FILTERS & SEARCH -->
+    <!-- SEARCH BAR -->
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; margin-bottom:30px; background:rgba(15, 23, 42, 0.6); padding:16px 24px; border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
-      <div style="display:flex; gap:10px; flex-wrap:wrap;" id="categoryGroup">
-        <button class="store-filter-btn active" data-category="all"><i class="fa-solid fa-border-all"></i> All Packages</button>
-        <button class="store-filter-btn" data-category="ranks"><i class="fa-solid fa-crown"></i> Launcher Ranks</button>
-        <button class="store-filter-btn" data-category="features"><i class="fa-solid fa-bolt"></i> FPS Modules</button>
-        <button class="store-filter-btn" data-category="badges"><i class="fa-solid fa-shield"></i> Client Badges</button>
-        <button class="store-filter-btn" data-category="credits"><i class="fa-solid fa-coins"></i> Credit Packs</button>
+      <div style="font-weight:900; font-size:1.1rem; color:#fff;">
+        <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i> Choose Credit Package
       </div>
 
-      <div style="position:relative; min-width:240px;">
+      <div style="position:relative; min-width:260px;">
         <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#64748b;"></i>
-        <input type="text" id="searchInput" placeholder="Search store packages..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
+        <input type="text" id="searchInput" placeholder="Search credit amounts..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
       </div>
     </div>
 
-    <!-- PACKAGES MARKETPLACE GRID -->
+    <!-- CREDIT PACKAGES GRID -->
     <div class="card-grid" id="marketplaceGrid">
       <!-- Populated via JS -->
     </div>
 
   </main>
 
-  <!-- PRODUCT DETAIL MODAL -->
-  <div id="productModal" style="position:fixed; inset:0; z-index:9999; display:none; place-items:center; padding:20px; background:rgba(3, 8, 18, 0.88); backdrop-filter:blur(12px);">
-    <div style="position:relative; width:min(600px, 100%); background:linear-gradient(145deg, #09162a, #040914); border:1px solid rgba(0,240,255,0.4); border-radius:24px; padding:36px; box-shadow:0 25px 80px rgba(0,0,0,0.9), 0 0 40px rgba(0,240,255,0.2); color:#f8fafc;">
-      <button onclick="closeProductModal()" style="position:absolute; top:20px; right:20px; width:36px; height:36px; border:1px solid rgba(0,240,255,0.3); border-radius:50%; background:rgba(0,240,255,0.1); color:#00f0ff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
+  <!-- CHECKOUT PAYMENT MODAL -->
+  <div id="checkoutModal" style="position:fixed; inset:0; z-index:9999; display:none; place-items:center; padding:20px; background:rgba(3, 8, 18, 0.88); backdrop-filter:blur(12px);">
+    <div style="position:relative; width:min(550px, 100%); background:linear-gradient(145deg, #09162a, #040914); border:1px solid rgba(251,191,36,0.4); border-radius:24px; padding:36px; box-shadow:0 25px 80px rgba(0,0,0,0.9), 0 0 40px rgba(251,191,36,0.2); color:#f8fafc;">
+      <button onclick="closeCheckoutModal()" style="position:absolute; top:20px; right:20px; width:36px; height:36px; border:1px solid rgba(0,240,255,0.3); border-radius:50%; background:rgba(0,240,255,0.1); color:#00f0ff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
 
       <div style="display:flex; align-items:center; gap:20px; margin-bottom:20px;">
-        <div style="width:100px; height:100px; border-radius:18px; background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.3); display:flex; align-items:center; justify-content:center; overflow:hidden;">
-          <img id="modalImg" src="" alt="Package Render" style="width:100%; height:100%; object-fit:cover;">
+        <div style="width:90px; height:90px; border-radius:18px; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.3); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+          <img id="modalImg" src="" alt="Credit Pack" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div>
-          <span id="modalBadge" class="badge-glow" style="font-size:0.7rem;">RANK</span>
-          <h2 id="modalTitle" style="font-size:1.8rem; font-weight:900; margin-top:4px;">Vortex VIP Pass</h2>
-          <div id="modalTryPrice" style="font-size:0.95rem; font-weight:800; color:#cbd5e1; margin-top:4px;">TRY 249.90 ya da <span style="color:var(--accent-gold);">500 CR</span></div>
+          <span id="modalBadge" class="badge-glow" style="font-size:0.75rem; border-color:#fbbf24; color:#fbbf24;">CREDIT TOP-UP</span>
+          <h2 id="modalTitle" style="font-size:1.8rem; font-weight:900; margin-top:4px;">1,000 Vortex Credits</h2>
+          <div id="modalTryPrice" style="font-size:1.1rem; font-weight:900; color:var(--accent-gold); margin-top:4px;">₺169.90 TRY ($6.99 USD)</div>
         </div>
       </div>
 
       <p id="modalDesc" style="color:#94a3b8; font-size:0.95rem; line-height:1.6; margin-bottom:24px;">
-        Package details description.
+        Package description.
       </p>
 
-      <div style="background:rgba(15,23,42,0.6); padding:20px; border-radius:16px; border:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
-        <div>
-          <div style="font-size:0.8rem; color:#64748b; font-weight:700;">PACKAGE PRICE</div>
-          <div style="font-size:1.6rem; font-weight:900; color:var(--accent-gold);" id="modalPrice">500 CR</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:0.8rem; color:#64748b; font-weight:700;">DELIVERY</div>
-          <div style="font-size:0.9rem; font-weight:800; color:#00f0ff;">INSTANT LAUNCHER ACTIVATION</div>
+      <div style="background:rgba(15,23,42,0.8); padding:20px; border-radius:16px; border:1px solid rgba(255,255,255,0.08); margin-bottom:24px;">
+        <div style="font-size:0.8rem; color:#64748b; font-weight:800; margin-bottom:12px; text-transform:uppercase;">SELECT PAYMENT METHOD</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <button type="button" class="btn btn-secondary active" style="padding:12px; font-size:0.85rem; border-color:var(--accent-gold);">
+            <i class="fa-solid fa-credit-card"></i> Credit / Debit Card
+          </button>
+          <button type="button" class="btn btn-secondary" style="padding:12px; font-size:0.85rem;">
+            <i class="fa-brands fa-paypal"></i> PayPal / Crypto
+          </button>
         </div>
       </div>
 
       <div style="display:flex; gap:14px; justify-content:flex-end;">
-        <button onclick="closeProductModal()" class="btn btn-secondary" style="padding:12px 24px;">Cancel</button>
-        <button id="modalBuyBtn" onclick="buyModalItem()" class="btn btn-primary" style="padding:12px 28px;">
-          <i class="fa-solid fa-cart-shopping"></i> Purchase Package
+        <button onclick="closeCheckoutModal()" class="btn btn-secondary" style="padding:12px 24px;">Cancel</button>
+        <button id="modalBuyBtn" onclick="confirmPayment()" class="btn btn-primary" style="padding:12px 28px; background:linear-gradient(135deg, #fbbf24, #d97706); border-color:#fbbf24; color:#030812; font-weight:900;">
+          <i class="fa-solid fa-lock"></i> Pay &amp; Add Credits
         </button>
       </div>
     </div>
@@ -396,9 +366,8 @@
   <script src="vortex-store-api.js"></script>
 
   <script>
-    let activeCategory = 'all';
     let searchQuery = '';
-    let selectedModalItem = null;
+    let selectedPackItem = null;
 
     function showToast(message, isError = false) {
       const container = document.getElementById('toastContainer');
@@ -454,16 +423,6 @@
         }
       });
 
-      // Filters
-      document.querySelectorAll('#categoryGroup .store-filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('#categoryGroup .store-filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          activeCategory = btn.getAttribute('data-category');
-          renderStoreMarketplace();
-        });
-      });
-
       // Search
       document.getElementById('searchInput').addEventListener('input', (e) => {
         searchQuery = e.target.value;
@@ -494,54 +453,42 @@
       const catalog = storeApi.getCatalog();
 
       const crEls = [document.getElementById('headerCr'), document.getElementById('storeCr')];
-      crEls.forEach(el => { if (el) el.textContent = storeApi.credits; });
+      crEls.forEach(el => { if (el) el.textContent = storeApi.credits.toLocaleString(); });
 
       const filtered = catalog.filter(item => {
-        const matchCat = activeCategory === 'all' || item.category === activeCategory;
-        const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) || item.description.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchCat && matchSearch;
+        return item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+               item.crAmount.toString().includes(searchQuery);
       });
 
       if (filtered.length === 0) {
         grid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #64748b;">
-          <h3>No Packages Found</h3>
+          <h3>No Credit Packages Found</h3>
         </div>`;
         return;
       }
 
       grid.innerHTML = filtered.map(item => {
-        const owned = storeApi.hasPackage(item.id);
-
         return `
           <div class="lunar-card" data-tilt>
             <div>
               <div class="lunar-img-container">
                 <img src="${item.imgUrl}" alt="${item.title}">
-                ${item.badge ? `<span class="lunar-scalable-badge">${item.badge}</span>` : ''}
+                <span class="lunar-scalable-badge">${item.badge}</span>
               </div>
 
-              <h3 style="font-size:1.15rem; font-weight:900; color:#fff; margin-bottom:4px;">${item.title}</h3>
-              <p style="color:#94a3b8; font-size:0.85rem; line-height:1.4; margin-bottom:10px;">${item.description}</p>
+              <h3 style="font-size:1.2rem; font-weight:900; color:#fff; margin-bottom:6px;">${item.title}</h3>
+              <p style="color:#94a3b8; font-size:0.85rem; line-height:1.4;">${item.description}</p>
 
               <div class="lunar-price-row">
-                <span>TRY ${item.tryPrice}</span>
-                <span>ya da</span>
-                <span class="lunar-price-cr"><i class="fa-solid fa-coins" style="font-size:0.8rem;"></i> ${item.price} CR</span>
+                <span style="color:var(--accent-gold);">₺${item.tryPrice} TRY</span>
+                <span style="font-size:0.85rem; color:#94a3b8;">($${item.usdPrice} USD)</span>
               </div>
             </div>
 
-            <div style="margin-top:16px; display:flex; gap:8px;">
-              <button onclick="openProductModal('${item.id}')" class="btn btn-secondary" style="padding:10px 14px; font-size:0.85rem;" title="View Details">
-                <i class="fa-solid fa-eye"></i>
+            <div style="margin-top:16px;">
+              <button onclick="openCheckoutModal('${item.id}')" class="btn btn-primary" style="width:100%; padding:12px 0; font-size:0.9rem; background:linear-gradient(135deg, #fbbf24, #d97706); border-color:#fbbf24; color:#030812; font-weight:900;">
+                <i class="fa-solid fa-cart-shopping"></i> BUY NOW (₺${item.tryPrice})
               </button>
-              ${owned
-                ? `<button class="btn btn-primary" style="flex:1; padding:10px 0; font-size:0.85rem; background:linear-gradient(135deg, #10b981, #059669); border-color:#10b981;">
-                     <i class="fa-solid fa-circle-check"></i> UNLOCKED
-                   </button>`
-                : `<button onclick="handleBuy('${item.id}')" class="btn btn-primary" style="flex:1; padding:10px 0; font-size:0.85rem;">
-                     <i class="fa-solid fa-cart-shopping"></i> BUY NOW (${item.price} CR)
-                   </button>`
-              }
             </div>
           </div>
         `;
@@ -552,36 +499,31 @@
       }
     }
 
-    function openProductModal(itemId) {
+    function openCheckoutModal(itemId) {
       const storeApi = window.VortexStoreAPI;
-      selectedModalItem = storeApi.getCatalog().find(i => i.id === itemId);
-      if (!selectedModalItem) return;
+      selectedPackItem = storeApi.getCatalog().find(i => i.id === itemId);
+      if (!selectedPackItem) return;
 
-      document.getElementById('modalTitle').textContent = selectedModalItem.title;
-      document.getElementById('modalBadge').textContent = selectedModalItem.badge || 'PACKAGE';
-      document.getElementById('modalDesc').textContent = selectedModalItem.description;
-      document.getElementById('modalPrice').textContent = `${selectedModalItem.price} CR`;
-      document.getElementById('modalTryPrice').innerHTML = `TRY ${selectedModalItem.tryPrice} ya da <span style="color:var(--accent-gold);">${selectedModalItem.price} CR</span>`;
-      document.getElementById('modalImg').src = selectedModalItem.imgUrl;
+      document.getElementById('modalTitle').textContent = selectedPackItem.title;
+      document.getElementById('modalBadge').textContent = selectedPackItem.badge;
+      document.getElementById('modalDesc').textContent = selectedPackItem.description;
+      document.getElementById('modalTryPrice').textContent = `₺${selectedPackItem.tryPrice} TRY ($${selectedPackItem.usdPrice} USD)`;
+      document.getElementById('modalImg').src = selectedPackItem.imgUrl;
 
-      document.getElementById('productModal').style.display = 'grid';
+      document.getElementById('checkoutModal').style.display = 'grid';
     }
 
-    function closeProductModal() {
-      document.getElementById('productModal').style.display = 'none';
-      selectedModalItem = null;
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModal').style.display = 'none';
+      selectedPackItem = null;
     }
 
-    function buyModalItem() {
-      if (!selectedModalItem) return;
-      handleBuy(selectedModalItem.id);
-      closeProductModal();
-    }
-
-    function handleBuy(id) {
+    function confirmPayment() {
+      if (!selectedPackItem) return;
       const storeApi = window.VortexStoreAPI;
-      const res = storeApi.purchasePackage(id);
+      const res = storeApi.purchaseCreditPack(selectedPackItem.id);
       showToast(res.message, !res.success);
+      closeCheckoutModal();
       renderStoreMarketplace();
     }
   </script>
