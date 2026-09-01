@@ -230,6 +230,13 @@
 
   root.VortexCredits = {
     load, save, welcome, buyCredits, spend, equip, exportCode, redeem, owned,
-    recentHistory, ITEM_CATALOG, ITEM_LABELS, ITEM_COSTS, linkMc
+    recentHistory, ITEM_CATALOG, ITEM_LABELS, ITEM_COSTS, linkMc,
+    getBalance: function() { return load().credits; },
+    add: function(amt) {
+      const wallet = load();
+      wallet.credits += Number(amt) || 0;
+      save(wallet);
+      return wallet.credits;
+    }
   };
 })(typeof window !== 'undefined' ? window : globalThis);

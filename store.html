@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Official Store — VortexLauncher 100+ Real Cosmetics</title>
-  <meta name="description" content="Official VortexLauncher Store. Browse 100+ high-definition Minecraft cloaks, 3D wings, halos, pets, emotes, and hats using Vortex Credits (CR).">
+  <title>Official Store — VortexLauncher Authentic Minecraft &amp; Lunar Cosmetics</title>
+  <meta name="description" content="Official VortexLauncher Store inspired by Lunar Client. Browse authentic Minecraft capes, 3D dragon wings, Minecon capes, and 60 FPS emotes.">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
@@ -22,7 +22,7 @@
     .lunar-hero-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(3, 8, 18, 0.85);
+      background: rgba(3, 8, 18, 0.88);
       backdrop-filter: blur(10px);
     }
     .account-bar {
@@ -38,11 +38,12 @@
       margin-bottom: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
-    .cosmetic-card {
-      background: rgba(9, 22, 42, 0.88);
-      border: 1px solid rgba(0, 240, 255, 0.2);
+
+    .lunar-card {
+      background: #0d131f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
-      padding: 24px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -50,11 +51,67 @@
       position: relative;
       overflow: hidden;
     }
-    .cosmetic-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.3);
+    .lunar-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 240, 255, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
     }
+
+    .lunar-img-container {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #070b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .lunar-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .lunar-card:hover .lunar-img-container img {
+      transform: scale(1.05);
+    }
+
+    .lunar-scalable-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(168, 85, 247, 0.9);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      backdrop-filter: blur(4px);
+    }
+
+    .lunar-price-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #cbd5e1;
+      margin-top: 6px;
+    }
+    .lunar-price-cr {
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
     .store-filter-btn {
       background: rgba(3, 8, 18, 0.6);
       border: 1px solid rgba(0, 240, 255, 0.2);
@@ -191,7 +248,7 @@
 
         <a href="store.html" class="credit-badge-btn" id="navCreditBadge">
           <i class="fa-solid fa-coins" style="color:var(--accent-gold);"></i>
-          <span id="headerCr">1000</span> CR
+          <span id="headerCr">1900</span> CR
         </a>
         <a href="download.html" class="btn btn-primary nav-dl-btn">
           <i class="fa-solid fa-download"></i> <span data-i18n="nav_download_btn">Download</span>
@@ -241,7 +298,7 @@
 
     <!-- MAIN VIEW SWITCHER: STORE MARKETPLACE vs MY INVENTORY -->
     <div style="display:flex; justify-content:center; gap:16px; margin-bottom:30px;">
-      <button class="nav-tab-btn active" id="tabStoreBtn"><i class="fa-solid fa-store"></i> Store Marketplace (100+ Items)</button>
+      <button class="nav-tab-btn active" id="tabStoreBtn"><i class="fa-solid fa-store"></i> Store Marketplace</button>
       <button class="nav-tab-btn" id="tabInventoryBtn"><i class="fa-solid fa-box-archive"></i> My Inventory / Envanterim</button>
     </div>
 
@@ -252,12 +309,12 @@
         <div class="lunar-hero-overlay"></div>
         <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px;">
           <div style="max-width:620px;">
-            <span class="badge-glow" style="margin-bottom:12px; border-color:#00f0ff; color:#00f0ff;">OVER 100+ REAL MINECRAFT COSMETICS</span>
+            <span class="badge-glow" style="margin-bottom:12px; border-color:#00f0ff; color:#00f0ff;">OFFICIAL MINECRAFT &amp; LUNAR COSMETICS</span>
             <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(0,240,255,0.4);">
-              100+ REAL CLOAKS, PETS &amp; 3D WINGS
+              AUTHENTIC MINECRAFT CAPES &amp; 3D WINGS
             </h1>
             <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;">
-              Browse 100+ high-definition animated cloaks, 3D dragon wings, floating halos, shoulder pets, and emotes using Vortex Credits (CR).
+              Equip real Dragon Wings, Minecon capes (2011-2016), Mojang Migrator capes, OptiFine capes, and 60 FPS emotes across all servers.
             </p>
             <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
               <div style="display:flex; gap:8px;">
@@ -266,14 +323,14 @@
                   <i class="fa-solid fa-ticket"></i> Redeem
                 </button>
               </div>
-              <span style="font-size:0.8rem; color:#94a3b8;">Try code: <strong style="color:var(--accent-gold);">VORTEX2026</strong> (+500 CR)</span>
+              <span style="font-size:0.8rem; color:#94a3b8;">Try code: <strong style="color:var(--accent-gold);">VORTEX2026</strong> (+1000 CR)</span>
             </div>
           </div>
 
           <!-- BALANCE HUD -->
           <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(251, 191, 36, 0.4); border-radius:20px; padding:28px; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(0,0,0,0.6);">
             <div style="font-size:0.8rem; font-weight:800; color:var(--accent-gold); text-transform:uppercase; letter-spacing:1px;" data-i18n="store_balance">Your Balance</div>
-            <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">1000</span> <span style="color:var(--accent-gold);">CR</span></div>
+            <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">1900</span> <span style="color:var(--accent-gold);">CR</span></div>
             <button onclick="showToast('Credits top-up modal will open in Vortex Client launcher.', false)" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:10px 0;">
               <i class="fa-solid fa-plus"></i> <span data-i18n="store_buy_cr">Buy Credits</span>
             </button>
@@ -285,23 +342,19 @@
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; margin-bottom:30px; background:rgba(15, 23, 42, 0.6); padding:16px 24px; border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
         <div style="display:flex; gap:10px; flex-wrap:wrap;" id="categoryGroup">
           <button class="store-filter-btn active" data-category="all"><i class="fa-solid fa-border-all"></i> All Items</button>
-          <button class="store-filter-btn" data-category="cloaks"><i class="fa-solid fa-shield-halved"></i> Cloaks</button>
           <button class="store-filter-btn" data-category="wings"><i class="fa-solid fa-feather"></i> Wings</button>
-          <button class="store-filter-btn" data-category="halos"><i class="fa-solid fa-ring"></i> Halos</button>
-          <button class="store-filter-btn" data-category="pets"><i class="fa-solid fa-dragon"></i> Pets</button>
+          <button class="store-filter-btn" data-category="cloaks"><i class="fa-solid fa-shield-halved"></i> Capes &amp; Cloaks</button>
           <button class="store-filter-btn" data-category="emotes"><i class="fa-solid fa-masks-theater"></i> Emotes</button>
-          <button class="store-filter-btn" data-category="hats"><i class="fa-solid fa-hat-wizard"></i> Hats &amp; Masks</button>
-          <button class="store-filter-btn" data-category="badges"><i class="fa-solid fa-award"></i> Badges</button>
           <button class="store-filter-btn" data-category="bundles"><i class="fa-solid fa-box-open"></i> Bundles</button>
         </div>
 
         <div style="position:relative; min-width:240px;">
           <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#64748b;"></i>
-          <input type="text" id="searchInput" placeholder="Search 100+ cosmetics..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
+          <input type="text" id="searchInput" placeholder="Search official cosmetics..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
         </div>
       </div>
 
-      <!-- COSMETICS MARKETPLACE GRID -->
+      <!-- COSMETICS MARKETPLACE GRID (LUNAR STYLE CARDS) -->
       <div class="card-grid" id="marketplaceGrid">
         <!-- Populated via JS -->
       </div>
@@ -318,8 +371,8 @@
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
           <div>
             <span class="badge-glow" style="margin-bottom:10px;">MY ENVANTER / ACCOUNT LICENSES</span>
-            <h2 style="font-size:2rem; font-weight:900; margin-bottom:6px;">Owned Cosmetics &amp; Cloaks</h2>
-            <p style="color:#94a3b8; font-size:0.95rem;">Manage all official cosmetics unlocked on your verified Minecraft account.</p>
+            <h2 style="font-size:2rem; font-weight:900; margin-bottom:6px;">Owned Official Cosmetics</h2>
+            <p style="color:#94a3b8; font-size:0.95rem;">Manage and equip all authentic cosmetics unlocked on your verified Minecraft account.</p>
           </div>
           <div style="text-align:right;">
             <div style="font-size:0.8rem; color:#64748b; font-weight:800;">VERIFIED UUID</div>
@@ -337,16 +390,17 @@
 
   <!-- PRODUCT DETAIL PREVIEW MODAL -->
   <div id="productModal" style="position:fixed; inset:0; z-index:9999; display:none; place-items:center; padding:20px; background:rgba(3, 8, 18, 0.88); backdrop-filter:blur(12px);">
-    <div style="position:relative; width:min(620px, 100%); background:linear-gradient(145deg, #09162a, #040914); border:1px solid rgba(0,240,255,0.4); border-radius:24px; padding:36px; box-shadow:0 25px 80px rgba(0,0,0,0.9), 0 0 40px rgba(0,240,255,0.2); color:#f8fafc;">
+    <div style="position:relative; width:min(640px, 100%); background:linear-gradient(145deg, #09162a, #040914); border:1px solid rgba(0,240,255,0.4); border-radius:24px; padding:36px; box-shadow:0 25px 80px rgba(0,0,0,0.9), 0 0 40px rgba(0,240,255,0.2); color:#f8fafc;">
       <button onclick="closeProductModal()" style="position:absolute; top:20px; right:20px; width:36px; height:36px; border:1px solid rgba(0,240,255,0.3); border-radius:50%; background:rgba(0,240,255,0.1); color:#00f0ff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
 
       <div style="display:flex; align-items:center; gap:20px; margin-bottom:20px;">
-        <div id="modalImgBox" style="width:90px; height:90px; border-radius:18px; background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.3); display:flex; align-items:center; justify-content:center; overflow:hidden;">
-          <img id="modalImg" src="" alt="Product Render" style="max-height:80px; max-width:80px; object-fit:contain;">
+        <div id="modalImgBox" style="width:120px; height:120px; border-radius:18px; background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.3); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+          <img id="modalImg" src="" alt="Product Render" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div>
-          <span id="modalRarity" class="badge-glow" style="font-size:0.7rem;">LEGENDARY</span>
-          <h2 id="modalTitle" style="font-size:1.8rem; font-weight:900; margin-top:4px;">Lunar Cloak</h2>
+          <span id="modalRarity" class="badge-glow" style="font-size:0.7rem;">MYTHIC</span>
+          <h2 id="modalTitle" style="font-size:1.8rem; font-weight:900; margin-top:4px;">Dragon Wings (Black)</h2>
+          <div id="modalTryPrice" style="font-size:0.95rem; font-weight:800; color:#cbd5e1; margin-top:4px;">TRY 965.49 ya da <span style="color:var(--accent-gold);">1900 CR</span></div>
         </div>
       </div>
 
@@ -357,11 +411,11 @@
       <div style="background:rgba(15,23,42,0.6); padding:20px; border-radius:16px; border:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
         <div>
           <div style="font-size:0.8rem; color:#64748b; font-weight:700;">PRICE</div>
-          <div style="font-size:1.6rem; font-weight:900; color:var(--accent-gold);" id="modalPrice">150 CR</div>
+          <div style="font-size:1.6rem; font-weight:900; color:var(--accent-gold);" id="modalPrice">1900 CR</div>
         </div>
         <div style="text-align:right;">
           <div style="font-size:0.8rem; color:#64748b; font-weight:700;">COMPATIBILITY</div>
-          <div style="font-size:0.9rem; font-weight:800; color:#00f0ff;">Vortex / Lunar / Fabric / Forge</div>
+          <div style="font-size:0.9rem; font-weight:800; color:#00f0ff;">Vortex / Lunar / OptiFine / Fabric</div>
         </div>
       </div>
 
@@ -570,25 +624,25 @@
         const equipped = api.isEquipped(item.id);
 
         return `
-          <div class="cosmetic-card" data-tilt style="border-color:${item.rarityColor}44;">
+          <div class="lunar-card" data-tilt>
             <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                <span class="badge-glow" style="font-size:0.7rem; padding:4px 10px; border-color:${item.rarityColor}; color:${item.rarityColor};">${item.rarity}</span>
-                <span style="font-weight:900; color:var(--accent-gold); font-size:1.1rem;">${item.price} CR</span>
+              <!-- LUNAR CLIENT STORE ARTWORK BOX -->
+              <div class="lunar-img-container">
+                <img src="${item.imgUrl}" alt="${item.title}">
+                ${item.badge ? `<span class="lunar-scalable-badge"><i class="fa-solid fa-up-right-and-down-left-from-center" style="font-size:0.65rem;"></i> ${item.badge}</span>` : ''}
               </div>
 
-              <!-- LUNAR STYLE RENDERED ARTWORK BOX -->
-              <div style="text-align:center; padding:24px 18px; background:radial-gradient(circle at center, ${item.rarityColor}22 0%, rgba(3,8,18,0.8) 80%); border-radius:18px; border:1px solid ${item.rarityColor}44; margin-bottom:18px; min-height:130px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-                <img src="${item.imgUrl}" alt="${item.title}" style="max-height:85px; max-width:100%; border-radius:8px; filter:drop-shadow(0 0 12px ${item.rarityColor});">
-                <span style="font-size:0.65rem; font-weight:900; color:#fff; letter-spacing:1px; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:10px;">${item.badge}</span>
-              </div>
+              <h3 style="font-size:1.15rem; font-weight:900; color:#fff; margin-bottom:4px;">${item.title}</h3>
 
-              <h3 style="font-size:1.15rem; font-weight:900; margin-bottom:6px; color:#fff;">${item.title}</h3>
-              <p style="color:#94a3b8; font-size:0.85rem; line-height:1.4;">${item.description}</p>
+              <div class="lunar-price-row">
+                <span>TRY ${item.tryPrice}</span>
+                <span>ya da</span>
+                <span class="lunar-price-cr"><i class="fa-solid fa-coins" style="font-size:0.8rem;"></i> ${item.price}</span>
+              </div>
             </div>
 
-            <div style="margin-top:20px; display:flex; gap:8px;">
-              <button onclick="openProductModal('${item.id}')" class="btn btn-secondary" style="padding:10px 14px; font-size:0.85rem;" title="View Product Details">
+            <div style="margin-top:16px; display:flex; gap:8px;">
+              <button onclick="openProductModal('${item.id}')" class="btn btn-secondary" style="padding:10px 14px; font-size:0.85rem;" title="View Details">
                 <i class="fa-solid fa-eye"></i>
               </button>
               ${equipped
@@ -597,7 +651,7 @@
                    </button>`
                 : owned
                   ? `<button onclick="handleEquip('${item.id}')" class="btn btn-secondary" style="flex:1; padding:10px 0; font-size:0.85rem;">
-                       <i class="fa-solid fa-shirt"></i> EQUIP TO CLIENT
+                       <i class="fa-solid fa-shirt"></i> EQUIP TO MINECRAFT
                      </button>`
                   : `<button onclick="handleBuy('${item.id}')" class="btn btn-primary" style="flex:1; padding:10px 0; font-size:0.85rem;">
                        <i class="fa-solid fa-cart-shopping"></i> UNLOCK ${item.price} CR
@@ -618,7 +672,7 @@
       pagBar.innerHTML = pagHtml;
 
       if (window.VanillaTilt) {
-        VanillaTilt.init(grid.querySelectorAll('.cosmetic-card'), { max: 10, speed: 400 });
+        VanillaTilt.init(grid.querySelectorAll('.lunar-card'), { max: 8, speed: 400 });
       }
     }
 
@@ -649,23 +703,18 @@
         const equipped = api.isEquipped(item.id);
 
         return `
-          <div class="cosmetic-card" data-tilt style="${equipped ? 'border-color:#10b981; box-shadow:0 0 25px rgba(16,185,129,0.25);' : `border-color:${item.rarityColor}44;`}">
+          <div class="lunar-card" data-tilt style="${equipped ? 'border-color:#10b981; box-shadow:0 0 25px rgba(16,185,129,0.25);' : ''}">
             <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                <span class="badge-glow" style="font-size:0.7rem; padding:4px 10px; border-color:${item.rarityColor}; color:${item.rarityColor};">${item.rarity}</span>
-                <span style="font-size:0.75rem; color:#10b981; font-weight:800;"><i class="fa-solid fa-check"></i> UNLOCKED</span>
+              <div class="lunar-img-container">
+                <img src="${item.imgUrl}" alt="${item.title}">
+                <span class="lunar-scalable-badge" style="background:#10b981;"><i class="fa-solid fa-check"></i> UNLOCKED</span>
               </div>
 
-              <div style="text-align:center; padding:24px 18px; background:radial-gradient(circle at center, ${item.rarityColor}22 0%, rgba(3,8,18,0.8) 80%); border-radius:18px; border:1px solid ${item.rarityColor}44; margin-bottom:16px; min-height:130px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-                <img src="${item.imgUrl}" alt="${item.title}" style="max-height:85px; max-width:100%; border-radius:8px;">
-                <span style="font-size:0.65rem; font-weight:900; color:#fff; letter-spacing:1px; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:10px;">${item.badge}</span>
-              </div>
-
-              <h3 style="font-size:1.15rem; font-weight:900; margin-bottom:6px; color:#fff;">${item.title}</h3>
+              <h3 style="font-size:1.15rem; font-weight:900; color:#fff; margin-bottom:4px;">${item.title}</h3>
               <p style="color:#94a3b8; font-size:0.85rem; line-height:1.4;">${item.description}</p>
             </div>
 
-            <div style="margin-top:20px;">
+            <div style="margin-top:16px;">
               ${equipped
                 ? `<button onclick="handleEquip('${item.id}')" class="btn btn-primary" style="width:100%; padding:10px 0; font-size:0.85rem; background:linear-gradient(135deg, #10b981, #059669); border-color:#10b981;">
                      <i class="fa-solid fa-circle-check"></i> EQUIPPED IN-GAME
@@ -691,6 +740,7 @@
       document.getElementById('modalRarity').style.borderColor = selectedModalItem.rarityColor;
       document.getElementById('modalDesc').textContent = selectedModalItem.description;
       document.getElementById('modalPrice').textContent = `${selectedModalItem.price} CR`;
+      document.getElementById('modalTryPrice').innerHTML = `TRY ${selectedModalItem.tryPrice} ya da <span style="color:var(--accent-gold);">${selectedModalItem.price} CR</span>`;
       document.getElementById('modalImg').src = selectedModalItem.imgUrl;
 
       document.getElementById('productModal').style.display = 'grid';
