@@ -50,10 +50,10 @@ const VORTEX_TRANSLATIONS = {
 
     // Store
     store_title: "VortexLauncher Store",
-    store_subtitle: "Enhance your appearance in-game with official HD capes, 3D wings, halos, and cosmetics.",
+    store_subtitle: "Upgrade your client experience with VIP/MVP ranks, FPS Booster Pro, Founder Badges, and Vortex Credit packages.",
     store_balance: "Your Balance",
     store_buy_cr: "Buy Credits",
-    store_item_buy: "Buy Cosmetics",
+    store_item_buy: "Buy Package",
 
     // Support
     support_title: "Vortex Support Center",
@@ -115,10 +115,10 @@ const VORTEX_TRANSLATIONS = {
 
     // Store
     store_title: "VortexLauncher Mağazası",
-    store_subtitle: "Oyundaki görünümünüzü resmi HD pelerinler, 3D kanatlar ve kozmetiklerle özelleştirin.",
+    store_subtitle: "VIP/MVP üyelikleri, FPS Booster Pro, Kurucu Rozetleri ve Vortex Kredi paketleri ile başlatıcınızı yükseltin.",
     store_balance: "Bakiyeniz",
     store_buy_cr: "Kredi Satın Al",
-    store_item_buy: "Kozmetik Satın Al",
+    store_item_buy: "Paket Satın Al",
 
     // Support
     support_title: "Vortex Destek Merkezi",
@@ -180,10 +180,10 @@ const VORTEX_TRANSLATIONS = {
 
     // Store
     store_title: "Sklep VortexLauncher",
-    store_subtitle: "Dostosuj swój wygląd w grze dzięki pelerynom HD, skrzydłom 3D i efektom.",
+    store_subtitle: "Ulepsz swój program uruchamiający dzięki rangom VIP/MVP, FPS Booster Pro i pakietom kredytowym.",
     store_balance: "Twoje Saldo",
     store_buy_cr: "Kup Kredyty",
-    store_item_buy: "Kup Kosmetyki",
+    store_item_buy: "Kup Pakiet",
 
     // Support
     support_title: "Centrum Pomocy Vortex",
