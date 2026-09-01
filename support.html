@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,6 +22,7 @@
         <a href="store.html">Store</a>
         <a href="socials.html">Socials</a>
         <a href="news.html">News</a>
+        <a href="updates.html">Updates</a>
         <a href="support.html" class="active">Support</a>
       </nav>
       <a href="download.html" class="nav-cta"><i class="fa-solid fa-download"></i> Download</a>
@@ -34,12 +35,20 @@
       <a href="store.html">Store</a>
       <a href="socials.html">Socials</a>
       <a href="news.html">News</a>
+      <a href="updates.html">Updates</a>
       <a href="support.html">Support</a>
     </div>
   </div>
 
   <main>
     <section class="support-hero wrap">
+      <div class="support-deco" aria-hidden="true">
+        <span class="s-glow"></span>
+        <span class="s-orb a"></span>
+        <span class="s-orb b"></span>
+        <span class="s-tag t1"><i class="fa-solid fa-bolt"></i> Live</span>
+        <span class="s-tag t2"><i class="fa-solid fa-headset"></i> 24/7</span>
+      </div>
       <div class="kicker">Support Center</div>
       <h1>How can we help you?</h1>
       <p>Answers to common questions, guides, and 24/7 community support — all in one place.</p>
@@ -261,6 +270,7 @@
             <a href="features.html">Features</a>
             <a href="download.html">Download</a>
             <a href="release-notes.html">Release Notes</a>
+            <a href="updates.html">Updates</a>
             <a href="performance-guide.html">Performance Guide</a>
           </div>
           <div class="footer-col">
@@ -375,7 +385,14 @@
       });
 
       checkSession();
-      if (loginFrom) window.dispatchEvent(new CustomEvent('vortex:reload-tickets'));
+      if (loginFrom) {
+        // Ensure the freshly-issued session shows the user immediately
+        window.addEventListener('load', () => setTimeout(() => fetch(API + '/api/me')
+          .then(r => (r.ok ? r.json() : null))
+          .then(u => { if (u && u.ok) setUser(u); })
+          .catch(() => {}), 250));
+        window.dispatchEvent(new CustomEvent('vortex:reload-tickets'));
+      }
     })();
   </script>
 </body>
