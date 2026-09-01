@@ -358,29 +358,29 @@
         </div>
       </div>
 
-      <!-- CREDIT CARD INPUT FORM (VISIBLE WHEN 'card' SELECTED) -->
+      <!-- CREDIT CARD INPUT FORM (CUSTOMER ENTERS OWN DETAILS) -->
       <form id="cardPaymentForm" onsubmit="event.preventDefault(); trigger3dSecureModal();" style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
         <div>
-          <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CARDHOLDER NAME</label>
-          <input type="text" id="cardNameInput" class="card-input" placeholder="e.g. AHMET YILMAZ" required value="Hzlounch Owner">
+          <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CARDHOLDER NAME / KART ÜZERİNDEKİ İSİM</label>
+          <input type="text" id="cardNameInput" class="card-input" placeholder="Kart üzerindeki ad soyad..." required>
         </div>
 
         <div>
-          <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CARD NUMBER</label>
+          <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CARD NUMBER / KART NUMARASI</label>
           <div style="position:relative;">
-            <input type="text" id="cardNumberInput" class="card-input" placeholder="4543 •••• •••• 9821" maxlength="19" required value="4543 8901 2345 9821">
+            <input type="text" id="cardNumberInput" class="card-input" placeholder="16 haneli kart numarası..." maxlength="19" required>
             <i class="fa-brands fa-cc-visa" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:1.4rem; color:var(--accent-gold);"></i>
           </div>
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
           <div>
-            <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">EXPIRY DATE</label>
-            <input type="text" id="cardExpInput" class="card-input" placeholder="MM/YY" maxlength="5" required value="12/28">
+            <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">EXPIRY / SKT</label>
+            <input type="text" id="cardExpInput" class="card-input" placeholder="MM/YY" maxlength="5" required>
           </div>
           <div>
             <label style="font-size:0.75rem; color:#94a3b8; font-weight:700; margin-bottom:4px; display:block;">CVC / CVV</label>
-            <input type="password" id="cardCvcInput" class="card-input" placeholder="•••" maxlength="4" required value="888">
+            <input type="password" id="cardCvcInput" class="card-input" placeholder="•••" maxlength="4" required>
           </div>
         </div>
       </form>
@@ -412,7 +412,7 @@
 
       <div style="margin-bottom:24px;">
         <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; display:block; margin-bottom:6px;">ENTER 6-DIGIT SMS CODE</label>
-        <input type="text" id="smsCodeInput" class="card-input" placeholder="123456" maxlength="6" value="123456" style="text-align:center; font-size:1.4rem; letter-spacing:6px; font-weight:900; color:var(--accent-gold);">
+        <input type="text" id="smsCodeInput" class="card-input" placeholder="SMS Kodunu Giriniz..." maxlength="6" required style="text-align:center; font-size:1.4rem; letter-spacing:6px; font-weight:900; color:var(--accent-gold);">
       </div>
 
       <div style="display:flex; gap:12px;">

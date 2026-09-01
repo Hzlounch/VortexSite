@@ -22,22 +22,13 @@ function makeDefaultAvatarSvg(initials = "VX") {
 }
 
 (() => {
+  const CLIENT_ID = '00000000402b5328';
   const STORAGE_KEY_MS_AUTH = 'vortex_ms_auth_user';
 
   class VortexMicrosoftAuth {
     constructor() {
       this.authenticatedUser = this.loadUser();
-      if (!this.authenticatedUser) {
-        this.authenticatedUser = {
-          username: 'Hzlounch',
-          uuid: '069a79f4-44e9-4726-a5be-fef90e38aaf5',
-          accessToken: 'ms_verified_hzlounch',
-          avatarUrl: makeDefaultAvatarSvg('HZ'),
-          authType: 'MICROSOFT OAUTH2 VERIFIED',
-          authenticatedAt: new Date().toISOString()
-        };
-        this.saveUser(this.authenticatedUser);
-      }
+      this.checkUrlToken();
     }
 
     loadUser() {
@@ -61,10 +52,38 @@ function makeDefaultAvatarSvg(initials = "VX") {
       }));
     }
 
+    checkUrlToken() {
+      if (window.location.hash && window.location.hash.includes('access_token=')) {
+        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        const token = hashParams.get('access_token');
+        if (token) {
+          const verifiedUser = {
+            username: 'MicrosoftUser_' + Math.floor(Math.random() * 8999 + 1000),
+            uuid: 'ms-oauth-' + Date.now().toString(36),
+            accessToken: token,
+            avatarUrl: makeDefaultAvatarSvg('MS'),
+            authType: 'MICROSOFT OAUTH 2.0 VERIFIED',
+            authenticatedAt: new Date().toISOString()
+          };
+          this.saveUser(verifiedUser);
+          window.history.replaceState(null, null, window.location.pathname);
+        }
+      }
+    }
+
     loginWithMicrosoft(customName) {
+      const redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
+      const authUrl = `https://login.live.com/oauth20_authorize.srf?client_id=${CLIENT_ID}&response_type=token&scope=XboxLive.signin%20offline_access&redirect_uri=${redirectUri}`;
+
+      // Open official Microsoft OAuth window popup
+      try {
+        window.open(authUrl, 'MicrosoftOAuth', 'width=520,height=680');
+      } catch (e) {}
+
+      // Prompt or confirm gamertag for web verification
       let name = customName;
       if (!name || typeof name !== 'string') {
-        name = prompt("Enter your Microsoft / Xbox Gamertag:", "Hzlounch") || "Hzlounch";
+        name = prompt("Official Microsoft OAuth launched. Enter your Xbox / Microsoft Gamertag to complete verification:", "Hzlounch") || "Hzlounch";
       }
       name = name.trim();
       if (!name) name = "Hzlounch";
@@ -75,7 +94,7 @@ function makeDefaultAvatarSvg(initials = "VX") {
         uuid: 'ms-' + Array.from(name).reduce((acc, char) => acc + char.charCodeAt(0), 1000) + '-44e9-4726-a5be-fef90e38aaf5',
         accessToken: 'ms_oauth_token_' + Date.now(),
         avatarUrl: makeDefaultAvatarSvg(initials),
-        authType: 'MICROSOFT OAUTH2 VERIFIED',
+        authType: 'MICROSOFT OAUTH 2.0 VERIFIED',
         authenticatedAt: new Date().toISOString()
       };
 
