@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real In-Game Capes &amp; Store — VortexLauncher</title>
-  <meta name="description" content="Official VortexLauncher In-Game Cape Manager. Connect your Mojang account, upload custom PNG cape textures, and equip real Minecraft capes visible in-game.">
+  <title>Cosmetica Store — VortexLauncher In-Game 3D Cosmetics</title>
+  <meta name="description" content="Official VortexLauncher x Cosmetica.cc Marketplace. Purchase 3D capes, hats, shoulder pets, and halos using Vortex Credits (CR).">
   <link rel="icon" type="image/jpeg" href="vortex_logo_1787259818226 - Kopya - Kopya.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
   <style>
+    .store-hero-banner {
+      position: relative;
+      border-radius: 24px;
+      padding: 48px 40px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(168, 85, 247, 0.1)), url('vortex_logo_1787259818226 - Kopya - Kopya.jpg') center/cover;
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.2);
+      margin-bottom: 35px;
+      overflow: hidden;
+    }
+    .store-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(3, 8, 18, 0.85);
+      backdrop-filter: blur(8px);
+    }
     .account-bar {
       background: rgba(15, 23, 42, 0.85);
       border: 1px solid rgba(0, 240, 255, 0.3);
@@ -22,22 +38,7 @@
       margin-bottom: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
-    .dropzone-box {
-      border: 2px dashed rgba(0, 240, 255, 0.35);
-      background: rgba(3, 8, 18, 0.6);
-      border-radius: 20px;
-      padding: 30px 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-bottom: 35px;
-    }
-    .dropzone-box:hover {
-      border-color: var(--primary);
-      background: rgba(0, 240, 255, 0.1);
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
-    }
-    .cape-card {
+    .cosmetic-card {
       background: rgba(9, 22, 42, 0.85);
       border: 1px solid rgba(0, 240, 255, 0.2);
       border-radius: 20px;
@@ -47,22 +48,32 @@
       justify-content: space-between;
       transition: all 0.3s ease;
       position: relative;
+      overflow: hidden;
     }
-    .cape-card:hover {
+    .cosmetic-card:hover {
       transform: translateY(-6px);
       border-color: var(--primary);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.25);
     }
-    .active-badge {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 900;
-      padding: 4px 12px;
-      border-radius: 12px;
-      display: inline-flex;
+    .store-filter-btn {
+      background: rgba(3, 8, 18, 0.6);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      color: #94a3b8;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+    }
+    .store-filter-btn:hover, .store-filter-btn.active {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
     }
   </style>
 </head>
@@ -134,49 +145,72 @@
       <div style="display:flex; align-items:center; gap:16px;">
         <img id="userSkinHead" src="https://mc-heads.net/avatar/Steve/100" alt="Minecraft Skin" style="width:52px; height:52px; border-radius:14px; border:2px solid var(--primary); box-shadow:0 0 15px rgba(0,240,255,0.3);">
         <div>
-          <div style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase;">CONNECTED MINECRAFT ACCOUNT</div>
+          <div style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase;">CONNECTED MINECRAFT &amp; COSMETICA UUID</div>
           <div style="font-size:1.2rem; font-weight:900; color:#fff;" id="linkedUsernameLabel">Steve</div>
         </div>
       </div>
 
       <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-        <input type="text" id="usernameInput" placeholder="Enter Minecraft Username..." style="background:rgba(3,8,18,0.8); border:1px solid rgba(0,240,255,0.3); border-radius:12px; padding:10px 16px; color:#fff; font-size:0.9rem; outline:none; width:200px;">
-        <button id="connectAccountBtn" class="btn btn-secondary" style="padding:10px 22px; font-size:0.85rem;">
-          <i class="fa-solid fa-link"></i> Link Minecraft Account
+        <input type="text" id="usernameInput" placeholder="Minecraft Username..." style="background:rgba(3,8,18,0.8); border:1px solid rgba(0,240,255,0.3); border-radius:12px; padding:10px 16px; color:#fff; font-size:0.9rem; outline:none; width:180px;">
+        <button id="connectAccountBtn" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;">
+          <i class="fa-solid fa-link"></i> Link Account
         </button>
       </div>
     </div>
 
-    <!-- CUSTOM CAPE UPLOAD DROPZONE -->
-    <div class="dropzone-box" id="capeDropzone">
-      <i class="fa-solid fa-cloud-arrow-up" style="font-size:2.8rem; color:var(--primary); margin-bottom:12px;"></i>
-      <h3 style="font-size:1.3rem; font-weight:900; margin-bottom:6px;">UPLOAD CUSTOM MINECRAFT CAPE (.PNG)</h3>
-      <p style="color:#94a3b8; font-size:0.95rem; margin-bottom:16px;">Drag and drop your custom cape texture file (PNG 64x32 or HD 1024x512) to inject directly into your player model.</p>
-      <button class="btn btn-primary" style="padding:8px 22px; font-size:0.85rem;" onclick="document.getElementById('capeFileInput').click()">
-        <i class="fa-solid fa-folder-open"></i> Choose File
-      </button>
-      <input type="file" id="capeFileInput" accept="image/png" style="display:none;">
-    </div>
+    <!-- HERO PROMO STORE BANNER -->
+    <div class="store-hero-banner">
+      <div class="store-hero-overlay"></div>
+      <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px;">
+        <div style="max-width:620px;">
+          <span class="badge-glow" style="margin-bottom:12px; border-color:#a855f7; color:#a855f7;">COSMETICA.CC POWERED MARKETPLACE</span>
+          <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight:900; line-height:1.1; margin-bottom:14px; text-shadow:0 0 20px rgba(168,85,247,0.4);">
+            REAL 3D HATS, PETS &amp; HD CAPES
+          </h1>
+          <p style="color:var(--text-sub); font-size:1.05rem; line-height:1.6; margin-bottom:24px;">
+            Purchase official Cosmetica.cc 3D shoulder pets, animated halos, and HD capes with your Vortex Credits (CR). Items unlock directly on your Minecraft player UUID in-game.
+          </p>
+          <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="promoCodeInput" placeholder="Enter Credit Code..." style="background:rgba(3,8,18,0.8); border:1px solid rgba(251,191,36,0.4); border-radius:12px; padding:10px 16px; color:#fff; font-size:0.9rem; outline:none; width:180px;">
+              <button id="redeemPromoBtn" class="btn btn-primary" style="padding:10px 22px; font-size:0.9rem;">
+                <i class="fa-solid fa-ticket"></i> Redeem
+              </button>
+            </div>
+            <span style="font-size:0.8rem; color:#94a3b8;">Try code: <strong style="color:var(--accent-gold);">FREEPET</strong> or <strong style="color:var(--accent-gold);">VORTEX2026</strong></span>
+          </div>
+        </div>
 
-    <!-- ACTIVE CAPE STATUS HUD -->
-    <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(16,185,129,0.4); border-radius:18px; padding:20px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; margin-bottom:35px;">
-      <div style="display:flex; align-items:center; gap:16px;">
-        <i class="fa-solid fa-shield-halved" style="font-size:2rem; color:#10b981;"></i>
-        <div>
-          <div style="font-size:0.75rem; color:#94a3b8; font-weight:800;">ACTIVE IN-GAME CAPE</div>
-          <div style="font-size:1.2rem; font-weight:900; color:#fff;" id="activeCapeName">OptiFine Standard OF Cape</div>
+        <!-- BALANCE HUD -->
+        <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(251, 191, 36, 0.4); border-radius:20px; padding:28px; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(0,0,0,0.6);">
+          <div style="font-size:0.8rem; font-weight:800; color:var(--accent-gold); text-transform:uppercase; letter-spacing:1px;" data-i18n="store_balance">Your Balance</div>
+          <div style="font-size:2.6rem; font-weight:900; color:#fff; margin:10px 0;"><span id="storeCr">350</span> <span style="color:var(--accent-gold);">CR</span></div>
+          <button onclick="alert('Credits top-up will open in Vortex Client application.')" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:10px 0;">
+            <i class="fa-solid fa-plus"></i> <span data-i18n="store_buy_cr">Buy Credits</span>
+          </button>
         </div>
       </div>
-      <span class="active-badge"><i class="fa-solid fa-circle-check"></i> SYNCED WITH VORTEX CLIENT</span>
     </div>
 
-    <!-- REAL IN-GAME CAPES CATALOG -->
-    <div style="margin-bottom:24px;">
-      <h2 style="font-size:1.8rem; font-weight:900; margin-bottom:8px;">OFFICIAL IN-GAME CAPE CATALOG</h2>
-      <p style="color:#94a3b8; font-size:0.95rem;">Select any official or uploaded cape below to bind directly to your Minecraft player UUID in-game.</p>
+    <!-- CATEGORY FILTERS & SEARCH -->
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; margin-bottom:30px; background:rgba(15, 23, 42, 0.6); padding:16px 24px; border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
+      <div style="display:flex; gap:10px; flex-wrap:wrap;" id="categoryGroup">
+        <button class="store-filter-btn active" data-category="all"><i class="fa-solid fa-border-all"></i> All Items</button>
+        <button class="store-filter-btn" data-category="capes"><i class="fa-solid fa-shield-halved"></i> HD Capes</button>
+        <button class="store-filter-btn" data-category="pets"><i class="fa-solid fa-dragon"></i> 3D Pets</button>
+        <button class="store-filter-btn" data-category="halos"><i class="fa-solid fa-ring"></i> Halos</button>
+        <button class="store-filter-btn" data-category="hats"><i class="fa-solid fa-hat-wizard"></i> 3D Hats</button>
+        <button class="store-filter-btn" data-category="wings"><i class="fa-solid fa-feather"></i> 3D Wings</button>
+      </div>
+
+      <div style="position:relative; min-width:240px;">
+        <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#64748b;"></i>
+        <input type="text" id="searchInput" placeholder="Search Cosmetica items..." style="width:100%; background:rgba(3,8,18,0.7); border:1px solid rgba(0,240,255,0.3); border-radius:30px; padding:10px 16px 10px 42px; color:#fff; font-size:0.9rem; outline:none;">
+      </div>
     </div>
 
-    <div class="card-grid" id="capesCatalogGrid">
+    <!-- COSMETICA CATALOG GRID -->
+    <div class="card-grid" id="cosmeticaGrid">
       <!-- Populated via JS -->
     </div>
 
@@ -218,39 +252,57 @@
   <script src="vortex-credits.js"></script>
   <script src="site-translations.js"></script>
   <script src="site.js"></script>
-  <script src="vortex-cape-server.js"></script>
-  <script src="vortex-cape-uploader.js"></script>
+  <script src="vortex-cosmetica-api.js"></script>
 
   <script>
-    let uploader = null;
+    let activeCategory = 'all';
+    let searchQuery = '';
 
     document.addEventListener('DOMContentLoaded', () => {
-      const api = window.VortexCapeServerAPI;
+      const api = window.VortexCosmeticaAPI;
 
-      // Initialize Uploader
-      uploader = new VortexCapeUploader('capeDropzone', 'capeFileInput', 'capesCatalogGrid');
-
-      // Sync Account Listener
-      window.addEventListener('vortex:cape-server-updated', (e) => {
+      window.addEventListener('vortex:cosmetica-updated', (e) => {
         updateUIState(e.detail);
-        window.renderCapeStore();
+        renderCosmeticaGrid();
       });
 
-      // Account Link Button
       document.getElementById('connectAccountBtn').addEventListener('click', async () => {
         const input = document.getElementById('usernameInput').value;
-        const res = await api.setMinecraftUser(input);
+        const res = await api.connectMojangUser(input);
         alert(res.message);
+        renderCosmeticaGrid();
       });
 
-      // Initial Sync
+      document.getElementById('redeemPromoBtn').addEventListener('click', () => {
+        const code = document.getElementById('promoCodeInput').value;
+        const res = api.redeemCreditCode(code);
+        alert(res.message);
+        if (res.success) {
+          document.getElementById('promoCodeInput').value = '';
+          renderCosmeticaGrid();
+        }
+      });
+
+      document.querySelectorAll('#categoryGroup .store-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#categoryGroup .store-filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCategory = btn.getAttribute('data-category');
+          renderCosmeticaGrid();
+        });
+      });
+
+      document.getElementById('searchInput').addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderCosmeticaGrid();
+      });
+
       updateUIState({
         username: api.username,
-        uuid: api.uuid,
-        activeCape: api.activeCape
+        credits: api.credits,
+        uuid: api.uuid
       });
-
-      window.renderCapeStore();
+      renderCosmeticaGrid();
     });
 
     function updateUIState(data) {
@@ -258,45 +310,66 @@
       document.getElementById('linkedUsernameLabel').textContent = data.username;
       document.getElementById('userSkinHead').src = `https://mc-heads.net/avatar/${encodeURIComponent(data.username)}/100`;
 
-      if (data.activeCape) {
-        document.getElementById('activeCapeName').textContent = data.activeCape.name;
-      }
+      const crEls = [document.getElementById('headerCr'), document.getElementById('storeCr')];
+      crEls.forEach(el => { if (el) el.textContent = data.credits; });
     }
 
-    window.renderCapeStore = function() {
-      const grid = document.getElementById('capesCatalogGrid');
+    function renderCosmeticaGrid() {
+      const grid = document.getElementById('cosmeticaGrid');
       if (!grid) return;
 
-      const api = window.VortexCapeServerAPI;
-      const allCapes = api.getAllCapes();
+      const api = window.VortexCosmeticaAPI;
+      const catalog = api.getCatalog();
 
-      grid.innerHTML = allCapes.map(cape => {
-        const isActive = api.activeCape && api.activeCape.id === cape.id;
+      const filtered = catalog.filter(item => {
+        const matchCat = activeCategory === 'all' || item.category === activeCategory;
+        const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) || item.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #64748b;">
+          <i class="fa-solid fa-ghost" style="font-size:3rem; margin-bottom:12px; color:var(--primary);"></i>
+          <h3>No Cosmetica.cc Items Found</h3>
+          <p>Try selecting another category or clearing search.</p>
+        </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        const owned = api.hasItem(item.id);
+        const equipped = api.isEquipped(item.id);
 
         return `
-          <div class="cape-card" data-tilt style="${isActive ? 'border-color:#10b981; box-shadow:0 0 25px rgba(16,185,129,0.3);' : ''}">
+          <div class="cosmetic-card" data-tilt>
             <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                <span class="badge-glow" style="font-size:0.65rem; padding:3px 8px; border-color:${cape.category === 'vortex' ? '#00f0ff' : '#a855f7'}; color:${cape.category === 'vortex' ? '#00f0ff' : '#a855f7'};">${cape.type}</span>
-                ${isActive ? `<span class="active-badge"><i class="fa-solid fa-check"></i> EQUIPPED</span>` : ''}
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <span class="badge-glow" style="font-size:0.7rem; padding:4px 10px; border-color:${item.rarityColor}; color:${item.rarityColor};">${item.rarity}</span>
+                <span style="font-weight:900; color:var(--accent-gold); font-size:1.1rem;">${item.price} CR</span>
               </div>
 
-              <div style="text-align:center; padding:20px; background:rgba(3,8,18,0.6); border-radius:16px; border:1px solid rgba(255,255,255,0.05); margin-bottom:18px;">
-                <img src="https://mc-heads.net/avatar/${encodeURIComponent(api.username)}/100" alt="Cape Preview" style="width:75px; height:75px; border-radius:14px;">
+              <!-- PREVIEW BOX -->
+              <div style="text-align:center; padding:20px; background:rgba(3,8,18,0.6); border-radius:16px; border:1px solid rgba(255,255,255,0.05); margin-bottom:18px; position:relative;">
+                <img src="https://mc-heads.net/avatar/${encodeURIComponent(api.username)}/100" alt="Avatar" style="width:70px; height:70px; border-radius:12px; filter:drop-shadow(0 0 10px ${item.rarityColor});">
+                <span style="position:absolute; top:10px; right:10px; font-size:0.65rem; background:rgba(168,85,247,0.25); color:#a855f7; padding:2px 8px; border-radius:10px; font-weight:800;">COSMETICA 3D</span>
               </div>
 
-              <h3 style="font-size:1.2rem; font-weight:900; margin-bottom:6px; color:#fff;">${cape.name}</h3>
-              <p style="color:#94a3b8; font-size:0.85rem; line-height:1.5;">${cape.description}</p>
+              <h3 style="font-size:1.2rem; font-weight:900; margin-bottom:8px; color:#fff;">${item.title}</h3>
+              <p style="color:#94a3b8; font-size:0.85rem; line-height:1.5;">${item.description}</p>
             </div>
 
-            <div style="margin-top:20px;">
-              ${isActive
-                ? `<button class="btn btn-primary" style="width:100%; padding:10px 0; font-size:0.85rem; background:linear-gradient(135deg, #10b981, #059669); border-color:#10b981;" disabled>
-                     <i class="fa-solid fa-circle-check"></i> ACTIVE IN-GAME
+            <div style="margin-top:24px;">
+              ${equipped
+                ? `<button onclick="handleEquip('${item.id}')" class="btn btn-primary" style="width:100%; padding:10px 0; font-size:0.85rem; background:linear-gradient(135deg, #10b981, #059669); border-color:#10b981;">
+                     <i class="fa-solid fa-circle-check"></i> EQUIPPED IN-GAME
                    </button>`
-                : `<button onclick="bindCape('${cape.id}')" class="btn btn-secondary" style="width:100%; padding:10px 0; font-size:0.85rem;">
-                     <i class="fa-solid fa-shield-halved"></i> EQUIP TO MINECRAFT
-                   </button>`
+                : owned
+                  ? `<button onclick="handleEquip('${item.id}')" class="btn btn-secondary" style="width:100%; padding:10px 0; font-size:0.85rem;">
+                       <i class="fa-solid fa-shirt"></i> EQUIP TO MINECRAFT
+                     </button>`
+                  : `<button onclick="handleBuy('${item.id}')" class="btn btn-primary" style="width:100%; padding:10px 0; font-size:0.85rem;">
+                       <i class="fa-solid fa-cart-shopping"></i> BUY WITH ${item.price} CR
+                     </button>`
               }
             </div>
           </div>
@@ -304,16 +377,22 @@
       }).join('');
 
       if (window.VanillaTilt) {
-        VanillaTilt.init(grid.querySelectorAll('.cape-card'), { max: 10, speed: 400 });
+        VanillaTilt.init(grid.querySelectorAll('.cosmetic-card'), { max: 10, speed: 400 });
       }
+    }
 
-    };
-
-    function bindCape(id) {
-      const api = window.VortexCapeServerAPI;
-      const res = api.bindCapeToMinecraftUser(id);
+    function handleEquip(id) {
+      const api = window.VortexCosmeticaAPI;
+      const res = api.toggleEquipInGame(id);
       alert(res.message);
-      window.renderCapeStore();
+      renderCosmeticaGrid();
+    }
+
+    function handleBuy(id) {
+      const api = window.VortexCosmeticaAPI;
+      const res = api.purchaseItemWithCredits(id);
+      alert(res.message);
+      renderCosmeticaGrid();
     }
   </script>
 </body>
