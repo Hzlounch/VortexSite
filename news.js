@@ -11,24 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initFilters(grid);
 
-  const jsonUrl = 'https://vortex-site-ruddy.vercel.app/content/site-content.json';
+  const sources = [
+    'https://vortex-site-beta.vercel.app/content/site-content.json',
+    'content/site-content.json'
+  ];
 
-  fetch(jsonUrl, { cache: 'no-store' })
-    .then((res) => {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
-    })
-    .then((data) => {
-      const posts = Array.isArray(data && data.news) ? data.news : [];
-      if (!posts.length) return;
-      posts.forEach((post) => {
-        const card = buildCard(post);
-        if (card) grid.insertBefore(card, grid.firstChild);
-      });
-    })
-    .catch(() => {
-      /* keep static fallback cards — silent */
-    });
+  loadFrom(sources, 0);
+
+  function loadFrom(list, index) {
+    if (index >= list.length) return;
+    fetch(list[index], { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) { throw new Error('HTTP ' + res.status); }
+        return res.json();
+      })
+      .then((data) => {
+        const posts = Array.isArray(data && data.news) ? data.news : [];
+        if (!posts.length) throw new Error('empty');
+        const homeGrid = document.querySelector('.news-grid');
+        posts.slice(0, 3).forEach((post, i) => {
+          const card = buildCard(post);
+          if (card) grid.insertBefore(card, grid.firstChild);
+          if (homeGrid && i < 3) {
+            const item = buildHomeCard(post);
+            if (item) homeGrid.insertBefore(item, homeGrid.firstChild);
+          }
+        });
+      })
+      .catch(() => loadFrom(list, index + 1));
+  }
 });
 
 function initFilters(grid) {
@@ -48,6 +59,49 @@ function initFilters(grid) {
       });
     });
   });
+}
+
+function buildHomeCard(p) {
+  if (!p || !p.title) return null;
+  const cat = p.category || 'News';
+  const summary = p.summary || 'Check out the latest Vortex news.';
+
+  const a = document.createElement('a');
+  a.className = 'news-item';
+  a.href = 'news.html';
+  a.setAttribute('aria-label', p.title);
+
+  const top = document.createElement('div');
+  top.className = 'news-top';
+  const av = document.createElement('span');
+  av.className = 'avatar-sm';
+  av.textContent = (p.title || 'V').charAt(0).toUpperCase();
+  const tag = document.createElement('span');
+  tag.className = 'news-tag';
+  tag.textContent = cat;
+  top.appendChild(av);
+  top.appendChild(tag);
+
+  const date = document.createElement('div');
+  date.className = 'news-date';
+  date.innerHTML = '<i class="fa-regular fa-calendar"></i> ' + (p.publishedAt || 'recently');
+
+  const h3 = document.createElement('h3');
+  h3.textContent = p.title;
+
+  const para = document.createElement('p');
+  para.textContent = summary;
+
+  const more = document.createElement('span');
+  more.className = 'news-more';
+  more.innerHTML = 'Read update <i class="fa-solid fa-arrow-right"></i>';
+
+  a.appendChild(top);
+  a.appendChild(date);
+  a.appendChild(h3);
+  a.appendChild(para);
+  a.appendChild(more);
+  return a;
 }
 
 function buildCard(p) {
