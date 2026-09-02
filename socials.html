@@ -45,54 +45,68 @@
     <section class="hero wrap">
       <span class="hero-eyebrow"><i class="fa-solid fa-share-nodes"></i> Follow us</span>
       <h1>Join the <span class="grad">community</span></h1>
-      <p>Connect with thousands of other players. Follow us for updates, giveaways, and exclusive leaks.</p>
+      <p>Connect with thousands of other players. Follow us and watch the counters move — subscribing, following, or joining adds to the live total on this page.</p>
     </section>
 
     <section class="wrap" style="padding-bottom:70px;">
-      <div class="stat-strip">
-        <div class="stat-mini"><b style="color:var(--accent);">100K+</b><span>Discord</span></div>
-        <div class="stat-mini"><b style="color:var(--accent);">50K</b><span>YouTube</span></div>
-        <div class="stat-mini"><b style="color:var(--accent);">120K</b><span>TikTok</span></div>
-        <div class="stat-mini"><b style="color:var(--accent);">30K</b><span>Instagram</span></div>
-        <div class="stat-mini"><b style="color:var(--accent);">40K</b><span>GitHub</span></div>
-      </div>
+      <div class="stat-strip" id="socialStatStrip"></div>
 
-      <div class="social-grid">
-        <a class="social-card" href="https://discord.gg/7P6V3pASw" target="_blank">
+      <div class="social-grid" id="socialGrid">
+        <div class="social-card" data-platform="discord">
           <div class="s-icon" style="background:rgba(88,101,242,0.14); border-color:rgba(88,101,242,0.4); color:#6b7dff;"><i class="fa-brands fa-discord"></i></div>
-          <div>
+          <div class="s-body">
             <h3>Discord Server</h3>
             <p>The central hub of Vortex. Chat with staff, open tickets, and find players.</p>
+            <div class="s-foot">
+              <a class="btn btn-primary sm" href="https://discord.gg/7P6V3pASw" target="_blank" data-follow="discord"><span class="s-follow"><i class="fa-brands fa-discord"></i> Follow</span></a>
+              <span class="s-count" id="count-discord">—</span>
+            </div>
           </div>
-        </a>
-        <a class="social-card" href="https://youtube.com/@vortexlauncher" target="_blank">
+        </div>
+        <div class="social-card" data-platform="youtube">
           <div class="s-icon" style="background:rgba(255,0,51,0.12); border-color:rgba(255,0,51,0.4); color:#ff4d6b;"><i class="fa-brands fa-youtube"></i></div>
-          <div>
+          <div class="s-body">
             <h3>YouTube</h3>
             <p>Official trailers, feature showcases, and top plays from the community.</p>
+            <div class="s-foot">
+              <a class="btn btn-primary sm" href="https://youtube.com/@vortexlauncher" target="_blank" data-follow="youtube"><span class="s-follow"><i class="fa-brands fa-youtube"></i> Subscribe</span></a>
+              <span class="s-count" id="count-youtube">—</span>
+            </div>
           </div>
-        </a>
-        <a class="social-card" href="https://www.tiktok.com/@vortexlauncher4" target="_blank">
+        </div>
+        <div class="social-card" data-platform="tiktok">
           <div class="s-icon" style="background:rgba(105,201,208,0.12); border-color:rgba(105,201,208,0.4); color:#69c9d0;"><i class="fa-brands fa-tiktok"></i></div>
-          <div>
+          <div class="s-body">
             <h3>TikTok</h3>
             <p>Short clips, funny moments, and quick tips for using Vortex.</p>
+            <div class="s-foot">
+              <a class="btn btn-primary sm" href="https://www.tiktok.com/@vortexlauncher4" target="_blank" data-follow="tiktok"><span class="s-follow"><i class="fa-brands fa-tiktok"></i> Follow</span></a>
+              <span class="s-count" id="count-tiktok">—</span>
+            </div>
           </div>
-        </a>
-        <a class="social-card" href="https://www.instagram.com/vortexlauncherq/" target="_blank">
+        </div>
+        <div class="social-card" data-platform="instagram">
           <div class="s-icon" style="background:rgba(255,71,128,0.12); border-color:rgba(255,71,128,0.4); color:#ff85a8;"><i class="fa-brands fa-instagram"></i></div>
-          <div>
+          <div class="s-body">
             <h3>Instagram</h3>
             <p>Community highlights, screenshots, and behind-the-scenes content.</p>
+            <div class="s-foot">
+              <a class="btn btn-primary sm" href="https://www.instagram.com/vortexlauncherq/" target="_blank" data-follow="instagram"><span class="s-follow"><i class="fa-brands fa-instagram"></i> Follow</span></a>
+              <span class="s-count" id="count-instagram">—</span>
+            </div>
           </div>
-        </a>
-        <a class="social-card" href="https://github.com/Hzlounch" target="_blank">
+        </div>
+        <div class="social-card" data-platform="github">
           <div class="s-icon" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.18); color:#d7dee8;"><i class="fa-brands fa-github"></i></div>
-          <div>
+          <div class="s-body">
             <h3>GitHub</h3>
             <p>Repositories, open-source work, and issue tracking.</p>
+            <div class="s-foot">
+              <a class="btn btn-primary sm" href="https://github.com/Hzlounch" target="_blank" data-follow="github"><span class="s-follow"><i class="fa-brands fa-github"></i> Follow</span></a>
+              <span class="s-count" id="count-github">—</span>
+            </div>
           </div>
-        </a>
+        </div>
       </div>
     </section>
   </main>
@@ -140,5 +154,6 @@
   </footer>
 
   <script src="site.js"></script>
+  <script src="socials.js"></script>
 </body>
 </html>

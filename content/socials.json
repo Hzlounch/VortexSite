@@ -1,0 +1,40 @@
+{
+  "updatedAt": "2026-09-02T00:00:00.000Z",
+  "channels": {
+    "youtube": {
+      "handle": "@vortexlauncher",
+      "url": "https://youtube.com/@vortexlauncher",
+      "base": 1,
+      "site": 0,
+      "note": "Set real subscriber count in base"
+    },
+    "tiktok": {
+      "handle": "@vortexlauncher4",
+      "url": "https://www.tiktok.com/@vortexlauncher4",
+      "base": 11,
+      "site": 0,
+      "note": "Set real follower count in base"
+    },
+    "instagram": {
+      "handle": "@vortexlauncherq",
+      "url": "https://www.instagram.com/vortexlauncherq/",
+      "base": 1,
+      "site": 0,
+      "note": "Set real follower count in base"
+    },
+    "discord": {
+      "handle": "Discord Server",
+      "url": "https://discord.gg/7P6V3pASw",
+      "base": 3,
+      "site": 0,
+      "note": "Set real member count in base (bot /sync-socials sets it)"
+    },
+    "github": {
+      "handle": "Hzlounch",
+      "url": "https://github.com/Hzlounch",
+      "base": 0,
+      "site": 0,
+      "note": "Set real stars/followers in base"
+    }
+  }
+}

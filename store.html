@@ -45,42 +45,33 @@
     <section class="hero wrap">
       <span class="hero-eyebrow"><i class="fa-solid fa-coins"></i> Vortex Economy</span>
       <h1>Unlock premium <span class="grad">cosmetics</span></h1>
-      <p>Use Vortex Credits (CR) to unlock custom capes, exclusive wings, and particle effects. Never pay-to-win.</p>
+      <p>Buy capes, wings, trails, auras and emotes with Vortex Credits (CR). Everything here is a real, in-client cosmetic — never pay-to-win, always cosmetic-only.</p>
+      <div class="store-balance" data-credit-wrap>
+        <span>Your balance</span>
+        <b><i class="fa-solid fa-coins"></i> <span data-credit>0</span> CR</b>
+        <a class="btn btn-secondary sm" href="support.html?login=1" id="storeLogin"><i class="fa-brands fa-discord"></i> <span>Sign in</span></a>
+      </div>
     </section>
 
     <section class="wrap" style="padding-bottom:70px;">
-      <div class="gallery">
-        <div class="tile"><div class="t-ico"><i class="fa-solid fa-feather"></i></div><b>Quantum Cape</b><span>500 CR</span></div>
-        <div class="tile"><div class="t-ico"><i class="fa-solid fa-dragon"></i></div><b>Dragon Wings</b><span>1500 CR</span></div>
-        <div class="tile"><div class="t-ico"><i class="fa-solid fa-circle-half-stroke"></i></div><b>Plasma Halo</b><span>750 CR</span></div>
-        <div class="tile"><div class="t-ico"><i class="fa-solid fa-wand-sparkles"></i></div><b>Particle Aura</b><span>400 CR</span></div>
-        <div class="tile"><div class="t-ico"><i class="fa-solid fa-hat-wizard"></i></div><b>Cyber Wings</b><span>1200 CR</span></div>
-        <div class="tile lock"><div class="t-ico"><i class="fa-solid fa-lock"></i></div><b>Season Pass</b><span>Coming soon</span></div>
+      <div class="store-cats" id="storeCats">
+        <button class="cat-btn on" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="cape">Capes</button>
+        <button class="cat-btn" data-cat="wings">Wings</button>
+        <button class="cat-btn" data-cat="trail">Particles & Trails</button>
+        <button class="cat-btn" data-cat="aura">Auras</button>
+        <button class="cat-btn" data-cat="emote">Emotes</button>
       </div>
 
-      <div class="price-grid">
-        <div class="price">
-          <i class="fa-solid fa-coins"></i>
-          <h3>250 Vortex Credits</h3>
-          <p>Perfect for your first cape or particle aura.</p>
-          <div class="amount">$4.99</div>
-          <a class="btn btn-primary" href="#">Purchase</a>
-        </div>
-        <div class="price popular">
-          <span class="tag">Most Popular</span>
-          <i class="fa-solid fa-sack-dollar"></i>
-          <h3>600 Vortex Credits</h3>
-          <p>Includes +100 bonus credits. Unlock multiple cosmetics.</p>
-          <div class="amount">$9.99</div>
-          <a class="btn btn-primary" href="#">Purchase</a>
-        </div>
-        <div class="price">
-          <i class="fa-solid fa-gem"></i>
-          <h3>1500 Vortex Credits</h3>
-          <p>For the most dedicated supporters. Includes exclusive badge.</p>
-          <div class="amount">$19.99</div>
-          <a class="btn btn-primary" href="#">Purchase</a>
-        </div>
+      <div class="store-grid" id="storeGrid"></div>
+
+      <div class="store-filters" id="storeFilters" hidden>
+        <label>Rarity
+          <select id="filterRarity"><option value="all">All</option><option value="common">Common</option><option value="rare">Rare</option><option value="epic">Epic</option><option value="legendary">Legendary</option></select>
+        </label>
+        <label>Sort
+          <select id="filterSort"><option value="price">Price</option><option value="rarity">Rarity</option><option value="name">Name</option></select>
+        </label>
       </div>
     </section>
   </main>
@@ -127,6 +118,8 @@
     </div>
   </footer>
 
+  <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
+  <script src="store.js"></script>
 </body>
 </html>
