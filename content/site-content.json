@@ -33,28 +33,5 @@
   ],
   "features": [],
   "updates": [],
-  "tickets": [
-    {
-      "id": "WT-MTJ794WH-F9P",
-      "name": "Hzlounch",
-      "minecraft": "Hzlounch",
-      "category": "Login",
-      "subject": "Fix",
-      "message": "aaaa",
-      "status": "Waiting for Staff",
-      "open": true,
-      "createdAt": "2026-09-01T21:48:58.987Z"
-    },
-    {
-      "id": "WT-MTK79Q8J-Y31",
-      "name": "Guest",
-      "minecraft": "Hz",
-      "category": "General",
-      "subject": "Me",
-      "message": "me",
-      "status": "Waiting for Staff",
-      "open": true,
-      "createdAt": "2026-09-02T14:37:12.940Z"
-    }
-  ]
+  "tickets": []
 }

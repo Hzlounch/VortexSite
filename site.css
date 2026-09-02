@@ -77,13 +77,13 @@ body::after {
 
 /* Per-page Minecraft scene backdrops */
 body.home     { --scene: url('scene-amethyst.png'); }
-body.features { --scene: url('scene-jungle.png'); }
-body.download { --scene: url('scene-ore.png'); }
-body.store    { --scene: url('scene-mansion.png'); }
-body.socials  { --scene: url('scene-cherry.png'); }
-body.news     { --scene: url('scene-meadow.png'); }
-body.support  { --scene: url('scene-ocean-warm.png'); }
-body.updates  { --scene: url('scene-peaks.png'); }
+body.features { --scene: url('scene-features.png'); }
+body.download { --scene: url('scene-download.png'); }
+body.store    { --scene: url('scene-store.png'); }
+body.socials  { --scene: url('scene-socials.png'); }
+body.news     { --scene: url('scene-news.png'); }
+body.support  { --scene: url('scene-support.png'); }
+body.updates  { --scene: url('scene-updates.png'); }
 body.release  { --scene: url('scene-nether.png'); }
 body.guide    { --scene: url('scene-swamp.png'); }
 

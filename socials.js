@@ -54,6 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Follow buttons: vote up (follow) / down (un-follow) + track
+  const CHANNELS = {
+    youtube: 'https://youtube.com/@vortexlauncher',
+    tiktok: 'https://www.tiktok.com/@vortexlauncher4',
+    instagram: 'https://www.instagram.com/vortexlauncherq/',
+    discord: 'https://discord.gg/7P6V3pASw',
+    github: 'https://github.com/Hzlounch'
+  };
   document.querySelectorAll('[data-follow]').forEach((btn) => {
     btn.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -71,11 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
           setCount(platform, data.total);
           const following = data.action === 'inc';
           setLabel(platform, following);
-          // open the real platform so the visitor actually follows there
-          const ch = { youtube: 'https://youtube.com/@vortexlauncher', tiktok: 'https://www.tiktok.com/@vortexlauncher4', instagram: 'https://www.instagram.com/vortexlauncherq/', discord: 'https://discord.gg/7P6V3pASw', github: 'https://github.com/Hzlounch' };
-          window.open(ch[platform], '_blank');
         }
-      } catch (_) {}
+      } catch (_) {
+        // API unavailable (e.g. opened as a local file) — still let the link work
+      }
+      // Always open the real platform so the visitor actually follows there.
+      const link = btn.getAttribute('href') || CHANNELS[platform];
+      if (link) window.open(link, '_blank', 'noopener');
       if (card) card.classList.remove('s-busy');
     });
   });
