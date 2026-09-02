@@ -42,36 +42,93 @@
   </div>
 
   <main>
-    <section class="hero wrap">
-      <span class="hero-eyebrow"><i class="fa-solid fa-coins"></i> Vortex Economy</span>
-      <h1>Unlock premium <span class="grad">cosmetics</span></h1>
-      <p>Buy capes, wings, trails, auras and emotes with Vortex Credits (CR). Everything here is a real, in-client cosmetic — never pay-to-win, always cosmetic-only.</p>
-      <div class="store-balance" data-credit-wrap>
-        <span>Your balance</span>
-        <b><i class="fa-solid fa-coins"></i> <span data-credit>0</span> CR</b>
-        <a class="btn btn-secondary sm" href="support.html?login=1" id="storeLogin"><i class="fa-brands fa-discord"></i> <span>Sign in</span></a>
+    <section class="store-top">
+      <div class="wrap store-head">
+        <div>
+          <span class="hero-eyebrow"><i class="fa-solid fa-hand-holding-dollar"></i> Vortex Store</span>
+          <h1>Shop Minecraft <span class="grad">cosmetics</span></h1>
+          <p>Pets, wings, cloaks, auras, emotes and more. One-time purchases unlock cosmetics forever — no pay-to-win, cosmetic only.</p>
+        </div>
+        <div class="store-balance" data-credit-wrap>
+          <span>Your balance</span>
+          <b><i class="fa-solid fa-coins"></i> <span data-credit>0</span> coins</b>
+          <a class="btn btn-secondary sm" href="download.html" id="storeLogin"><i class="fa-brands fa-discord"></i> <span>Login</span></a>
+        </div>
       </div>
     </section>
 
-    <section class="wrap" style="padding-bottom:70px;">
-      <div class="store-cats" id="storeCats">
-        <button class="cat-btn on" data-cat="all">All</button>
-        <button class="cat-btn" data-cat="cape">Capes</button>
-        <button class="cat-btn" data-cat="wings">Wings</button>
-        <button class="cat-btn" data-cat="trail">Particles & Trails</button>
-        <button class="cat-btn" data-cat="aura">Auras</button>
-        <button class="cat-btn" data-cat="emote">Emotes</button>
+    <!-- CATEGORY GRID like Lunar -->
+    <section class="wrap">
+      <div class="cat-grid" id="catGrid">
+        <a class="cat-card big" href="#wings"><div class="cat-ico"><i class="fa-solid fa-dragon"></i></div><div><b>Wings</b><span>Unique wing designs for your back</span></div></a>
+        <a class="cat-card" href="#emotes"><div class="cat-ico"><i class="fa-solid fa-icons"></i></div><div><b>Emotes</b><span>Expressive dances & animations</span></div></a>
+        <a class="cat-card" href="#pets"><div class="cat-ico"><i class="fa-solid fa-paw"></i></div><div><b>Pets</b><span>Companions for your adventures</span></div></a>
+        <a class="cat-card" href="#auras"><div class="cat-ico"><i class="fa-solid fa-rings-wedding"></i></div><div><b>Auras</b><span>Distinct aura effects</span></div></a>
+        <a class="cat-card" href="#cloaks"><div class="cat-ico"><i class="fa-solid fa-mask"></i></div><div><b>Cloaks</b><span>Custom-designed cloaks</span></div></a>
+        <a class="cat-card" href="#headwear"><div class="cat-ico"><i class="fa-solid fa-hat-cowboy"></i></div><div><b>Headwear</b><span>Unique designs for your head</span></div></a>
+        <a class="cat-card" href="#bundles"><div class="cat-ico"><i class="fa-solid fa-gift"></i></div><div><b>Bundles</b><span>More for less — curated bundles</span></div></a>
+        <a class="cat-card" href="#coins"><div class="cat-ico"><i class="fa-solid fa-coins"></i></div><div><b>Coins</b><span>Grab cosmetics without a wallet</span></div></a>
+        <a class="cat-card plus" href="#plus"><div class="cat-ico"><i class="fa-solid fa-crown"></i></div><div><b>Vortex+</b><span>Exclusive features & cosmetics</span></div></a>
       </div>
+    </section>
 
-      <div class="store-grid" id="storeGrid"></div>
+    <!-- TRENDING PACKAGES -->
+    <section class="wrap store-sec">
+      <div class="sec-head">
+        <h2>Trending packages</h2>
+        <span>Updated today</span>
+      </div>
+      <div class="prod-grid" id="trendingGrid"></div>
+    </section>
 
-      <div class="store-filters" id="storeFilters" hidden>
-        <label>Rarity
-          <select id="filterRarity"><option value="all">All</option><option value="common">Common</option><option value="rare">Rare</option><option value="epic">Epic</option><option value="legendary">Legendary</option></select>
-        </label>
-        <label>Sort
-          <select id="filterSort"><option value="price">Price</option><option value="rarity">Rarity</option><option value="name">Name</option></select>
-        </label>
+    <!-- LATEST PACKAGES -->
+    <section class="wrap store-sec">
+      <div class="sec-head">
+        <h2>Latest packages</h2>
+        <span>Updated this week</span>
+      </div>
+      <div class="prod-grid" id="latestGrid"></div>
+    </section>
+
+    <!-- VORTEX+ PREMIUM -->
+    <section class="wrap store-sec" id="plus">
+      <div class="plus-card">
+        <div class="plus-left">
+          <div class="plus-badge"><i class="fa-solid fa-crown"></i> VORTEX+</div>
+          <h2>Subscribe to <span class="grad">Vortex+</span> to unlock exclusive features and cosmetics.</h2>
+          <ul class="plus-feats">
+            <li><i class="fa-solid fa-wand-magic-sparkles"></i> Exclusive Cosmetics</li>
+            <li><i class="fa-solid fa-tags"></i> Store Savings</li>
+            <li><i class="fa-brands fa-discord"></i> Discord Perks</li>
+            <li><i class="fa-solid fa-shirt"></i> Cloth Cloaks</li>
+            <li><i class="fa-solid fa-face-grin-stars"></i> Monthly Emote</li>
+            <li><i class="fa-solid fa-ban"></i> Ad-Free Experience</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="#plus">Purchase Vortex+</a>
+        </div>
+        <div class="plus-right">
+          <img src="cosmetics/cs-vortex_plus.png" alt="Vortex+">
+        </div>
+      </div>
+    </section>
+
+    <!-- COINS -->
+    <section class="wrap store-sec" id="coins">
+      <div class="sec-head"><h2>Vortex Coins</h2><span>Grab cosmetics without reaching for your wallet</span></div>
+      <div class="coin-grid">
+        <div class="coin-card"><img src="cosmetics/cs-coins.png" alt="Small"><b>540 Vortex Coins</b><span>$4.99</span></div>
+        <div class="coin-card"><img src="cosmetics/cs-coins.png" alt="Medium"><b>1,190 Vortex Coins</b><span>$9.99</span></div>
+        <div class="coin-card"><img src="cosmetics/cs-coins.png" alt="Large"><b>2,900 Vortex Coins</b><span>$19.99</span></div>
+      </div>
+    </section>
+
+    <!-- NEED HELP -->
+    <section class="wrap store-sec">
+      <div class="sec-head"><h2>Need help?</h2><span>How can we help?</span></div>
+      <div class="help-row">
+        <a class="help-card" href="support.html"><i class="fa-solid fa-circle-question"></i><b>Common Questions</b><span>Browse answers to popular questions</span></a>
+        <a class="help-card" href="support.html"><i class="fa-solid fa-ticket"></i><b>Create a Support Ticket</b><span>Get help from our support team</span></a>
+        <a class="help-card" href="socials.html"><i class="fa-brands fa-discord"></i><b>Join our Discord</b><span>Chat with the community and staff</span></a>
       </div>
     </section>
   </main>
@@ -95,19 +152,22 @@
         </div>
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Product</h4>
-            <a href="features.html">Features</a>
-            <a href="download.html">Download</a>
-            <a href="release-notes.html">Release Notes</a>
-            <a href="updates.html">Updates</a>
-            <a href="performance-guide.html">Performance Guide</a>
+            <h4>Products</h4>
+            <a href="#wings">Wings</a>
+            <a href="#pets">Pets</a>
+            <a href="#emotes">Emotes</a>
+            <a href="#auras">Auras</a>
+            <a href="#cloaks">Cloaks</a>
+            <a href="#headwear">Headwear</a>
+            <a href="#bundles">Bundles</a>
+            <a href="#coins">Coins</a>
           </div>
           <div class="footer-col">
-            <h4>Community</h4>
+            <h4>Company</h4>
             <a href="news.html">News</a>
-            <a href="socials.html">Socials</a>
+            <a href="updates.html">Updates</a>
+            <a href="features.html">Features</a>
             <a href="support.html">Support</a>
-            <a href="store.html">Store</a>
           </div>
         </div>
       </div>
@@ -118,7 +178,6 @@
     </div>
   </footer>
 
-  <script src="vortex-credits.js"></script>
   <script src="site.js"></script>
   <script src="store.js"></script>
 </body>
