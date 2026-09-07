@@ -1,7 +1,24 @@
 {
   "version": 1,
-  "updatedAt": 1788774271903,
-  "servers": [],
+  "updatedAt": 1788774553470,
+  "servers": [
+    {
+      "id": "srv_mtr26mwlzxjt",
+      "name": "BlissMc",
+      "ip": "blissmc.org",
+      "badge": "CUSTOM",
+      "category": "Survival",
+      "maxPlayers": 2000,
+      "version": "1.7.2 up to 1.21.11",
+      "region": "GLOBAL",
+      "banner": "https://cdn.phototourl.com/free/2026-09-07-b15441f6-2052-4a89-a586-72fb40c1a254.png",
+      "logo": "https://cdn.phototourl.com/free/2026-09-07-b15441f6-2052-4a89-a586-72fb40c1a254.png",
+      "description": "🌸 BlissMC (blissmc.org)\n\nLooking for your next favorite Minecraft destination? Dive into blissmc.org for a lag-free, action-packed gaming experience tailored for true enthusiasts.",
+      "features": [],
+      "modes": [],
+      "enabled": true
+    }
+  ],
   "realms": [
     {
       "id": "rlm_mtqbnptbn0s9",
