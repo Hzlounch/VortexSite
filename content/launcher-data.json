@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1788776438120,
+  "updatedAt": 1788776517362,
   "servers": [
     {
       "id": "srv_mtr26mwlzxjt",
@@ -20,22 +20,5 @@
     }
   ],
   "realms": [],
-  "news": [
-    {
-      "id": "news_mtqyxw2etujn",
-      "tag": "FEATURED",
-      "title": "VortexMc",
-      "image": "https://cdn.phototourl.com/free/2026-09-07-05a54dfc-04bd-4862-890b-7f15724f9a2e.png",
-      "link": "https://vortex-site-beta.vercel.app/",
-      "createdAt": 1788769106582
-    },
-    {
-      "id": "news_mtqbsitlxgdo",
-      "tag": "STORE",
-      "title": "VortexMc",
-      "image": "Ekran görüntüsü 2026-09-07 002938.png",
-      "link": "https://vortex-site-beta.vercel.app/",
-      "createdAt": 1788730224969
-    }
-  ]
+  "news": []
 }
