@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "updatedAt": 1788770566012,
+  "servers": [],
+  "realms": [
+    {
+      "id": "rlm_mtqbnptbn0s9",
+      "name": "VortexMc",
+      "ip": "VortexMc.com",
+      "owner": "Hzlounch",
+      "category": "Creative",
+      "version": "1.21",
+      "region": "English",
+      "description": "join for sever always events",
+      "maxPlayers": 100,
+      "logo": "",
+      "banner": "",
+      "whitelist": [],
+      "enabled": true,
+      "createdAt": 1788730000751,
+      "createdBy": "momy4605"
+    },
+    {
+      "id": "rlm_mtqd03ksq1d8",
+      "name": "VortexMc",
+      "ip": "Vortexmc.com",
+      "owner": "Hzlounch",
+      "category": "MINI",
+      "version": "1.20",
+      "region": "English",
+      "description": "COmen TO This Server",
+      "maxPlayers": 200,
+      "logo": "",
+      "banner": "",
+      "whitelist": [],
+      "enabled": true,
+      "createdAt": 1788732258076,
+      "createdBy": "momy4605"
+    },
+    {
+      "id": "rlm_mtqy941btvsw",
+      "name": "Boxmining SPm",
+      "ip": "play.boxmining.net",
+      "owner": "momy4605",
+      "category": "SMP",
+      "version": "1.21 Hzlounch",
+      "region": "GLOBAL",
+      "description": "hi everyone nejoy with play this server",
+      "maxPlayers": 200,
+      "logo": "",
+      "banner": "",
+      "whitelist": [],
+      "enabled": true,
+      "createdAt": 1788767950511,
+      "createdBy": "momy4605"
+    }
+  ],
+  "news": [
+    {
+      "id": "news_mtqyxw2etujn",
+      "tag": "FEATURED",
+      "title": "VortexMc",
+      "image": "https://cdn.phototourl.com/free/2026-09-07-05a54dfc-04bd-4862-890b-7f15724f9a2e.png",
+      "link": "https://vortex-site-beta.vercel.app/",
+      "createdAt": 1788769106582
+    },
+    {
+      "id": "news_mtqbsitlxgdo",
+      "tag": "STORE",
+      "title": "VortexMc",
+      "image": "Ekran görüntüsü 2026-09-07 002938.png",
+      "link": "https://vortex-site-beta.vercel.app/",
+      "createdAt": 1788730224969
+    }
+  ]
+}
