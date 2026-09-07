@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1788774651628,
+  "updatedAt": 1788774720295,
   "servers": [
     {
       "id": "srv_mtr26mwlzxjt",
@@ -19,25 +19,7 @@
       "enabled": true
     }
   ],
-  "realms": [
-    {
-      "id": "rlm_mtqbnptbn0s9",
-      "name": "VortexMc",
-      "ip": "VortexMc.com",
-      "owner": "Hzlounch",
-      "category": "Creative",
-      "version": "1.21",
-      "region": "English",
-      "description": "join for sever always events",
-      "maxPlayers": 100,
-      "logo": "",
-      "banner": "",
-      "whitelist": [],
-      "enabled": true,
-      "createdAt": 1788730000751,
-      "createdBy": "momy4605"
-    }
-  ],
+  "realms": [],
   "news": [
     {
       "id": "news_mtqyxw2etujn",
