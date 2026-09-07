@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1788774553470,
+  "updatedAt": 1788774614453,
   "servers": [
     {
       "id": "srv_mtr26mwlzxjt",
@@ -52,23 +52,6 @@
       "whitelist": [],
       "enabled": true,
       "createdAt": 1788732258076,
-      "createdBy": "momy4605"
-    },
-    {
-      "id": "rlm_mtqy941btvsw",
-      "name": "Boxmining SPm",
-      "ip": "play.boxmining.net",
-      "owner": "momy4605",
-      "category": "SMP",
-      "version": "1.21 Hzlounch",
-      "region": "GLOBAL",
-      "description": "hi everyone nejoy with play this server",
-      "maxPlayers": 200,
-      "logo": "",
-      "banner": "",
-      "whitelist": [],
-      "enabled": true,
-      "createdAt": 1788767950511,
       "createdBy": "momy4605"
     }
   ],
