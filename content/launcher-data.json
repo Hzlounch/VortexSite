@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1788774614453,
+  "updatedAt": 1788774651628,
   "servers": [
     {
       "id": "srv_mtr26mwlzxjt",
@@ -35,23 +35,6 @@
       "whitelist": [],
       "enabled": true,
       "createdAt": 1788730000751,
-      "createdBy": "momy4605"
-    },
-    {
-      "id": "rlm_mtqd03ksq1d8",
-      "name": "VortexMc",
-      "ip": "Vortexmc.com",
-      "owner": "Hzlounch",
-      "category": "MINI",
-      "version": "1.20",
-      "region": "English",
-      "description": "COmen TO This Server",
-      "maxPlayers": 200,
-      "logo": "",
-      "banner": "",
-      "whitelist": [],
-      "enabled": true,
-      "createdAt": 1788732258076,
       "createdBy": "momy4605"
     }
   ],
