@@ -1,0 +1,14 @@
+{
+  "name": "vortex-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vortex Client website (static, deploys to Vercel)",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-catalog.mjs",
+    "check": "node scripts/build-check.mjs",
+    "test": "node scripts/smoke-test.mjs",
+    "build": "npm run check && npm run test",
+    "optimize-images": "python scripts/optimize-images.py"
+  }
+}

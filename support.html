@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support | Vortex Client</title>
+  <link rel="icon" type="image/jpeg" href="vortex-logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="dark support">
+  <div class="topbar">
+    <div class="wrap nav">
+      <a href="index.html" class="brand">
+        <img src="vortex-logo.jpg" alt="Vortex Client Logo">
+        Vortex
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="download.html">Download</a>
+        <a href="store.html">Store</a>
+        <a href="socials.html">Socials</a>
+        <a href="news.html">News</a>
+        <a href="updates.html">Updates</a>
+        <a href="support.html" class="active">Support</a>
+      </nav>
+      <a href="download.html" class="nav-cta"><i class="fa-solid fa-download"></i> Download</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="store.html">Store</a>
+      <a href="socials.html">Socials</a>
+      <a href="news.html">News</a>
+      <a href="updates.html">Updates</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="support-hero wrap">
+      <div class="support-deco" aria-hidden="true">
+        <span class="s-glow"></span>
+        <span class="s-orb a"></span>
+        <span class="s-orb b"></span>
+        <span class="s-tag t1"><i class="fa-solid fa-bolt"></i> Live</span>
+        <span class="s-tag t2"><i class="fa-solid fa-headset"></i> 24/7</span>
+      </div>
+      <div class="kicker">Support Center</div>
+      <h1>How can we help you?</h1>
+      <p>Answers to common questions, guides, and 24/7 community support — all in one place.</p>
+      <form class="search-bar" id="supportSearch" role="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search articles, e.g. “can't connect” or “FPS”">
+      </form>
+      <div class="support-badges">
+        <span class="badge ok"><i class="fa-solid fa-circle"></i> All systems operational</span>
+        <span class="badge"><i class="fa-solid fa-bolt"></i> Median reply: &lt; 15 min</span>
+        <span class="badge"><i class="fa-solid fa-user-group"></i> 24/7 on Discord</span>
+      </div>
+
+      <div class="auth-bar" id="authBar">
+        <a class="btn btn-outline" id="loginBtn" href="api/discord-login"><i class="fa-brands fa-discord"></i> Sign in with Discord</a>
+        <div class="auth-user" id="authUserWrap" style="display:none;">
+          <img id="authAvatar" src="" alt="">
+          <div>
+            <b id="authName">—</b>
+            <span id="authStatus">Signed in</span>
+          </div>
+          <button class="btn btn-outline sm" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Sign out</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cat-grid wrap" id="helpGrid">
+      <a class="cat-card" href="performance-guide.html" data-cat="performance">
+        <i class="fa-solid fa-gauge-high"></i>
+        <b>Getting Started</b>
+        <p>Install, login, versions, and launcher basics — from zero to playing in minutes.</p>
+        <span>6 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a class="cat-card" href="performance-guide.html" data-cat="performance">
+        <i class="fa-solid fa-rocket"></i>
+        <b>Performance &amp; FPS</b>
+        <p>Low FPS, stutters, crashes — squeeze every frame out of your machine.</p>
+        <span>9 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a class="cat-card" href="#" data-cat="gameplay">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <b>Troubleshooting</b>
+        <p>Crashes, error codes, Java issues, and network problems solved step-by-step.</p>
+        <span>12 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a class="cat-card" href="store.html" data-cat="store">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <b>Store &amp; Credits</b>
+        <p>Purchases, Vortex Credits (CR), cosmetic refunds, and account questions.</p>
+        <span>4 articles <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </section>
+
+    <section class="ticket-zone" id="tickets">
+      <div class="section-head row">
+        <div>
+          <div class="kicker">Tickets</div>
+          <h2>Open a ticket or track your request</h2>
+        </div>
+        <button class="btn btn-primary sm" id="toggleTicketForm"><i class="fa-solid fa-plus"></i> New Ticket</button>
+      </div>
+
+      <div class="ticket-layout" id="ticketLayout">
+        <div class="ticket-form-wrap" id="ticketFormWrap" style="display:none;">
+          <form class="ticket-form" id="ticketForm">
+            <div class="tf-grid">
+              <label>Subject
+                <input type="text" id="tfSubject" required maxlength="160" placeholder="Short summary of your issue">
+              </label>
+              <label>Category
+                <select id="tfCategory">
+                  <option>General</option>
+                  <option>Account</option>
+                  <option>Login</option>
+                  <option>Crashes</option>
+                  <option>Performance & FPS</option>
+                  <option>Mods & Cosmetics</option>
+                  <option>Store & Credits</option>
+                  <option>Ban Appeal</option>
+                  <option>Other</option>
+                </select>
+              </label>
+            </div>
+            <label>Minecraft username (optional)
+              <input type="text" id="tfMc" maxlength="16" placeholder="e.g. Steve">
+            </label>
+            <label>Message
+              <textarea id="tfMessage" required maxlength="3000" rows="5" placeholder="Describe the problem in detail — what happened, what did you try?"></textarea>
+            </label>
+            <input type="hidden" id="tfNonce" value="">
+            <button class="btn btn-primary" type="submit" id="tfSubmit">
+              <i class="fa-solid fa-paper-plane"></i> Submit Ticket
+            </button>
+            <p class="tf-note" id="tfNote" style="display:none;"></p>
+          </form>
+        </div>
+
+        <div class="ticket-board-wrap">
+          <div class="ticket-bar-row">
+            <span class="tf-note" id="ticketBarEmpty" style="display:none;">No tickets yet — create one and it will show up here and in Discord.</span>
+            <button class="btn btn-outline sm" id="mineToggle">My tickets</button>
+          </div>
+          <div id="ticketBoard"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-head row">
+        <div>
+          <div class="kicker">Knowledge base</div>
+          <h2>Popular articles</h2>
+        </div>
+        <span class="view-all"><a href="#helpGrid">Browse all <i class="fa-solid fa-arrow-right"></i></a></span>
+      </div>
+
+      <div class="support-grid" id="supportGrid">
+        <article class="support-card">
+          <span class="doc-tag red">FIX</span>
+          <h3><a href="#">Failed to Extract Natives</a></h3>
+          <p>Java or antivirus blocking Vortex? Reset and retry in two minutes.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Sep 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag green">GUIDE</span>
+          <h3><a href="performance-guide.html">How to Boost Your FPS in Vortex</a></h3>
+          <p>Render distance, JVM args, and modules — our recommended settings.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Aug 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag red">FIX</span>
+          <h3><a href="#">Self Signed Certificate</a></h3>
+          <p>Occurs on enterprise networks. Here's how to trust safely.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Jul 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag red">FIX</span>
+          <h3><a href="#">Vortex Using Integrated Graphics</a></h3>
+          <p>Force your GPU in one click from the launcher settings.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Jul 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag gold">BLOG</span>
+          <h3><a href="news.html">V2.5 System Requirements</a></h3>
+          <p>Minimum and recommended specs for the Amethyst update.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Sep 2026</span>
+        </article>
+        <article class="support-card">
+          <span class="doc-tag">FAQ</span>
+          <h3><a href="#">Is Vortex Ban-Safe?</a></h3>
+          <p>How our mods stay compliant with the most popular server rules.</p>
+          <span class="doc-meta"><i class="fa-regular fa-clock"></i> Updated Aug 2026</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-top:0;">
+      <div class="section-head" style="text-align:center; margin-bottom:26px;">
+        <div class="kicker">FAQ</div>
+        <h2>Frequently asked</h2>
+      </div>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Is Vortex really free?</summary>
+          <div class="ans">Yes. The client, all 65+ mods, and core cosmetics are completely free. Optional Credits (CR) only unlock cosmetic items — never gameplay advantages.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Which Minecraft versions are supported?</summary>
+          <div class="ans">Vortex supports 1.8 through 1.21, including OptiFine bundles and performance profiles for every version.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Will I get banned from Hypixel or other servers?</summary>
+          <div class="ans">Vortex is fully server-friendly and built anti-ban aware. All mods comply with the most popular server rules — mods like toggle sneak are server-configurable.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I run Vortex on a low-end PC?</summary>
+          <div class="ans">Yes. The performance pipeline is tuned to run on 4GB RAM and integrated GPUs, while the benchmark section shows how much headroom you can gain.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="ticket-cta">
+        <div>
+          <i class="fa-brands fa-discord"></i>
+          <div>
+            <h3>Still need help?</h3>
+            <p>Our team replies in minutes on the community Discord — or open a ticket for account and store issues.</p>
+          </div>
+        </div>
+        <div class="ticket-actions">
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Join Discord</a>
+          <a href="https://discord.gg/7P6V3pASw" target="_blank" class="btn btn-outline"><i class="fa-solid fa-ticket"></i> Open a Ticket</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="vortex-logo.jpg" alt="Vortex Client Logo">
+            Vortex
+          </a>
+          <p>The next generation Minecraft client. Boosted frames, all the popular mods, and completely free.</p>
+          <div class="socials">
+            <a href="https://discord.gg/7P6V3pASw" target="_blank" class="social" title="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://youtube.com/@vortexlauncher" target="_blank" class="social" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@vortexlauncher4" target="_blank" class="social" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/vortexlauncherq/" target="_blank" class="social" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/Hzlounch" target="_blank" class="social" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="features.html">Features</a>
+            <a href="download.html">Download</a>
+            <a href="release-notes.html">Release Notes</a>
+            <a href="updates.html">Updates</a>
+            <a href="performance-guide.html">Performance Guide</a>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <a href="news.html">News</a>
+            <a href="socials.html">Socials</a>
+            <a href="support.html">Support</a>
+            <a href="store.html">Store</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+        <div class="links"><a href="#">Terms</a><a href="#">Privacy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="tickets.js"></script>
+  <script>
+    const input = document.getElementById('searchInput');
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      document.querySelectorAll('#supportGrid .support-card, #helpGrid .cat-card').forEach(el => {
+        const hay = el.textContent.toLowerCase();
+        el.style.display = (!q || hay.includes(q)) ? '' : 'none';
+      });
+    });
+
+    (function () {
+      const loginFrom = location.search.includes('login=success');
+      const API = (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+        ? 'https://vortex-site-beta.vercel.app'
+        : '';
+
+      const userWrap = document.getElementById('authUserWrap');
+      const loginBtn = document.getElementById('loginBtn');
+      const authName = document.getElementById('authName');
+      const authAvatar = document.getElementById('authAvatar');
+      const authStatus = document.getElementById('authStatus');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const toggleForm = document.getElementById('toggleTicketForm');
+      const formWrap = document.getElementById('ticketFormWrap');
+      const form = document.getElementById('ticketForm');
+      const tfNote = document.getElementById('tfNote');
+      const tfSubmit = document.getElementById('tfSubmit');
+      let ticketBusy = false;
+
+      function setUser(user) {
+        window.__vortexUser = user;
+        window.dispatchEvent(new CustomEvent('vortex:user'));
+        if (!user || !userWrap) return;
+        userWrap.style.display = 'flex';
+        if (authAvatar) authAvatar.src = user.avatar || '';
+        if (authName) authName.textContent = user.displayName || user.username || 'Signed in';
+        if (authStatus) authStatus.textContent = 'Signed in · ID ' + user.id;
+        if (loginBtn) loginBtn.style.display = 'none';
+      }
+
+      function checkSession() {
+        if (!API) { window.__vortexUser = null; return; }
+        fetch(API + '/api/me')
+          .then(r => (r.ok ? r.json() : Promise.reject(new Error('no session'))))
+          .then(user => setUser(user))
+          .catch(() => { window.__vortexUser = null; });
+      }
+
+      if (logoutBtn) logoutBtn.addEventListener('click', () => {
+        window.location.href = API ? API + '/api/logout' : 'api/logout';
+      });
+
+      if (toggleForm && formWrap) toggleForm.addEventListener('click', () => {
+        const hidden = formWrap.style.display === 'none';
+        formWrap.style.display = hidden ? 'block' : 'none';
+      });
+
+      if (form) form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (ticketBusy) return;
+        ticketBusy = true;
+        const subject = document.getElementById('tfSubject').value.trim();
+        const category = document.getElementById('tfCategory').value;
+        const minecraft = document.getElementById('tfMc').value.trim();
+        const message = document.getElementById('tfMessage').value.trim();
+        if (!subject || !message) { ticketBusy = false; tfNote.textContent = 'Please fill in subject and message.'; tfNote.style.display = 'block'; return; }
+        const nonce = document.getElementById('tfNonce');
+        if (nonce && !nonce.value) nonce.value = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        tfSubmit.disabled = true;
+        tfNote.style.display = 'none';
+        try {
+          const res = await fetch((API || '') + '/api/ticket', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subject, category, minecraft, message, nonce: nonce ? nonce.value : '' })
+          });
+          const data = await res.json();
+          if (res.ok && data.ok) {
+            if (nonce) nonce.value = '';
+            form.reset();
+            formWrap.style.display = 'none';
+            tfNote.textContent = `Ticket ${data.ticketId} created! Status: ${data.status}. Our team will reply soon — track progress on the board below.`;
+            tfNote.style.display = 'block';
+            tfNote.style.color = 'var(--green)';
+            setTimeout(() => { tfNote.style.display = 'none'; window.dispatchEvent(new CustomEvent('vortex:reload-tickets')); }, 6000);
+          } else {
+            tfNote.textContent = (data && data.message) || 'Something went wrong — try again.';
+            tfNote.style.display = 'block';
+            tfNote.style.color = '#ff7a7a';
+          }
+        } catch (err) {
+          tfNote.textContent = 'Network error — make sure the site API is reachable.';
+          tfNote.style.display = 'block';
+          tfNote.style.color = '#ff7a7a';
+        } finally {
+          tfSubmit.disabled = false;
+          ticketBusy = false;
+        }
+      });
+
+      checkSession();
+      if (loginFrom) {
+        // Ensure the freshly-issued session shows the user immediately
+        window.addEventListener('load', () => setTimeout(() => fetch(API + '/api/me')
+          .then(r => (r.ok ? r.json() : null))
+          .then(u => { if (u && u.ok) setUser(u); })
+          .catch(() => {}), 250));
+        window.dispatchEvent(new CustomEvent('vortex:reload-tickets'));
+      }
+    })();
+  </script>
+</body>
+</html>
