@@ -1,0 +1,172 @@
+{
+  "category": "auras",
+  "count": 15,
+  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "items": [
+    {
+      "id": "flame_ring",
+      "name": "Flame Ring",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 120,
+      "desc": "Warm circle.",
+      "img": "cosmetics/flame_ring.png"
+    },
+    {
+      "id": "soul_fire",
+      "name": "Soul Fire",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 210,
+      "desc": "Blue soul flames.",
+      "img": "cosmetics/soul_fire.png"
+    },
+    {
+      "id": "heart_aura",
+      "name": "Heart Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 130,
+      "desc": "Full of love.",
+      "img": "cosmetics/heart_aura.png"
+    },
+    {
+      "id": "smoke_aura",
+      "name": "Smoke Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 110,
+      "desc": "Mysterious haze.",
+      "img": "cosmetics/smoke_aura.png"
+    },
+    {
+      "id": "enchant_aura",
+      "name": "Enchant Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 220,
+      "desc": "Glyphs of power.",
+      "img": "cosmetics/enchant_aura.png"
+    },
+    {
+      "id": "witch_aura",
+      "name": "Witch Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Epic",
+      "price": 290,
+      "desc": "Brewed shadows.",
+      "img": "cosmetics/witch_aura.png"
+    },
+    {
+      "id": "portal_aura",
+      "name": "Portal Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Nether calling.",
+      "img": "cosmetics/portal_aura.png"
+    },
+    {
+      "id": "spark_aura",
+      "name": "Spark Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 125,
+      "desc": "Crackling energy.",
+      "img": "cosmetics/spark_aura.png"
+    },
+    {
+      "id": "glow_aura",
+      "name": "Glow Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 115,
+      "desc": "Soft glow.",
+      "img": "cosmetics/glow_aura.png"
+    },
+    {
+      "id": "ember_aura",
+      "name": "Ember Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 200,
+      "desc": "Floating embers.",
+      "img": "cosmetics/ember_aura.png"
+    },
+    {
+      "id": "frost_aura",
+      "name": "Frost Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 205,
+      "desc": "Chilling mist.",
+      "img": "cosmetics/frost_aura.png"
+    },
+    {
+      "id": "lava_aura",
+      "name": "Lava Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Epic",
+      "price": 320,
+      "desc": "Careful, hot.",
+      "img": "cosmetics/lava_aura.png"
+    },
+    {
+      "id": "magic_aura",
+      "name": "Magic Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Legendary",
+      "price": 380,
+      "desc": "Arcane residue.",
+      "img": "cosmetics/magic_aura.png"
+    },
+    {
+      "id": "void_aura",
+      "name": "Void Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Legendary",
+      "price": 390,
+      "desc": "Endless dark.",
+      "img": "cosmetics/void_aura.png"
+    },
+    {
+      "id": "note_aura",
+      "name": "Note Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 135,
+      "desc": "Musical vibes.",
+      "img": "cosmetics/note_aura.png"
+    }
+  ]
+}

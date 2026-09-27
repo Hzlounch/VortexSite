@@ -1,0 +1,172 @@
+{
+  "category": "wings",
+  "count": 15,
+  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "items": [
+    {
+      "id": "dragon_wings",
+      "name": "Dragon Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Leathery and loud.",
+      "img": "cosmetics/dragon_wings.png"
+    },
+    {
+      "id": "angel_wings",
+      "name": "Angel Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 420,
+      "desc": "Feathered grace.",
+      "img": "cosmetics/angel_wings.png"
+    },
+    {
+      "id": "demon_wings",
+      "name": "Demon Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 310,
+      "desc": "Smells like sulfur.",
+      "img": "cosmetics/demon_wings.png"
+    },
+    {
+      "id": "void_wings",
+      "name": "Void Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 430,
+      "desc": "Torn from nothing.",
+      "img": "cosmetics/void_wings.png"
+    },
+    {
+      "id": "galaxy_wings",
+      "name": "Galaxy Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Mythic",
+      "price": 470,
+      "desc": "Starlit flight.",
+      "img": "cosmetics/galaxy_wings.png"
+    },
+    {
+      "id": "mechanical_wings",
+      "name": "Mechanical Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 330,
+      "desc": "Riveted steel.",
+      "img": "cosmetics/mechanical_wings.png"
+    },
+    {
+      "id": "crystal_wings",
+      "name": "Crystal Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 410,
+      "desc": "Sharp and shiny.",
+      "img": "cosmetics/crystal_wings.png"
+    },
+    {
+      "id": "fire_wings",
+      "name": "Fire Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Rare",
+      "price": 230,
+      "desc": "Warm updraft included.",
+      "img": "cosmetics/fire_wings.png"
+    },
+    {
+      "id": "ice_wings",
+      "name": "Ice Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Rare",
+      "price": 225,
+      "desc": "Cold snap flight.",
+      "img": "cosmetics/ice_wings.png"
+    },
+    {
+      "id": "fairy_wings",
+      "name": "Fairy Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Common",
+      "price": 140,
+      "desc": "Tiny and twinkly.",
+      "img": "cosmetics/fairy_wings.png"
+    },
+    {
+      "id": "shadow_wings",
+      "name": "Shadow Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 320,
+      "desc": "Dark as night.",
+      "img": "cosmetics/shadow_wings.png"
+    },
+    {
+      "id": "storm_wings",
+      "name": "Storm Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Rare",
+      "price": 235,
+      "desc": "Thunderbird style.",
+      "img": "cosmetics/storm_wings.png"
+    },
+    {
+      "id": "golden_wings",
+      "name": "Golden Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 440,
+      "desc": "Wealth takes flight.",
+      "img": "cosmetics/golden_wings.png"
+    },
+    {
+      "id": "frost_wings",
+      "name": "Frost Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Common",
+      "price": 150,
+      "desc": "Chilly feathers.",
+      "img": "cosmetics/frost_wings.png"
+    },
+    {
+      "id": "ember_wings",
+      "name": "Ember Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Common",
+      "price": 155,
+      "desc": "Smoldering tips.",
+      "img": "cosmetics/ember_wings.png"
+    }
+  ]
+}

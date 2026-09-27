@@ -1,0 +1,172 @@
+{
+  "category": "pets",
+  "count": 15,
+  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "items": [
+    {
+      "id": "mini_dragon",
+      "name": "Dragon Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Pocket-sized fire hazard.",
+      "img": "cosmetics/mini_dragon.png"
+    },
+    {
+      "id": "mini_ghost",
+      "name": "Ghost Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Rare",
+      "price": 200,
+      "desc": "Boo.",
+      "img": "cosmetics/mini_ghost.png"
+    },
+    {
+      "id": "slime_pet",
+      "name": "Slime Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Common",
+      "price": 120,
+      "desc": "Jiggly friend.",
+      "img": "cosmetics/slime_pet.png"
+    },
+    {
+      "id": "robot_pet",
+      "name": "Robot Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Rare",
+      "price": 240,
+      "desc": "Beep boop.",
+      "img": "cosmetics/robot_pet.png"
+    },
+    {
+      "id": "creeper_pet",
+      "name": "Creeper Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Epic",
+      "price": 290,
+      "desc": "Totally safe. Probably.",
+      "img": "cosmetics/creeper_pet.png"
+    },
+    {
+      "id": "phoenix_pet",
+      "name": "Phoenix Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Legendary",
+      "price": 410,
+      "desc": "Reborn in flames.",
+      "img": "cosmetics/phoenix_pet.png"
+    },
+    {
+      "id": "golem_pet",
+      "name": "Golem Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Rare",
+      "price": 230,
+      "desc": "Tiny tank.",
+      "img": "cosmetics/golem_pet.png"
+    },
+    {
+      "id": "wisp_pet",
+      "name": "Wisp Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Common",
+      "price": 130,
+      "desc": "A floating spark.",
+      "img": "cosmetics/wisp_pet.png"
+    },
+    {
+      "id": "bee_pet",
+      "name": "Bee Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Common",
+      "price": 125,
+      "desc": "Buzzy buddy.",
+      "img": "cosmetics/bee_pet.png"
+    },
+    {
+      "id": "mushroom_pet",
+      "name": "Mushroom Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Common",
+      "price": 115,
+      "desc": "Fun guy.",
+      "img": "cosmetics/mushroom_pet.png"
+    },
+    {
+      "id": "turtle_pet",
+      "name": "Turtle Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Common",
+      "price": 118,
+      "desc": "Slow and steady.",
+      "img": "cosmetics/turtle_pet.png"
+    },
+    {
+      "id": "owl_pet",
+      "name": "Owl Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Rare",
+      "price": 220,
+      "desc": "Night watcher.",
+      "img": "cosmetics/owl_pet.png"
+    },
+    {
+      "id": "void_spirit_pet",
+      "name": "Void Spirit Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Legendary",
+      "price": 400,
+      "desc": "It stares back.",
+      "img": "cosmetics/void_spirit_pet.png"
+    },
+    {
+      "id": "crystal_golem_pet",
+      "name": "Crystal Golem Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Epic",
+      "price": 330,
+      "desc": "Shiny and heavy.",
+      "img": "cosmetics/crystal_golem_pet.png"
+    },
+    {
+      "id": "frog_pet",
+      "name": "Frog Pet",
+      "cat": "pets",
+      "type": "PET",
+      "slot": "PET",
+      "rarity": "Common",
+      "price": 112,
+      "desc": "Ribbit.",
+      "img": "cosmetics/frog_pet.png"
+    }
+  ]
+}

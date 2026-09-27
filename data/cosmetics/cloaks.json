@@ -1,0 +1,282 @@
+{
+  "category": "cloaks",
+  "count": 25,
+  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "items": [
+    {
+      "id": "basic_cape",
+      "name": "Basic Cloak",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 100,
+      "desc": "A clean everyday cloak.",
+      "img": "cosmetics/basic_cape.png"
+    },
+    {
+      "id": "fire_cape",
+      "name": "Fire Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 180,
+      "desc": "Woven with ember thread.",
+      "img": "cosmetics/fire_cape.png"
+    },
+    {
+      "id": "galaxy_cloak",
+      "name": "Galaxy Cloak",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Mythic",
+      "price": 480,
+      "desc": "The night sky, wearable.",
+      "img": "cosmetics/galaxy_cloak.png"
+    },
+    {
+      "id": "shadow_cape",
+      "name": "Shadow Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 200,
+      "desc": "Melts into the dark.",
+      "img": "cosmetics/shadow_cape.png"
+    },
+    {
+      "id": "ocean_cape",
+      "name": "Ocean Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 120,
+      "desc": "Cold northern seas.",
+      "img": "cosmetics/ocean_cape.png"
+    },
+    {
+      "id": "forest_cape",
+      "name": "Forest Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 110,
+      "desc": "Deep woods green.",
+      "img": "cosmetics/forest_cape.png"
+    },
+    {
+      "id": "lava_cape",
+      "name": "Lava Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Cracked magma crust.",
+      "img": "cosmetics/lava_cape.png"
+    },
+    {
+      "id": "ender_cape",
+      "name": "Ender Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Epic",
+      "price": 320,
+      "desc": "Hums with void energy.",
+      "img": "cosmetics/ender_cape.png"
+    },
+    {
+      "id": "ice_cape",
+      "name": "Ice Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 190,
+      "desc": "Glacier fresh.",
+      "img": "cosmetics/ice_cape.png"
+    },
+    {
+      "id": "void_cape",
+      "name": "Void Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Legendary",
+      "price": 420,
+      "desc": "Woven from nothing.",
+      "img": "cosmetics/void_cape.png"
+    },
+    {
+      "id": "creeper_cape",
+      "name": "Creeper Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Epic",
+      "price": 280,
+      "desc": "Sssstealthy.",
+      "img": "cosmetics/creeper_cape.png"
+    },
+    {
+      "id": "rainbow_cape",
+      "name": "Rainbow Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Legendary",
+      "price": 400,
+      "desc": "All colors at once.",
+      "img": "cosmetics/rainbow_cape.png"
+    },
+    {
+      "id": "gold_cape",
+      "name": "Gold Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 220,
+      "desc": "Heavy is the head.",
+      "img": "cosmetics/gold_cape.png"
+    },
+    {
+      "id": "blood_cape",
+      "name": "Blood Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 130,
+      "desc": "Dark and dramatic.",
+      "img": "cosmetics/blood_cape.png"
+    },
+    {
+      "id": "frost_cape",
+      "name": "Frost Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 125,
+      "desc": "Light winter weave.",
+      "img": "cosmetics/frost_cape.png"
+    },
+    {
+      "id": "storm_cape",
+      "name": "Storm Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 210,
+      "desc": "Smells like rain.",
+      "img": "cosmetics/storm_cape.png"
+    },
+    {
+      "id": "ember_cape",
+      "name": "Ember Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 140,
+      "desc": "Warm to the touch.",
+      "img": "cosmetics/ember_cape.png"
+    },
+    {
+      "id": "tide_cape",
+      "name": "Tide Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 135,
+      "desc": "Salt in the threads.",
+      "img": "cosmetics/tide_cape.png"
+    },
+    {
+      "id": "moss_cape",
+      "name": "Moss Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 100,
+      "desc": "Soft old stone green.",
+      "img": "cosmetics/moss_cape.png"
+    },
+    {
+      "id": "royal_cape",
+      "name": "Royal Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Epic",
+      "price": 310,
+      "desc": "Fit for a Vortex king.",
+      "img": "cosmetics/royal_cape.png"
+    },
+    {
+      "id": "midnight_cape",
+      "name": "Midnight Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 205,
+      "desc": "Almost black blue.",
+      "img": "cosmetics/midnight_cape.png"
+    },
+    {
+      "id": "sunrise_cape",
+      "name": "Sunrise Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Common",
+      "price": 145,
+      "desc": "Morning in cloth form.",
+      "img": "cosmetics/sunrise_cape.png"
+    },
+    {
+      "id": "obsidian_cape",
+      "name": "Obsidian Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Epic",
+      "price": 330,
+      "desc": "Volcanic glass weave.",
+      "img": "cosmetics/obsidian_cape.png"
+    },
+    {
+      "id": "ghost_cape",
+      "name": "Ghost Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Rare",
+      "price": 195,
+      "desc": "Barely there.",
+      "img": "cosmetics/ghost_cape.png"
+    },
+    {
+      "id": "magma_cape",
+      "name": "Magma Cape",
+      "cat": "cloaks",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Legendary",
+      "price": 380,
+      "desc": "Do not touch.",
+      "img": "cosmetics/magma_cape.png"
+    }
+  ]
+}
