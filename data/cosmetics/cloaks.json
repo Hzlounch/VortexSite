@@ -1,7 +1,7 @@
 {
   "category": "cloaks",
   "count": 25,
-  "updatedAt": "2026-09-28T16:45:08.900Z",
+  "updatedAt": "2026-09-28T19:34:25.410Z",
   "items": [
     {
       "id": "basic_cape",
@@ -11,7 +11,14 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 100,
-      "desc": "A clean everyday cloak."
+      "desc": "A clean everyday cloak.",
+      "tags": [
+        "basic",
+        "cloak",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/basic_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/basic_cape/thumb.webp"
     },
     {
       "id": "fire_cape",
@@ -21,7 +28,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 180,
-      "desc": "Woven with ember thread."
+      "desc": "Woven with ember thread.",
+      "tags": [
+        "fire",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/fire_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/fire_cape/thumb.webp"
     },
     {
       "id": "galaxy_cloak",
@@ -31,7 +44,14 @@
       "slot": "CAPE",
       "rarity": "Mythic",
       "price": 480,
-      "desc": "The night sky, wearable."
+      "desc": "The night sky, wearable.",
+      "tags": [
+        "galaxy",
+        "cloak",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/galaxy_cloak/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/galaxy_cloak/thumb.webp"
     },
     {
       "id": "shadow_cape",
@@ -41,7 +61,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 200,
-      "desc": "Melts into the dark."
+      "desc": "Melts into the dark.",
+      "tags": [
+        "shadow",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/shadow_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/shadow_cape/thumb.webp"
     },
     {
       "id": "ocean_cape",
@@ -51,7 +77,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 120,
-      "desc": "Cold northern seas."
+      "desc": "Cold northern seas.",
+      "tags": [
+        "ocean",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/ocean_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/ocean_cape/thumb.webp"
     },
     {
       "id": "forest_cape",
@@ -61,7 +93,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 110,
-      "desc": "Deep woods green."
+      "desc": "Deep woods green.",
+      "tags": [
+        "forest",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/forest_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/forest_cape/thumb.webp"
     },
     {
       "id": "lava_cape",
@@ -71,7 +109,13 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Cracked magma crust."
+      "desc": "Cracked magma crust.",
+      "tags": [
+        "lava",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/lava_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/lava_cape/thumb.webp"
     },
     {
       "id": "ender_cape",
@@ -81,7 +125,13 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Hums with void energy."
+      "desc": "Hums with void energy.",
+      "tags": [
+        "ender",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/ender_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/ender_cape/thumb.webp"
     },
     {
       "id": "ice_cape",
@@ -91,7 +141,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 190,
-      "desc": "Glacier fresh."
+      "desc": "Glacier fresh.",
+      "tags": [
+        "ice",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/ice_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/ice_cape/thumb.webp"
     },
     {
       "id": "void_cape",
@@ -101,7 +157,13 @@
       "slot": "CAPE",
       "rarity": "Legendary",
       "price": 420,
-      "desc": "Woven from nothing."
+      "desc": "Woven from nothing.",
+      "tags": [
+        "void",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/void_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/void_cape/thumb.webp"
     },
     {
       "id": "creeper_cape",
@@ -111,7 +173,13 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 280,
-      "desc": "Sssstealthy."
+      "desc": "Sssstealthy.",
+      "tags": [
+        "creeper",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/creeper_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/creeper_cape/thumb.webp"
     },
     {
       "id": "rainbow_cape",
@@ -121,7 +189,13 @@
       "slot": "CAPE",
       "rarity": "Legendary",
       "price": 400,
-      "desc": "All colors at once."
+      "desc": "All colors at once.",
+      "tags": [
+        "rainbow",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/rainbow_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/rainbow_cape/thumb.webp"
     },
     {
       "id": "gold_cape",
@@ -131,7 +205,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Heavy is the head."
+      "desc": "Heavy is the head.",
+      "tags": [
+        "gold",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/gold_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/gold_cape/thumb.webp"
     },
     {
       "id": "blood_cape",
@@ -141,7 +221,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 130,
-      "desc": "Dark and dramatic."
+      "desc": "Dark and dramatic.",
+      "tags": [
+        "blood",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/blood_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/blood_cape/thumb.webp"
     },
     {
       "id": "frost_cape",
@@ -151,7 +237,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 125,
-      "desc": "Light winter weave."
+      "desc": "Light winter weave.",
+      "tags": [
+        "frost",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/frost_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/frost_cape/thumb.webp"
     },
     {
       "id": "storm_cape",
@@ -161,7 +253,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 210,
-      "desc": "Smells like rain."
+      "desc": "Smells like rain.",
+      "tags": [
+        "storm",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/storm_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/storm_cape/thumb.webp"
     },
     {
       "id": "ember_cape",
@@ -171,7 +269,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 140,
-      "desc": "Warm to the touch."
+      "desc": "Warm to the touch.",
+      "tags": [
+        "ember",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/ember_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/ember_cape/thumb.webp"
     },
     {
       "id": "tide_cape",
@@ -181,7 +285,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 135,
-      "desc": "Salt in the threads."
+      "desc": "Salt in the threads.",
+      "tags": [
+        "tide",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/tide_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/tide_cape/thumb.webp"
     },
     {
       "id": "moss_cape",
@@ -191,7 +301,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 100,
-      "desc": "Soft old stone green."
+      "desc": "Soft old stone green.",
+      "tags": [
+        "moss",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/moss_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/moss_cape/thumb.webp"
     },
     {
       "id": "royal_cape",
@@ -201,7 +317,13 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 310,
-      "desc": "Fit for a Vortex king."
+      "desc": "Fit for a Vortex king.",
+      "tags": [
+        "royal",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/royal_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/royal_cape/thumb.webp"
     },
     {
       "id": "midnight_cape",
@@ -211,7 +333,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 205,
-      "desc": "Almost black blue."
+      "desc": "Almost black blue.",
+      "tags": [
+        "midnight",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/midnight_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/midnight_cape/thumb.webp"
     },
     {
       "id": "sunrise_cape",
@@ -221,7 +349,13 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 145,
-      "desc": "Morning in cloth form."
+      "desc": "Morning in cloth form.",
+      "tags": [
+        "sunrise",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/sunrise_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/sunrise_cape/thumb.webp"
     },
     {
       "id": "obsidian_cape",
@@ -231,7 +365,13 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 330,
-      "desc": "Volcanic glass weave."
+      "desc": "Volcanic glass weave.",
+      "tags": [
+        "obsidian",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/obsidian_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/obsidian_cape/thumb.webp"
     },
     {
       "id": "ghost_cape",
@@ -241,7 +381,13 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 195,
-      "desc": "Barely there."
+      "desc": "Barely there.",
+      "tags": [
+        "ghost",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/ghost_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/ghost_cape/thumb.webp"
     },
     {
       "id": "magma_cape",
@@ -251,7 +397,13 @@
       "slot": "CAPE",
       "rarity": "Legendary",
       "price": 380,
-      "desc": "Do not touch."
+      "desc": "Do not touch.",
+      "tags": [
+        "magma",
+        "cape"
+      ],
+      "preview": "assets/cosmetics/cloaks/magma_cape/preview.webp",
+      "thumb": "assets/cosmetics/cloaks/magma_cape/thumb.webp"
     }
   ]
 }

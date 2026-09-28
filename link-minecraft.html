@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link Minecraft Account | Vortex Client</title>
+  <link rel="icon" type="image/jpeg" href="vortex-logo.jpg">
+  <link rel="stylesheet" href="site.css">
+  <style>
+    .link-wrap { max-width:520px; margin:8vh auto; padding:30px; background:#14141f; border:1px solid rgba(255,255,255,.12); border-radius:18px; text-align:center; }
+    .link-wrap h1 { font-size:1.5rem; margin-bottom:6px; }
+    .link-wrap p { font-size:14px; opacity:.8; line-height:1.6; }
+    .link-wrap input[type=text] { width:100%; padding:12px 14px; margin:12px 0; background:#0b0e14; border:1px solid rgba(255,255,255,.15); color:#fff; border-radius:10px; font-size:16px; text-align:center; }
+    .link-code { font-size:30px; font-weight:900; letter-spacing:6px; background:rgba(56,189,248,.1); border:1px dashed rgba(56,189,248,.5); border-radius:10px; padding:12px; margin:12px 0; }
+    .link-steps { text-align:left; font-size:14px; margin:10px 0; opacity:.9; }
+    .link-steps ol { margin:6px 0 0 20px; display:grid; gap:6px; }
+    .link-err { background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.4); border-radius:10px; padding:12px; margin:10px 0; font-size:14px; }
+    .link-ok { background:rgba(34,197,94,.1); border:1px solid rgba(34,197,94,.4); border-radius:10px; padding:12px; margin:10px 0; font-size:14px; }
+    .link-or { opacity:.55; margin:14px 0 6px; font-size:13px; }
+  </style>
+</head>
+<body class="dark">
+  <main class="wrap">
+    <div class="link-wrap" id="box"><p>Loading…</p></div>
+  </main>
+  <script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var token = q.get('session') || '';
+    var doneMc = q.get('mc') || '';
+    var errParam = q.get('error') || '';
+    var box = document.getElementById('box');
+    function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function botBase() {
+      var b = q.get('bot') || '';
+      if (b) { try { localStorage.setItem('vortex_bot_url', b.replace(/\/$/, '')); } catch (e) {} }
+      try { return (localStorage.getItem('vortex_bot_url') || '').replace(/\/$/, ''); } catch (e) { return ''; }
+    }
+    function needBot() {
+      box.innerHTML = '<h1>Bot address needed</h1><p>Paste your bot API URL once (same as launcher Settings, e.g. http://127.0.0.1:8080). It is remembered on this device.</p>' +
+        '<input type="text" id="botUrl" placeholder="http://127.0.0.1:8080">' +
+        '<button class="btn btn-primary" id="botGo">Continue</button>';
+      document.getElementById('botGo').onclick = function () {
+        var v = (document.getElementById('botUrl').value || '').trim().replace(/\/$/, '');
+        if (!v) return;
+        try { localStorage.setItem('vortex_bot_url', v); } catch (e) {}
+        location.reload();
+      };
+    }
+    if (errParam) {
+      box.innerHTML = '<h1>Linking failed</h1><div class="link-err">' + esc(errParam) + '</div>' +
+        '<p><a href="/link-minecraft.html?session=' + encodeURIComponent(token) + '">Try again</a> · <a href="/store.html">Back to store</a></p>';
+      return;
+    }
+    if (q.get('done') && doneMc) {
+      box.innerHTML = '<h1>Account linked ✓</h1><div class="link-ok"><b>' + esc(doneMc) + '</b> is now linked to your Discord account.</div>' +
+        '<p>Next: open the Store, log in, and your coins + inventory appear. Equip cosmetics in the Minecraft Vault.</p>' +
+        '<p><a class="btn btn-primary" href="/store.html">Go to store</a></p>';
+      return;
+    }
+    if (!token) {
+      box.innerHTML = '<h1>Invalid link</h1><p>Run <b>/link-account</b> in Discord and press the Link Account button to get here.</p><p><a href="/store.html">Back to store</a></p>';
+      return;
+    }
+    var base = botBase();
+    if (!base) { needBot(); return; }
+    fetch(base + '/api/link/session/' + encodeURIComponent(token))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.ok) throw new Error((d && d.error) || 'Invalid link.');
+        if (d.done) {
+          box.innerHTML = '<h1>Already linked ✓</h1><div class="link-ok">This link was already used' + (d.mc ? ' for <b>' + esc(d.mc) + '</b>' : '') + '.</div><p><a class="btn btn-primary" href="/store.html">Go to store</a></p>';
+          return;
+        }
+        box.innerHTML = '<h1>Link Minecraft account</h1>' +
+          '<p>Type your <b>Minecraft username</b>. We will give you a one-time code — run it <b>in game</b> to prove you own the account. No passwords, ever.</p>' +
+          '<input type="text" id="mc" maxlength="16" placeholder="Steve" autocomplete="off">' +
+          '<div class="link-err" id="lerr" hidden></div>' +
+          '<button class="btn btn-primary" id="getCode">Get link code</button>' +
+          '<div class="link-or">— or —</div>' +
+          '<a class="btn btn-secondary" id="msBtn" href="/api/ms-login?session=' + encodeURIComponent(token) + '">Verify with Microsoft</a>';
+        document.getElementById('getCode').onclick = function () {
+          var mc = (document.getElementById('mc').value || '').trim();
+          var er = document.getElementById('lerr');
+          fetch(base + '/api/link/session/code', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: token, mc: mc }) })
+            .then(function (r) { return r.json(); })
+            .then(function (cd) {
+              if (!cd || !cd.ok) { er.textContent = cd.error || 'Failed.'; er.hidden = false; return; }
+              box.innerHTML = '<h1>One-time code</h1>' +
+                '<div class="link-code">' + esc(cd.code) + '</div>' +
+                '<div class="link-steps"><ol>' +
+                '<li>Join any server with the Vortex client as <b>' + esc(cd.mc) + '</b>.</li>' +
+                '<li>Type <b>/link ' + esc(cd.code) + '</b> in Minecraft chat.</li>' +
+                '<li>Wait here — this page completes itself.</li></ol></div>' +
+                '<p style="font-size:13px">Code expires in 10 minutes. Never share it.</p>';
+              var tries = 0;
+              var iv = setInterval(function () {
+                tries++;
+                fetch(base + '/api/link/session/' + encodeURIComponent(token))
+                  .then(function (r) { return r.json(); })
+                  .then(function (sd) {
+                    if (sd && sd.ok && sd.done) {
+                      clearInterval(iv);
+                      location.href = '/link-minecraft.html?done=1&mc=' + encodeURIComponent(sd.mc || cd.mc);
+                    } else if (tries > 120) { clearInterval(iv); }
+                  }).catch(function () {});
+              }, 5000);
+            })
+            .catch(function () { er.textContent = 'Bot unreachable.'; er.hidden = false; });
+        };
+      })
+      .catch(function (e) {
+        box.innerHTML = '<h1>Invalid or expired link</h1><div class="link-err">' + esc(e.message || 'Run /link-account in Discord again.') + '</div>';
+      });
+  })();
+  </script>
+</body>
+</html>

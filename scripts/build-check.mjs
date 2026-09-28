@@ -118,14 +118,27 @@ for (const f of readdirSync(ROOT).filter(f => /^scene-.*\.webp$/.test(f) && !/-9
 }
 
 // 5. catalog <-> shim consistency (data is truth, shim is generated)
+// + every product render referenced by data must exist on disk
 try {
   const idx = JSON.parse(readFileSync(join(ROOT, 'data', 'cosmetics.json'), 'utf8'));
   let n = 0;
+  let missingRenders = 0;
+  let renderBytes = 0;
   for (const cat of idx.categories || []) {
     const d = JSON.parse(readFileSync(join(ROOT, 'data', 'cosmetics', cat + '.json'), 'utf8'));
     n += (d.items || []).length;
+    for (const it of d.items || []) {
+      for (const key of ['preview', 'thumb']) {
+        if (!it[key]) { missingRenders++; continue; }
+        const p = join(ROOT, it[key]);
+        if (!existsSync(p)) { missingRenders++; err(`missing render: ${it[key]} (run python scripts/render-cosmetics.py)`); }
+        else renderBytes += statSync(p).size;
+      }
+      if (!Array.isArray(it.tags) || !it.tags.length) err(`missing tags: ${it.id}`);
+    }
   }
   if (n !== idx.total) err(`data/cosmetics.json total=${idx.total} but category files sum=${n}`);
+  if (renderBytes / 1024 / 1024 > 12) err(`product renders total ${(renderBytes / 1048576).toFixed(1)}MB — over 12MB budget`);
   const shimSrc = readFileSync(join(ROOT, 'cosmetics-store.js'), 'utf8');
   const m = shimSrc.match(/var COSMETICS_STORE = (\{.*\});\s*$/s);
   if (!m) err('cosmetics-store.js is not the generated shim (run npm run sync)');

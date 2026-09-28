@@ -10,8 +10,10 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
   '.json': 'application/json', '.css': 'text/css', '.png': 'image/png',
   '.webp': 'image/webp', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json' };
 
-const FILES = ['store.html', 'index.html', 'features.html', 'js/store-page.js', 'js/catalog.js',
+const FILES = ['store.html', 'index.html', 'features.html', 'link-minecraft.html', 'js/store-page.js', 'js/catalog.js',
   'data/cosmetics.json', 'data/cosmetics/wings.json', 'data/cosmetics/bundles.json',
+  'assets/cosmetics/wings/galaxy_wings/preview.webp', 'assets/cosmetics/wings/galaxy_wings/thumb.webp',
+  'assets/cosmetics/pets/mini_dragon/preview.webp', 'assets/cosmetics/auras/void_aura/preview.webp',
   'scene-store.webp', 'scene-cosmic.webp', 'scene-cosmic-960.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/cs-coins.png'];
 
 const server = createServer(async (req, res) => {

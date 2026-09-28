@@ -1,7 +1,7 @@
 {
   "category": "bundles",
   "count": 10,
-  "updatedAt": "2026-09-28T16:45:08.900Z",
+  "updatedAt": "2026-09-28T19:34:25.410Z",
   "items": [
     {
       "id": "dragon_suit",
@@ -12,6 +12,12 @@
       "rarity": "Legendary",
       "price": 440,
       "desc": "Full dragon transformation.",
+      "tags": [
+        "dragon",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/dragon_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/dragon_suit/thumb.webp",
       "outfit": {
         "HEAD": "demon_horns",
         "BACK": "dragon_wings",
@@ -28,6 +34,12 @@
       "rarity": "Mythic",
       "price": 500,
       "desc": "Wear the cosmos.",
+      "tags": [
+        "galaxy",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/galaxy_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/galaxy_suit/thumb.webp",
       "outfit": {
         "HEAD": "halo",
         "BACK": "galaxy_wings",
@@ -44,6 +56,12 @@
       "rarity": "Epic",
       "price": 340,
       "desc": "Straight out of the Nether.",
+      "tags": [
+        "fire",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/fire_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/fire_suit/thumb.webp",
       "outfit": {
         "HEAD": "demon_horns",
         "BACK": "fire_cape",
@@ -60,6 +78,12 @@
       "rarity": "Legendary",
       "price": 430,
       "desc": "Embrace nothing.",
+      "tags": [
+        "void",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/void_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/void_suit/thumb.webp",
       "outfit": {
         "HEAD": "dark_halo",
         "BACK": "void_cape",
@@ -76,6 +100,12 @@
       "rarity": "Epic",
       "price": 350,
       "desc": "Blessed loadout.",
+      "tags": [
+        "angel",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/angel_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/angel_suit/thumb.webp",
       "outfit": {
         "HEAD": "halo",
         "BACK": "angel_wings",
@@ -92,6 +122,12 @@
       "rarity": "Rare",
       "price": 240,
       "desc": "Sssstylish.",
+      "tags": [
+        "creeper",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/creeper_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/creeper_suit/thumb.webp",
       "outfit": {
         "HEAD": "cat_ears",
         "BACK": "creeper_cape",
@@ -108,6 +144,12 @@
       "rarity": "Rare",
       "price": 230,
       "desc": "Stay frosty.",
+      "tags": [
+        "ice",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/ice_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/ice_suit/thumb.webp",
       "outfit": {
         "HEAD": "knight_helm",
         "BACK": "ice_cape",
@@ -124,6 +166,12 @@
       "rarity": "Epic",
       "price": 300,
       "desc": "Unseen majority.",
+      "tags": [
+        "shadow",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/shadow_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/shadow_suit/thumb.webp",
       "outfit": {
         "HEAD": "beanie",
         "BACK": "shadow_cape",
@@ -140,6 +188,12 @@
       "rarity": "Legendary",
       "price": 450,
       "desc": "Rule the server.",
+      "tags": [
+        "royal",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/royal_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/royal_suit/thumb.webp",
       "outfit": {
         "HEAD": "ruby_crown",
         "BACK": "royal_cape",
@@ -156,6 +210,12 @@
       "rarity": "Rare",
       "price": 250,
       "desc": "Thunder wear.",
+      "tags": [
+        "storm",
+        "suit"
+      ],
+      "preview": "assets/cosmetics/bundles/storm_suit/preview.webp",
+      "thumb": "assets/cosmetics/bundles/storm_suit/thumb.webp",
       "outfit": {
         "HEAD": "viking_helm",
         "BACK": "storm_cape",

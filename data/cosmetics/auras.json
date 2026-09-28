@@ -1,7 +1,7 @@
 {
   "category": "auras",
   "count": 15,
-  "updatedAt": "2026-09-28T16:45:08.900Z",
+  "updatedAt": "2026-09-28T19:34:25.410Z",
   "items": [
     {
       "id": "flame_ring",
@@ -11,7 +11,14 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 120,
-      "desc": "Warm circle."
+      "desc": "Warm circle.",
+      "tags": [
+        "flame",
+        "ring",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/flame_ring/preview.webp",
+      "thumb": "assets/cosmetics/auras/flame_ring/thumb.webp"
     },
     {
       "id": "soul_fire",
@@ -21,7 +28,14 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 210,
-      "desc": "Blue soul flames."
+      "desc": "Blue soul flames.",
+      "tags": [
+        "soul",
+        "fire",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/soul_fire/preview.webp",
+      "thumb": "assets/cosmetics/auras/soul_fire/thumb.webp"
     },
     {
       "id": "heart_aura",
@@ -31,7 +45,13 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 130,
-      "desc": "Full of love."
+      "desc": "Full of love.",
+      "tags": [
+        "heart",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/heart_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/heart_aura/thumb.webp"
     },
     {
       "id": "smoke_aura",
@@ -41,7 +61,13 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 110,
-      "desc": "Mysterious haze."
+      "desc": "Mysterious haze.",
+      "tags": [
+        "smoke",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/smoke_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/smoke_aura/thumb.webp"
     },
     {
       "id": "enchant_aura",
@@ -51,7 +77,13 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Glyphs of power."
+      "desc": "Glyphs of power.",
+      "tags": [
+        "enchant",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/enchant_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/enchant_aura/thumb.webp"
     },
     {
       "id": "witch_aura",
@@ -61,7 +93,13 @@
       "slot": "AURA",
       "rarity": "Epic",
       "price": 290,
-      "desc": "Brewed shadows."
+      "desc": "Brewed shadows.",
+      "tags": [
+        "witch",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/witch_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/witch_aura/thumb.webp"
     },
     {
       "id": "portal_aura",
@@ -71,7 +109,13 @@
       "slot": "AURA",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Nether calling."
+      "desc": "Nether calling.",
+      "tags": [
+        "portal",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/portal_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/portal_aura/thumb.webp"
     },
     {
       "id": "spark_aura",
@@ -81,7 +125,13 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 125,
-      "desc": "Crackling energy."
+      "desc": "Crackling energy.",
+      "tags": [
+        "spark",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/spark_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/spark_aura/thumb.webp"
     },
     {
       "id": "glow_aura",
@@ -91,7 +141,13 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 115,
-      "desc": "Soft glow."
+      "desc": "Soft glow.",
+      "tags": [
+        "glow",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/glow_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/glow_aura/thumb.webp"
     },
     {
       "id": "ember_aura",
@@ -101,7 +157,13 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 200,
-      "desc": "Floating embers."
+      "desc": "Floating embers.",
+      "tags": [
+        "ember",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/ember_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/ember_aura/thumb.webp"
     },
     {
       "id": "frost_aura",
@@ -111,7 +173,13 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 205,
-      "desc": "Chilling mist."
+      "desc": "Chilling mist.",
+      "tags": [
+        "frost",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/frost_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/frost_aura/thumb.webp"
     },
     {
       "id": "lava_aura",
@@ -121,7 +189,13 @@
       "slot": "AURA",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Careful, hot."
+      "desc": "Careful, hot.",
+      "tags": [
+        "lava",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/lava_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/lava_aura/thumb.webp"
     },
     {
       "id": "magic_aura",
@@ -131,7 +205,13 @@
       "slot": "AURA",
       "rarity": "Legendary",
       "price": 380,
-      "desc": "Arcane residue."
+      "desc": "Arcane residue.",
+      "tags": [
+        "magic",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/magic_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/magic_aura/thumb.webp"
     },
     {
       "id": "void_aura",
@@ -141,7 +221,13 @@
       "slot": "AURA",
       "rarity": "Legendary",
       "price": 390,
-      "desc": "Endless dark."
+      "desc": "Endless dark.",
+      "tags": [
+        "void",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/void_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/void_aura/thumb.webp"
     },
     {
       "id": "note_aura",
@@ -151,7 +237,13 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 135,
-      "desc": "Musical vibes."
+      "desc": "Musical vibes.",
+      "tags": [
+        "note",
+        "aura"
+      ],
+      "preview": "assets/cosmetics/auras/note_aura/preview.webp",
+      "thumb": "assets/cosmetics/auras/note_aura/thumb.webp"
     }
   ]
 }

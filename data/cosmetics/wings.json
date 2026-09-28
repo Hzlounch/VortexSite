@@ -1,7 +1,7 @@
 {
   "category": "wings",
   "count": 15,
-  "updatedAt": "2026-09-28T16:45:08.900Z",
+  "updatedAt": "2026-09-28T19:34:25.410Z",
   "items": [
     {
       "id": "dragon_wings",
@@ -11,7 +11,13 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Leathery and loud."
+      "desc": "Leathery and loud.",
+      "tags": [
+        "dragon",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/dragon_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/dragon_wings/thumb.webp"
     },
     {
       "id": "angel_wings",
@@ -21,7 +27,13 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 420,
-      "desc": "Feathered grace."
+      "desc": "Feathered grace.",
+      "tags": [
+        "angel",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/angel_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/angel_wings/thumb.webp"
     },
     {
       "id": "demon_wings",
@@ -31,7 +43,13 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 310,
-      "desc": "Smells like sulfur."
+      "desc": "Smells like sulfur.",
+      "tags": [
+        "demon",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/demon_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/demon_wings/thumb.webp"
     },
     {
       "id": "void_wings",
@@ -41,7 +59,13 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 430,
-      "desc": "Torn from nothing."
+      "desc": "Torn from nothing.",
+      "tags": [
+        "void",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/void_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/void_wings/thumb.webp"
     },
     {
       "id": "galaxy_wings",
@@ -51,7 +75,13 @@
       "slot": "BACK",
       "rarity": "Mythic",
       "price": 470,
-      "desc": "Starlit flight."
+      "desc": "Starlit flight.",
+      "tags": [
+        "galaxy",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/galaxy_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/galaxy_wings/thumb.webp"
     },
     {
       "id": "mechanical_wings",
@@ -61,7 +91,13 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 330,
-      "desc": "Riveted steel."
+      "desc": "Riveted steel.",
+      "tags": [
+        "mechanical",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/mechanical_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/mechanical_wings/thumb.webp"
     },
     {
       "id": "crystal_wings",
@@ -71,7 +107,13 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 410,
-      "desc": "Sharp and shiny."
+      "desc": "Sharp and shiny.",
+      "tags": [
+        "crystal",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/crystal_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/crystal_wings/thumb.webp"
     },
     {
       "id": "fire_wings",
@@ -81,7 +123,13 @@
       "slot": "BACK",
       "rarity": "Rare",
       "price": 230,
-      "desc": "Warm updraft included."
+      "desc": "Warm updraft included.",
+      "tags": [
+        "fire",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/fire_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/fire_wings/thumb.webp"
     },
     {
       "id": "ice_wings",
@@ -91,7 +139,13 @@
       "slot": "BACK",
       "rarity": "Rare",
       "price": 225,
-      "desc": "Cold snap flight."
+      "desc": "Cold snap flight.",
+      "tags": [
+        "ice",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/ice_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/ice_wings/thumb.webp"
     },
     {
       "id": "fairy_wings",
@@ -101,7 +155,13 @@
       "slot": "BACK",
       "rarity": "Common",
       "price": 140,
-      "desc": "Tiny and twinkly."
+      "desc": "Tiny and twinkly.",
+      "tags": [
+        "fairy",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/fairy_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/fairy_wings/thumb.webp"
     },
     {
       "id": "shadow_wings",
@@ -111,7 +171,13 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Dark as night."
+      "desc": "Dark as night.",
+      "tags": [
+        "shadow",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/shadow_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/shadow_wings/thumb.webp"
     },
     {
       "id": "storm_wings",
@@ -121,7 +187,13 @@
       "slot": "BACK",
       "rarity": "Rare",
       "price": 235,
-      "desc": "Thunderbird style."
+      "desc": "Thunderbird style.",
+      "tags": [
+        "storm",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/storm_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/storm_wings/thumb.webp"
     },
     {
       "id": "golden_wings",
@@ -131,7 +203,13 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 440,
-      "desc": "Wealth takes flight."
+      "desc": "Wealth takes flight.",
+      "tags": [
+        "golden",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/golden_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/golden_wings/thumb.webp"
     },
     {
       "id": "frost_wings",
@@ -141,7 +219,13 @@
       "slot": "BACK",
       "rarity": "Common",
       "price": 150,
-      "desc": "Chilly feathers."
+      "desc": "Chilly feathers.",
+      "tags": [
+        "frost",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/frost_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/frost_wings/thumb.webp"
     },
     {
       "id": "ember_wings",
@@ -151,7 +235,13 @@
       "slot": "BACK",
       "rarity": "Common",
       "price": 155,
-      "desc": "Smoldering tips."
+      "desc": "Smoldering tips.",
+      "tags": [
+        "ember",
+        "wings"
+      ],
+      "preview": "assets/cosmetics/wings/ember_wings/preview.webp",
+      "thumb": "assets/cosmetics/wings/ember_wings/thumb.webp"
     }
   ]
 }

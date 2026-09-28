@@ -42,17 +42,78 @@
   </div>
 
   <main>
+    <!-- HERO / FEATURED -->
+    <section class="store-hero wrap">
+      <div class="store-hero-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="store-hero-text">
+        <span class="hero-eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Featured drop</span>
+        <h1>Galaxy <span class="grad">Collection</span></h1>
+        <p>Explore the Vortex Galaxy — wings, cloaks and pets rendered from the real in-game models. One-time purchase, yours forever. Cosmetic only, never pay-to-win.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#col-galaxy">View collection</a>
+          <a class="btn btn-secondary" href="#latest">New arrivals</a>
+        </div>
+      </div>
+      <div class="store-hero-render">
+        <img id="heroRender" src="assets/cosmetics/wings/galaxy_wings/preview.webp" alt="Galaxy Wings render" fetchpriority="high" decoding="async" width="512" height="512">
+      </div>
+    </section>
+
+    <!-- SEARCH + CATEGORY PILLS + FILTERS -->
+    <section class="wrap store-toolbar">
+      <div class="toolbar-row">
+        <input id="storeSearch" type="search" placeholder="Search cosmetics… (try &quot;dragon&quot;)" autocomplete="off" aria-label="Search cosmetics">
+        <select id="storeSort" aria-label="Sort">
+          <option value="featured">Sort: Featured</option>
+          <option value="newest">Sort: Newest</option>
+          <option value="price-asc">Sort: Price low → high</option>
+          <option value="price-desc">Sort: Price high → low</option>
+          <option value="name">Sort: Name A–Z</option>
+        </select>
+        <button class="btn btn-secondary sm" id="clearFilters" type="button">Clear</button>
+      </div>
+      <div class="cat-pills" id="catPills" role="tablist" aria-label="Categories">
+        <button data-pill="all" class="on" type="button">All</button>
+        <button data-pill="wings" type="button">Wings</button>
+        <button data-pill="cloaks" type="button">Capes</button>
+        <button data-pill="pets" type="button">Pets</button>
+        <button data-pill="auras" type="button">Auras</button>
+        <button data-pill="headwear" type="button">Headwear</button>
+        <button data-pill="bundles" type="button">Bundles</button>
+      </div>
+      <details class="filters">
+        <summary>Filters</summary>
+        <div class="filters-grid">
+          <fieldset><legend>Rarity</legend>
+            <label><input type="checkbox" data-rar="Common"> Common</label>
+            <label><input type="checkbox" data-rar="Rare"> Rare</label>
+            <label><input type="checkbox" data-rar="Epic"> Epic</label>
+            <label><input type="checkbox" data-rar="Legendary"> Legendary</label>
+            <label><input type="checkbox" data-rar="Mythic"> Mythic</label>
+          </fieldset>
+          <fieldset><legend>Price (coins)</legend>
+            <label><input type="radio" name="price" data-price="any" checked> Any</label>
+            <label><input type="radio" name="price" data-price="p1"> 100 – 200</label>
+            <label><input type="radio" name="price" data-price="p2"> 200 – 300</label>
+            <label><input type="radio" name="price" data-price="p3"> 300 – 500</label>
+            <label><input type="radio" name="price" data-price="p4"> 500 +</label>
+          </fieldset>
+        </div>
+      </details>
+    </section>
+
     <section class="store-top">
       <div class="wrap store-head">
         <div>
           <span class="hero-eyebrow"><i class="fa-solid fa-hand-holding-dollar"></i> Vortex Store</span>
           <h1>Shop Minecraft <span class="grad">cosmetics</span></h1>
-          <p>Pets, wings, cloaks, auras, emotes and more. One-time purchases unlock cosmetics forever — no pay-to-win, cosmetic only.</p>
+          <p>Pets, wings, cloaks, auras and bundles. One-time purchases unlock cosmetics forever — no pay-to-win, cosmetic only.</p>
         </div>
         <div class="store-balance" data-credit-wrap>
           <span>Your balance</span>
           <b><i class="fa-solid fa-coins"></i> <span data-credit>0</span> coins</b>
-          <a class="btn btn-secondary sm" href="download.html" id="storeLogin"><i class="fa-brands fa-discord"></i> <span>Login</span></a>
+          <span id="accountWrap"><a class="btn btn-secondary sm" href="/api/discord-login" id="storeLogin"><i class="fa-brands fa-discord"></i> <span>Login</span></a></span>
+          <button class="btn btn-secondary sm" data-coins="1" type="button"><i class="fa-solid fa-coins"></i> <span>Buy coins</span></button>
         </div>
       </div>
     </section>
@@ -61,7 +122,7 @@
     <section class="wrap">
       <div class="cat-grid" id="catGrid">
         <a class="cat-card big" href="#wings"><div class="cat-ico"><i class="fa-solid fa-dragon"></i></div><div><b>Wings</b><span>Unique wing designs for your back</span></div></a>
-        <a class="cat-card" href="#emotes"><div class="cat-ico"><i class="fa-solid fa-icons"></i></div><div><b>Emotes</b><span>Expressive dances & animations</span></div></a>
+        <a class="cat-card" href="#latest"><div class="cat-ico"><i class="fa-solid fa-sparkles"></i></div><div><b>New</b><span>Fresh vault arrivals</span></div></a>
         <a class="cat-card" href="#pets"><div class="cat-ico"><i class="fa-solid fa-paw"></i></div><div><b>Pets</b><span>Companions for your adventures</span></div></a>
         <a class="cat-card" href="#auras"><div class="cat-ico"><i class="fa-solid fa-rings-wedding"></i></div><div><b>Auras</b><span>Distinct aura effects</span></div></a>
         <a class="cat-card" href="#cloaks"><div class="cat-ico"><i class="fa-solid fa-mask"></i></div><div><b>Cloaks</b><span>Custom-designed cloaks</span></div></a>
@@ -98,6 +159,86 @@
       .store-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
       .store-toast.ok { border-color:rgba(34,197,94,.5); }
       .store-toast.err { border-color:rgba(239,68,68,.5); }
+      /* marketplace */
+      .store-hero { position:relative; overflow:hidden; display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center;
+        background:linear-gradient(135deg, rgba(20,10,50,.85), rgba(8,10,28,.9)); border:1px solid rgba(192,132,252,.25);
+        border-radius:20px; padding:40px; margin-top:18px; }
+      .store-hero h1 { font-size:clamp(2rem,4vw,3.2rem); font-weight:900; margin:8px 0; }
+      .store-hero p { opacity:.8; max-width:46ch; line-height:1.6; }
+      .hero-cta { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+      .store-hero-render img { width:100%; max-width:420px; margin:0 auto; filter:drop-shadow(0 0 42px rgba(168,85,247,.45));
+        animation:heroFloat 6s ease-in-out infinite; }
+      @keyframes heroFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-14px); } }
+      @media (prefers-reduced-motion: reduce) { .store-hero-render img { animation:none; } }
+      .store-hero-bg span { position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(168,85,247,.5), transparent 70%);
+        animation:drift 9s ease-in-out infinite; pointer-events:none; }
+      .store-hero-bg span:nth-child(1) { width:90px; height:90px; left:6%; top:12%; }
+      .store-hero-bg span:nth-child(2) { width:50px; height:50px; left:44%; top:70%; animation-delay:-2s; }
+      .store-hero-bg span:nth-child(3) { width:130px; height:130px; left:70%; top:8%; animation-delay:-4s; }
+      .store-hero-bg span:nth-child(4) { width:40px; height:40px; left:82%; top:64%; animation-delay:-1s; }
+      .store-hero-bg span:nth-child(5) { width:64px; height:64px; left:28%; top:40%; animation-delay:-6s; }
+      .store-hero-bg span:nth-child(6) { width:34px; height:34px; left:58%; top:26%; animation-delay:-3s; }
+      @keyframes drift { 0%,100% { transform:translateY(0); opacity:.7; } 50% { transform:translateY(-26px); opacity:1; } }
+      @media (prefers-reduced-motion: reduce) { .store-hero-bg span { animation:none; } }
+      .store-toolbar { margin-top:22px; display:flex; flex-direction:column; gap:12px; }
+      .toolbar-row { display:flex; gap:10px; }
+      #storeSearch { flex:1; background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px 16px; font-size:15px; }
+      #storeSearch:focus { outline:none; border-color:rgba(56,189,248,.6); }
+      #storeSort { background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px; }
+      .cat-pills { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
+      .cat-pills button { flex:0 0 auto; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:#cbd5e1;
+        border-radius:99px; padding:9px 18px; font-weight:700; cursor:pointer; }
+      .cat-pills button.on { background:linear-gradient(90deg,#0057ff,#38bdf8); color:#fff; border-color:transparent; }
+      .filters { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:10px 16px; }
+      .filters summary { cursor:pointer; font-weight:700; }
+      .filters-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:10px; }
+      .filters fieldset { border:none; display:flex; flex-direction:column; gap:6px; font-size:14px; }
+      .filters legend { font-size:12px; opacity:.6; margin-bottom:4px; }
+      .prod-img img { transition:transform .25s ease; }
+      .prod:hover .prod-img img { transform:scale(1.07); }
+      .prod { transition:transform .2s ease, box-shadow .2s ease; }
+      .prod:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.45), 0 0 22px rgba(56,189,248,.12); }
+      .prod-badge.equipped { border-color:#38BDF8 !important; color:#38BDF8 !important; }
+      .prod-actions { display:flex; gap:8px; margin-top:8px; }
+      .prod-actions .btn { flex:1; }
+      .empty-note { opacity:.65; padding:18px 4px; }
+      .collection-hero { position:relative; border-radius:16px; overflow:hidden; margin-bottom:14px; cursor:pointer;
+        border:1px solid rgba(255,255,255,.1); min-height:170px; display:flex; align-items:flex-end;
+        background:linear-gradient(120deg, rgba(30,10,60,.9), rgba(8,12,30,.95)); }
+      .collection-hero img { position:absolute; right:2%; top:50%; transform:translateY(-50%); width:min(300px,44%);
+        filter:drop-shadow(0 0 30px rgba(168,85,247,.4)); pointer-events:none; }
+      .collection-hero-text { position:relative; padding:26px; }
+      .collection-hero-text h2 { font-size:1.6rem; font-weight:900; }
+      .collection-hero-text p { opacity:.75; margin:4px 0 12px; }
+      .store-modal-box.wide { width:min(560px,94vw); max-height:88vh; overflow-y:auto; }
+      .detail-stage { perspective:700px; background:radial-gradient(circle at 50% 40%, rgba(56,189,248,.12), rgba(0,0,0,.45) 70%);
+        border-radius:14px; padding:18px; margin-bottom:6px; }
+      .detail-preview { width:min(380px,80%); margin:0 auto; animation:heroFloat 5s ease-in-out infinite; transition:transform .15s ease; }
+      .detail-feats { list-style:none; text-align:left; margin:10px 0; font-size:13px; display:grid; gap:5px; }
+      .detail-feats li::before { content:'✓ '; color:#4ADE80; font-weight:900; }
+      .bundle-save { margin-top:8px; color:#FFD97D; font-weight:700; }
+      .detail-actions { display:flex; gap:8px; margin-top:6px; }
+      .detail-actions .btn { flex:1; }
+      .linklike { background:none; border:none; color:#38BDF8; cursor:pointer; font-size:13px; margin-top:10px; }
+      .clienthow { text-align:left; font-size:13px; margin-top:8px; opacity:.85; }
+      .clienthow ol { margin:6px 0 0 20px; display:grid; gap:4px; }
+      .acct { position:relative; display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:6px 12px 6px 6px; cursor:pointer; }
+      .acct img, .acct-fb { width:30px; height:30px; border-radius:50%; }
+      .acct-fb { display:flex; align-items:center; justify-content:center; background:#0057ff; color:#fff; font-weight:900; }
+      .acct-name { font-weight:700; font-size:14px; max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+      .acct-coins { font-size:12px; color:#FFD97D; }
+      .acct-menu { position:absolute; right:0; top:calc(100% + 8px); background:#14141f; border:1px solid rgba(255,255,255,.14);
+        border-radius:12px; min-width:220px; z-index:50; padding:6px; }
+      .acct-row { display:block; width:100%; text-align:left; padding:9px 12px; font-size:14px; border-radius:8px; background:none; border:none; color:#e2e8f0; }
+      button.acct-row { cursor:pointer; }
+      .acct-row:hover { background:rgba(255,255,255,.06); }
+      .inv-h { text-align:left; margin:14px 0 8px; font-size:15px; }
+      .inv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(88px,1fr)); gap:8px; }
+      .inv-mini { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:6px; cursor:pointer; font-size:11px; }
+      .inv-mini img { width:100%; aspect-ratio:1; object-fit:contain; }
+      .inv-mini span { display:block; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      @media (max-width: 860px) { .store-hero { grid-template-columns:1fr; padding:26px; } .store-hero-render img { max-width:300px; } }
     </style>
 
     <!-- VORTEX+ PREMIUM -->
@@ -165,19 +306,28 @@
             <h4>Products</h4>
             <a href="#wings">Wings</a>
             <a href="#pets">Pets</a>
-            <a href="#emotes">Emotes</a>
+            <a href="#cloaks">Capes</a>
             <a href="#auras">Auras</a>
-            <a href="#cloaks">Cloaks</a>
             <a href="#headwear">Headwear</a>
             <a href="#bundles">Bundles</a>
             <a href="#coins">Coins</a>
           </div>
           <div class="footer-col">
-            <h4>Company</h4>
+            <h4>Community</h4>
+            <a href="socials.html">Discord</a>
             <a href="news.html">News</a>
             <a href="updates.html">Updates</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="support.html">FAQ</a>
+            <a href="support.html">Contact</a>
             <a href="features.html">Features</a>
-            <a href="support.html">Support</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="support.html">Terms</a>
+            <a href="support.html">Privacy</a>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 {
   "category": "headwear",
   "count": 20,
-  "updatedAt": "2026-09-28T16:45:08.900Z",
+  "updatedAt": "2026-09-28T19:34:25.410Z",
   "items": [
     {
       "id": "top_hat",
@@ -11,7 +11,13 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 100,
-      "desc": "Proper and tall."
+      "desc": "Proper and tall.",
+      "tags": [
+        "top",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/top_hat/preview.webp",
+      "thumb": "assets/cosmetics/headwear/top_hat/thumb.webp"
     },
     {
       "id": "crown",
@@ -21,7 +27,13 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 200,
-      "desc": "A golden classic."
+      "desc": "A golden classic.",
+      "tags": [
+        "crown",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/crown/preview.webp",
+      "thumb": "assets/cosmetics/headwear/crown/thumb.webp"
     },
     {
       "id": "demon_horns",
@@ -31,7 +43,14 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 280,
-      "desc": "Straight from the Nether."
+      "desc": "Straight from the Nether.",
+      "tags": [
+        "demon",
+        "horns",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/demon_horns/preview.webp",
+      "thumb": "assets/cosmetics/headwear/demon_horns/thumb.webp"
     },
     {
       "id": "halo",
@@ -41,7 +60,13 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 210,
-      "desc": "Suspiciously shiny."
+      "desc": "Suspiciously shiny.",
+      "tags": [
+        "halo",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/halo/preview.webp",
+      "thumb": "assets/cosmetics/headwear/halo/thumb.webp"
     },
     {
       "id": "wizard_hat",
@@ -51,7 +76,13 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Pointy and powerful."
+      "desc": "Pointy and powerful.",
+      "tags": [
+        "wizard",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/wizard_hat/preview.webp",
+      "thumb": "assets/cosmetics/headwear/wizard_hat/thumb.webp"
     },
     {
       "id": "viking_helm",
@@ -61,7 +92,14 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Horned and fearless."
+      "desc": "Horned and fearless.",
+      "tags": [
+        "viking",
+        "helm",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/viking_helm/preview.webp",
+      "thumb": "assets/cosmetics/headwear/viking_helm/thumb.webp"
     },
     {
       "id": "beanie",
@@ -71,7 +109,13 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 110,
-      "desc": "Cozy winter knit."
+      "desc": "Cozy winter knit.",
+      "tags": [
+        "beanie",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/beanie/preview.webp",
+      "thumb": "assets/cosmetics/headwear/beanie/thumb.webp"
     },
     {
       "id": "baseball_cap",
@@ -81,7 +125,14 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 120,
-      "desc": "Sporty Vortex style."
+      "desc": "Sporty Vortex style.",
+      "tags": [
+        "baseball",
+        "cap",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/baseball_cap/preview.webp",
+      "thumb": "assets/cosmetics/headwear/baseball_cap/thumb.webp"
     },
     {
       "id": "headphones",
@@ -91,7 +142,13 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 230,
-      "desc": "Bass boosted."
+      "desc": "Bass boosted.",
+      "tags": [
+        "headphones",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/headphones/preview.webp",
+      "thumb": "assets/cosmetics/headwear/headphones/thumb.webp"
     },
     {
       "id": "antenna",
@@ -101,7 +158,13 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 115,
-      "desc": "Receiving signals."
+      "desc": "Receiving signals.",
+      "tags": [
+        "antenna",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/antenna/preview.webp",
+      "thumb": "assets/cosmetics/headwear/antenna/thumb.webp"
     },
     {
       "id": "bunny_ears",
@@ -111,7 +174,14 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 130,
-      "desc": "Hop hop."
+      "desc": "Hop hop.",
+      "tags": [
+        "bunny",
+        "ears",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/bunny_ears/preview.webp",
+      "thumb": "assets/cosmetics/headwear/bunny_ears/thumb.webp"
     },
     {
       "id": "cat_ears",
@@ -121,7 +191,14 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 135,
-      "desc": " nine lives not included."
+      "desc": " nine lives not included.",
+      "tags": [
+        "cat",
+        "ears",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/cat_ears/preview.webp",
+      "thumb": "assets/cosmetics/headwear/cat_ears/thumb.webp"
     },
     {
       "id": "silver_crown",
@@ -131,7 +208,14 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Moonlight silver."
+      "desc": "Moonlight silver.",
+      "tags": [
+        "silver",
+        "crown",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/silver_crown/preview.webp",
+      "thumb": "assets/cosmetics/headwear/silver_crown/thumb.webp"
     },
     {
       "id": "ruby_crown",
@@ -141,7 +225,14 @@
       "slot": "HEAD",
       "rarity": "Legendary",
       "price": 400,
-      "desc": "Rubies from the deep."
+      "desc": "Rubies from the deep.",
+      "tags": [
+        "ruby",
+        "crown",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/ruby_crown/preview.webp",
+      "thumb": "assets/cosmetics/headwear/ruby_crown/thumb.webp"
     },
     {
       "id": "dark_halo",
@@ -151,7 +242,14 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 310,
-      "desc": "Blessed, mostly."
+      "desc": "Blessed, mostly.",
+      "tags": [
+        "dark",
+        "halo",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/dark_halo/preview.webp",
+      "thumb": "assets/cosmetics/headwear/dark_halo/thumb.webp"
     },
     {
       "id": "party_hat",
@@ -161,7 +259,13 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 105,
-      "desc": "Confetti ready."
+      "desc": "Confetti ready.",
+      "tags": [
+        "party",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/party_hat/preview.webp",
+      "thumb": "assets/cosmetics/headwear/party_hat/thumb.webp"
     },
     {
       "id": "straw_hat",
@@ -171,7 +275,13 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 108,
-      "desc": "Farm fresh."
+      "desc": "Farm fresh.",
+      "tags": [
+        "straw",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/straw_hat/preview.webp",
+      "thumb": "assets/cosmetics/headwear/straw_hat/thumb.webp"
     },
     {
       "id": "knight_helm",
@@ -181,7 +291,14 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 240,
-      "desc": "For honorable battles."
+      "desc": "For honorable battles.",
+      "tags": [
+        "knight",
+        "helm",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/knight_helm/preview.webp",
+      "thumb": "assets/cosmetics/headwear/knight_helm/thumb.webp"
     },
     {
       "id": "flower_crown",
@@ -191,7 +308,14 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 215,
-      "desc": "Spring forever."
+      "desc": "Spring forever.",
+      "tags": [
+        "flower",
+        "crown",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/flower_crown/preview.webp",
+      "thumb": "assets/cosmetics/headwear/flower_crown/thumb.webp"
     },
     {
       "id": "golden_tophat",
@@ -201,7 +325,14 @@
       "slot": "HEAD",
       "rarity": "Legendary",
       "price": 390,
-      "desc": "Proper AND rich."
+      "desc": "Proper AND rich.",
+      "tags": [
+        "golden",
+        "tophat",
+        "hat"
+      ],
+      "preview": "assets/cosmetics/headwear/golden_tophat/preview.webp",
+      "thumb": "assets/cosmetics/headwear/golden_tophat/thumb.webp"
     }
   ]
 }
