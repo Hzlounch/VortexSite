@@ -12,19 +12,19 @@ const err = (m) => errors.push(m);
 const warn = (m) => warnings.push(m);
 
 // Case-sensitive existence check (Windows FS is case-insensitive).
+// NOTE: walks relative segments from ROOT on purpose — the old version
+// parsed the absolute path and broke on Linux (leading '/' produced an
+// empty root segment, so EVERYTHING reported missing on Vercel).
 function existsCaseSensitive(rel) {
-  const abs = join(ROOT, rel);
-  const parts = abs.split(/[\\/]/);
-  let cur = parts[0] + (abs.startsWith('\\\\') ? '' : '');
-  // drive-letter root handling for win32
-  let start = 0;
-  if (/^[A-Za-z]:$/.test(parts[0])) { cur = parts[0] + '\\'; start = 1; }
-  for (let i = start; i < parts.length; i++) {
-    if (!parts[i]) continue;
+  const parts = String(rel).split('/');
+  let cur = ROOT;
+  for (const p of parts) {
+    if (!p || p === '.') continue;
+    if (p === '..') return false;
     let entries;
     try { entries = readdirSync(cur); } catch { return false; }
-    if (!entries.includes(parts[i])) return false;
-    cur = join(cur, parts[i]);
+    if (!entries.includes(p)) return false;
+    cur = join(cur, p);
   }
   return true;
 }
@@ -78,7 +78,7 @@ function checkRef(from, ref) {
 // 1. every html/css/js reference resolves, case-sensitively
 for (const f of htmlFiles) for (const r of refsFromHtml(f)) checkRef(f, r);
 for (const r of refsFromCss('site.css')) checkRef('site.css', r);
-const jsFiles = ['site.js', 'store.js', 'cosmetics-store.js', 'features.js', 'news.js',
+const jsFiles = ['site.js', 'cosmetics-store.js', 'features.js', 'news.js',
   'updates.js', 'socials.js', 'tickets.js', 'site-content.js', 'vortex-credits.js',
   'vortex-experience.js', 'vortex-socials.js', 'js/catalog.js', 'js/store-page.js']
   .filter(f => existsSync(join(ROOT, f)));
