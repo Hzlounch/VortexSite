@@ -1,7 +1,7 @@
 {
   "category": "pets",
   "count": 15,
-  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "updatedAt": "2026-09-28T16:45:08.900Z",
   "items": [
     {
       "id": "mini_dragon",
@@ -11,8 +11,7 @@
       "slot": "PET",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Pocket-sized fire hazard.",
-      "img": "cosmetics/mini_dragon.png"
+      "desc": "Pocket-sized fire hazard."
     },
     {
       "id": "mini_ghost",
@@ -22,8 +21,7 @@
       "slot": "PET",
       "rarity": "Rare",
       "price": 200,
-      "desc": "Boo.",
-      "img": "cosmetics/mini_ghost.png"
+      "desc": "Boo."
     },
     {
       "id": "slime_pet",
@@ -33,8 +31,7 @@
       "slot": "PET",
       "rarity": "Common",
       "price": 120,
-      "desc": "Jiggly friend.",
-      "img": "cosmetics/slime_pet.png"
+      "desc": "Jiggly friend."
     },
     {
       "id": "robot_pet",
@@ -44,8 +41,7 @@
       "slot": "PET",
       "rarity": "Rare",
       "price": 240,
-      "desc": "Beep boop.",
-      "img": "cosmetics/robot_pet.png"
+      "desc": "Beep boop."
     },
     {
       "id": "creeper_pet",
@@ -55,8 +51,7 @@
       "slot": "PET",
       "rarity": "Epic",
       "price": 290,
-      "desc": "Totally safe. Probably.",
-      "img": "cosmetics/creeper_pet.png"
+      "desc": "Totally safe. Probably."
     },
     {
       "id": "phoenix_pet",
@@ -66,8 +61,7 @@
       "slot": "PET",
       "rarity": "Legendary",
       "price": 410,
-      "desc": "Reborn in flames.",
-      "img": "cosmetics/phoenix_pet.png"
+      "desc": "Reborn in flames."
     },
     {
       "id": "golem_pet",
@@ -77,8 +71,7 @@
       "slot": "PET",
       "rarity": "Rare",
       "price": 230,
-      "desc": "Tiny tank.",
-      "img": "cosmetics/golem_pet.png"
+      "desc": "Tiny tank."
     },
     {
       "id": "wisp_pet",
@@ -88,8 +81,7 @@
       "slot": "PET",
       "rarity": "Common",
       "price": 130,
-      "desc": "A floating spark.",
-      "img": "cosmetics/wisp_pet.png"
+      "desc": "A floating spark."
     },
     {
       "id": "bee_pet",
@@ -99,8 +91,7 @@
       "slot": "PET",
       "rarity": "Common",
       "price": 125,
-      "desc": "Buzzy buddy.",
-      "img": "cosmetics/bee_pet.png"
+      "desc": "Buzzy buddy."
     },
     {
       "id": "mushroom_pet",
@@ -110,8 +101,7 @@
       "slot": "PET",
       "rarity": "Common",
       "price": 115,
-      "desc": "Fun guy.",
-      "img": "cosmetics/mushroom_pet.png"
+      "desc": "Fun guy."
     },
     {
       "id": "turtle_pet",
@@ -121,8 +111,7 @@
       "slot": "PET",
       "rarity": "Common",
       "price": 118,
-      "desc": "Slow and steady.",
-      "img": "cosmetics/turtle_pet.png"
+      "desc": "Slow and steady."
     },
     {
       "id": "owl_pet",
@@ -132,8 +121,7 @@
       "slot": "PET",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Night watcher.",
-      "img": "cosmetics/owl_pet.png"
+      "desc": "Night watcher."
     },
     {
       "id": "void_spirit_pet",
@@ -143,8 +131,7 @@
       "slot": "PET",
       "rarity": "Legendary",
       "price": 400,
-      "desc": "It stares back.",
-      "img": "cosmetics/void_spirit_pet.png"
+      "desc": "It stares back."
     },
     {
       "id": "crystal_golem_pet",
@@ -154,8 +141,7 @@
       "slot": "PET",
       "rarity": "Epic",
       "price": 330,
-      "desc": "Shiny and heavy.",
-      "img": "cosmetics/crystal_golem_pet.png"
+      "desc": "Shiny and heavy."
     },
     {
       "id": "frog_pet",
@@ -165,8 +151,7 @@
       "slot": "PET",
       "rarity": "Common",
       "price": 112,
-      "desc": "Ribbit.",
-      "img": "cosmetics/frog_pet.png"
+      "desc": "Ribbit."
     }
   ]
 }

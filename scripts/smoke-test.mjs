@@ -12,7 +12,7 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
 
 const FILES = ['store.html', 'index.html', 'features.html', 'js/store-page.js', 'js/catalog.js',
   'data/cosmetics.json', 'data/cosmetics/wings.json', 'data/cosmetics/bundles.json',
-  'scene-store.webp', 'scene-cosmic.webp', 'scene-cosmic-960.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/galaxy_wings.png'];
+  'scene-store.webp', 'scene-cosmic.webp', 'scene-cosmic-960.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/cs-coins.png'];
 
 const server = createServer(async (req, res) => {
   try {

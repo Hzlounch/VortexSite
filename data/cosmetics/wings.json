@@ -1,7 +1,7 @@
 {
   "category": "wings",
   "count": 15,
-  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "updatedAt": "2026-09-28T16:45:08.900Z",
   "items": [
     {
       "id": "dragon_wings",
@@ -11,8 +11,7 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Leathery and loud.",
-      "img": "cosmetics/dragon_wings.png"
+      "desc": "Leathery and loud."
     },
     {
       "id": "angel_wings",
@@ -22,8 +21,7 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 420,
-      "desc": "Feathered grace.",
-      "img": "cosmetics/angel_wings.png"
+      "desc": "Feathered grace."
     },
     {
       "id": "demon_wings",
@@ -33,8 +31,7 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 310,
-      "desc": "Smells like sulfur.",
-      "img": "cosmetics/demon_wings.png"
+      "desc": "Smells like sulfur."
     },
     {
       "id": "void_wings",
@@ -44,8 +41,7 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 430,
-      "desc": "Torn from nothing.",
-      "img": "cosmetics/void_wings.png"
+      "desc": "Torn from nothing."
     },
     {
       "id": "galaxy_wings",
@@ -55,8 +51,7 @@
       "slot": "BACK",
       "rarity": "Mythic",
       "price": 470,
-      "desc": "Starlit flight.",
-      "img": "cosmetics/galaxy_wings.png"
+      "desc": "Starlit flight."
     },
     {
       "id": "mechanical_wings",
@@ -66,8 +61,7 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 330,
-      "desc": "Riveted steel.",
-      "img": "cosmetics/mechanical_wings.png"
+      "desc": "Riveted steel."
     },
     {
       "id": "crystal_wings",
@@ -77,8 +71,7 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 410,
-      "desc": "Sharp and shiny.",
-      "img": "cosmetics/crystal_wings.png"
+      "desc": "Sharp and shiny."
     },
     {
       "id": "fire_wings",
@@ -88,8 +81,7 @@
       "slot": "BACK",
       "rarity": "Rare",
       "price": 230,
-      "desc": "Warm updraft included.",
-      "img": "cosmetics/fire_wings.png"
+      "desc": "Warm updraft included."
     },
     {
       "id": "ice_wings",
@@ -99,8 +91,7 @@
       "slot": "BACK",
       "rarity": "Rare",
       "price": 225,
-      "desc": "Cold snap flight.",
-      "img": "cosmetics/ice_wings.png"
+      "desc": "Cold snap flight."
     },
     {
       "id": "fairy_wings",
@@ -110,8 +101,7 @@
       "slot": "BACK",
       "rarity": "Common",
       "price": 140,
-      "desc": "Tiny and twinkly.",
-      "img": "cosmetics/fairy_wings.png"
+      "desc": "Tiny and twinkly."
     },
     {
       "id": "shadow_wings",
@@ -121,8 +111,7 @@
       "slot": "BACK",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Dark as night.",
-      "img": "cosmetics/shadow_wings.png"
+      "desc": "Dark as night."
     },
     {
       "id": "storm_wings",
@@ -132,8 +121,7 @@
       "slot": "BACK",
       "rarity": "Rare",
       "price": 235,
-      "desc": "Thunderbird style.",
-      "img": "cosmetics/storm_wings.png"
+      "desc": "Thunderbird style."
     },
     {
       "id": "golden_wings",
@@ -143,8 +131,7 @@
       "slot": "BACK",
       "rarity": "Legendary",
       "price": 440,
-      "desc": "Wealth takes flight.",
-      "img": "cosmetics/golden_wings.png"
+      "desc": "Wealth takes flight."
     },
     {
       "id": "frost_wings",
@@ -154,8 +141,7 @@
       "slot": "BACK",
       "rarity": "Common",
       "price": 150,
-      "desc": "Chilly feathers.",
-      "img": "cosmetics/frost_wings.png"
+      "desc": "Chilly feathers."
     },
     {
       "id": "ember_wings",
@@ -165,8 +151,7 @@
       "slot": "BACK",
       "rarity": "Common",
       "price": 155,
-      "desc": "Smoldering tips.",
-      "img": "cosmetics/ember_wings.png"
+      "desc": "Smoldering tips."
     }
   ]
 }

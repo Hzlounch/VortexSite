@@ -2,7 +2,7 @@
    Categories render lazily: Featured first, the rest as you scroll.
    If data/*.json cannot be fetched (file:// preview), falls back to the
    legacy cosmetics-store.js + store.js bundle. */
-import { loadIndex, loadCategory, ensureLegacyShim } from './catalog.js';
+import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
 
 (function () {
   var CATS = [
@@ -75,11 +75,11 @@ import { loadIndex, loadCategory, ensureLegacyShim } from './catalog.js';
       for (var k in p.outfit) parts.push(p.outfit[k]);
       contents = '<div class="prod-contents">' + parts.map(esc).join(' + ') + '</div>';
     }
-    var img = esc(p.img || ('cosmetics/' + p.id + '.png'));
+    var initial = esc(((p.name || p.id || '?').trim().charAt(0) || '?').toUpperCase());
     return '' +
       '<div class="prod" data-id="' + esc(p.id) + '">' +
       '<button class="prod-fav' + (fav ? ' on' : '') + '" data-fav="' + esc(p.id) + '" title="Favorite">★</button>' +
-      '<div class="prod-img" data-view="' + esc(p.id) + '"><img src="' + img + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="192" height="96">' + badge + '</div>' +
+      '<div class="prod-img" data-view="' + esc(p.id) + '"><div class="prod-letter" style="color:' + rcol + '">' + initial + '</div>' + badge + '</div>' +
       '<div class="prod-info"><b data-view="' + esc(p.id) + '">' + esc(p.name) + '</b>' +
       '<div class="prod-cat">' + esc(p.cat) + '</div>' + contents +
       '<div class="prod-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
@@ -166,7 +166,7 @@ import { loadIndex, loadCategory, ensureLegacyShim } from './catalog.js';
       for (var k in p.outfit) parts.push('<li><b>' + esc(k) + '</b> — ' + esc(p.outfit[k]) + '</li>');
       contents = '<div class="detail-contents"><b>Bundle contents</b><ul>' + parts.join('') + '</ul></div>';
     }
-    var img = esc(p.img || ('cosmetics/' + p.id + '.png'));
+    var initial = esc(((p.name || p.id || '?').trim().charAt(0) || '?').toUpperCase());
     var m = document.getElementById('storeModal');
     if (!m) {
       m = document.createElement('div');
@@ -176,7 +176,7 @@ import { loadIndex, loadCategory, ensureLegacyShim } from './catalog.js';
     }
     m.innerHTML = '<div class="store-modal-box">' +
       '<button class="store-modal-x" id="storeModalX">✕</button>' +
-      '<img class="detail-img" src="' + img + '" alt="' + esc(p.name) + '" decoding="async">' +
+      '<div class="detail-img detail-letter" style="color:' + rcol + '">' + initial + '</div>' +
       '<h2>' + esc(p.name) + '</h2>' +
       '<div class="detail-meta"><span style="color:' + rcol + '">' + esc(p.rarity) + '</span> · ' + esc(p.cat) + '</div>' +
       '<p class="detail-desc">' + esc(p.desc || 'A Vortex cosmetic, rendered live in game.') + '</p>' + contents +
@@ -263,15 +263,11 @@ import { loadIndex, loadCategory, ensureLegacyShim } from './catalog.js';
   function boot() {
     loadIndex().then(function (idx) {
       if (idx && idx.legacy) {
-        // No data/*.json reachable (file://): use the legacy bundle instead.
-        return ensureLegacyShim().then(function () {
-          return new Promise(function (resolve, reject) {
-            var s = document.createElement('script');
-            s.src = 'store.js';
-            s.onload = resolve;
-            s.onerror = reject;
-            document.head.appendChild(s);
-          });
+        // No data/*.json reachable (file:// preview): render from the
+        // generated shim instead. The old store.js bundle is deleted.
+        return loadAllLegacy().then(function (items) {
+          if (!items.length) throw new Error('empty');
+          bootWithItems(items);
         });
       }
       // Featured needs cross-category data: load smallest useful set first.
@@ -292,11 +288,11 @@ import { loadIndex, loadCategory, ensureLegacyShim } from './catalog.js';
           });
       });
     }).catch(function () {
-      ensureLegacyShim().then(function () {
-        var s = document.createElement('script');
-        s.src = 'store.js';
-        document.head.appendChild(s);
-      });
+      var host = document.getElementById('storeCatalog');
+      if (host) {
+        host.innerHTML = '<section class="wrap store-sec"><div class="sec-head"><h2>Store unavailable</h2>' +
+          '<span>Could not load catalog data. Serve the site over http(s) or deploy it.</span></div></section>';
+      }
     });
 
     document.body.addEventListener('click', function (e) {

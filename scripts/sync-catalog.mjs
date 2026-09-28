@@ -65,27 +65,32 @@ for (const id of bot.all) {
   };
   if (g.outfit) item.outfit = g.outfit;
   items.push(item);
-  const thumb = join(ROOT, 'cosmetics', item.id + '.png');
-  if (!existsSync(thumb)) warn('missing thumbnail: cosmetics/' + item.id + '.png');
+  // NOTE: site thumbs deleted by owner request — store cards render letter
+  // tiles now. Launcher keeps its own thumbs (separate folder, untouched).
 }
 
 const counts = {};
 for (const it of items) counts[it.cat] = (counts[it.cat] || 0) + 1;
 const updatedAt = new Date().toISOString();
 
+// Site payloads carry no img/thumb paths (no thumbnails in the repo).
+const siteItems = items.map(it => {
+  const { img, ...rest } = it;
+  return rest;
+});
 mkdirSync(join(ROOT, 'data', 'cosmetics'), { recursive: true });
 for (const [cat] of Object.entries(counts)) {
   writeFileSync(join(ROOT, 'data', 'cosmetics', cat + '.json'),
-    JSON.stringify({ category: cat, count: counts[cat], updatedAt, items: items.filter(i => i.cat === cat) }, null, 2) + '\n');
+    JSON.stringify({ category: cat, count: counts[cat], updatedAt, items: siteItems.filter(i => i.cat === cat) }, null, 2) + '\n');
 }
 writeFileSync(join(ROOT, 'data', 'cosmetics.json'),
   JSON.stringify({ updatedAt, total: items.length, counts, starter: bot.starter || [], categories: Object.keys(counts).sort() }, null, 2) + '\n');
 
-// legacy shim for store.js (same shape as before, now generated)
-const shimItems = items.map(it => ({
+// shim for file:// fallback (same shape, no thumbs — letter tiles instead)
+const shimItems = siteItems.map(it => ({
   id: it.id, name: it.name, cat: it.cat, type: it.type,
   rarity: it.rarity, price: it.price, desc: it.desc,
-  thumb: it.img, outfit: it.outfit || null,
+  outfit: it.outfit || null,
 }));
 writeFileSync(join(ROOT, 'cosmetics-store.js'),
   GEN + 'var COSMETICS_STORE = ' + JSON.stringify({ items: shimItems }) + ';\n');

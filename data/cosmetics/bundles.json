@@ -1,7 +1,7 @@
 {
   "category": "bundles",
   "count": 10,
-  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "updatedAt": "2026-09-28T16:45:08.900Z",
   "items": [
     {
       "id": "dragon_suit",
@@ -12,7 +12,6 @@
       "rarity": "Legendary",
       "price": 440,
       "desc": "Full dragon transformation.",
-      "img": "cosmetics/dragon_suit.png",
       "outfit": {
         "HEAD": "demon_horns",
         "BACK": "dragon_wings",
@@ -29,7 +28,6 @@
       "rarity": "Mythic",
       "price": 500,
       "desc": "Wear the cosmos.",
-      "img": "cosmetics/galaxy_suit.png",
       "outfit": {
         "HEAD": "halo",
         "BACK": "galaxy_wings",
@@ -46,7 +44,6 @@
       "rarity": "Epic",
       "price": 340,
       "desc": "Straight out of the Nether.",
-      "img": "cosmetics/fire_suit.png",
       "outfit": {
         "HEAD": "demon_horns",
         "BACK": "fire_cape",
@@ -63,7 +60,6 @@
       "rarity": "Legendary",
       "price": 430,
       "desc": "Embrace nothing.",
-      "img": "cosmetics/void_suit.png",
       "outfit": {
         "HEAD": "dark_halo",
         "BACK": "void_cape",
@@ -80,7 +76,6 @@
       "rarity": "Epic",
       "price": 350,
       "desc": "Blessed loadout.",
-      "img": "cosmetics/angel_suit.png",
       "outfit": {
         "HEAD": "halo",
         "BACK": "angel_wings",
@@ -97,7 +92,6 @@
       "rarity": "Rare",
       "price": 240,
       "desc": "Sssstylish.",
-      "img": "cosmetics/creeper_suit.png",
       "outfit": {
         "HEAD": "cat_ears",
         "BACK": "creeper_cape",
@@ -114,7 +108,6 @@
       "rarity": "Rare",
       "price": 230,
       "desc": "Stay frosty.",
-      "img": "cosmetics/ice_suit.png",
       "outfit": {
         "HEAD": "knight_helm",
         "BACK": "ice_cape",
@@ -131,7 +124,6 @@
       "rarity": "Epic",
       "price": 300,
       "desc": "Unseen majority.",
-      "img": "cosmetics/shadow_suit.png",
       "outfit": {
         "HEAD": "beanie",
         "BACK": "shadow_cape",
@@ -148,7 +140,6 @@
       "rarity": "Legendary",
       "price": 450,
       "desc": "Rule the server.",
-      "img": "cosmetics/royal_suit.png",
       "outfit": {
         "HEAD": "ruby_crown",
         "BACK": "royal_cape",
@@ -165,7 +156,6 @@
       "rarity": "Rare",
       "price": 250,
       "desc": "Thunder wear.",
-      "img": "cosmetics/storm_suit.png",
       "outfit": {
         "HEAD": "viking_helm",
         "BACK": "storm_cape",

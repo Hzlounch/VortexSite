@@ -62,3 +62,10 @@ export async function ensureLegacyShim() {
     return false;
   }
 }
+
+// Full item list from the generated shim (file:// preview path).
+// The old store.js bundle is gone — this is the only fallback.
+export async function loadAllLegacy() {
+  await ensureLegacyShim();
+  return legacyItems() || [];
+}

@@ -1,7 +1,7 @@
 {
   "category": "cloaks",
   "count": 25,
-  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "updatedAt": "2026-09-28T16:45:08.900Z",
   "items": [
     {
       "id": "basic_cape",
@@ -11,8 +11,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 100,
-      "desc": "A clean everyday cloak.",
-      "img": "cosmetics/basic_cape.png"
+      "desc": "A clean everyday cloak."
     },
     {
       "id": "fire_cape",
@@ -22,8 +21,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 180,
-      "desc": "Woven with ember thread.",
-      "img": "cosmetics/fire_cape.png"
+      "desc": "Woven with ember thread."
     },
     {
       "id": "galaxy_cloak",
@@ -33,8 +31,7 @@
       "slot": "CAPE",
       "rarity": "Mythic",
       "price": 480,
-      "desc": "The night sky, wearable.",
-      "img": "cosmetics/galaxy_cloak.png"
+      "desc": "The night sky, wearable."
     },
     {
       "id": "shadow_cape",
@@ -44,8 +41,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 200,
-      "desc": "Melts into the dark.",
-      "img": "cosmetics/shadow_cape.png"
+      "desc": "Melts into the dark."
     },
     {
       "id": "ocean_cape",
@@ -55,8 +51,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 120,
-      "desc": "Cold northern seas.",
-      "img": "cosmetics/ocean_cape.png"
+      "desc": "Cold northern seas."
     },
     {
       "id": "forest_cape",
@@ -66,8 +61,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 110,
-      "desc": "Deep woods green.",
-      "img": "cosmetics/forest_cape.png"
+      "desc": "Deep woods green."
     },
     {
       "id": "lava_cape",
@@ -77,8 +71,7 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Cracked magma crust.",
-      "img": "cosmetics/lava_cape.png"
+      "desc": "Cracked magma crust."
     },
     {
       "id": "ender_cape",
@@ -88,8 +81,7 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Hums with void energy.",
-      "img": "cosmetics/ender_cape.png"
+      "desc": "Hums with void energy."
     },
     {
       "id": "ice_cape",
@@ -99,8 +91,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 190,
-      "desc": "Glacier fresh.",
-      "img": "cosmetics/ice_cape.png"
+      "desc": "Glacier fresh."
     },
     {
       "id": "void_cape",
@@ -110,8 +101,7 @@
       "slot": "CAPE",
       "rarity": "Legendary",
       "price": 420,
-      "desc": "Woven from nothing.",
-      "img": "cosmetics/void_cape.png"
+      "desc": "Woven from nothing."
     },
     {
       "id": "creeper_cape",
@@ -121,8 +111,7 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 280,
-      "desc": "Sssstealthy.",
-      "img": "cosmetics/creeper_cape.png"
+      "desc": "Sssstealthy."
     },
     {
       "id": "rainbow_cape",
@@ -132,8 +121,7 @@
       "slot": "CAPE",
       "rarity": "Legendary",
       "price": 400,
-      "desc": "All colors at once.",
-      "img": "cosmetics/rainbow_cape.png"
+      "desc": "All colors at once."
     },
     {
       "id": "gold_cape",
@@ -143,8 +131,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Heavy is the head.",
-      "img": "cosmetics/gold_cape.png"
+      "desc": "Heavy is the head."
     },
     {
       "id": "blood_cape",
@@ -154,8 +141,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 130,
-      "desc": "Dark and dramatic.",
-      "img": "cosmetics/blood_cape.png"
+      "desc": "Dark and dramatic."
     },
     {
       "id": "frost_cape",
@@ -165,8 +151,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 125,
-      "desc": "Light winter weave.",
-      "img": "cosmetics/frost_cape.png"
+      "desc": "Light winter weave."
     },
     {
       "id": "storm_cape",
@@ -176,8 +161,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 210,
-      "desc": "Smells like rain.",
-      "img": "cosmetics/storm_cape.png"
+      "desc": "Smells like rain."
     },
     {
       "id": "ember_cape",
@@ -187,8 +171,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 140,
-      "desc": "Warm to the touch.",
-      "img": "cosmetics/ember_cape.png"
+      "desc": "Warm to the touch."
     },
     {
       "id": "tide_cape",
@@ -198,8 +181,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 135,
-      "desc": "Salt in the threads.",
-      "img": "cosmetics/tide_cape.png"
+      "desc": "Salt in the threads."
     },
     {
       "id": "moss_cape",
@@ -209,8 +191,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 100,
-      "desc": "Soft old stone green.",
-      "img": "cosmetics/moss_cape.png"
+      "desc": "Soft old stone green."
     },
     {
       "id": "royal_cape",
@@ -220,8 +201,7 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 310,
-      "desc": "Fit for a Vortex king.",
-      "img": "cosmetics/royal_cape.png"
+      "desc": "Fit for a Vortex king."
     },
     {
       "id": "midnight_cape",
@@ -231,8 +211,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 205,
-      "desc": "Almost black blue.",
-      "img": "cosmetics/midnight_cape.png"
+      "desc": "Almost black blue."
     },
     {
       "id": "sunrise_cape",
@@ -242,8 +221,7 @@
       "slot": "CAPE",
       "rarity": "Common",
       "price": 145,
-      "desc": "Morning in cloth form.",
-      "img": "cosmetics/sunrise_cape.png"
+      "desc": "Morning in cloth form."
     },
     {
       "id": "obsidian_cape",
@@ -253,8 +231,7 @@
       "slot": "CAPE",
       "rarity": "Epic",
       "price": 330,
-      "desc": "Volcanic glass weave.",
-      "img": "cosmetics/obsidian_cape.png"
+      "desc": "Volcanic glass weave."
     },
     {
       "id": "ghost_cape",
@@ -264,8 +241,7 @@
       "slot": "CAPE",
       "rarity": "Rare",
       "price": 195,
-      "desc": "Barely there.",
-      "img": "cosmetics/ghost_cape.png"
+      "desc": "Barely there."
     },
     {
       "id": "magma_cape",
@@ -275,8 +251,7 @@
       "slot": "CAPE",
       "rarity": "Legendary",
       "price": 380,
-      "desc": "Do not touch.",
-      "img": "cosmetics/magma_cape.png"
+      "desc": "Do not touch."
     }
   ]
 }

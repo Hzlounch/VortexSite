@@ -1,7 +1,7 @@
 {
   "category": "headwear",
   "count": 20,
-  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "updatedAt": "2026-09-28T16:45:08.900Z",
   "items": [
     {
       "id": "top_hat",
@@ -11,8 +11,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 100,
-      "desc": "Proper and tall.",
-      "img": "cosmetics/top_hat.png"
+      "desc": "Proper and tall."
     },
     {
       "id": "crown",
@@ -22,8 +21,7 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 200,
-      "desc": "A golden classic.",
-      "img": "cosmetics/crown.png"
+      "desc": "A golden classic."
     },
     {
       "id": "demon_horns",
@@ -33,8 +31,7 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 280,
-      "desc": "Straight from the Nether.",
-      "img": "cosmetics/demon_horns.png"
+      "desc": "Straight from the Nether."
     },
     {
       "id": "halo",
@@ -44,8 +41,7 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 210,
-      "desc": "Suspiciously shiny.",
-      "img": "cosmetics/halo.png"
+      "desc": "Suspiciously shiny."
     },
     {
       "id": "wizard_hat",
@@ -55,8 +51,7 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Pointy and powerful.",
-      "img": "cosmetics/wizard_hat.png"
+      "desc": "Pointy and powerful."
     },
     {
       "id": "viking_helm",
@@ -66,8 +61,7 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Horned and fearless.",
-      "img": "cosmetics/viking_helm.png"
+      "desc": "Horned and fearless."
     },
     {
       "id": "beanie",
@@ -77,8 +71,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 110,
-      "desc": "Cozy winter knit.",
-      "img": "cosmetics/beanie.png"
+      "desc": "Cozy winter knit."
     },
     {
       "id": "baseball_cap",
@@ -88,8 +81,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 120,
-      "desc": "Sporty Vortex style.",
-      "img": "cosmetics/baseball_cap.png"
+      "desc": "Sporty Vortex style."
     },
     {
       "id": "headphones",
@@ -99,8 +91,7 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 230,
-      "desc": "Bass boosted.",
-      "img": "cosmetics/headphones.png"
+      "desc": "Bass boosted."
     },
     {
       "id": "antenna",
@@ -110,8 +101,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 115,
-      "desc": "Receiving signals.",
-      "img": "cosmetics/antenna.png"
+      "desc": "Receiving signals."
     },
     {
       "id": "bunny_ears",
@@ -121,8 +111,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 130,
-      "desc": "Hop hop.",
-      "img": "cosmetics/bunny_ears.png"
+      "desc": "Hop hop."
     },
     {
       "id": "cat_ears",
@@ -132,8 +121,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 135,
-      "desc": " nine lives not included.",
-      "img": "cosmetics/cat_ears.png"
+      "desc": " nine lives not included."
     },
     {
       "id": "silver_crown",
@@ -143,8 +131,7 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Moonlight silver.",
-      "img": "cosmetics/silver_crown.png"
+      "desc": "Moonlight silver."
     },
     {
       "id": "ruby_crown",
@@ -154,8 +141,7 @@
       "slot": "HEAD",
       "rarity": "Legendary",
       "price": 400,
-      "desc": "Rubies from the deep.",
-      "img": "cosmetics/ruby_crown.png"
+      "desc": "Rubies from the deep."
     },
     {
       "id": "dark_halo",
@@ -165,8 +151,7 @@
       "slot": "HEAD",
       "rarity": "Epic",
       "price": 310,
-      "desc": "Blessed, mostly.",
-      "img": "cosmetics/dark_halo.png"
+      "desc": "Blessed, mostly."
     },
     {
       "id": "party_hat",
@@ -176,8 +161,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 105,
-      "desc": "Confetti ready.",
-      "img": "cosmetics/party_hat.png"
+      "desc": "Confetti ready."
     },
     {
       "id": "straw_hat",
@@ -187,8 +171,7 @@
       "slot": "HEAD",
       "rarity": "Common",
       "price": 108,
-      "desc": "Farm fresh.",
-      "img": "cosmetics/straw_hat.png"
+      "desc": "Farm fresh."
     },
     {
       "id": "knight_helm",
@@ -198,8 +181,7 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 240,
-      "desc": "For honorable battles.",
-      "img": "cosmetics/knight_helm.png"
+      "desc": "For honorable battles."
     },
     {
       "id": "flower_crown",
@@ -209,8 +191,7 @@
       "slot": "HEAD",
       "rarity": "Rare",
       "price": 215,
-      "desc": "Spring forever.",
-      "img": "cosmetics/flower_crown.png"
+      "desc": "Spring forever."
     },
     {
       "id": "golden_tophat",
@@ -220,8 +201,7 @@
       "slot": "HEAD",
       "rarity": "Legendary",
       "price": 390,
-      "desc": "Proper AND rich.",
-      "img": "cosmetics/golden_tophat.png"
+      "desc": "Proper AND rich."
     }
   ]
 }

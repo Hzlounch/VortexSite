@@ -1,7 +1,7 @@
 {
   "category": "auras",
   "count": 15,
-  "updatedAt": "2026-09-27T13:39:34.418Z",
+  "updatedAt": "2026-09-28T16:45:08.900Z",
   "items": [
     {
       "id": "flame_ring",
@@ -11,8 +11,7 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 120,
-      "desc": "Warm circle.",
-      "img": "cosmetics/flame_ring.png"
+      "desc": "Warm circle."
     },
     {
       "id": "soul_fire",
@@ -22,8 +21,7 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 210,
-      "desc": "Blue soul flames.",
-      "img": "cosmetics/soul_fire.png"
+      "desc": "Blue soul flames."
     },
     {
       "id": "heart_aura",
@@ -33,8 +31,7 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 130,
-      "desc": "Full of love.",
-      "img": "cosmetics/heart_aura.png"
+      "desc": "Full of love."
     },
     {
       "id": "smoke_aura",
@@ -44,8 +41,7 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 110,
-      "desc": "Mysterious haze.",
-      "img": "cosmetics/smoke_aura.png"
+      "desc": "Mysterious haze."
     },
     {
       "id": "enchant_aura",
@@ -55,8 +51,7 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 220,
-      "desc": "Glyphs of power.",
-      "img": "cosmetics/enchant_aura.png"
+      "desc": "Glyphs of power."
     },
     {
       "id": "witch_aura",
@@ -66,8 +61,7 @@
       "slot": "AURA",
       "rarity": "Epic",
       "price": 290,
-      "desc": "Brewed shadows.",
-      "img": "cosmetics/witch_aura.png"
+      "desc": "Brewed shadows."
     },
     {
       "id": "portal_aura",
@@ -77,8 +71,7 @@
       "slot": "AURA",
       "rarity": "Epic",
       "price": 300,
-      "desc": "Nether calling.",
-      "img": "cosmetics/portal_aura.png"
+      "desc": "Nether calling."
     },
     {
       "id": "spark_aura",
@@ -88,8 +81,7 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 125,
-      "desc": "Crackling energy.",
-      "img": "cosmetics/spark_aura.png"
+      "desc": "Crackling energy."
     },
     {
       "id": "glow_aura",
@@ -99,8 +91,7 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 115,
-      "desc": "Soft glow.",
-      "img": "cosmetics/glow_aura.png"
+      "desc": "Soft glow."
     },
     {
       "id": "ember_aura",
@@ -110,8 +101,7 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 200,
-      "desc": "Floating embers.",
-      "img": "cosmetics/ember_aura.png"
+      "desc": "Floating embers."
     },
     {
       "id": "frost_aura",
@@ -121,8 +111,7 @@
       "slot": "AURA",
       "rarity": "Rare",
       "price": 205,
-      "desc": "Chilling mist.",
-      "img": "cosmetics/frost_aura.png"
+      "desc": "Chilling mist."
     },
     {
       "id": "lava_aura",
@@ -132,8 +121,7 @@
       "slot": "AURA",
       "rarity": "Epic",
       "price": 320,
-      "desc": "Careful, hot.",
-      "img": "cosmetics/lava_aura.png"
+      "desc": "Careful, hot."
     },
     {
       "id": "magic_aura",
@@ -143,8 +131,7 @@
       "slot": "AURA",
       "rarity": "Legendary",
       "price": 380,
-      "desc": "Arcane residue.",
-      "img": "cosmetics/magic_aura.png"
+      "desc": "Arcane residue."
     },
     {
       "id": "void_aura",
@@ -154,8 +141,7 @@
       "slot": "AURA",
       "rarity": "Legendary",
       "price": 390,
-      "desc": "Endless dark.",
-      "img": "cosmetics/void_aura.png"
+      "desc": "Endless dark."
     },
     {
       "id": "note_aura",
@@ -165,8 +151,7 @@
       "slot": "AURA",
       "rarity": "Common",
       "price": 135,
-      "desc": "Musical vibes.",
-      "img": "cosmetics/note_aura.png"
+      "desc": "Musical vibes."
     }
   ]
 }
