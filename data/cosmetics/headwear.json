@@ -1,7 +1,7 @@
 {
   "category": "headwear",
   "count": 20,
-  "updatedAt": "2026-09-28T19:34:25.410Z",
+  "updatedAt": "2026-09-29T13:32:50.305Z",
   "items": [
     {
       "id": "top_hat",
@@ -16,8 +16,7 @@
         "top",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/top_hat/preview.webp",
-      "thumb": "assets/cosmetics/headwear/top_hat/thumb.webp"
+      "img": "cosmetics/headwear/top_hat.webp"
     },
     {
       "id": "crown",
@@ -32,8 +31,7 @@
         "crown",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/crown/preview.webp",
-      "thumb": "assets/cosmetics/headwear/crown/thumb.webp"
+      "img": "cosmetics/headwear/crown.webp"
     },
     {
       "id": "demon_horns",
@@ -49,8 +47,7 @@
         "horns",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/demon_horns/preview.webp",
-      "thumb": "assets/cosmetics/headwear/demon_horns/thumb.webp"
+      "img": "cosmetics/headwear/demon_horns.webp"
     },
     {
       "id": "halo",
@@ -65,8 +62,7 @@
         "halo",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/halo/preview.webp",
-      "thumb": "assets/cosmetics/headwear/halo/thumb.webp"
+      "img": "cosmetics/headwear/halo.webp"
     },
     {
       "id": "wizard_hat",
@@ -81,8 +77,7 @@
         "wizard",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/wizard_hat/preview.webp",
-      "thumb": "assets/cosmetics/headwear/wizard_hat/thumb.webp"
+      "img": "cosmetics/headwear/wizard_hat.webp"
     },
     {
       "id": "viking_helm",
@@ -98,8 +93,7 @@
         "helm",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/viking_helm/preview.webp",
-      "thumb": "assets/cosmetics/headwear/viking_helm/thumb.webp"
+      "img": "cosmetics/headwear/viking_helm.webp"
     },
     {
       "id": "beanie",
@@ -114,8 +108,7 @@
         "beanie",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/beanie/preview.webp",
-      "thumb": "assets/cosmetics/headwear/beanie/thumb.webp"
+      "img": "cosmetics/headwear/beanie.webp"
     },
     {
       "id": "baseball_cap",
@@ -131,8 +124,7 @@
         "cap",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/baseball_cap/preview.webp",
-      "thumb": "assets/cosmetics/headwear/baseball_cap/thumb.webp"
+      "img": "cosmetics/headwear/baseball_cap.webp"
     },
     {
       "id": "headphones",
@@ -147,8 +139,7 @@
         "headphones",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/headphones/preview.webp",
-      "thumb": "assets/cosmetics/headwear/headphones/thumb.webp"
+      "img": "cosmetics/headwear/headphones.webp"
     },
     {
       "id": "antenna",
@@ -163,8 +154,7 @@
         "antenna",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/antenna/preview.webp",
-      "thumb": "assets/cosmetics/headwear/antenna/thumb.webp"
+      "img": "cosmetics/headwear/antenna.webp"
     },
     {
       "id": "bunny_ears",
@@ -180,8 +170,7 @@
         "ears",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/bunny_ears/preview.webp",
-      "thumb": "assets/cosmetics/headwear/bunny_ears/thumb.webp"
+      "img": "cosmetics/headwear/bunny_ears.webp"
     },
     {
       "id": "cat_ears",
@@ -197,8 +186,7 @@
         "ears",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/cat_ears/preview.webp",
-      "thumb": "assets/cosmetics/headwear/cat_ears/thumb.webp"
+      "img": "cosmetics/headwear/cat_ears.webp"
     },
     {
       "id": "silver_crown",
@@ -214,8 +202,7 @@
         "crown",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/silver_crown/preview.webp",
-      "thumb": "assets/cosmetics/headwear/silver_crown/thumb.webp"
+      "img": "cosmetics/headwear/silver_crown.webp"
     },
     {
       "id": "ruby_crown",
@@ -231,8 +218,7 @@
         "crown",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/ruby_crown/preview.webp",
-      "thumb": "assets/cosmetics/headwear/ruby_crown/thumb.webp"
+      "img": "cosmetics/headwear/ruby_crown.webp"
     },
     {
       "id": "dark_halo",
@@ -248,8 +234,7 @@
         "halo",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/dark_halo/preview.webp",
-      "thumb": "assets/cosmetics/headwear/dark_halo/thumb.webp"
+      "img": "cosmetics/headwear/dark_halo.webp"
     },
     {
       "id": "party_hat",
@@ -264,8 +249,7 @@
         "party",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/party_hat/preview.webp",
-      "thumb": "assets/cosmetics/headwear/party_hat/thumb.webp"
+      "img": "cosmetics/headwear/party_hat.webp"
     },
     {
       "id": "straw_hat",
@@ -280,8 +264,7 @@
         "straw",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/straw_hat/preview.webp",
-      "thumb": "assets/cosmetics/headwear/straw_hat/thumb.webp"
+      "img": "cosmetics/headwear/straw_hat.webp"
     },
     {
       "id": "knight_helm",
@@ -297,8 +280,7 @@
         "helm",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/knight_helm/preview.webp",
-      "thumb": "assets/cosmetics/headwear/knight_helm/thumb.webp"
+      "img": "cosmetics/headwear/knight_helm.webp"
     },
     {
       "id": "flower_crown",
@@ -314,8 +296,7 @@
         "crown",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/flower_crown/preview.webp",
-      "thumb": "assets/cosmetics/headwear/flower_crown/thumb.webp"
+      "img": "cosmetics/headwear/flower_crown.webp"
     },
     {
       "id": "golden_tophat",
@@ -331,8 +312,7 @@
         "tophat",
         "hat"
       ],
-      "preview": "assets/cosmetics/headwear/golden_tophat/preview.webp",
-      "thumb": "assets/cosmetics/headwear/golden_tophat/thumb.webp"
+      "img": "cosmetics/headwear/golden_tophat.webp"
     }
   ]
 }

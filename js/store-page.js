@@ -13,7 +13,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     { id: 'headwear', label: 'Headwear' },
     { id: 'pets', label: 'Pets' },
     { id: 'auras', label: 'Auras' },
-    { id: 'bundles', label: 'Bundles' }
+    { id: 'suits', label: 'Suits' }
   ];
   var RARITY_COL = { Common: '#9CA3AF', Rare: '#38BDF8', Epic: '#C084FC', Legendary: '#FB923C', Mythic: '#F472B6' };
   var RARITY_RANK = { Common: 0, Rare: 1, Epic: 2, Legendary: 3, Mythic: 4 };
@@ -91,8 +91,8 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
   function tileHTML(p, cls) {
     var rcol = RARITY_COL[p.rarity] || '#9CA3AF';
     var initial = esc(((p.name || p.id || '?').trim().charAt(0) || '?').toUpperCase());
-    if (p.thumb) {
-      return '<img src="' + esc(p.thumb) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="256" height="256"' +
+    if (p.img) {
+      return '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="512" height="512"' +
         ' onerror="this.outerHTML=\'<div class=&quot;' + cls + '&quot; style=&quot;color:' + rcol + '&quot;>' + initial + '</div>\'">';
     }
     return '<div class="' + cls + '" style="color:' + rcol + '">' + initial + '</div>';
@@ -207,7 +207,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
         if (!cover) cover = items[0];
         html += '<section class="wrap store-sec collection" id="col-' + c.tag + '">' +
           '<div class="collection-hero" data-view="' + esc(cover.id) + '">' +
-          (cover.preview ? '<img src="' + esc(cover.preview) + '" alt="" loading="lazy" decoding="async">' : '') +
+          (cover.img ? '<img src="' + esc(cover.img) + '" alt="" loading="lazy" decoding="async">' : '') +
           '<div class="collection-hero-text"><h2>' + esc(c.title) + '</h2><p>' + esc(c.blurb) + '</p>' +
           '<span class="btn btn-secondary sm">View collection</span></div></div>' +
           '<div class="prod-grid">' + items.slice(0, 5).map(card).join('') + '</div></section>';
@@ -315,8 +315,8 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     m.innerHTML = '<div class="store-modal-box wide">' +
       '<button class="store-modal-x" id="storeModalX">✕</button>' +
       '<div class="detail-stage" id="detailStage">' +
-      (p.preview
-        ? '<img class="detail-preview" src="' + esc(p.preview) + '" alt="' + esc(p.name) + '" decoding="async">'
+      (p.img
+        ? '<img class="detail-preview" src="' + esc(p.img) + '" alt="' + esc(p.name) + '" decoding="async">'
         : '<div class="detail-letter" style="color:' + rcol + '">' + esc((p.name || '?').charAt(0)) + '</div>') +
       '</div>' +
       '<h2>' + esc(p.name) + '</h2>' +
@@ -624,7 +624,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
         ALL.forEach(function (p) { byId[p.id] = p; });
         byCat = { wings: parts[0], cloaks: parts[1] };
         var gal = byId.galaxy_wings || byId.galaxy_cloak || ALL[0];
-        if (heroImg && gal && gal.preview) heroImg.src = gal.preview;
+        if (heroImg && gal && gal.img) heroImg.src = gal.img;
         paint();
         loadAccount();
         return Promise.all(CATS.filter(function (c) { return c.id !== 'wings' && c.id !== 'cloaks'; })

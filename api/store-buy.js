@@ -13,7 +13,7 @@ function loadCatalog() {
   if (CATALOG) return CATALOG;
   CATALOG = { prices: {}, names: {} };
   try {
-    const cats = ['cloaks', 'wings', 'headwear', 'pets', 'auras', 'bundles'];
+    const cats = ['cloaks', 'wings', 'headwear', 'pets', 'auras', 'suits'];
     for (const c of cats) {
       const f = path.join(__dirname, '..', 'data', 'cosmetics', c + '.json');
       const d = JSON.parse(fs.readFileSync(f, 'utf8'));

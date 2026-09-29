@@ -1,7 +1,7 @@
 {
   "category": "wings",
   "count": 15,
-  "updatedAt": "2026-09-28T19:34:25.410Z",
+  "updatedAt": "2026-09-29T13:32:50.305Z",
   "items": [
     {
       "id": "dragon_wings",
@@ -16,8 +16,7 @@
         "dragon",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/dragon_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/dragon_wings/thumb.webp"
+      "img": "cosmetics/wings/dragon_wings.webp"
     },
     {
       "id": "angel_wings",
@@ -32,8 +31,7 @@
         "angel",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/angel_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/angel_wings/thumb.webp"
+      "img": "cosmetics/wings/angel_wings.webp"
     },
     {
       "id": "demon_wings",
@@ -48,8 +46,7 @@
         "demon",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/demon_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/demon_wings/thumb.webp"
+      "img": "cosmetics/wings/demon_wings.webp"
     },
     {
       "id": "void_wings",
@@ -64,8 +61,7 @@
         "void",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/void_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/void_wings/thumb.webp"
+      "img": "cosmetics/wings/void_wings.webp"
     },
     {
       "id": "galaxy_wings",
@@ -80,8 +76,7 @@
         "galaxy",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/galaxy_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/galaxy_wings/thumb.webp"
+      "img": "cosmetics/wings/galaxy_wings.webp"
     },
     {
       "id": "mechanical_wings",
@@ -96,8 +91,7 @@
         "mechanical",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/mechanical_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/mechanical_wings/thumb.webp"
+      "img": "cosmetics/wings/mechanical_wings.webp"
     },
     {
       "id": "crystal_wings",
@@ -112,8 +106,7 @@
         "crystal",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/crystal_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/crystal_wings/thumb.webp"
+      "img": "cosmetics/wings/crystal_wings.webp"
     },
     {
       "id": "fire_wings",
@@ -128,8 +121,7 @@
         "fire",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/fire_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/fire_wings/thumb.webp"
+      "img": "cosmetics/wings/fire_wings.webp"
     },
     {
       "id": "ice_wings",
@@ -144,8 +136,7 @@
         "ice",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/ice_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/ice_wings/thumb.webp"
+      "img": "cosmetics/wings/ice_wings.webp"
     },
     {
       "id": "fairy_wings",
@@ -160,8 +151,7 @@
         "fairy",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/fairy_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/fairy_wings/thumb.webp"
+      "img": "cosmetics/wings/fairy_wings.webp"
     },
     {
       "id": "shadow_wings",
@@ -176,8 +166,7 @@
         "shadow",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/shadow_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/shadow_wings/thumb.webp"
+      "img": "cosmetics/wings/shadow_wings.webp"
     },
     {
       "id": "storm_wings",
@@ -192,8 +181,7 @@
         "storm",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/storm_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/storm_wings/thumb.webp"
+      "img": "cosmetics/wings/storm_wings.webp"
     },
     {
       "id": "golden_wings",
@@ -208,8 +196,7 @@
         "golden",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/golden_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/golden_wings/thumb.webp"
+      "img": "cosmetics/wings/golden_wings.webp"
     },
     {
       "id": "frost_wings",
@@ -224,8 +211,7 @@
         "frost",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/frost_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/frost_wings/thumb.webp"
+      "img": "cosmetics/wings/frost_wings.webp"
     },
     {
       "id": "ember_wings",
@@ -240,8 +226,7 @@
         "ember",
         "wings"
       ],
-      "preview": "assets/cosmetics/wings/ember_wings/preview.webp",
-      "thumb": "assets/cosmetics/wings/ember_wings/thumb.webp"
+      "img": "cosmetics/wings/ember_wings.webp"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "category": "pets",
   "count": 15,
-  "updatedAt": "2026-09-28T19:34:25.410Z",
+  "updatedAt": "2026-09-29T13:32:50.305Z",
   "items": [
     {
       "id": "mini_dragon",
@@ -16,8 +16,7 @@
         "dragon",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/mini_dragon/preview.webp",
-      "thumb": "assets/cosmetics/pets/mini_dragon/thumb.webp"
+      "img": "cosmetics/pets/mini_dragon.webp"
     },
     {
       "id": "mini_ghost",
@@ -32,8 +31,7 @@
         "ghost",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/mini_ghost/preview.webp",
-      "thumb": "assets/cosmetics/pets/mini_ghost/thumb.webp"
+      "img": "cosmetics/pets/mini_ghost.webp"
     },
     {
       "id": "slime_pet",
@@ -48,8 +46,7 @@
         "slime",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/slime_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/slime_pet/thumb.webp"
+      "img": "cosmetics/pets/slime_pet.webp"
     },
     {
       "id": "robot_pet",
@@ -64,8 +61,7 @@
         "robot",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/robot_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/robot_pet/thumb.webp"
+      "img": "cosmetics/pets/robot_pet.webp"
     },
     {
       "id": "creeper_pet",
@@ -80,8 +76,7 @@
         "creeper",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/creeper_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/creeper_pet/thumb.webp"
+      "img": "cosmetics/pets/creeper_pet.webp"
     },
     {
       "id": "phoenix_pet",
@@ -96,8 +91,7 @@
         "phoenix",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/phoenix_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/phoenix_pet/thumb.webp"
+      "img": "cosmetics/pets/phoenix_pet.webp"
     },
     {
       "id": "golem_pet",
@@ -112,8 +106,7 @@
         "golem",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/golem_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/golem_pet/thumb.webp"
+      "img": "cosmetics/pets/golem_pet.webp"
     },
     {
       "id": "wisp_pet",
@@ -128,8 +121,7 @@
         "wisp",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/wisp_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/wisp_pet/thumb.webp"
+      "img": "cosmetics/pets/wisp_pet.webp"
     },
     {
       "id": "bee_pet",
@@ -144,8 +136,7 @@
         "bee",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/bee_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/bee_pet/thumb.webp"
+      "img": "cosmetics/pets/bee_pet.webp"
     },
     {
       "id": "mushroom_pet",
@@ -160,8 +151,7 @@
         "mushroom",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/mushroom_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/mushroom_pet/thumb.webp"
+      "img": "cosmetics/pets/mushroom_pet.webp"
     },
     {
       "id": "turtle_pet",
@@ -176,8 +166,7 @@
         "turtle",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/turtle_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/turtle_pet/thumb.webp"
+      "img": "cosmetics/pets/turtle_pet.webp"
     },
     {
       "id": "owl_pet",
@@ -192,8 +181,7 @@
         "owl",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/owl_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/owl_pet/thumb.webp"
+      "img": "cosmetics/pets/owl_pet.webp"
     },
     {
       "id": "void_spirit_pet",
@@ -209,8 +197,7 @@
         "spirit",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/void_spirit_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/void_spirit_pet/thumb.webp"
+      "img": "cosmetics/pets/void_spirit_pet.webp"
     },
     {
       "id": "crystal_golem_pet",
@@ -226,8 +213,7 @@
         "golem",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/crystal_golem_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/crystal_golem_pet/thumb.webp"
+      "img": "cosmetics/pets/crystal_golem_pet.webp"
     },
     {
       "id": "frog_pet",
@@ -242,8 +228,7 @@
         "frog",
         "pet"
       ],
-      "preview": "assets/cosmetics/pets/frog_pet/preview.webp",
-      "thumb": "assets/cosmetics/pets/frog_pet/thumb.webp"
+      "img": "cosmetics/pets/frog_pet.webp"
     }
   ]
 }

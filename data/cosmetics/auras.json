@@ -1,7 +1,7 @@
 {
   "category": "auras",
   "count": 15,
-  "updatedAt": "2026-09-28T19:34:25.410Z",
+  "updatedAt": "2026-09-29T13:32:50.305Z",
   "items": [
     {
       "id": "flame_ring",
@@ -17,8 +17,7 @@
         "ring",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/flame_ring/preview.webp",
-      "thumb": "assets/cosmetics/auras/flame_ring/thumb.webp"
+      "img": "cosmetics/auras/flame_ring.webp"
     },
     {
       "id": "soul_fire",
@@ -34,8 +33,7 @@
         "fire",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/soul_fire/preview.webp",
-      "thumb": "assets/cosmetics/auras/soul_fire/thumb.webp"
+      "img": "cosmetics/auras/soul_fire.webp"
     },
     {
       "id": "heart_aura",
@@ -50,8 +48,7 @@
         "heart",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/heart_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/heart_aura/thumb.webp"
+      "img": "cosmetics/auras/heart_aura.webp"
     },
     {
       "id": "smoke_aura",
@@ -66,8 +63,7 @@
         "smoke",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/smoke_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/smoke_aura/thumb.webp"
+      "img": "cosmetics/auras/smoke_aura.webp"
     },
     {
       "id": "enchant_aura",
@@ -82,8 +78,7 @@
         "enchant",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/enchant_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/enchant_aura/thumb.webp"
+      "img": "cosmetics/auras/enchant_aura.webp"
     },
     {
       "id": "witch_aura",
@@ -98,8 +93,7 @@
         "witch",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/witch_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/witch_aura/thumb.webp"
+      "img": "cosmetics/auras/witch_aura.webp"
     },
     {
       "id": "portal_aura",
@@ -114,8 +108,7 @@
         "portal",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/portal_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/portal_aura/thumb.webp"
+      "img": "cosmetics/auras/portal_aura.webp"
     },
     {
       "id": "spark_aura",
@@ -130,8 +123,7 @@
         "spark",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/spark_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/spark_aura/thumb.webp"
+      "img": "cosmetics/auras/spark_aura.webp"
     },
     {
       "id": "glow_aura",
@@ -146,8 +138,7 @@
         "glow",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/glow_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/glow_aura/thumb.webp"
+      "img": "cosmetics/auras/glow_aura.webp"
     },
     {
       "id": "ember_aura",
@@ -162,8 +153,7 @@
         "ember",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/ember_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/ember_aura/thumb.webp"
+      "img": "cosmetics/auras/ember_aura.webp"
     },
     {
       "id": "frost_aura",
@@ -178,8 +168,7 @@
         "frost",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/frost_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/frost_aura/thumb.webp"
+      "img": "cosmetics/auras/frost_aura.webp"
     },
     {
       "id": "lava_aura",
@@ -194,8 +183,7 @@
         "lava",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/lava_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/lava_aura/thumb.webp"
+      "img": "cosmetics/auras/lava_aura.webp"
     },
     {
       "id": "magic_aura",
@@ -210,8 +198,7 @@
         "magic",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/magic_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/magic_aura/thumb.webp"
+      "img": "cosmetics/auras/magic_aura.webp"
     },
     {
       "id": "void_aura",
@@ -226,8 +213,7 @@
         "void",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/void_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/void_aura/thumb.webp"
+      "img": "cosmetics/auras/void_aura.webp"
     },
     {
       "id": "note_aura",
@@ -242,8 +228,7 @@
         "note",
         "aura"
       ],
-      "preview": "assets/cosmetics/auras/note_aura/preview.webp",
-      "thumb": "assets/cosmetics/auras/note_aura/thumb.webp"
+      "img": "cosmetics/auras/note_aura.webp"
     }
   ]
 }

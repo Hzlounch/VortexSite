@@ -3,10 +3,9 @@
 
 Reads the REAL game assets (vortex-menu-mod model JSON + texture PNGs),
 rasterizes them with a dimetric software renderer (Pillow only, no deps),
-and writes transparent store previews:
+and writes one flat transparent store render per cosmetic:
 
-  VortexSite/assets/cosmetics/<cat>/<id>/preview.webp   (512px, q88)
-  VortexSite/assets/cosmetics/<cat>/<id>/thumb.webp     (256px, q80)
+  VortexSite/cosmetics/<cat>/<id>.webp   (512px, q88)
 
 Per type:
   WINGS/PET/HAT : all model boxes, dimetric 3/4 view, texture-true flat
@@ -15,10 +14,10 @@ Per type:
                   vertical gradient is sampled from the REAL cape texture.
   AURA          : particle ring using the particle named in the anim JSON
                   (portal/flame/soul_fire_flame/...) mapped to colors.
-  SUIT          : renders the outfit's BACK piece (or first outfit piece).
+  SUIT          : composite of the real outfit members (lead + row).
 
 Self-checks: every render must be non-blank; wings renders must be
-horizontally symmetric (validates projection + mirror handling).
+structurally symmetric (mirrored mass + centered bbox).
 
 Run:  python scripts/render-cosmetics.py
 Requires: Pillow
@@ -40,13 +39,13 @@ MOD = os.path.normpath(os.path.join(
     SITE, "..", "MinecraftLauncher", "vortex-menu-mod", "src", "main",
     "resources", "assets", "vortex_menu"))
 INDEX = os.path.join(MOD, "cosmetics", "index.json")
-OUT = os.path.join(SITE, "assets", "cosmetics")
+OUT = os.path.join(SITE, "cosmetics")
 
 COS30 = math.cos(math.radians(30))
 SIN30 = 0.5
 
 SLOT_CAT = {"CAPE": "cloaks", "HEAD": "headwear", "BACK": "wings",
-            "PET": "pets", "AURA": "auras", "SUIT": "bundles"}
+            "PET": "pets", "AURA": "auras", "SUIT": "suits"}
 
 PARTICLE_COL = {
     "portal": (168, 85, 247), "enchant": (74, 222, 128),
@@ -330,9 +329,8 @@ def main():
         ctype = c.get("type", "")
         slot = c.get("slot", "")
         cat = SLOT_CAT.get(slot, "misc")
-        ddir = os.path.join(OUT, cat, cid)
-        prev = os.path.join(ddir, "preview.webp")
-        thumb = os.path.join(ddir, "thumb.webp")
+        ddir = os.path.join(OUT, cat)
+        out = os.path.join(ddir, cid + ".webp")
         os.makedirs(ddir, exist_ok=True)
         # freshness: skip unless a source changed
         try:
@@ -348,8 +346,7 @@ def main():
                         p = resolve(rel)
                         if p:
                             srcs.append(os.path.getmtime(p))
-            if os.path.exists(prev) and os.path.exists(thumb) and \
-                    os.path.getmtime(prev) >= max(srcs):
+            if os.path.exists(out) and os.path.getmtime(out) >= max(srcs):
                 skipped += 1
                 continue
         except Exception:
@@ -397,8 +394,7 @@ def main():
         if ctype == "WINGS" and not symmetric(im):
             fails.append((cid, "asymmetric wings render"))
             continue
-        im.save(prev, "WEBP", quality=88, method=4)
-        im.resize((256, 256), Image.LANCZOS).save(thumb, "WEBP", quality=80, method=4)
+        im.save(out, "WEBP", quality=88, method=4)
         made += 1
         if made % 10 == 0:
             print("  ...%d done" % made, flush=True)
