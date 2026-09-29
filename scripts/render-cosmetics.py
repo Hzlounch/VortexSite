@@ -125,11 +125,46 @@ def shade(col, k):
     return tuple(max(0, min(255, int(c * k))) for c in col)
 
 
-def render_parts(parts, tex, size=512):
-    """Rasterize model parts -> transparent RGBA image."""
+# Consistent studio mannequin (same geometry/colors/pose for every product
+# that is worn on the body — never a random character, never AI).
+GRAPHITE = (38, 43, 54)
+GRAPHITE_LT = (47, 52, 64)
+MAN_FULL = {
+    "torso": {"flat": GRAPHITE, "boxes": [{"from": [-4, 10, -2], "to": [4, 22, 2]}]},
+    "head": {"flat": GRAPHITE_LT, "boxes": [{"from": [-4, 22, -4], "to": [4, 30, 4]}]},
+    "armL": {"flat": GRAPHITE, "boxes": [{"from": [4, 10, -2], "to": [7, 21, 2]}]},
+    "armR": {"flat": GRAPHITE, "boxes": [{"from": [-7, 10, -2], "to": [-4, 21, 2]}]},
+    "legL": {"flat": GRAPHITE, "boxes": [{"from": [0.5, 0, -2], "to": [3.5, 10, 2]}]},
+    "legR": {"flat": GRAPHITE, "boxes": [{"from": [-3.5, 0, -2], "to": [-0.5, 10, 2]}]},
+}
+MAN_HEAD = {"head": MAN_FULL["head"]}
+MAN_TORSO = {"torso": MAN_FULL["torso"], "head": MAN_FULL["head"]}
+
+
+def uv_rect(fid, u, v, dx, dy, dz, tw, th):
+    """Per-face UV rect (documented approximation of the vanilla cuboid
+    unfolding). Only +X/+Y/+Z faces are ever drawn by our camera."""
+    if fid == "pz":
+        r = (u, v, dx, dy)
+    elif fid == "px":
+        r = (u + dx, v, dz, dy)
+    else:
+        r = (u + dx + dz, v, dx, dz)
+    x0 = max(0, min(tw - 1, int(r[0])))
+    y0 = max(0, min(th - 1, int(r[1])))
+    x1 = max(x0 + 1, min(tw, int(r[0] + max(1, r[2]))))
+    y1 = max(y0 + 1, min(th, int(r[1] + max(1, r[3]))))
+    return (x0, y0, x1, y1)
+
+
+def collect_faces(parts, tex=None):
+    """parts: model-style {name: {mirror?, flat?, boxes:[{uv?,from,to}]}}.
+    Returns [(depth, fid, pts3d, kind, payload)] where kind is 'tex' with
+    (tex_img, uvrect) or 'flat' with an (r,g,b) color."""
     faces = []
-    for _name, spec in parts.items():
+    for _name, spec in (parts or {}).items():
         mirror = bool(spec.get("mirror"))
+        flat = spec.get("flat")
         for b in spec.get("boxes", []):
             uv = b.get("uv", [0, 0])
             f, t = b["from"], b["to"]
@@ -137,108 +172,179 @@ def render_parts(parts, tex, size=512):
             x1, y1, z1 = t
             if mirror:
                 x0, x1 = -x1, -x0
-            col = tex_avg(tex, uv[0], uv[1], abs(x1 - x0), abs(y1 - y0))
             box = (min(x0, x1), min(y0, y1), min(z0, z1),
                    max(x0, x1), max(y0, y1), max(z0, z1))
+            dx = box[3] - box[0]
+            dy = box[4] - box[1]
+            dz = box[5] - box[2]
+            if dx <= 0 or dy <= 0 or dz <= 0:
+                continue
             for fid, pts, _n in box_faces(box):
                 cx = sum(p[0] for p in pts) / 4.0
                 cy = sum(p[1] for p in pts) / 4.0
                 cz = sum(p[2] for p in pts) / 4.0
                 depth = (cx + cz) - cy * 0.5
-                faces.append((depth, fid, pts, shade(col, SHADE[fid])))
+                if flat is not None:
+                    faces.append((depth, fid, pts, "flat", tuple(flat)))
+                elif tex is not None:
+                    tw, th = tex.size
+                    ur = uv_rect(fid, uv[0], uv[1], dx, dy, dz, tw, th)
+                    faces.append((depth, fid, pts, "tex", (tex, ur)))
     faces.sort(key=lambda f: f[0])
-    if not faces:
-        return None
-    pts2 = [project(*p) for _d, _f, ps, _c in faces for p in ps]
+    return faces
+
+
+def fit_faces(faces, size, fill=0.84):
+    pts2 = [project(*p) for _d, _f, ps, _k, _p in faces for p in ps]
     xs = [p[0] for p in pts2]
     ys = [p[1] for p in pts2]
     bw = max(1.0, max(xs) - min(xs))
     bh = max(1.0, max(ys) - min(ys))
-    sc = min((size * 0.84) / bw, (size * 0.84) / bh)
-    # center on the pixel grid ((size-1)/2), otherwise mirrored renders
-    # come out half a pixel off and fail the symmetry check
+    sc = min((size * fill) / bw, (size * fill) / bh)
     ox = (size - 1) / 2 - (min(xs) + max(xs)) / 2 * sc
     oy = (size - 1) / 2 - (min(ys) + max(ys)) / 2 * sc
+    return sc, ox, oy
+
+
+def draw_faces(im, faces, sc, ox, oy):
+    from PIL import Image as _I
+    dr = ImageDraw.Draw(im)
 
     def mp(p):
-        return (ox + p[0] * sc, oy + p[1] * sc)
+        return (ox + project(*p)[0] * sc, oy + project(*p)[1] * sc)
 
+    for _d, fid, ps, kind, payload in faces:
+        poly = [mp(p) for p in ps]
+        xs = [p[0] for p in poly]
+        ys = [p[1] for p in poly]
+        bx0, by0 = int(min(xs)), int(min(ys))
+        bw = max(1, int(max(xs)) - bx0 + 1)
+        bh = max(1, int(max(ys)) - by0 + 1)
+        if kind == "tex":
+            tex, (iu0, iv0, iu1, iv1) = payload
+            tile = tex.transform((bw, bh), _I.QUAD,
+                                 (iu0, iv0, iu0, iv1, iu1, iv1, iu1, iv0),
+                                 _I.NEAREST)
+            k = SHADE[fid]
+            tile = tile.convert("RGB").point(lambda v: int(v * k)).convert("RGBA")
+            mask = _I.new("L", (bw, bh), 0)
+            ImageDraw.Draw(mask).polygon([(x - bx0, y - by0) for x, y in poly], fill=255)
+            im.paste(tile, (bx0, by0), mask)
+            edge = None
+        else:
+            col = shade(payload, SHADE[fid]) + (255,)
+            dr.polygon(poly, fill=col)
+            edge = tuple(max(0, c - 45) for c in col[:3]) + (255,)
+        if edge is None:
+            # dark crisp edge sampled from the face itself
+            edge = (10, 12, 18, 255)
+        dr.line(poly + [poly[0]], fill=edge, width=max(2, int(sc * 0.07)))
+
+
+def add_shadow(im, faces, sc, ox, oy, size):
+    from PIL import Image as _I, ImageFilter as _F
+    pts2 = []
+    for _d, _f, ps, _k, _p in faces:
+        for p in ps:
+            pts2.append((ox + project(*p)[0] * sc, oy + project(*p)[1] * sc))
+    if not pts2:
+        return
+    xs = [p[0] for p in pts2]
+    ys = [p[1] for p in pts2]
+    cx = (min(xs) + max(xs)) / 2
+    by = max(ys) + size * 0.03
+    rx = max(8.0, (max(xs) - min(xs)) * 0.30)
+    ry = max(4.0, rx * 0.30)
+    layer = _I.new("RGBA", (size, size), (0, 0, 0, 0))
+    ImageDraw.Draw(layer).ellipse([cx - rx, by - ry, cx + rx, by + ry], fill=(0, 0, 0, 95))
+    layer = layer.filter(_F.GaussianBlur(12))
+    im.alpha_composite(layer)
+
+
+def render_parts(parts, tex, size=512, figures=None):
+    """Rasterize model parts (+ optional mannequin figures) -> RGBA image."""
+    faces = collect_faces(figures) + collect_faces(parts, tex)
+    if not faces:
+        return None
+    sc, ox, oy = fit_faces(faces, size)
     im = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    dr = ImageDraw.Draw(im)
-    for _d, _f, ps, col in faces:
-        poly = [mp(project(*p)) for p in ps]
-        dr.polygon(poly, fill=col + (255,))
-        edge = tuple(max(0, c - 45) for c in col) + (255,)
-        dr.line(poly + [poly[0]], fill=edge, width=max(2, int(sc * 0.09)))
+    add_shadow(im, faces, sc, ox, oy, size)
+    draw_faces(im, faces, sc, ox, oy)
     return im
 
 
-def render_cape(tex, size=512):
-    """Tapered cloak quad with gradient sampled from the real texture."""
+def render_cape(tex, size=512, figures=None):
+    """Cloak worn behind the torso: 24 textured bands sampling the REAL cape
+    texture (creeper faces, starfields and all), draped behind the body."""
     tw, th = tex.size
     bands = 24
-    cols = []
-    for i in range(bands):
-        v = int(i * th / bands)
-        cols.append(tex_avg(tex, 0, v, tw, max(1, th // bands)))
     top_w, hem_w, h = 9.0, 12.5, 21.0
     y0 = 10.0
-    im = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    dr = ImageDraw.Draw(im)
-    quads = []
+    faces = collect_faces(figures)
     for i in range(bands):
         t0, t1 = i / bands, (i + 1) / bands
         w0 = top_w + (hem_w - top_w) * t0
         w1 = top_w + (hem_w - top_w) * t1
         sway = math.sin(t1 * 2.4) * 1.2
-        p3 = [(-w0 / 2, y0 - h * t0, 0), (w0 / 2, y0 - h * t0, 0),
-              (w1 / 2 + sway, y0 - h * t1, 0), (-w1 / 2 + sway, y0 - h * t1, 0)]
-        fold = 0.92 if (i % 3 == 1) else 1.0
-        quads.append((p3, shade(cols[i], 0.9 * fold)))
-    pts2 = [project(*p) for q, _c in quads for p in q]
-    xs = [p[0] for p in pts2]
-    ys = [p[1] for p in pts2]
-    sc = min((size * 0.8) / max(1.0, max(xs) - min(xs)),
-             (size * 0.8) / max(1.0, max(ys) - min(ys)))
-    ox = size / 2 - (min(xs) + max(xs)) / 2 * sc
-    oy = size / 2 - (min(ys) + max(ys)) / 2 * sc
-    for q, col in quads:
-        poly = [(ox + project(*p)[0] * sc, oy + project(*p)[1] * sc) for p in q]
-        dr.polygon(poly, fill=col + (255,))
+        z = -2.2
+        p3 = [(-w0 / 2, y0 - h * t0, z), (w0 / 2, y0 - h * t0, z),
+              (w1 / 2 + sway, y0 - h * t1, z), (-w1 / 2 + sway, y0 - h * t1, z)]
+        v0 = max(0, min(th - 1, int(t0 * th)))
+        v1 = max(v0 + 1, min(th, int(t1 * th) + 1))
+        depth = (0 + z) - (y0 - h * (t0 + t1) / 2) * 0.5
+        faces.append((depth, "pz", p3, "tex", (tex, (0, v0, tw, v1))))
+    faces.sort(key=lambda f: f[0])
+    if not faces:
+        return None
+    sc, ox, oy = fit_faces(faces, size, fill=0.80)
+    im = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    add_shadow(im, faces, sc, ox, oy, size)
+    draw_faces(im, faces, sc, ox, oy)
     return im
 
 
-def render_aura(color, size=512, seed=""):
-    """Particle ring motif. Geometry varies deterministically per cosmetic id
-    (same particle color = same effect family, but every product card is
-    visually distinct)."""
+def render_aura(color, size=512, seed="", figures=None):
+    """Particle ring motif around the mannequin torso. Geometry varies
+    deterministically per cosmetic id (same particle color = same effect
+    family, but every product card is visually distinct)."""
     import hashlib as _hl
     h = int(_hl.md5(seed.encode("utf-8")).hexdigest()[:8], 16) if seed else 0
     tilt = 0.11 + (h % 100) / 100 * 0.08
     phase = ((h >> 8) % 100) / 100 * 2 * math.pi
+    faces = collect_faces(figures)
+    if not faces:
+        return None
+    sc, ox, oy = fit_faces(faces, size)
     im = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    add_shadow(im, faces, sc, ox, oy, size)
+    draw_faces(im, faces, sc, ox, oy)
+
+    def mp(p):
+        return (ox + project(*p)[0] * sc, oy + project(*p)[1] * sc)
+
     dr = ImageDraw.Draw(im)
-    cx = cy = size / 2
-    rx, ry = size * 0.30, size * 0.30 * tilt / 0.13
+    ccx, ccy = mp((0, 13, 0))
+    trx, _try = mp((7, 13, 0))
+    rx = abs(trx - ccx) * 1.35
+    ry = rx * (0.32 + (h % 50) / 100 * 0.2)
     glow = color + (255,)
     rings = 2 + (h % 3 == 0)
     for ring in range(rings):
         rr = 1.0 - ring * (0.24 + ((h >> (4 + ring)) % 10) / 100)
         n = 26 - ring * 6 + ((h >> (8 + ring * 3)) % 7) - 3
-        dot = 13 - ring * 3
+        dot = max(4, size / 512 * (13 - ring * 3) * (rx / (size * 0.3)))
         for i in range(max(8, n)):
             a = 2 * math.pi * i / n + phase + ring * 0.35
-            x = cx + math.cos(a) * rx * rr
-            y = cy + math.sin(a) * ry * rr - size * 0.03 * ring
+            x = ccx + math.cos(a) * rx * rr
+            y = ccy + math.sin(a) * ry * rr - ring * size * 0.02
             r = dot * (0.8 + 0.2 * math.sin(a * 3))
             fade = (200, 200, 200, 110)
             dr.ellipse([x - r * 1.9, y - r * 1.9, x + r * 1.9, y + r * 1.9], fill=fade)
             dr.ellipse([x - r, y - r, x + r, y + r], fill=glow)
-    dr.ellipse([cx - 26, cy - 66, cx + 26, cy - 14], fill=glow)
     return im
 
 
-def render_piece(by_id, oid):
+def render_piece(by_id, oid, figures=None):
     """Render one catalog item's model -> RGBA image, or None."""
     ref = by_id.get(oid, {})
     mp = resolve(ref.get("model") or "")
@@ -252,7 +358,7 @@ def render_piece(by_id, oid):
     if not isinstance(m.get("parts"), dict):
         return None
     try:
-        return render_parts(m["parts"], Image.open(tp).convert("RGB"))
+        return render_parts(m["parts"], Image.open(tp).convert("RGB"), figures=figures)
     except Exception:
         return None
 
@@ -294,7 +400,10 @@ def nonblank(im):
 def symmetric(im, tol=0.03):
     """Structural left/right symmetry: mirrored alpha mass + centered bbox.
     (Pixel-diff checks are too fragile: sub-pixel centering + bilinear edges
-    produce false failures on renders that are visibly perfectly mirrored.)"""
+    produce false failures on renders that are visibly perfectly mirrored.)
+    NOTE: worn renders (wings + mannequin) use a larger tol on purpose — a
+    correct 3/4 camera puts the +x wing nearer, so it covers more of the
+    torso than its mirror. That is right, not a bug."""
     w, h = im.size
     px = im.load()
     left = right = 0
@@ -361,15 +470,18 @@ def main():
                         particle = str(load_json(ap).get("particle", "flame"))
                     except Exception:
                         pass
-                im = render_aura(PARTICLE_COL.get(particle.lower(), (251, 146, 60)), seed=cid)
+                im = render_aura(PARTICLE_COL.get(particle.lower(), (251, 146, 60)), seed=cid, figures=MAN_TORSO)
             elif ctype == "CAPE":
                 tp = resolve(c.get("texture") or "")
                 if not tp:
                     raise RuntimeError("no texture")
-                im = render_cape(Image.open(tp).convert("RGB"))
+                im = render_cape(Image.open(tp).convert("RGB"), figures=MAN_TORSO)
             else:
                 # SUIT: composite of the real outfit members (lead + row).
                 # Falls back to any single renderable piece, never blank.
+                # WINGS wear a full body, HATs sit on the head, PETs stand
+                # alone — one consistent mannequin everywhere.
+                figs = {"WINGS": MAN_FULL, "HAT": MAN_HEAD}.get(ctype)
                 outfit = c.get("outfit") or {}
                 ordered = []
                 if outfit.get("BACK"):
@@ -379,7 +491,7 @@ def main():
                     ordered.append(cid)
                 renders = []
                 for oid in ordered:
-                    r = render_piece(by_id, oid)
+                    r = render_piece(by_id, oid, figures=figs if ctype != "SUIT" else None)
                     if r is not None:
                         renders.append(r)
                 if not renders:
@@ -391,7 +503,7 @@ def main():
         if im is None or not nonblank(im):
             fails.append((cid, "blank render"))
             continue
-        if ctype == "WINGS" and not symmetric(im):
+        if ctype == "WINGS" and not symmetric(im, tol=0.06):
             fails.append((cid, "asymmetric wings render"))
             continue
         im.save(out, "WEBP", quality=88, method=4)
