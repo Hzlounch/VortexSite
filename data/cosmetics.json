@@ -1,10 +1,14 @@
 {
-  "updatedAt": "2026-10-03T15:58:09.361Z",
-  "total": 11,
+  "updatedAt": "2026-10-03T17:20:52.618Z",
+  "total": 3,
   "counts": {
-    "capes": 11
+    "capes": 1,
+    "hats": 1,
+    "pets": 1
   },
   "categories": [
-    "capes"
+    "capes",
+    "hats",
+    "pets"
   ]
 }

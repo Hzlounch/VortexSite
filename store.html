@@ -43,16 +43,16 @@
   </div>
 
   <main>
-    <!-- HERO: VORTEX CAPES -->
+    <!-- HERO: LINK ACCOUNT COLLECTION -->
     <section class="store-hero wrap">
       <div class="store-hero-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="store-hero-text">
         <span class="hero-eyebrow"><i class="fa-solid fa-crown"></i> Signature drop — Vortex Signature Cape</span>
-        <h1>VORTEX <span class="grad">CAPES</span></h1>
-        <p>Custom capes built for the Vortex client. Original designs, rendered from the real in-game look. One-time purchase, yours forever. Cosmetic only, never pay-to-win.</p>
+        <h1>LINK ACCOUNT <span class="grad">COLLECTION</span></h1>
+        <p>Three Vortex-exclusive cosmetics — signature cape, signature hat and the Vortexling pet. Link your Vortex account to unlock them. One-time purchase, yours forever. Cosmetic only, never pay-to-win.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#all-capes">Browse Capes</a>
-          <a class="btn btn-secondary" href="vortex-plus.html">Vortex+</a>
+          <a class="btn btn-primary" href="#collection">View Collection</a>
+          <a class="btn btn-secondary" href="link-minecraft.html">Link Account</a>
         </div>
       </div>
       <div class="store-hero-render">
@@ -60,10 +60,10 @@
       </div>
     </section>
 
-    <!-- STORE NAV: Home / Capes / Vortex+ / Support -->
+    <!-- STORE NAV: Home / Collection / Vortex+ / Support -->
     <section class="wrap store-subnav" aria-label="Store navigation">
       <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="#all-capes" class="on"><i class="fa-solid fa-mask"></i> Capes</a>
+      <a href="#collection" class="on"><i class="fa-solid fa-mask"></i> Collection</a>
       <a href="vortex-plus.html"><i class="fa-solid fa-crown"></i> Vortex+</a>
       <a href="support.html"><i class="fa-solid fa-circle-question"></i> Support</a>
     </section>
@@ -71,7 +71,7 @@
     <!-- SEARCH + THEME + SORT + FILTERS -->
     <section class="wrap store-toolbar">
       <div class="toolbar-row">
-        <input id="storeSearch" type="search" placeholder="Search capes… (try &quot;galaxy&quot;)" autocomplete="off" aria-label="Search capes">
+        <input id="storeSearch" type="search" placeholder="Search the collection… (try &quot;vortexling&quot;)" autocomplete="off" aria-label="Search the collection">
         <select id="themeSel" aria-label="Theme">
           <option value="all">Theme: All</option>
           <option value="galaxy">Galaxy</option>
@@ -95,8 +95,11 @@
         </select>
         <button class="btn btn-secondary sm" id="clearFilters" type="button">Clear</button>
       </div>
-      <div class="cat-pills" id="catPills" role="tablist" aria-label="Cape filters">
-        <button data-pill="all" class="on" type="button">All Capes</button>
+      <div class="cat-pills" id="catPills" role="tablist" aria-label="Cosmetic filters">
+        <button data-pill="all" class="on" type="button">All</button>
+        <button data-pill="capes" type="button">Capes</button>
+        <button data-pill="hats" type="button">Hats</button>
+        <button data-pill="pets" type="button">Pets</button>
       </div>
       <details class="filters">
         <summary>Filters</summary>
@@ -125,9 +128,9 @@
     <section class="store-top">
       <div class="wrap store-head">
         <div>
-          <span class="hero-eyebrow"><i class="fa-solid fa-hand-holding-dollar"></i> Vortex Cape Store</span>
-          <h1>Shop Vortex <span class="grad">capes</span></h1>
-          <p>Every cape below is an original Vortex design. More categories (wings, pets, auras and others) return one by one — only when they are genuinely ready.</p>
+          <span class="hero-eyebrow"><i class="fa-solid fa-hand-holding-dollar"></i> Vortex Cosmetics Store</span>
+          <h1>Shop the <span class="grad">collection</span></h1>
+          <p>Three Vortex-exclusive cosmetics: signature cape, signature hat and the Vortexling pet. One collection, no filler — link your account to unlock them.</p>
         </div>
         <div class="store-balance" data-credit-wrap>
           <span>Your balance</span>
@@ -138,17 +141,40 @@
       </div>
     </section>
 
-    <!-- CAPE SHORTCUTS (capes only — no other categories) -->
+    <!-- SHORTCUTS -->
     <section class="wrap">
       <div class="cat-grid" id="catGrid">
-        <a class="cat-card big" href="#all-capes"><div class="cat-ico"><i class="fa-solid fa-mask"></i></div><div><b>Browse Capes</b><span>The full starter collection</span></div></a>
+        <a class="cat-card big" href="#all"><div class="cat-ico"><i class="fa-solid fa-mask"></i></div><div><b>Browse All</b><span>The Link Account Collection</span></div></a>
         <a class="cat-card" href="#featured"><div class="cat-ico"><i class="fa-solid fa-sparkles"></i></div><div><b>Featured</b><span>The Vortex Signature Cape</span></div></a>
         <a class="cat-card" href="#new"><div class="cat-ico"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div><b>New</b><span>Fresh vault arrivals</span></div></a>
-        <a class="cat-card plus" href="vortex-plus.html"><div class="cat-ico"><i class="fa-solid fa-crown"></i></div><div><b>Vortex+</b><span>Membership &amp; coming perks</span></div></a>
+        <a class="cat-card plus" href="#collection"><div class="cat-ico"><i class="fa-solid fa-link"></i></div><div><b>Collection</b><span>Link account to unlock</span></div></a>
       </div>
     </section>
 
-    <!-- LIVE CAPE CATALOG (rendered by js/store-page.js from data/cosmetics/capes.json) -->
+    <!-- LINK ACCOUNT COLLECTION -->
+    <section class="wrap store-sec" id="collection">
+      <div class="sec-head"><h2>Link Account Collection</h2><span>link your Vortex account to unlock these exclusives</span></div>
+      <div class="plus-minis">
+        <div class="plus-mini" data-view="vortex-signature-cape">
+          <img src="cosmetics/capes/vortex_signature_cape_preview.webp" alt="Vortex Signature Cape render" loading="lazy" decoding="async" width="512" height="512">
+          <b>Vortex Signature Cape</b><span>LINK ACCOUNT</span><small>600 coins · Legendary</small>
+        </div>
+        <div class="plus-mini" data-view="vortex-signature-hat">
+          <img src="cosmetics/hats/vortex_signature_hat_preview.webp" alt="Vortex Signature Hat render" loading="lazy" decoding="async" width="512" height="512">
+          <b>Vortex Signature Hat</b><span>LINK ACCOUNT</span><small>350 coins · Epic</small>
+        </div>
+        <div class="plus-mini" data-view="vortexling-pet">
+          <img src="cosmetics/pets/vortexling_preview.webp" alt="Vortexling pet render" loading="lazy" decoding="async" width="512" height="512">
+          <b>Vortexling Pet</b><span>LINK ACCOUNT</span><small>450 coins · Legendary</small>
+        </div>
+      </div>
+      <div class="hero-cta" style="margin-top:14px">
+        <a class="btn btn-primary" href="link-minecraft.html">Link Account</a>
+        <a class="btn btn-secondary" href="#all">Browse All</a>
+      </div>
+    </section>
+
+    <!-- LIVE COLLECTION CATALOG (rendered by js/store-page.js from data/cosmetics/*.json) -->
     <div id="storeCatalog"></div>
     <style>
       .prod { position:relative; }
@@ -354,10 +380,10 @@
         <div class="footer-links">
           <div class="footer-col">
             <h4>Store</h4>
-            <a href="#all-capes">Capes</a>
+            <a href="#collection">Collection</a>
             <a href="#featured">Featured</a>
             <a href="#new">New Arrivals</a>
-            <a href="vortex-plus.html">Vortex+</a>
+            <a href="#all">All Cosmetics</a>
             <a href="#coins">Coins</a>
           </div>
           <div class="footer-col">

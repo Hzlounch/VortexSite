@@ -1,8 +1,7 @@
-/* VORTEX CAPES — capes-only cosmetic marketplace (page code, see js/catalog.js).
-   Active catalog: data/cosmetics/capes.json ONLY (15 starter capes).
-   Archived categories (wings, pets, auras, suits, headwear, ...) live in
-   data/archive/ + their old renders stay on disk, but NOTHING outside
-   capes is listed, searched, or sold here.
+/* VORTEX LINK ACCOUNT COLLECTION — the one and only collection (page code).
+   Active catalog: data/cosmetics/{capes,hats,pets}.json, exactly 3 items,
+   all in the link-account collection. Nothing else is listed, searched,
+   or sold here.
    Images ALWAYS come from product.img (never built from ids). A missing
    asset shows "Preview unavailable" — never a letter placeholder.
    Purchase/ownership is always verified by the backend (order -> /claim
@@ -46,7 +45,16 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
   }
   var ALL = [];
   var byId = {};
-  var state = { q: '', plusOnly: false, rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false };
+  var CATS = [
+    { id: 'capes', label: 'Capes', single: 'Cape', vault: 'Capes' },
+    { id: 'hats', label: 'Hats', single: 'Hat', vault: 'Hats' },
+    { id: 'pets', label: 'Pets', single: 'Pet', vault: 'Pets' }
+  ];
+  function catEntry(id) {
+    for (var i = 0; i < CATS.length; i++) if (CATS[i].id === id) return CATS[i];
+    return { id: id, label: id, single: id, vault: id };
+  }
+  var state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false };
   var ownedCache = {};
   var equippedCache = {};
   var account = null; // {discord, mc, uuid, coins, owned[]} when logged in
@@ -100,7 +108,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     // from p.id. If the asset is genuinely missing/broken, show a clean
     // "Preview unavailable" state — never a letter placeholder.
     if (p.img) {
-      return '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' cape render" loading="lazy" decoding="async" width="768" height="768"' +
+      return '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' render" loading="lazy" decoding="async" width="768" height="768"' +
         ' onerror="this.outerHTML=\'<div class=&quot;prod-unavailable&quot;><span>Preview<br>unavailable</span></div>\';' +
         'if(window.console&&console.warn)console.warn(&quot;[store] missing asset: ' + esc(p.img) + '&quot;)">';
     }
@@ -115,7 +123,8 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
   function badges(p) {
     var b = '<span class="prod-badge rarity-' + esc(p.rarity) + '">' + esc(p.rarity) + '</span>';
     if (p.animated) b += '<span class="prod-badge anim">✦ Animated</span>';
-    if (p.vortexPlus) b += '<span class="prod-badge plus">Vortex+</span>';
+    if (p.collection === 'link-account') b += '<span class="prod-badge plus">Link Account</span>';
+    else if (p.vortexPlus) b += '<span class="prod-badge plus">Vortex+</span>';
     if (equippedCache[p.id]) b += '<span class="prod-badge equipped">EQUIPPED</span>';
     else if (ownedCache[p.id]) b += '<span class="prod-badge owned">OWNED</span>';
     return '<span class="prod-badges">' + b + '</span>';
@@ -129,7 +138,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       '<button class="prod-fav' + (wished ? ' on' : '') + '" data-wish="' + esc(p.id) + '" title="Save to wishlist" aria-label="Save to wishlist">★</button>' +
       '<div class="prod-img" data-view="' + esc(p.id) + '">' + tileHTML(p) + badges(p) + '</div>' +
       '<div class="prod-info"><b data-view="' + esc(p.id) + '">' + esc(p.name) + '</b>' +
-      '<div class="prod-cat">Cape · ' + esc(themeLabel(p.theme)) + '</div>' +
+      '<div class="prod-cat">' + esc(catEntry(p.cat).single) + ' · ' + esc(themeLabel(p.theme)) + '</div>' +
       '<div class="prod-desc">' + esc(p.desc || '') + '</div>' +
       '<div class="prod-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
       '<div class="prod-actions">' +
@@ -147,7 +156,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       '<div data-view="' + esc(p.id) + '">' + tileHTML(p) + '</div>' +
       '<div><span class="prod-badge rarity-' + esc(p.rarity) + '">' + esc(p.rarity) + ' · Flagship</span>' +
       '<h2>' + esc(p.name) + '</h2>' +
-      '<p>' + esc(p.desc || '') + ' Custom cape built for the Vortex client.</p>' +
+      '<p>' + esc(p.desc || '') + ' Custom cosmetic built for the Vortex client.</p>' +
       '<div class="detail-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
       '<div class="cape-feature-actions">' +
       '<button class="btn btn-secondary" data-view="' + esc(p.id) + '">View details</button>' +
@@ -179,15 +188,14 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     var band = PRICE_BANDS.filter(function (b) { return b.id === state.price; })[0] || PRICE_BANDS[0];
     var rarActive = Object.keys(state.rar).filter(function (k) { return state.rar[k]; });
     var out = ALL.filter(function (p) {
-      if (p.cat !== 'capes') return false;
+      if (state.cat !== 'all' && p.cat !== state.cat) return false;
       if (rarActive.length && rarActive.indexOf(p.rarity) < 0) return false;
       if (!band.test(Number(p.price || 0))) return false;
       if (!themeMatch(p, state.theme)) return false;
       if (state.animatedOnly && !p.animated) return false;
-      if (state.plusOnly && !p.vortexPlus) return false;
       if (q) {
         var hay = ((p.name || '') + ' ' + (p.desc || '') + ' ' + (p.rarity || '') +
-          ' cape ' + themeLabel(p.theme) + ' ' + ((p.tags || []).join(' '))).toLowerCase();
+          ' ' + catEntry(p.cat).single + ' ' + themeLabel(p.theme) + ' ' + ((p.tags || []).join(' '))).toLowerCase();
         if (hay.indexOf(q) < 0) return false;
       }
       return true;
@@ -196,7 +204,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
   }
 
   function hasFilter() {
-    return state.q.trim() !== '' || state.plusOnly ||
+    return state.q.trim() !== '' || state.cat !== 'all' ||
       Object.keys(state.rar).some(function (k) { return state.rar[k]; }) ||
       state.price !== 'any' || state.sort !== 'featured' ||
       state.theme !== 'all' || state.animatedOnly;
@@ -208,7 +216,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     var html = '';
     if (hasFilter()) {
       var res = filtered();
-      html = section('results', 'Results', res.length + ' capes',
+      html = section('results', 'Results', res.length + ' items',
         (res.length ? '<div class="prod-grid">' + res.map(card).join('') + '</div>'
           : '<p class="empty-note">Nothing matches. Try a different search or clear the filters.</p>'));
       host.innerHTML = html;
@@ -226,10 +234,10 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     }
     var fresh = ALL.filter(function (p) { return p.isNew && p !== flagship; });
     if (fresh.length) {
-      html += section('new', 'New Capes', 'fresh vault arrivals',
+      html += section('new', 'New Arrivals', 'fresh vault arrivals',
         '<div class="prod-grid">' + sortedItems(fresh).map(card).join('') + '</div>');
     }
-    html += section('all-capes', 'All Capes', ALL.length + ' original Vortex designs',
+    html += section('all', 'All Cosmetics', ALL.length + ' items in the Link Account Collection',
       '<div class="prod-grid">' + sortedItems(ALL).map(card).join('') + '</div>');
     host.innerHTML = html;
   }
@@ -239,11 +247,20 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     if (!p) return;
     var owned = !!ownedCache[p.id];
     var wished = wishlist().indexOf(p.id) >= 0;
-    var feats = (p.features && p.features.length ? p.features : ['Cloth motion', 'Multiplayer visible'])
+    var cat = catEntry(p.cat);
+    var defaultFeats = p.cat === 'pets'
+      ? ['Hover idle motion', 'Follows you in game', 'Multiplayer visible']
+      : p.cat === 'hats'
+        ? ['Head-tracked fit', 'Multiplayer visible']
+        : ['Cloth motion', 'Multiplayer visible'];
+    var feats = (p.features && p.features.length ? p.features : defaultFeats)
       .map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('');
     if (p.animated && feats.indexOf('Animated') < 0) feats += '<li>Animated in the client</li>';
     var plusRow = p.vortexPlus
       ? '<div class="detail-meta"><span style="color:#FFD97D">Vortex+ exclusive cape</span></div>'
+      : '';
+    var collectionRow = p.collection === 'link-account'
+      ? '<div class="detail-meta">Part of the <b>Link Account Collection</b> — unlock by <a href="link-minecraft.html">linking your account</a>.</div>'
       : '';
     // Honest status: "functional" only when the Vortex client actually
     // supports the cape; otherwise say preview-only. Never imply more.
@@ -265,8 +282,8 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     var texToggle = p.texture
       ? '<button class="linklike" data-textoggle="1">View texture</button>' +
         '<div class="texview" id="texView" hidden>' +
-        '<img src="' + esc(p.texture) + '" alt="' + esc(p.name) + ' raw cape texture" loading="lazy" decoding="async">' +
-        '<small>Raw cape texture — the client asset. Main preview above is the worn render.</small></div>'
+        '<img src="' + esc(p.texture) + '" alt="' + esc(p.name) + ' raw texture" loading="lazy" decoding="async">' +
+        '<small>Raw texture — the client asset. Main preview above is the worn render.</small></div>'
       : '';
     m.innerHTML = '<div class="store-modal-box wide">' +
       '<button class="store-modal-x" id="storeModalX">✕</button>' +
@@ -277,9 +294,9 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
         : '<div class="detail-unavailable"><span>Preview<br>unavailable</span></div>') +
       '</div>' + texToggle +
       '<h2>' + esc(p.name) + '</h2>' +
-      '<div class="detail-meta"><span class="prod-badge rarity-' + esc(p.rarity) + '" style="position:static">' + esc(p.rarity) + '</span> · Cape · ' + esc(themeLabel(p.theme)) + '</div>' +
-      '<p class="detail-desc">' + esc(p.desc || 'A Vortex cape, rendered for the store.') + '</p>' +
-      '<ul class="detail-feats">' + feats + '</ul>' + plusRow + statusRow +
+      '<div class="detail-meta"><span class="prod-badge rarity-' + esc(p.rarity) + '" style="position:static">' + esc(p.rarity) + '</span> · ' + esc(cat.single) + ' · ' + esc(themeLabel(p.theme)) + '</div>' +
+      '<p class="detail-desc">' + esc(p.desc || 'A Vortex cosmetic, rendered for the store.') + '</p>' +
+      '<ul class="detail-feats">' + feats + '</ul>' + plusRow + collectionRow + statusRow +
       '<div class="detail-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
       '<div class="detail-actions">' +
       (owned ? '<button class="btn btn-secondary" disabled>Owned — equip it in the Vault</button>'
@@ -290,7 +307,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       '<div class="clienthow" id="clientHow" hidden><ol>' +
       '<li>Buy here, then run <b>/claim &lt;code&gt;</b> in Discord.</li>' +
       '<li>Open the Vortex Launcher and join any world or server.</li>' +
-      '<li>Press the Vault key and equip it under Capes.</li>' +
+      '<li>Press the Vault key and equip it under ' + esc(cat.vault) + '.</li>' +
       '<li>Other Vortex players see it on you automatically.</li></ol></div>' +
       '</div>';
     m.classList.add('open');
@@ -339,7 +356,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       '<h3 class="inv-h">Owned (' + owned.length + ')</h3>' +
       (owned.length ? '<div class="inv-grid">' + owned.map(mini).join('') + '</div>' : '<p class="empty-note">No purchases yet.</p>') +
       '<h3 class="inv-h">Wishlist (' + wished.length + ', this device only)</h3>' +
-      (wished.length ? '<div class="inv-grid">' + wished.map(mini).join('') + '</div>' : '<p class="empty-note">Tap ★ on any cape to save it here.</p>') +
+      (wished.length ? '<div class="inv-grid">' + wished.map(mini).join('') + '</div>' : '<p class="empty-note">Tap ★ on any cosmetic to save it here.</p>') +
       '</div>';
     m.classList.add('open');
     document.getElementById('storeModalX').onclick = function () { m.classList.remove('open'); };
@@ -504,10 +521,8 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     if (!pills) return;
     pills.querySelectorAll('[data-pill]').forEach(function (x) {
       var v = x.getAttribute('data-pill');
-      x.classList.toggle('on', v === 'all' ? !state.plusOnly : !!state.plusOnly);
+      x.classList.toggle('on', v === state.cat);
     });
-    var plusOnly = document.getElementById('plusOnly');
-    if (plusOnly) plusOnly.checked = !!state.plusOnly;
   }
 
   function bindToolbar() {
@@ -517,7 +532,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     if (pills) pills.addEventListener('click', function (e) {
       var b = e.target.closest ? e.target.closest('[data-pill]') : null;
       if (!b) return;
-      state.plusOnly = b.getAttribute('data-pill') === 'plus';
+      state.cat = b.getAttribute('data-pill') || 'all';
       syncPills();
       paint();
     });
@@ -538,16 +553,13 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     if (theme) theme.addEventListener('change', function () { state.theme = theme.value; paint(); });
     var animOnly = document.getElementById('animOnly');
     if (animOnly) animOnly.addEventListener('change', function () { state.animatedOnly = !!animOnly.checked; paint(); });
-    var plusOnly = document.getElementById('plusOnly');
-    if (plusOnly) plusOnly.addEventListener('change', function () { state.plusOnly = !!plusOnly.checked; syncPills(); paint(); });
     var clear = document.getElementById('clearFilters');
     if (clear) clear.addEventListener('click', function () {
-      state = { q: '', plusOnly: false, rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false };
+      state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false };
       if (q) q.value = '';
       if (sort) sort.value = 'featured';
       if (theme) theme.value = 'all';
       if (animOnly) animOnly.checked = false;
-      if (plusOnly) plusOnly.checked = false;
       document.querySelectorAll('[data-rar]').forEach(function (c) { c.checked = false; });
       var p0 = document.querySelector('[data-price="any"]');
       if (p0) p0.checked = true;
@@ -557,7 +569,9 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
   }
 
   function bootWithItems(items) {
-    ALL = items.filter(function (p) { return p.cat === 'capes'; });
+    ALL = (items || []).filter(function (p) {
+      return p && (p.cat === 'capes' || p.cat === 'hats' || p.cat === 'pets');
+    });
     byId = {};
     ALL.forEach(function (p) { byId[p.id] = p; });
     paint();
@@ -574,7 +588,16 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
           bootWithItems(items);
         });
       }
-      return loadCategory('capes').then(function (items) {
+      return Promise.all(
+        (idx.categories && idx.categories.length ? idx.categories : ['capes'])
+          .map(function (c) { return loadCategory(c); })
+      ).then(function (parts) {
+        var items = [];
+        parts.forEach(function (list) {
+          (list || []).forEach(function (p) {
+            if (!items.find(function (q) { return q.id === p.id; })) items.push(p);
+          });
+        });
         if (!items.length) throw new Error('empty');
         bootWithItems(items);
       });
@@ -582,7 +605,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       var host = document.getElementById('storeCatalog');
       if (host) {
         host.innerHTML = '<section class="wrap store-sec"><div class="sec-head"><h2>Store unavailable</h2>' +
-          '<span>Could not load the cape catalog. Serve the site over http(s) or deploy it.</span></div></section>';
+          '<span>Could not load the collection catalog. Serve the site over http(s) or deploy it.</span></div></section>';
       }
     });
 

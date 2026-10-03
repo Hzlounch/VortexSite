@@ -1,5 +1,5 @@
-// Site smoke test (CAPES-ONLY store): serves the static root with node's
-// own http server, asserts key routes + capes catalog shape.
+// Site smoke test (LINK ACCOUNT COLLECTION): serves the static root with
+// node's own http server, asserts key routes + exactly-1-collection shape.
 // Run: node scripts/smoke-test.mjs
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
@@ -11,10 +11,15 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
   '.json': 'application/json', '.css': 'text/css', '.png': 'image/png',
   '.webp': 'image/webp', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json' };
 
-const FILES = ['store.html', 'index.html', 'features.html', 'vortex-plus.html', 'js/store-page.js', 'js/catalog.js',
-  'data/cosmetics.json', 'data/cosmetics/capes.json', 'data/vortex-plus.json', 'cosmetics-store.js',
-  'cosmetics/capes/eclipse_cape_preview.webp', 'cosmetics/capes/galaxy_rift_cape_preview.webp', 'cosmetics/capes/royal_obsidian_cape_preview.webp', 'cosmetics/capes/vortex_signature_cape_preview.webp', 'cosmetics/capes/vortex_signature_cape.png',
-  'scene-store.webp', 'scene-cosmic.webp', 'scene-cosmic-960.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/cs-coins.png'];
+const FILES = ['store.html', 'index.html', 'link-minecraft.html', 'js/store-page.js', 'js/catalog.js',
+  'data/cosmetics.json', 'data/cosmetics/capes.json', 'data/cosmetics/hats.json', 'data/cosmetics/pets.json',
+  'cosmetics-store.js', 'cosmetics/collections/link-account/collection.json',
+  'cosmetics/capes/vortex_signature_cape_preview.webp', 'cosmetics/capes/vortex_signature_cape.png',
+  'cosmetics/hats/vortex_signature_hat_preview.webp', 'cosmetics/hats/vortex_signature_hat.png',
+  'cosmetics/hats/vortex_signature_hat.json', 'cosmetics/pets/vortexling_preview.webp',
+  'cosmetics/pets/vortexling.png', 'cosmetics/pets/vortexling.json', 'cosmetics/pets/vortexling-anim.json',
+  'cosmetics/collections/link-account/preview.webp',
+  'scene-store.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/cs-coins.png'];
 
 const server = createServer(async (req, res) => {
   try {
@@ -30,47 +35,56 @@ const server = createServer(async (req, res) => {
 await new Promise(r => server.listen(8901, '127.0.0.1', r));
 
 let failed = 0;
+async function mustFetch(f, minBytes) {
+  const r = await fetch('http://127.0.0.1:8901/' + f);
+  if (!r.ok) { console.error('FAIL', f, r.status); failed++; return null; }
+  const b = await r.arrayBuffer();
+  console.log('OK', f, b.byteLength);
+  if (!b.byteLength || (minBytes && b.byteLength < minBytes)) {
+    console.error('FAIL empty/tiny', f); failed++; return null;
+  }
+  return b;
+}
 try {
-  for (const f of FILES) {
-    const r = await fetch('http://127.0.0.1:8901/' + f);
-    if (!r.ok) { console.error('FAIL', f, r.status); failed++; continue; }
-    const b = await r.arrayBuffer();
-    console.log('OK', f, b.byteLength);
-    if (!b.byteLength) { console.error('FAIL empty', f); failed++; }
-  }
-  // CAPES ONLY gate: index lists exactly one category, every item is a cape
-  // with a real image path (never id-derived, never a letter placeholder).
+  for (const f of FILES) await mustFetch(f);
+  // EXACTLY ONE collection with EXACTLY 3 items, all present in the catalog.
   const cat = await (await fetch('http://127.0.0.1:8901/data/cosmetics.json')).json();
-  if (!cat.categories || cat.categories.length !== 1 || cat.categories[0] !== 'capes') {
-    console.error('FAIL catalog not capes-only', JSON.stringify(cat.categories)); failed++;
+  const cats = (cat.categories || []).sort().join(',');
+  if (cats !== 'capes,hats,pets' || cat.total !== 3) {
+    console.error('FAIL catalog shape', JSON.stringify(cat)); failed++;
   }
-  const capes = await (await fetch('http://127.0.0.1:8901/data/cosmetics/capes.json')).json();
-  if (!capes.items || capes.items.length < 10 || capes.items.length > 20) {
-    console.error('FAIL capes count', capes.items && capes.items.length); failed++;
+  const col = await (await fetch('http://127.0.0.1:8901/cosmetics/collections/link-account/collection.json')).json();
+  const want = ['vortex-signature-cape', 'vortex-signature-hat', 'vortexling-pet'];
+  if (!col || col.id !== 'link-account' || JSON.stringify(col.items) !== JSON.stringify(want)) {
+    console.error('FAIL collection must be exactly the 3 items', JSON.stringify(col)); failed++;
   }
-  if (!capes.items.find(function (i) { return i.id === 'eclipse-cape'; })) { console.error('FAIL eclipse-cape missing'); failed++; }
-  for (const it of capes.items || []) {
-    if (it.cat !== 'capes') { console.error('FAIL non-cape in catalog', it.id); failed++; break; }
-    if (!it.img || !String(it.img).startsWith('cosmetics/capes/') || !String(it.img).endsWith('.webp')) {
-      console.error('FAIL bad img', it.id, it.img); failed++; break;
+  for (const c of ['capes', 'hats', 'pets']) {
+    const d = await (await fetch('http://127.0.0.1:8901/data/cosmetics/' + c + '.json')).json();
+    if (!d.items || d.items.length !== 1) { console.error('FAIL cat must hold 1 item', c); failed++; continue; }
+    const it = d.items[0];
+    if (it.cat !== c || it.collection !== 'link-account') { console.error('FAIL item fields', it.id); failed++; }
+    if (it.status !== 'functional' && it.status !== 'preview-only') { console.error('FAIL status', it.id); failed++; }
+    for (const f of [it.img, it.texture]) {
+      if (!f) { console.error('FAIL missing file field', it.id); failed++; continue; }
+      await mustFetch(f, 100);
     }
-    const r = await fetch('http://127.0.0.1:8901/' + it.img);
-    if (!r.ok) { console.error('FAIL img 404', it.id, it.img); failed++; break; }
-    const b = await r.arrayBuffer();
-    if (!b.byteLength) { console.error('FAIL img empty', it.id); failed++; break; }
+    if (it.model) await mustFetch(it.model, 50);
   }
   const store = await (await fetch('http://127.0.0.1:8901/store.html')).text();
-  for (const needle of ['js/store-page.js', 'vortex-logo.jpg', 'VORTEX', 'cosmetics/capes/vortex_signature_cape_preview.webp']) {
+  for (const needle of ['js/store-page.js', 'vortex-logo.jpg', 'LINK ACCOUNT', 'link-minecraft.html',
+    'cosmetics/capes/vortex_signature_cape_preview.webp', 'cosmetics/hats/vortex_signature_hat_preview.webp',
+    'cosmetics/pets/vortexling_preview.webp', 'data-view="vortex-signature-hat"', 'data-view="vortexling-pet"']) {
     if (!store.includes(needle)) { console.error('FAIL store.html missing', needle); failed++; }
   }
   if (store.includes('cosmetics-store.js') || store.includes('src="store.js"')) {
     console.error('FAIL store.html still loads legacy bundle'); failed++;
   }
-  for (const banned of ['prod-letter', 'detail-letter', 'data-pill="wings"', 'data-pill="suits"', 'data-pill="pets"', 'data-pill="auras"']) {
+  for (const banned of ['prod-letter', 'detail-letter', 'data-pill="wings"', 'data-pill="suits"',
+    'data-pill="auras"', 'data-pill="plus"', 'eclipse-cape', 'vortex-phantom']) {
     if (store.includes(banned)) { console.error('FAIL store.html contains banned', banned); failed++; }
   }
   const page = await (await fetch('http://127.0.0.1:8901/js/store-page.js')).text();
-  for (const banned of ['prod-letter', 'charAt(0)', "'wings'", "'suits'", "'pets'", "'auras'"]) {
+  for (const banned of ['prod-letter', 'charAt(0)', 'plusOnly', "'wings'", "'suits'", "'auras'"]) {
     if (page.includes(banned)) { console.error('FAIL store-page.js contains banned', banned); failed++; }
   }
 } catch (e) {

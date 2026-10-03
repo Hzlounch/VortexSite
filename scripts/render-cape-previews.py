@@ -42,8 +42,12 @@ def load_mod(name, path):
     return mod
 
 
-designs = load_mod("cape_designs", os.path.join(HERE, "render-capes.py"))
 renderer = load_mod("mc_renderer", os.path.join(HERE, "render-cosmetics.py"))
+
+
+def seed_of(cid):
+    import hashlib as _hl
+    return int(_hl.md5(cid.encode("utf-8")).hexdigest()[:8], 16)
 
 SIZE = 1024  # store preview master (cards downscale it in the browser)
 
@@ -59,7 +63,7 @@ SIN30 = 0.5
 
 # Studio mannequin: deeper graphite than the neutral renderer default so the
 # CAPE (the product) leads every shot and dark cloth still separates from
-# the body. Same geometry/pose for all 10 first-collection capes.
+# the body. Same studio mannequin in every collection preview.
 BODY = (30, 34, 45)
 BODY_LT = (38, 43, 54)
 
@@ -282,29 +286,16 @@ def dust(img, rnd, tint=(200, 210, 235)):
     return img
 
 
-# First collection (10 only). The preview is always rendered FROM the real
-# 64x32 client texture on disk — never painted separately, never AI art.
+# Link-Account Collection cape (the ONLY cape). The preview is always
+# rendered FROM the real 64x32 client texture on disk — never painted
+# separately, never AI art.
 CAPES = [
     # (cape id, studio glow accent)
-    ("eclipse-cape", (232, 190, 110)),
-    ("galaxy-rift-cape", (192, 132, 252)),
-    ("inferno-cape", (251, 146, 60)),
-    ("frostbite-cape", (186, 230, 253)),
-    ("void-cape", (139, 92, 246)),
-    ("cyber-pulse-cape", (34, 211, 238)),
-    ("aurora-cape", (52, 211, 153)),
-    ("crystal-nova-cape", (125, 211, 252)),
-    ("stormcaller-cape", (147, 197, 253)),
-    ("royal-obsidian-cape", (212, 175, 105)),
     ("vortex-signature-cape", (0, 200, 235)),
 ]
 
 # Standard 64x32 cape UV: back panel (visible design face when worn).
 BACK_PANEL = (12, 1, 10, 16)  # x, y, w, h
-
-
-def seed_of(cid):
-    return designs.seed_of(cid)
 
 
 def load_design(cid):

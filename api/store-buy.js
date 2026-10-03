@@ -13,7 +13,10 @@ function loadCatalog() {
   if (CATALOG) return CATALOG;
   CATALOG = { prices: {}, names: {} };
   try {
-    const cats = ['capes']; // CAPES-ONLY store (archived cats live in data/archive/)
+    // All active catalog categories (capes/hats/pets) — never hardcoded ids.
+    const dir = path.join(__dirname, '..', 'data', 'cosmetics');
+    const cats = fs.readdirSync(dir).filter((f) => f.endsWith('.json'))
+      .map((f) => f.replace(/\.json$/, ''));
     for (const c of cats) {
       const f = path.join(__dirname, '..', 'data', 'cosmetics', c + '.json');
       const d = JSON.parse(fs.readFileSync(f, 'utf8'));

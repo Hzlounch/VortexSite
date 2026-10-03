@@ -1,326 +1,43 @@
 {
   "category": "pets",
-  "count": 15,
-  "updatedAt": "2026-10-02T18:26:47.014Z",
+  "count": 1,
+  "updatedAt": "2026-10-03T17:20:52.618Z",
   "items": [
     {
-      "id": "mini_dragon",
-      "name": "Dragon Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Epic",
-      "price": 300,
-      "desc": "Pocket-sized fire hazard.",
-      "tags": [
-        "dragon",
-        "pet"
-      ],
-      "img": "cosmetics/pets/mini_dragon.webp",
-      "model": "cosmetics/models/mini_dragon.json",
-      "texture": "textures/cosmetics/pets/mini_dragon.png",
-      "animated": true,
-      "effects": [
-        "flame"
-      ],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "mini_ghost",
-      "name": "Ghost Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Rare",
-      "price": 200,
-      "desc": "Boo.",
-      "tags": [
-        "ghost",
-        "pet"
-      ],
-      "img": "cosmetics/pets/mini_ghost.webp",
-      "model": "cosmetics/models/mini_ghost.json",
-      "texture": "textures/cosmetics/pets/mini_ghost.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "slime_pet",
-      "name": "Slime Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Common",
-      "price": 120,
-      "desc": "Jiggly friend.",
-      "tags": [
-        "slime",
-        "pet"
-      ],
-      "img": "cosmetics/pets/slime_pet.webp",
-      "model": "cosmetics/cosmetics/models/slime_pet.json",
-      "texture": "textures/cosmetics/pets/slime_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "robot_pet",
-      "name": "Robot Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Rare",
-      "price": 240,
-      "desc": "Beep boop.",
-      "tags": [
-        "robot",
-        "pet"
-      ],
-      "img": "cosmetics/pets/robot_pet.webp",
-      "model": "cosmetics/cosmetics/models/robot_pet.json",
-      "texture": "textures/cosmetics/pets/robot_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "creeper_pet",
-      "name": "Creeper Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Epic",
-      "price": 290,
-      "desc": "Totally safe. Probably.",
-      "tags": [
-        "creeper",
-        "pet"
-      ],
-      "img": "cosmetics/pets/creeper_pet.webp",
-      "model": "cosmetics/cosmetics/models/creeper_pet.json",
-      "texture": "textures/cosmetics/pets/creeper_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "phoenix_pet",
-      "name": "Phoenix Pet",
+      "id": "vortexling-pet",
+      "name": "Vortexling",
       "cat": "pets",
       "type": "PET",
       "slot": "PET",
       "rarity": "Legendary",
-      "price": 410,
-      "desc": "Reborn in flames.",
+      "price": 450,
+      "desc": "Vortexling — a hovering dimensional wisp with a burning energy core. The mascot of the Link Account Collection.",
       "tags": [
-        "phoenix",
-        "pet"
+        "vortexling",
+        "vortex",
+        "pet",
+        "companion",
+        "energy",
+        "core",
+        "cyan",
+        "cyber"
       ],
-      "img": "cosmetics/pets/phoenix_pet.webp",
-      "model": "cosmetics/cosmetics/models/phoenix_pet.json",
-      "texture": "textures/cosmetics/pets/phoenix_pet.png",
-      "animated": true,
+      "theme": "cyber",
+      "img": "cosmetics/pets/vortexling_preview.webp",
+      "model": "cosmetics/pets/vortexling.json",
+      "texture": "cosmetics/pets/vortexling.png",
+      "animated": false,
       "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "golem_pet",
-      "name": "Golem Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Rare",
-      "price": 230,
-      "desc": "Tiny tank.",
-      "tags": [
-        "golem",
-        "pet"
+      "status": "preview-only",
+      "vortexPlus": false,
+      "featured": false,
+      "isNew": true,
+      "features": [
+        "Hover idle motion",
+        "Follows you in game",
+        "Multiplayer visible"
       ],
-      "img": "cosmetics/pets/golem_pet.webp",
-      "model": "cosmetics/cosmetics/models/golem_pet.json",
-      "texture": "textures/cosmetics/pets/golem_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "wisp_pet",
-      "name": "Wisp Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Common",
-      "price": 130,
-      "desc": "A floating spark.",
-      "tags": [
-        "wisp",
-        "pet"
-      ],
-      "img": "cosmetics/pets/wisp_pet.webp",
-      "model": "cosmetics/cosmetics/models/wisp_pet.json",
-      "texture": "textures/cosmetics/pets/wisp_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "bee_pet",
-      "name": "Bee Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Common",
-      "price": 125,
-      "desc": "Buzzy buddy.",
-      "tags": [
-        "bee",
-        "pet"
-      ],
-      "img": "cosmetics/pets/bee_pet.webp",
-      "model": "cosmetics/cosmetics/models/bee_pet.json",
-      "texture": "textures/cosmetics/pets/bee_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "mushroom_pet",
-      "name": "Mushroom Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Common",
-      "price": 115,
-      "desc": "Fun guy.",
-      "tags": [
-        "mushroom",
-        "pet"
-      ],
-      "img": "cosmetics/pets/mushroom_pet.webp",
-      "model": "cosmetics/cosmetics/models/mushroom_pet.json",
-      "texture": "textures/cosmetics/pets/mushroom_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "turtle_pet",
-      "name": "Turtle Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Common",
-      "price": 118,
-      "desc": "Slow and steady.",
-      "tags": [
-        "turtle",
-        "pet"
-      ],
-      "img": "cosmetics/pets/turtle_pet.webp",
-      "model": "cosmetics/cosmetics/models/turtle_pet.json",
-      "texture": "textures/cosmetics/pets/turtle_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "owl_pet",
-      "name": "Owl Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Rare",
-      "price": 220,
-      "desc": "Night watcher.",
-      "tags": [
-        "owl",
-        "pet"
-      ],
-      "img": "cosmetics/pets/owl_pet.webp",
-      "model": "cosmetics/cosmetics/models/owl_pet.json",
-      "texture": "textures/cosmetics/pets/owl_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "void_spirit_pet",
-      "name": "Void Spirit Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Legendary",
-      "price": 400,
-      "desc": "It stares back.",
-      "tags": [
-        "void",
-        "spirit",
-        "pet"
-      ],
-      "img": "cosmetics/pets/void_spirit_pet.webp",
-      "model": "cosmetics/cosmetics/models/void_spirit_pet.json",
-      "texture": "textures/cosmetics/pets/void_spirit_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "crystal_golem_pet",
-      "name": "Crystal Golem Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Epic",
-      "price": 330,
-      "desc": "Shiny and heavy.",
-      "tags": [
-        "crystal",
-        "golem",
-        "pet"
-      ],
-      "img": "cosmetics/pets/crystal_golem_pet.webp",
-      "model": "cosmetics/cosmetics/models/crystal_golem_pet.json",
-      "texture": "textures/cosmetics/pets/crystal_golem_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
-    },
-    {
-      "id": "frog_pet",
-      "name": "Frog Pet",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Common",
-      "price": 112,
-      "desc": "Ribbit.",
-      "tags": [
-        "frog",
-        "pet"
-      ],
-      "img": "cosmetics/pets/frog_pet.webp",
-      "model": "cosmetics/cosmetics/models/frog_pet.json",
-      "texture": "textures/cosmetics/pets/frog_pet.png",
-      "animated": true,
-      "effects": [],
-      "status": "available",
-      "vortexPlus": false
+      "collection": "link-account"
     }
   ]
 }

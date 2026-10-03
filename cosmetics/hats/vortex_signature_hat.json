@@ -1,0 +1,264 @@
+{
+  "id": "vortex-signature-hat",
+  "slot": "HEAD",
+  "type": "HAT",
+  "texture": "cosmetics/hats/vortex_signature_hat.png",
+  "_doc": {
+    "texture": "32x32; brow emblem art lives at x12..15,y1..3 (4x3); base opaque navy",
+    "fit": "slim ring band y27..28.5 around upper head; face (y<27) fully clear; small emblem plates front+back so the mark reads from both sides"
+  },
+  "parts": {
+    "bandF": {
+      "flat": [
+        10,
+        14,
+        30
+      ],
+      "boxes": [
+        {
+          "from": [
+            -4,
+            27,
+            4
+          ],
+          "to": [
+            4,
+            28.5,
+            5
+          ]
+        }
+      ]
+    },
+    "bandB": {
+      "flat": [
+        10,
+        14,
+        30
+      ],
+      "boxes": [
+        {
+          "from": [
+            -4,
+            27,
+            -5
+          ],
+          "to": [
+            4,
+            28.5,
+            -4
+          ]
+        }
+      ]
+    },
+    "bandL": {
+      "flat": [
+        10,
+        14,
+        30
+      ],
+      "boxes": [
+        {
+          "from": [
+            -5,
+            27,
+            -4
+          ],
+          "to": [
+            -4,
+            28.5,
+            4
+          ]
+        }
+      ]
+    },
+    "bandR": {
+      "flat": [
+        10,
+        14,
+        30
+      ],
+      "boxes": [
+        {
+          "from": [
+            4,
+            27,
+            -4
+          ],
+          "to": [
+            5,
+            28.5,
+            4
+          ]
+        }
+      ]
+    },
+    "trimF": {
+      "flat": [
+        0,
+        150,
+        190
+      ],
+      "boxes": [
+        {
+          "from": [
+            -4,
+            28.5,
+            4
+          ],
+          "to": [
+            4,
+            29,
+            5
+          ]
+        }
+      ]
+    },
+    "trimB": {
+      "flat": [
+        0,
+        150,
+        190
+      ],
+      "boxes": [
+        {
+          "from": [
+            -4,
+            28.5,
+            -5
+          ],
+          "to": [
+            4,
+            29,
+            -4
+          ]
+        }
+      ]
+    },
+    "trimL": {
+      "flat": [
+        0,
+        150,
+        190
+      ],
+      "boxes": [
+        {
+          "from": [
+            -5,
+            28.5,
+            -4
+          ],
+          "to": [
+            -4,
+            29,
+            4
+          ]
+        }
+      ]
+    },
+    "trimR": {
+      "flat": [
+        0,
+        150,
+        190
+      ],
+      "boxes": [
+        {
+          "from": [
+            4,
+            28.5,
+            -4
+          ],
+          "to": [
+            5,
+            29,
+            4
+          ]
+        }
+      ]
+    },
+    "emblem": {
+      "tex": "cosmetics/hats/vortex_signature_hat.png",
+      "uv": [
+        12,
+        1
+      ],
+      "boxes": [
+        {
+          "from": [
+            -2,
+            26.5,
+            4
+          ],
+          "to": [
+            2,
+            29.5,
+            5.2
+          ]
+        }
+      ]
+    },
+    "emblemB": {
+      "tex": "cosmetics/hats/vortex_signature_hat.png",
+      "uv": [
+        12,
+        1
+      ],
+      "boxes": [
+        {
+          "from": [
+            -2,
+            26.5,
+            -5.2
+          ],
+          "to": [
+            2,
+            29.5,
+            -4
+          ]
+        }
+      ]
+    },
+    "nodeL": {
+      "flat": [
+        0,
+        220,
+        255
+      ],
+      "boxes": [
+        {
+          "from": [
+            -5.5,
+            27.2,
+            0.3
+          ],
+          "to": [
+            -4.7,
+            28.0,
+            1.1
+          ]
+        }
+      ]
+    },
+    "nodeR": {
+      "flat": [
+        0,
+        220,
+        255
+      ],
+      "boxes": [
+        {
+          "from": [
+            4.7,
+            27.2,
+            0.3
+          ],
+          "to": [
+            5.5,
+            28.0,
+            1.1
+          ]
+        }
+      ]
+    }
+  }
+}

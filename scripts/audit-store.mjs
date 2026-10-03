@@ -43,6 +43,9 @@ for (const cat of idx.categories || []) {
     if (!it.cat) problems.push('no category');
     if (!it.name) problems.push('no name');
     if (it.status !== 'functional' && it.status !== 'preview-only') problems.push('bad status: ' + it.status);
+    if (!it.texture) problems.push('no texture field');
+    else if (!existsCaseSensitive(it.texture)) problems.push('MISSING texture: ' + it.texture);
+    if (!it.collection) problems.push('no collection');
     if (problems.length) {
       bad++;
       console.log('[ERROR]', it.id || '?', '\n   ' + problems.join('; '));
