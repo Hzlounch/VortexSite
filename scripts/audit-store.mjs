@@ -42,7 +42,7 @@ for (const cat of idx.categories || []) {
     if (!Number.isFinite(Number(it.price)) || Number(it.price) <= 0) problems.push('bad price');
     if (!it.cat) problems.push('no category');
     if (!it.name) problems.push('no name');
-    if (it.status !== 'available' && it.status !== 'preview-only') problems.push('bad status');
+    if (it.status !== 'functional' && it.status !== 'preview-only') problems.push('bad status: ' + it.status);
     if (problems.length) {
       bad++;
       console.log('[ERROR]', it.id || '?', '\n   ' + problems.join('; '));

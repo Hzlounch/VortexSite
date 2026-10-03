@@ -13,7 +13,7 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
 
 const FILES = ['store.html', 'index.html', 'features.html', 'vortex-plus.html', 'js/store-page.js', 'js/catalog.js',
   'data/cosmetics.json', 'data/cosmetics/capes.json', 'data/vortex-plus.json', 'cosmetics-store.js',
-  'cosmetics/capes/eclipse_cape_preview.webp', 'cosmetics/capes/galaxy_rift_cape_preview.webp', 'cosmetics/capes/vortex_phantom_cape_preview.webp',
+  'cosmetics/capes/eclipse_cape_preview.webp', 'cosmetics/capes/galaxy_rift_cape_preview.webp', 'cosmetics/capes/royal_obsidian_cape_preview.webp',
   'scene-store.webp', 'scene-cosmic.webp', 'scene-cosmic-960.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/cs-coins.png'];
 
 const server = createServer(async (req, res) => {

@@ -84,6 +84,18 @@ for (const it of items) {
   if (!it.desc) fail(it.id + ': missing desc');
   if (typeof it.animated !== 'boolean') fail(it.id + ': animated must be boolean');
   if (typeof it.vortexPlus !== 'boolean') fail(it.id + ': vortexPlus must be boolean');
+  // Honest status vocabulary: "functional" ONLY when the Vortex client
+  // actually supports the cape, otherwise "preview-only". Never claim
+  // functional by default.
+  if (it.status !== 'functional' && it.status !== 'preview-only') {
+    fail(it.id + ': status must be functional|preview-only (got ' + it.status + ')');
+  }
+  if (!it.texture || typeof it.texture !== 'string') fail(it.id + ': missing texture field');
+  if (!it.texture.endsWith('.png')) fail(it.id + ': texture must be .png (got ' + it.texture + ')');
+  if (!it.texture.startsWith('cosmetics/capes/')) {
+    fail(it.id + ': texture must live in cosmetics/capes/ (got ' + it.texture + ')');
+  }
+  if (!existsCaseSensitive(it.texture)) fail(it.id + ': MISSING texture ' + it.texture);
 }
 
 const updatedAt = new Date().toISOString();
@@ -108,7 +120,7 @@ const out = {
     // animated is true ONLY when the real client implements the motion.
     animated: !!it.animated,
     effects: Array.isArray(it.effects) ? it.effects : [],
-    status: it.status || 'available',
+    status: it.status || 'preview-only',
     vortexPlus: !!it.vortexPlus,
     featured: !!it.featured,
     isNew: !!it.isNew,
@@ -131,7 +143,7 @@ const shimItems = out.items.map((it) => ({
   rarity: it.rarity, price: it.price, desc: it.desc, img: it.img,
   tags: it.tags || [], theme: it.theme || null, outfit: null,
   animated: !!it.animated, effects: it.effects || [],
-  status: it.status || 'available', vortexPlus: !!it.vortexPlus,
+  status: it.status || 'preview-only', vortexPlus: !!it.vortexPlus,
   featured: !!it.featured, isNew: !!it.isNew,
   features: it.features || [],
 }));

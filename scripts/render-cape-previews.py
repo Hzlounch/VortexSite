@@ -59,7 +59,7 @@ SIN30 = 0.5
 
 # Studio mannequin: deeper graphite than the neutral renderer default so the
 # CAPE (the product) leads every shot and dark cloth still separates from
-# the body. Same geometry/pose for all 15 capes.
+# the body. Same geometry/pose for all 10 first-collection capes.
 BODY = (30, 34, 45)
 BODY_LT = (38, 43, 54)
 
@@ -282,12 +282,41 @@ def dust(img, rnd, tint=(200, 210, 235)):
     return img
 
 
-def paint_texture(cid):
-    """The ACTUAL cape texture: raw painter canvas, native resolution."""
-    import random
-    tex = Image.new("RGB", (designs.TW, designs.TH))
-    designs.PAINTERS[cid](ImageDraw.Draw(tex), random.Random(designs.seed_of(cid)))
-    return tex
+# First collection (10 only). The preview is always rendered FROM the real
+# 64x32 client texture on disk — never painted separately, never AI art.
+CAPES = [
+    # (cape id, studio glow accent)
+    ("eclipse-cape", (232, 190, 110)),
+    ("galaxy-rift-cape", (192, 132, 252)),
+    ("inferno-cape", (251, 146, 60)),
+    ("frostbite-cape", (186, 230, 253)),
+    ("void-cape", (139, 92, 246)),
+    ("cyber-pulse-cape", (34, 211, 238)),
+    ("aurora-cape", (52, 211, 153)),
+    ("crystal-nova-cape", (125, 211, 252)),
+    ("stormcaller-cape", (147, 197, 253)),
+    ("royal-obsidian-cape", (212, 175, 105)),
+]
+
+# Standard 64x32 cape UV: back panel (visible design face when worn).
+BACK_PANEL = (12, 1, 10, 16)  # x, y, w, h
+
+
+def seed_of(cid):
+    return designs.seed_of(cid)
+
+
+def load_design(cid):
+    """The REAL cape texture worn by the client: back-panel crop of the
+    64x32 file, NEAREST-upscaled for the cloth mapper. Hard gate: the
+    source file must be a genuine 64x32 cape texture."""
+    stem = cid.replace("-", "_")
+    path = os.path.join(OUT_DIR, stem + ".png")
+    src = Image.open(path).convert("RGB")
+    if src.size != (64, 32):
+        raise RuntimeError("%s is %s, must be 64x32" % (path, src.size))
+    x, y, w, h = BACK_PANEL
+    return src.crop((x, y, x + w, y + h)).resize((w * 4, h * 4), Image.NEAREST)
 
 
 def nonblank(im):
@@ -305,30 +334,28 @@ def nonblank(im):
 
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
-    missing = [c for c, _ in designs.CAPES if c not in designs.PAINTERS]
-    if missing:
-        print("render-cape-previews: ERROR: no design for %s" % missing)
-        return 1
     made, fails = 0, []
-    for cid, accent in designs.CAPES:
+    for cid, accent in CAPES:
         stem = cid.replace("-", "_")
         tex_path = os.path.join(OUT_DIR, stem + ".png")
         prev_path = os.path.join(OUT_DIR, stem + "_preview.webp")
+        if not os.path.isfile(tex_path):
+            fails.append((cid, "missing client texture " + tex_path))
+            continue
         try:
-            tex = paint_texture(cid)
-            tex.save(tex_path, "PNG")
+            tex = load_design(cid)  # preview FROM the real texture
             render = render_cape_rear(tex)
             if render is None or not nonblank(render):
                 raise RuntimeError("blank render")
             photo = backdrop(accent)
-            photo = dust(photo, designs.seed_of(cid))
+            photo = dust(photo, seed_of(cid))
             photo.alpha_composite(render)
             photo.save(prev_path, "WEBP", quality=82, method=4)
         except Exception as e:
             fails.append((cid, str(e)))
             continue
         made += 1
-        print("  [OK] %s (%d bytes) + %s" %
+        print("  [OK] %s (%d bytes) from %s" %
               (os.path.basename(prev_path), os.path.getsize(prev_path),
                os.path.basename(tex_path)))
     print("render-cape-previews: rendered=%d failed=%d" % (made, len(fails)))
