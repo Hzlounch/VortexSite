@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-10-03T12:00:00.000Z",
-  "note": "Vortex+ member-exclusive CAPES. Artwork is the real store render (product.img truth). Membership billing is COMING SOON — payments are not integrated yet.",
+  "note": "Vortex+ member-exclusive CAPES. Artwork is the real store render (product.img truth). Membership billing is COMING SOON \u00e2\u20ac\u201d payments are not integrated yet.",
   "concepts": [
     {
       "id": "vortex-eclipse-cape",
@@ -9,7 +9,7 @@
       "status": "exclusive",
       "rarity": "Legendary",
       "price": 480,
-      "img": "cosmetics/capes/vortex_eclipse_cape.webp",
+      "img": "cosmetics/capes/vortex_eclipse_cape_preview.webp",
       "desc": "Member-exclusive eclipse in Vortex violet, hemmed in gold."
     },
     {
@@ -19,7 +19,7 @@
       "status": "exclusive",
       "rarity": "Mythic",
       "price": 560,
-      "img": "cosmetics/capes/vortex_phantom_cape.webp",
+      "img": "cosmetics/capes/vortex_phantom_cape_preview.webp",
       "desc": "A ghostly wisp-trail cape marked with phantom eyes. Members only."
     },
     {
@@ -29,7 +29,7 @@
       "status": "exclusive",
       "rarity": "Epic",
       "price": 400,
-      "img": "cosmetics/capes/vortex_aurora_cape.webp",
+      "img": "cosmetics/capes/vortex_aurora_cape_preview.webp",
       "desc": "Member-exclusive aurora with a gold collar and hem."
     }
   ]

@@ -252,9 +252,17 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       m.className = 'store-modal';
       document.body.appendChild(m);
     }
-    // Honest 2D product preview: a large render of the cape design.
-    // (No fake "interactive 3D model" — the 3D Vault preview lives in
-    // the Vortex client once the model ships.)
+    // Product visual: the cape worn on the blocky player render (same
+    // camera/lighting for every cape). No fake "interactive 3D model" —
+    // the live Vault preview lives in the Vortex client.
+    // Main product visual: the player render (never the raw texture).
+    // A secondary "View texture" toggle shows the raw client texture.
+    var texToggle = p.texture
+      ? '<button class="linklike" data-textoggle="1">View texture</button>' +
+        '<div class="texview" id="texView" hidden>' +
+        '<img src="' + esc(p.texture) + '" alt="' + esc(p.name) + ' raw cape texture" loading="lazy" decoding="async">' +
+        '<small>Raw cape texture — the client asset. Main preview above is the worn render.</small></div>'
+      : '';
     m.innerHTML = '<div class="store-modal-box wide">' +
       '<button class="store-modal-x" id="storeModalX">✕</button>' +
       '<div class="detail-stage">' +
@@ -262,7 +270,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
         ? '<img class="detail-preview" src="' + esc(p.img) + '" alt="' + esc(p.name) + ' cape render" decoding="async" fetchpriority="high"' +
           ' onerror="this.outerHTML=\'<div class=&quot;detail-unavailable&quot;><span>Preview<br>unavailable</span></div>\'">'
         : '<div class="detail-unavailable"><span>Preview<br>unavailable</span></div>') +
-      '</div>' +
+      '</div>' + texToggle +
       '<h2>' + esc(p.name) + '</h2>' +
       '<div class="detail-meta"><span class="prod-badge rarity-' + esc(p.rarity) + '" style="position:static">' + esc(p.rarity) + '</span> · Cape · ' + esc(themeLabel(p.theme)) + '</div>' +
       '<p class="detail-desc">' + esc(p.desc || 'A Vortex cape, rendered for the store.') + '</p>' +
@@ -287,6 +295,14 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     if (how) how.onclick = function () {
       var el = document.getElementById('clientHow');
       if (el) el.hidden = !el.hidden;
+    };
+    var texBtn = m.querySelector('[data-textoggle]');
+    if (texBtn) texBtn.onclick = function () {
+      var el = document.getElementById('texView');
+      if (el) {
+        el.hidden = !el.hidden;
+        texBtn.textContent = el.hidden ? 'View texture' : 'Hide texture';
+      }
     };
   }
 
