@@ -1,0 +1,12 @@
+{
+  "updatedAt": "2026-10-03T00:00:00.000Z",
+  "note": "Vortex+ member cosmetic CONCEPTS. No assets exist; never render these as products until modeled. Status is always 'planned'.",
+  "concepts": [
+    { "id": "vp_celestial_wings", "name": "Vortex+ Celestial Wings", "kind": "Wings", "status": "planned" },
+    { "id": "vp_void_crown", "name": "Vortex+ Void Crown", "kind": "Headwear", "status": "planned" },
+    { "id": "vp_neon_aura", "name": "Vortex+ Neon Aura", "kind": "Aura", "status": "planned" },
+    { "id": "vp_ember_whelp", "name": "Vortex+ Ember Whelp", "kind": "Pet", "status": "planned" },
+    { "id": "vp_eclipse_cloak", "name": "Vortex+ Eclipse Cloak", "kind": "Cape", "status": "planned" },
+    { "id": "vp_crystal_companion", "name": "Vortex+ Crystal Companion", "kind": "Pet", "status": "planned" }
+  ]
+}

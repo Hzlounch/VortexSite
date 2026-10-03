@@ -1,7 +1,7 @@
 {
   "category": "cloaks",
   "count": 25,
-  "updatedAt": "2026-09-29T13:32:50.305Z",
+  "updatedAt": "2026-10-02T18:26:47.014Z",
   "items": [
     {
       "id": "basic_cape",
@@ -17,7 +17,13 @@
         "cloak",
         "cape"
       ],
-      "img": "cosmetics/cloaks/basic_cape.webp"
+      "img": "cosmetics/cloaks/basic_cape.webp",
+      "model": "cosmetics/models/basic_cape.json",
+      "texture": "textures/cosmetics/capes/basic_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "fire_cape",
@@ -32,7 +38,13 @@
         "fire",
         "cape"
       ],
-      "img": "cosmetics/cloaks/fire_cape.webp"
+      "img": "cosmetics/cloaks/fire_cape.webp",
+      "model": "cosmetics/cosmetics/models/fire_cape.json",
+      "texture": "textures/cosmetics/capes/fire_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "galaxy_cloak",
@@ -48,7 +60,13 @@
         "cloak",
         "cape"
       ],
-      "img": "cosmetics/cloaks/galaxy_cloak.webp"
+      "img": "cosmetics/cloaks/galaxy_cloak.webp",
+      "model": "cosmetics/cosmetics/models/galaxy_cloak.json",
+      "texture": "textures/cosmetics/capes/galaxy_cloak.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "shadow_cape",
@@ -63,7 +81,13 @@
         "shadow",
         "cape"
       ],
-      "img": "cosmetics/cloaks/shadow_cape.webp"
+      "img": "cosmetics/cloaks/shadow_cape.webp",
+      "model": "cosmetics/cosmetics/models/shadow_cape.json",
+      "texture": "textures/cosmetics/capes/shadow_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ocean_cape",
@@ -78,7 +102,13 @@
         "ocean",
         "cape"
       ],
-      "img": "cosmetics/cloaks/ocean_cape.webp"
+      "img": "cosmetics/cloaks/ocean_cape.webp",
+      "model": "cosmetics/cosmetics/models/ocean_cape.json",
+      "texture": "textures/cosmetics/capes/ocean_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "forest_cape",
@@ -93,7 +123,13 @@
         "forest",
         "cape"
       ],
-      "img": "cosmetics/cloaks/forest_cape.webp"
+      "img": "cosmetics/cloaks/forest_cape.webp",
+      "model": "cosmetics/cosmetics/models/forest_cape.json",
+      "texture": "textures/cosmetics/capes/forest_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "lava_cape",
@@ -108,7 +144,13 @@
         "lava",
         "cape"
       ],
-      "img": "cosmetics/cloaks/lava_cape.webp"
+      "img": "cosmetics/cloaks/lava_cape.webp",
+      "model": "cosmetics/cosmetics/models/lava_cape.json",
+      "texture": "textures/cosmetics/capes/lava_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ender_cape",
@@ -123,7 +165,13 @@
         "ender",
         "cape"
       ],
-      "img": "cosmetics/cloaks/ender_cape.webp"
+      "img": "cosmetics/cloaks/ender_cape.webp",
+      "model": "cosmetics/cosmetics/models/ender_cape.json",
+      "texture": "textures/cosmetics/capes/ender_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ice_cape",
@@ -138,7 +186,13 @@
         "ice",
         "cape"
       ],
-      "img": "cosmetics/cloaks/ice_cape.webp"
+      "img": "cosmetics/cloaks/ice_cape.webp",
+      "model": "cosmetics/cosmetics/models/ice_cape.json",
+      "texture": "textures/cosmetics/capes/ice_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "void_cape",
@@ -153,7 +207,13 @@
         "void",
         "cape"
       ],
-      "img": "cosmetics/cloaks/void_cape.webp"
+      "img": "cosmetics/cloaks/void_cape.webp",
+      "model": "cosmetics/cosmetics/models/void_cape.json",
+      "texture": "textures/cosmetics/capes/void_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "creeper_cape",
@@ -168,7 +228,13 @@
         "creeper",
         "cape"
       ],
-      "img": "cosmetics/cloaks/creeper_cape.webp"
+      "img": "cosmetics/cloaks/creeper_cape.webp",
+      "model": "cosmetics/cosmetics/models/creeper_cape.json",
+      "texture": "textures/cosmetics/capes/creeper_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "rainbow_cape",
@@ -183,7 +249,13 @@
         "rainbow",
         "cape"
       ],
-      "img": "cosmetics/cloaks/rainbow_cape.webp"
+      "img": "cosmetics/cloaks/rainbow_cape.webp",
+      "model": "cosmetics/cosmetics/models/rainbow_cape.json",
+      "texture": "textures/cosmetics/capes/rainbow_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "gold_cape",
@@ -198,7 +270,13 @@
         "gold",
         "cape"
       ],
-      "img": "cosmetics/cloaks/gold_cape.webp"
+      "img": "cosmetics/cloaks/gold_cape.webp",
+      "model": "cosmetics/cosmetics/models/gold_cape.json",
+      "texture": "textures/cosmetics/capes/gold_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "blood_cape",
@@ -213,7 +291,13 @@
         "blood",
         "cape"
       ],
-      "img": "cosmetics/cloaks/blood_cape.webp"
+      "img": "cosmetics/cloaks/blood_cape.webp",
+      "model": "cosmetics/cosmetics/models/blood_cape.json",
+      "texture": "textures/cosmetics/capes/blood_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "frost_cape",
@@ -228,7 +312,13 @@
         "frost",
         "cape"
       ],
-      "img": "cosmetics/cloaks/frost_cape.webp"
+      "img": "cosmetics/cloaks/frost_cape.webp",
+      "model": "cosmetics/cosmetics/models/frost_cape.json",
+      "texture": "textures/cosmetics/capes/frost_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "storm_cape",
@@ -243,7 +333,13 @@
         "storm",
         "cape"
       ],
-      "img": "cosmetics/cloaks/storm_cape.webp"
+      "img": "cosmetics/cloaks/storm_cape.webp",
+      "model": "cosmetics/cosmetics/models/storm_cape.json",
+      "texture": "textures/cosmetics/capes/storm_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ember_cape",
@@ -258,7 +354,13 @@
         "ember",
         "cape"
       ],
-      "img": "cosmetics/cloaks/ember_cape.webp"
+      "img": "cosmetics/cloaks/ember_cape.webp",
+      "model": "cosmetics/cosmetics/models/ember_cape.json",
+      "texture": "textures/cosmetics/capes/ember_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "tide_cape",
@@ -273,7 +375,13 @@
         "tide",
         "cape"
       ],
-      "img": "cosmetics/cloaks/tide_cape.webp"
+      "img": "cosmetics/cloaks/tide_cape.webp",
+      "model": "cosmetics/cosmetics/models/tide_cape.json",
+      "texture": "textures/cosmetics/capes/tide_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "moss_cape",
@@ -288,7 +396,13 @@
         "moss",
         "cape"
       ],
-      "img": "cosmetics/cloaks/moss_cape.webp"
+      "img": "cosmetics/cloaks/moss_cape.webp",
+      "model": "cosmetics/cosmetics/models/moss_cape.json",
+      "texture": "textures/cosmetics/capes/moss_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "royal_cape",
@@ -303,7 +417,13 @@
         "royal",
         "cape"
       ],
-      "img": "cosmetics/cloaks/royal_cape.webp"
+      "img": "cosmetics/cloaks/royal_cape.webp",
+      "model": "cosmetics/cosmetics/models/royal_cape.json",
+      "texture": "textures/cosmetics/capes/royal_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "midnight_cape",
@@ -318,7 +438,13 @@
         "midnight",
         "cape"
       ],
-      "img": "cosmetics/cloaks/midnight_cape.webp"
+      "img": "cosmetics/cloaks/midnight_cape.webp",
+      "model": "cosmetics/cosmetics/models/midnight_cape.json",
+      "texture": "textures/cosmetics/capes/midnight_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "sunrise_cape",
@@ -333,7 +459,13 @@
         "sunrise",
         "cape"
       ],
-      "img": "cosmetics/cloaks/sunrise_cape.webp"
+      "img": "cosmetics/cloaks/sunrise_cape.webp",
+      "model": "cosmetics/cosmetics/models/sunrise_cape.json",
+      "texture": "textures/cosmetics/capes/sunrise_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "obsidian_cape",
@@ -348,7 +480,13 @@
         "obsidian",
         "cape"
       ],
-      "img": "cosmetics/cloaks/obsidian_cape.webp"
+      "img": "cosmetics/cloaks/obsidian_cape.webp",
+      "model": "cosmetics/cosmetics/models/obsidian_cape.json",
+      "texture": "textures/cosmetics/capes/obsidian_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ghost_cape",
@@ -363,7 +501,13 @@
         "ghost",
         "cape"
       ],
-      "img": "cosmetics/cloaks/ghost_cape.webp"
+      "img": "cosmetics/cloaks/ghost_cape.webp",
+      "model": "cosmetics/cosmetics/models/ghost_cape.json",
+      "texture": "textures/cosmetics/capes/ghost_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "magma_cape",
@@ -378,7 +522,13 @@
         "magma",
         "cape"
       ],
-      "img": "cosmetics/cloaks/magma_cape.webp"
+      "img": "cosmetics/cloaks/magma_cape.webp",
+      "model": "cosmetics/cosmetics/models/magma_cape.json",
+      "texture": "textures/cosmetics/capes/magma_cape.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     }
   ]
 }

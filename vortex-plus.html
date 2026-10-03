@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex+ | Vortex Client</title>
+  <link rel="icon" type="image/jpeg" href="vortex-logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+  <style>
+    .plus-hero { text-align:center; padding:70px 20px 30px; background:radial-gradient(circle at 50% 0%, rgba(255,217,125,.14), transparent 60%); }
+    .plus-hero h1 { font-size:clamp(2.6rem,6vw,4.2rem); font-weight:900; letter-spacing:.04em; }
+    .plus-hero h1 .grad { background:linear-gradient(90deg,#FFD97D,#F472B6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .plus-hero p { opacity:.8; font-size:1.1rem; }
+    .plus-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:26px 0; }
+    .plus-feat { background:rgba(255,255,255,.04); border:1px solid rgba(255,217,125,.22); border-radius:16px; padding:22px; }
+    .plus-feat i { font-size:1.6rem; color:#FFD97D; }
+    .plus-feat h3 { margin:10px 0 6px; font-size:1.05rem; }
+    .plus-feat p { font-size:.9rem; opacity:.75; line-height:1.55; }
+    .plus-price { text-align:center; background:#14141f; border:1px solid rgba(255,217,125,.3); border-radius:18px; padding:34px 22px; margin:10px 0 30px; }
+    .plus-price .amount { font-size:2.6rem; font-weight:900; }
+    .plus-price .per { opacity:.6; }
+    .plus-concepts { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px; }
+    .plus-concept { background:rgba(255,255,255,.03); border:1px dashed rgba(255,217,125,.35); border-radius:14px; padding:18px 12px; text-align:center; }
+    .plus-concept b { display:block; margin-bottom:4px; }
+    .plus-concept span { font-size:.75rem; color:#FFD97D; font-weight:700; letter-spacing:.06em; }
+    .plus-concept small { display:block; opacity:.6; font-size:.75rem; margin-top:4px; }
+    .plus-note { font-size:.85rem; opacity:.65; text-align:center; margin:18px 0 40px; line-height:1.6; }
+  </style>
+</head>
+<body class="dark">
+  <div class="topbar">
+    <div class="wrap nav">
+      <a href="index.html" class="brand"><img src="vortex-logo.jpg" alt="Vortex Client Logo"> Vortex</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="download.html">Download</a>
+        <a href="store.html">Store</a>
+        <a href="socials.html">Socials</a>
+        <a href="news.html">News</a>
+        <a href="updates.html">Updates</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <a href="download.html" class="nav-cta"><i class="fa-solid fa-download"></i> Download</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="mobile-menu" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="store.html">Store</a>
+      <a href="socials.html">Socials</a>
+      <a href="news.html">News</a>
+      <a href="updates.html">Updates</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+  <main>
+    <section class="wrap plus-hero">
+      <span class="hero-eyebrow"><i class="fa-solid fa-crown"></i> Membership</span>
+      <h1>VORTEX<span class="grad">+</span></h1>
+      <p>Unlock the premium side of Vortex.</p>
+    </section>
+    <section class="wrap">
+      <div class="plus-grid">
+        <div class="plus-feat"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Exclusive cosmetics</h3><p>Members-only models that never enter the regular store rotation.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-palette"></i><h3>Vault themes</h3><p>Special Vault skins and profile styling for members.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-gift"></i><h3>Monthly drop</h3><p>A new member cosmetic every month, yours to keep.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-id-badge"></i><h3>Profile badge</h3><p>A Vortex+ badge on your account, launcher and Discord.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-bolt"></i><h3>Early access</h3><p>Try new cosmetics before they reach the public store.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-fire"></i><h3>Special effects</h3><p>Unique particles and equip effects on member items.</p></div>
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="sec-head"><h2>Planned member cosmetics</h2><span>concepts, not yet released</span></div>
+      <div class="plus-concepts" id="plusConcepts"></div>
+      <p class="plus-note">These are design concepts. No artwork is shown because the assets do not exist yet —<br>we will never sell you a picture pretending to be a cosmetic.</p>
+    </section>
+    <section class="wrap">
+      <div class="plus-price">
+        <div class="plus-badge"><i class="fa-solid fa-crown"></i> VORTEX+ MEMBERSHIP</div>
+        <div class="amount">Coming soon</div>
+        <p class="per">Payments are not integrated yet. Membership will be optional — the basic client stays free forever.</p>
+        <a class="btn btn-primary btn-lg" href="socials.html">Join Discord for launch news</a>
+      </div>
+      <p class="plus-note">Entitlements are checked server-side. The store and the client never trust a <b>vortex_plus = true</b> flag from the browser.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="footer-bottom">
+        <span>© 2026 Vortex Client. Not affiliated with Mojang or Microsoft.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="site.js"></script>
+  <script>
+    fetch('data/vortex-plus.json').then(function (r) { return r.json(); }).then(function (d) {
+      var host = document.getElementById('plusConcepts');
+      if (!host || !d || !d.concepts) return;
+      host.innerHTML = d.concepts.map(function (c) {
+        return '<div class="plus-concept"><b>' + String(c.name).replace(/</g, '&lt;') + '</b><span>COMING SOON</span><small>' + String(c.kind || '').replace(/</g, '&lt;') + '</small></div>';
+      }).join('');
+    }).catch(function () {});
+  </script>
+</body>
+</html>

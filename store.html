@@ -63,6 +63,19 @@
     <section class="wrap store-toolbar">
       <div class="toolbar-row">
         <input id="storeSearch" type="search" placeholder="Search cosmetics… (try &quot;dragon&quot;)" autocomplete="off" aria-label="Search cosmetics">
+        <select id="themeSel" aria-label="Theme">
+          <option value="all">Theme: All</option>
+          <option value="galaxy">Galaxy</option>
+          <option value="fire">Fire</option>
+          <option value="ice">Ice</option>
+          <option value="void">Void</option>
+          <option value="dragon">Dragon</option>
+          <option value="shadow">Shadow</option>
+          <option value="storm">Storm</option>
+          <option value="crystal">Crystal</option>
+          <option value="golden">Golden</option>
+          <option value="nature">Nature</option>
+        </select>
         <select id="storeSort" aria-label="Sort">
           <option value="featured">Sort: Featured</option>
           <option value="newest">Sort: Newest</option>
@@ -97,6 +110,10 @@
             <label><input type="radio" name="price" data-price="p2"> 200 – 300</label>
             <label><input type="radio" name="price" data-price="p3"> 300 – 500</label>
             <label><input type="radio" name="price" data-price="p4"> 500 +</label>
+          </fieldset>
+          <fieldset><legend>Options</legend>
+            <label><input type="checkbox" id="animOnly"> Animated only</label>
+            <label><input type="checkbox" id="plusOnly"> Vortex+ only</label>
           </fieldset>
         </div>
       </details>
@@ -184,7 +201,9 @@
       .toolbar-row { display:flex; gap:10px; }
       #storeSearch { flex:1; background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px 16px; font-size:15px; }
       #storeSearch:focus { outline:none; border-color:rgba(56,189,248,.6); }
-      #storeSort { background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px; }
+      #storeSort, #themeSel { background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px; }
+      .prod-badge.anim { border-color:#4ADE80 !important; color:#4ADE80 !important; }
+      .prod-badge.plus { border-color:#FFD97D !important; color:#FFD97D !important; }
       .cat-pills { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
       .cat-pills button { flex:0 0 auto; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:#cbd5e1;
         border-radius:99px; padding:9px 18px; font-weight:700; cursor:pointer; }
@@ -227,6 +246,7 @@
       .acct img, .acct-fb { width:30px; height:30px; border-radius:50%; }
       .acct-fb { display:flex; align-items:center; justify-content:center; background:#0057ff; color:#fff; font-weight:900; }
       .acct-name { font-weight:700; font-size:14px; max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+      .acct-plus { font-size:10px; font-weight:900; letter-spacing:.06em; color:#FFD97D; border:1px solid rgba(255,217,125,.5); border-radius:99px; padding:2px 8px; }
       .acct-coins { font-size:12px; color:#FFD97D; }
       .acct-menu { position:absolute; right:0; top:calc(100% + 8px); background:#14141f; border:1px solid rgba(255,255,255,.14);
         border-radius:12px; min-width:220px; z-index:50; padding:6px; }
@@ -255,7 +275,7 @@
             <li><i class="fa-solid fa-face-grin-stars"></i> Monthly Emote</li>
             <li><i class="fa-solid fa-ban"></i> Ad-Free Experience</li>
           </ul>
-          <a class="btn btn-primary btn-lg" href="#plus">Purchase Vortex+</a>
+          <a class="btn btn-primary btn-lg" href="vortex-plus.html">Explore Vortex+</a>
         </div>
         <div class="plus-right">
           <img src="cosmetics/cs-vortex_plus.png" alt="Vortex+" loading="lazy" decoding="async">

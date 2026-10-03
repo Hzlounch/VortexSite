@@ -1,7 +1,7 @@
 {
   "category": "headwear",
   "count": 20,
-  "updatedAt": "2026-09-29T13:32:50.305Z",
+  "updatedAt": "2026-10-02T18:26:47.014Z",
   "items": [
     {
       "id": "top_hat",
@@ -16,7 +16,13 @@
         "top",
         "hat"
       ],
-      "img": "cosmetics/headwear/top_hat.webp"
+      "img": "cosmetics/headwear/top_hat.webp",
+      "model": "cosmetics/models/top_hat.json",
+      "texture": "textures/cosmetics/hats/top_hat.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "crown",
@@ -31,7 +37,13 @@
         "crown",
         "hat"
       ],
-      "img": "cosmetics/headwear/crown.webp"
+      "img": "cosmetics/headwear/crown.webp",
+      "model": "cosmetics/models/crown.json",
+      "texture": "textures/cosmetics/hats/crown.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "demon_horns",
@@ -47,7 +59,13 @@
         "horns",
         "hat"
       ],
-      "img": "cosmetics/headwear/demon_horns.webp"
+      "img": "cosmetics/headwear/demon_horns.webp",
+      "model": "cosmetics/models/demon_horns.json",
+      "texture": "textures/cosmetics/hats/demon_horns.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "halo",
@@ -62,7 +80,13 @@
         "halo",
         "hat"
       ],
-      "img": "cosmetics/headwear/halo.webp"
+      "img": "cosmetics/headwear/halo.webp",
+      "model": "cosmetics/models/halo.json",
+      "texture": "textures/cosmetics/hats/halo.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "wizard_hat",
@@ -77,7 +101,13 @@
         "wizard",
         "hat"
       ],
-      "img": "cosmetics/headwear/wizard_hat.webp"
+      "img": "cosmetics/headwear/wizard_hat.webp",
+      "model": "cosmetics/cosmetics/models/wizard_hat.json",
+      "texture": "textures/cosmetics/hats/wizard_hat.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "viking_helm",
@@ -93,7 +123,13 @@
         "helm",
         "hat"
       ],
-      "img": "cosmetics/headwear/viking_helm.webp"
+      "img": "cosmetics/headwear/viking_helm.webp",
+      "model": "cosmetics/cosmetics/models/viking_helm.json",
+      "texture": "textures/cosmetics/hats/viking_helm.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "beanie",
@@ -108,7 +144,13 @@
         "beanie",
         "hat"
       ],
-      "img": "cosmetics/headwear/beanie.webp"
+      "img": "cosmetics/headwear/beanie.webp",
+      "model": "cosmetics/cosmetics/models/beanie.json",
+      "texture": "textures/cosmetics/hats/beanie.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "baseball_cap",
@@ -124,7 +166,13 @@
         "cap",
         "hat"
       ],
-      "img": "cosmetics/headwear/baseball_cap.webp"
+      "img": "cosmetics/headwear/baseball_cap.webp",
+      "model": "cosmetics/cosmetics/models/baseball_cap.json",
+      "texture": "textures/cosmetics/hats/baseball_cap.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "headphones",
@@ -139,7 +187,13 @@
         "headphones",
         "hat"
       ],
-      "img": "cosmetics/headwear/headphones.webp"
+      "img": "cosmetics/headwear/headphones.webp",
+      "model": "cosmetics/cosmetics/models/headphones.json",
+      "texture": "textures/cosmetics/hats/headphones.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "antenna",
@@ -154,7 +208,13 @@
         "antenna",
         "hat"
       ],
-      "img": "cosmetics/headwear/antenna.webp"
+      "img": "cosmetics/headwear/antenna.webp",
+      "model": "cosmetics/cosmetics/models/antenna.json",
+      "texture": "textures/cosmetics/hats/antenna.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "bunny_ears",
@@ -170,7 +230,13 @@
         "ears",
         "hat"
       ],
-      "img": "cosmetics/headwear/bunny_ears.webp"
+      "img": "cosmetics/headwear/bunny_ears.webp",
+      "model": "cosmetics/cosmetics/models/bunny_ears.json",
+      "texture": "textures/cosmetics/hats/bunny_ears.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "cat_ears",
@@ -186,7 +252,13 @@
         "ears",
         "hat"
       ],
-      "img": "cosmetics/headwear/cat_ears.webp"
+      "img": "cosmetics/headwear/cat_ears.webp",
+      "model": "cosmetics/cosmetics/models/cat_ears.json",
+      "texture": "textures/cosmetics/hats/cat_ears.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "silver_crown",
@@ -202,7 +274,13 @@
         "crown",
         "hat"
       ],
-      "img": "cosmetics/headwear/silver_crown.webp"
+      "img": "cosmetics/headwear/silver_crown.webp",
+      "model": "cosmetics/cosmetics/models/silver_crown.json",
+      "texture": "textures/cosmetics/hats/silver_crown.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ruby_crown",
@@ -218,7 +296,13 @@
         "crown",
         "hat"
       ],
-      "img": "cosmetics/headwear/ruby_crown.webp"
+      "img": "cosmetics/headwear/ruby_crown.webp",
+      "model": "cosmetics/cosmetics/models/ruby_crown.json",
+      "texture": "textures/cosmetics/hats/ruby_crown.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "dark_halo",
@@ -234,7 +318,13 @@
         "halo",
         "hat"
       ],
-      "img": "cosmetics/headwear/dark_halo.webp"
+      "img": "cosmetics/headwear/dark_halo.webp",
+      "model": "cosmetics/cosmetics/models/dark_halo.json",
+      "texture": "textures/cosmetics/hats/dark_halo.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "party_hat",
@@ -249,7 +339,13 @@
         "party",
         "hat"
       ],
-      "img": "cosmetics/headwear/party_hat.webp"
+      "img": "cosmetics/headwear/party_hat.webp",
+      "model": "cosmetics/cosmetics/models/party_hat.json",
+      "texture": "textures/cosmetics/hats/party_hat.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "straw_hat",
@@ -264,7 +360,13 @@
         "straw",
         "hat"
       ],
-      "img": "cosmetics/headwear/straw_hat.webp"
+      "img": "cosmetics/headwear/straw_hat.webp",
+      "model": "cosmetics/cosmetics/models/straw_hat.json",
+      "texture": "textures/cosmetics/hats/straw_hat.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "knight_helm",
@@ -280,7 +382,13 @@
         "helm",
         "hat"
       ],
-      "img": "cosmetics/headwear/knight_helm.webp"
+      "img": "cosmetics/headwear/knight_helm.webp",
+      "model": "cosmetics/cosmetics/models/knight_helm.json",
+      "texture": "textures/cosmetics/hats/knight_helm.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "flower_crown",
@@ -296,7 +404,13 @@
         "crown",
         "hat"
       ],
-      "img": "cosmetics/headwear/flower_crown.webp"
+      "img": "cosmetics/headwear/flower_crown.webp",
+      "model": "cosmetics/cosmetics/models/flower_crown.json",
+      "texture": "textures/cosmetics/hats/flower_crown.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "golden_tophat",
@@ -312,7 +426,13 @@
         "tophat",
         "hat"
       ],
-      "img": "cosmetics/headwear/golden_tophat.webp"
+      "img": "cosmetics/headwear/golden_tophat.webp",
+      "model": "cosmetics/cosmetics/models/golden_tophat.json",
+      "texture": "textures/cosmetics/hats/golden_tophat.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     }
   ]
 }

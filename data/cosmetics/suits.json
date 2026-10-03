@@ -1,7 +1,7 @@
 {
   "category": "suits",
   "count": 10,
-  "updatedAt": "2026-09-29T13:32:50.305Z",
+  "updatedAt": "2026-10-02T18:26:47.014Z",
   "items": [
     {
       "id": "dragon_suit",
@@ -17,6 +17,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/dragon_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "demon_horns",
         "BACK": "dragon_wings",
@@ -38,6 +46,15 @@
         "suit"
       ],
       "img": "cosmetics/suits/galaxy_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "enchant",
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "halo",
         "BACK": "galaxy_wings",
@@ -59,6 +76,12 @@
         "suit"
       ],
       "img": "cosmetics/suits/fire_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "demon_horns",
         "BACK": "fire_cape",
@@ -80,6 +103,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/void_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "dark_halo",
         "BACK": "void_cape",
@@ -101,6 +132,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/angel_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "glow"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "halo",
         "BACK": "angel_wings",
@@ -122,6 +161,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/creeper_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "smoke"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "cat_ears",
         "BACK": "creeper_cape",
@@ -143,6 +190,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/ice_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "snowflake"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "knight_helm",
         "BACK": "ice_cape",
@@ -164,6 +219,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/shadow_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "smoke"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "beanie",
         "BACK": "shadow_cape",
@@ -185,6 +248,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/royal_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "ruby_crown",
         "BACK": "royal_cape",
@@ -206,6 +277,14 @@
         "suit"
       ],
       "img": "cosmetics/suits/storm_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "electric_spark"
+      ],
+      "status": "available",
+      "vortexPlus": false,
       "outfit": {
         "HEAD": "viking_helm",
         "BACK": "storm_cape",

@@ -1,7 +1,7 @@
 {
   "category": "auras",
   "count": 15,
-  "updatedAt": "2026-09-29T13:32:50.305Z",
+  "updatedAt": "2026-10-02T18:26:47.014Z",
   "items": [
     {
       "id": "flame_ring",
@@ -17,7 +17,13 @@
         "ring",
         "aura"
       ],
-      "img": "cosmetics/auras/flame_ring.webp"
+      "img": "cosmetics/auras/flame_ring.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "soul_fire",
@@ -33,7 +39,15 @@
         "fire",
         "aura"
       ],
-      "img": "cosmetics/auras/soul_fire.webp"
+      "img": "cosmetics/auras/soul_fire.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "soul_fire_flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "heart_aura",
@@ -48,7 +62,15 @@
         "heart",
         "aura"
       ],
-      "img": "cosmetics/auras/heart_aura.webp"
+      "img": "cosmetics/auras/heart_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "heart"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "smoke_aura",
@@ -63,7 +85,15 @@
         "smoke",
         "aura"
       ],
-      "img": "cosmetics/auras/smoke_aura.webp"
+      "img": "cosmetics/auras/smoke_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "smoke"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "enchant_aura",
@@ -78,7 +108,15 @@
         "enchant",
         "aura"
       ],
-      "img": "cosmetics/auras/enchant_aura.webp"
+      "img": "cosmetics/auras/enchant_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "witch_aura",
@@ -93,7 +131,15 @@
         "witch",
         "aura"
       ],
-      "img": "cosmetics/auras/witch_aura.webp"
+      "img": "cosmetics/auras/witch_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "witch"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "portal_aura",
@@ -108,7 +154,15 @@
         "portal",
         "aura"
       ],
-      "img": "cosmetics/auras/portal_aura.webp"
+      "img": "cosmetics/auras/portal_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "spark_aura",
@@ -123,7 +177,15 @@
         "spark",
         "aura"
       ],
-      "img": "cosmetics/auras/spark_aura.webp"
+      "img": "cosmetics/auras/spark_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "electric_spark"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "glow_aura",
@@ -138,7 +200,15 @@
         "glow",
         "aura"
       ],
-      "img": "cosmetics/auras/glow_aura.webp"
+      "img": "cosmetics/auras/glow_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "glow"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ember_aura",
@@ -153,7 +223,15 @@
         "ember",
         "aura"
       ],
-      "img": "cosmetics/auras/ember_aura.webp"
+      "img": "cosmetics/auras/ember_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "frost_aura",
@@ -168,7 +246,15 @@
         "frost",
         "aura"
       ],
-      "img": "cosmetics/auras/frost_aura.webp"
+      "img": "cosmetics/auras/frost_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "snowflake"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "lava_aura",
@@ -183,7 +269,15 @@
         "lava",
         "aura"
       ],
-      "img": "cosmetics/auras/lava_aura.webp"
+      "img": "cosmetics/auras/lava_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "dripping_lava"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "magic_aura",
@@ -198,7 +292,15 @@
         "magic",
         "aura"
       ],
-      "img": "cosmetics/auras/magic_aura.webp"
+      "img": "cosmetics/auras/magic_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "void_aura",
@@ -213,7 +315,15 @@
         "void",
         "aura"
       ],
-      "img": "cosmetics/auras/void_aura.webp"
+      "img": "cosmetics/auras/void_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "note_aura",
@@ -228,7 +338,15 @@
         "note",
         "aura"
       ],
-      "img": "cosmetics/auras/note_aura.webp"
+      "img": "cosmetics/auras/note_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "note"
+      ],
+      "status": "available",
+      "vortexPlus": false
     }
   ]
 }

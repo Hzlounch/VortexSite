@@ -11,7 +11,7 @@
 //   ../../MinecraftLauncher/pages/cosmetics/items.js   (launcher Vault data)
 //
 // Usage: node scripts/sync-catalog.mjs [--bot=...] [--index=...] [--launcher=...] [--no-launcher]
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -48,6 +48,54 @@ function renderPaths(cat, id) {
   return { img: `cosmetics/${cat}/${String(id).toLowerCase()}.webp` };
 }
 
+// Game-asset metadata, derived from the REAL mod files (never invented).
+// model/texture/anim are the mod's asset paths; animated/effects come from
+// the anim JSON motion + particle keys; status is 'available' only when a
+// renderable source exists, otherwise 'preview-only'.
+function assetExists(p) {
+  if (!p) return null;
+  const cands = [p];
+  if (p.startsWith('cosmetics/') && !p.startsWith('cosmetics/cosmetics/')) cands.push('cosmetics/' + p);
+  if (p.startsWith('cosmetics/cosmetics/')) cands.push(p.slice('cosmetics/'.length));
+  for (const c of cands) {
+    const full = join(MODBASE, ...c.split('/'));
+    try {
+      const st = statSync(full);
+      if (st.isFile()) return c;
+    } catch (_) {}
+  }
+  return null;
+}
+const MODBASE = resolve(ROOT, args.mod || '../MinecraftLauncher/vortex-menu-mod/src/main/resources/assets/vortex_menu');
+function num(v) { const n = Number(v); return Number.isFinite(n) ? n : 0; }
+function animMeta(g, gameById) {
+  const out = { animated: false, effects: [], animPath: null };
+  const seen = new Set();
+  function fold(entry) {
+    if (!entry || seen.has(entry.id)) return;
+    seen.add(entry.id);
+    const ap = assetExists(entry.anim || '');
+    if (!ap) return;
+    if (!out.animPath) out.animPath = ap;
+    let a = {};
+    try { a = JSON.parse(readFileSync(join(MODBASE, ...ap.split('/')), 'utf8')); } catch (_) { return; }
+    if (num(a.flap) > 0 || num(a.bob) > 0 || num(a.wingFlap) > 0 || num(a.headFollow) > 0) out.animated = true;
+    if (entry.type === 'CAPE' && num(a.sway) > 0) out.animated = true;
+    if (entry.type === 'AURA' && a.particle) out.animated = true;
+    for (const k of ['particle', 'trail', 'puff']) {
+      if (typeof a[k] === 'string' && a[k] && !out.effects.includes(a[k].toLowerCase())) out.effects.push(a[k].toLowerCase());
+    }
+  }
+  fold(g);
+  if (g && g.type === 'SUIT' && g.outfit) {
+    for (const k of Object.keys(g.outfit)) {
+      const ref = gameById.get(g.outfit[k]);
+      if (ref) fold(ref);
+    }
+  }
+  return out;
+}
+
 function fail(msg) { console.error('sync-catalog: ERROR: ' + msg); process.exit(1); }
 function warn(msg) { console.error('sync-catalog: WARN: ' + msg); }
 
@@ -71,6 +119,20 @@ for (const id of bot.all) {
   if (!cat) fail('unknown slot for ' + id + ': ' + slot);
   const price = Number(bot.prices[id]);
   if (!Number.isFinite(price) || price <= 0) fail('bad price for ' + id);
+  const meta = animMeta(g, byId);
+  const modelPath = assetExists(g.model || '');
+  const texPath = assetExists(g.texture || '');
+  // status reflects asset reality: renderable source -> available,
+  // otherwise honestly preview-only (suits resolve via outfit pieces).
+  let status = 'preview-only';
+  if (g.type === 'SUIT') {
+    status = meta.animated || (g.outfit && Object.keys(g.outfit).length) ? 'available' : 'preview-only';
+    if (!g.outfit || !Object.keys(g.outfit).length) status = 'preview-only';
+  } else if (g.type === 'AURA') {
+    status = meta.animPath ? 'available' : 'preview-only';
+  } else if (modelPath && texPath) {
+    status = 'available';
+  }
   const item = {
     id: String(id).toLowerCase(),
     name: bot.names[id] || g.name || id,
@@ -82,11 +144,15 @@ for (const id of bot.all) {
     desc: g.description || g.desc || '',
     tags: tagsFor(bot.names[id] || g.name || id, g.type || slot),
     ...renderPaths(cat, String(id).toLowerCase()),
+    model: modelPath || null,
+    texture: texPath || null,
+    animated: meta.animated,
+    effects: meta.effects,
+    status,
+    vortexPlus: false,
   };
   if (g.outfit) item.outfit = g.outfit;
   items.push(item);
-  // NOTE: site thumbs deleted by owner request — store cards render letter
-  // tiles now. Launcher keeps its own thumbs (separate folder, untouched).
 }
 
 const counts = {};
@@ -108,6 +174,8 @@ const shimItems = siteItems.map(it => ({
   id: it.id, name: it.name, cat: it.cat, type: it.type,
   rarity: it.rarity, price: it.price, desc: it.desc, img: it.img,
   tags: it.tags || [], outfit: it.outfit || null,
+  animated: !!it.animated, effects: it.effects || [], status: it.status || 'available',
+  vortexPlus: !!it.vortexPlus,
 }));
 writeFileSync(join(ROOT, 'cosmetics-store.js'),
   GEN + 'var COSMETICS_STORE = ' + JSON.stringify({ items: shimItems }) + ';\n');

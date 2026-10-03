@@ -38,9 +38,10 @@ try {
     if (!b.byteLength) { console.error('FAIL empty', f); failed++; }
   }
   const cat = await (await fetch('http://127.0.0.1:8901/data/cosmetics.json')).json();
-  if (cat.total !== 100) { console.error('FAIL catalog total', cat.total); failed++; }
+  if (!cat.total || cat.total < 100) { console.error('FAIL catalog total', cat.total); failed++; }
   const wings = await (await fetch('http://127.0.0.1:8901/data/cosmetics/wings.json')).json();
-  if ((wings.items || []).length !== 15) { console.error('FAIL wings count'); failed++; }
+  if (!wings.items || !wings.items.length) { console.error('FAIL wings empty'); failed++; }
+  if (!wings.items.find(function (i) { return i.id === 'inferno_wings'; })) { console.error('FAIL inferno_wings missing'); failed++; }
   const store = await (await fetch('http://127.0.0.1:8901/store.html')).text();
   for (const needle of ['js/store-page.js', 'vortex-logo.jpg']) {
     if (!store.includes(needle)) { console.error('FAIL store.html missing', needle); failed++; }

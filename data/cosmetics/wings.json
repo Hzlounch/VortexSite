@@ -1,7 +1,7 @@
 {
   "category": "wings",
-  "count": 15,
-  "updatedAt": "2026-09-29T13:32:50.305Z",
+  "count": 16,
+  "updatedAt": "2026-10-02T18:26:47.014Z",
   "items": [
     {
       "id": "dragon_wings",
@@ -16,7 +16,15 @@
         "dragon",
         "wings"
       ],
-      "img": "cosmetics/wings/dragon_wings.webp"
+      "img": "cosmetics/wings/dragon_wings.webp",
+      "model": "cosmetics/models/dragon_wings.json",
+      "texture": "textures/cosmetics/wings/dragon_wings.png",
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "angel_wings",
@@ -31,7 +39,13 @@
         "angel",
         "wings"
       ],
-      "img": "cosmetics/wings/angel_wings.webp"
+      "img": "cosmetics/wings/angel_wings.webp",
+      "model": "cosmetics/cosmetics/models/angel_wings.json",
+      "texture": "textures/cosmetics/wings/angel_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "demon_wings",
@@ -46,7 +60,13 @@
         "demon",
         "wings"
       ],
-      "img": "cosmetics/wings/demon_wings.webp"
+      "img": "cosmetics/wings/demon_wings.webp",
+      "model": "cosmetics/cosmetics/models/demon_wings.json",
+      "texture": "textures/cosmetics/wings/demon_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "void_wings",
@@ -61,7 +81,13 @@
         "void",
         "wings"
       ],
-      "img": "cosmetics/wings/void_wings.webp"
+      "img": "cosmetics/wings/void_wings.webp",
+      "model": "cosmetics/cosmetics/models/void_wings.json",
+      "texture": "textures/cosmetics/wings/void_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "galaxy_wings",
@@ -76,7 +102,15 @@
         "galaxy",
         "wings"
       ],
-      "img": "cosmetics/wings/galaxy_wings.webp"
+      "img": "cosmetics/wings/galaxy_wings.webp",
+      "model": "cosmetics/cosmetics/models/galaxy_wings.json",
+      "texture": "textures/cosmetics/wings/galaxy_wings.png",
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "mechanical_wings",
@@ -91,7 +125,13 @@
         "mechanical",
         "wings"
       ],
-      "img": "cosmetics/wings/mechanical_wings.webp"
+      "img": "cosmetics/wings/mechanical_wings.webp",
+      "model": "cosmetics/cosmetics/models/mechanical_wings.json",
+      "texture": "textures/cosmetics/wings/mechanical_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "crystal_wings",
@@ -106,7 +146,13 @@
         "crystal",
         "wings"
       ],
-      "img": "cosmetics/wings/crystal_wings.webp"
+      "img": "cosmetics/wings/crystal_wings.webp",
+      "model": "cosmetics/cosmetics/models/crystal_wings.json",
+      "texture": "textures/cosmetics/wings/crystal_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "fire_wings",
@@ -121,7 +167,13 @@
         "fire",
         "wings"
       ],
-      "img": "cosmetics/wings/fire_wings.webp"
+      "img": "cosmetics/wings/fire_wings.webp",
+      "model": "cosmetics/cosmetics/models/fire_wings.json",
+      "texture": "textures/cosmetics/wings/fire_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ice_wings",
@@ -136,7 +188,13 @@
         "ice",
         "wings"
       ],
-      "img": "cosmetics/wings/ice_wings.webp"
+      "img": "cosmetics/wings/ice_wings.webp",
+      "model": "cosmetics/cosmetics/models/ice_wings.json",
+      "texture": "textures/cosmetics/wings/ice_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "fairy_wings",
@@ -151,7 +209,13 @@
         "fairy",
         "wings"
       ],
-      "img": "cosmetics/wings/fairy_wings.webp"
+      "img": "cosmetics/wings/fairy_wings.webp",
+      "model": "cosmetics/cosmetics/models/fairy_wings.json",
+      "texture": "textures/cosmetics/wings/fairy_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "shadow_wings",
@@ -166,7 +230,13 @@
         "shadow",
         "wings"
       ],
-      "img": "cosmetics/wings/shadow_wings.webp"
+      "img": "cosmetics/wings/shadow_wings.webp",
+      "model": "cosmetics/cosmetics/models/shadow_wings.json",
+      "texture": "textures/cosmetics/wings/shadow_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "storm_wings",
@@ -181,7 +251,13 @@
         "storm",
         "wings"
       ],
-      "img": "cosmetics/wings/storm_wings.webp"
+      "img": "cosmetics/wings/storm_wings.webp",
+      "model": "cosmetics/cosmetics/models/storm_wings.json",
+      "texture": "textures/cosmetics/wings/storm_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "golden_wings",
@@ -196,7 +272,13 @@
         "golden",
         "wings"
       ],
-      "img": "cosmetics/wings/golden_wings.webp"
+      "img": "cosmetics/wings/golden_wings.webp",
+      "model": "cosmetics/cosmetics/models/golden_wings.json",
+      "texture": "textures/cosmetics/wings/golden_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "frost_wings",
@@ -211,7 +293,13 @@
         "frost",
         "wings"
       ],
-      "img": "cosmetics/wings/frost_wings.webp"
+      "img": "cosmetics/wings/frost_wings.webp",
+      "model": "cosmetics/cosmetics/models/frost_wings.json",
+      "texture": "textures/cosmetics/wings/frost_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
     },
     {
       "id": "ember_wings",
@@ -226,7 +314,36 @@
         "ember",
         "wings"
       ],
-      "img": "cosmetics/wings/ember_wings.webp"
+      "img": "cosmetics/wings/ember_wings.webp",
+      "model": "cosmetics/cosmetics/models/ember_wings.json",
+      "texture": "textures/cosmetics/wings/ember_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "inferno_wings",
+      "name": "Inferno Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 340,
+      "desc": "Forged in the Nether heart.",
+      "tags": [
+        "inferno",
+        "wings"
+      ],
+      "img": "cosmetics/wings/inferno_wings.webp",
+      "model": "cosmetics/models/inferno_wings.json",
+      "texture": "textures/cosmetics/wings/inferno_wings.png",
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
     }
   ]
 }

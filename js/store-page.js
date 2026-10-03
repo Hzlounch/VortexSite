@@ -25,17 +25,40 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     { tag: 'ice', title: 'Ice Collection', blurb: 'Glacier fresh.' },
     { tag: 'shadow', title: 'Shadow Collection', blurb: 'Melts into the dark.' }
   ];
-  var PRICE_BANDS = [
-    { id: 'any', label: 'Any price', test: function () { return true; } },
+  var PRICE_BANDS = [    { id: 'any', label: 'Any price', test: function () { return true; } },
     { id: 'p1', label: '100 – 200', test: function (p) { return p <= 200; } },
     { id: 'p2', label: '200 – 300', test: function (p) { return p > 200 && p <= 300; } },
     { id: 'p3', label: '300 – 500', test: function (p) { return p > 300 && p <= 500; } },
     { id: 'p4', label: '500 +', test: function (p) { return p > 500; } }
   ];
+  var THEMES = [
+    { id: 'galaxy', label: 'Galaxy', match: ['galaxy', 'cosmic', 'nebula', 'astral'] },
+    { id: 'fire', label: 'Fire', match: ['fire', 'flame', 'ember', 'lava', 'magma', 'inferno', 'phoenix'] },
+    { id: 'ice', label: 'Ice', match: ['ice', 'frost', 'frozen', 'glacier', 'snow'] },
+    { id: 'void', label: 'Void', match: ['void', 'abyss', 'ender', 'darkness'] },
+    { id: 'dragon', label: 'Dragon', match: ['dragon'] },
+    { id: 'shadow', label: 'Shadow', match: ['shadow', 'midnight', 'dark', 'ghost', 'wisp', 'soul'] },
+    { id: 'storm', label: 'Storm', match: ['storm', 'thunder', 'lightning', 'electric', 'spark'] },
+    { id: 'crystal', label: 'Crystal', match: ['crystal', 'gem', 'diamond', 'prism'] },
+    { id: 'golden', label: 'Golden', match: ['golden', 'gold', 'royal', 'crown'] },
+    { id: 'nature', label: 'Nature', match: ['forest', 'moss', 'nature', 'flower', 'mushroom', 'frog', 'bee', 'ocean', 'tide', 'turtle'] }
+  ];
+  function themeMatch(p, themeId) {
+    if (themeId === 'all') return true;
+    var tags = p.tags || [];
+    for (var i = 0; i < THEMES.length; i++) {
+      if (THEMES[i].id !== themeId) continue;
+      for (var j = 0; j < tags.length; j++) {
+        if (THEMES[i].match.indexOf(tags[j]) >= 0) return true;
+      }
+      return false;
+    }
+    return true;
+  }
   var ALL = [];
   var byCat = {};
   var byId = {};
-  var state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured' };
+  var state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false, plusOnly: false };
   var ownedCache = {};
   var equippedCache = {};
   var account = null; // {discord, mc, uuid, coins, owned[]} when logged in
@@ -89,18 +112,23 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     return id;
   }
   function tileHTML(p, cls) {
-    var rcol = RARITY_COL[p.rarity] || '#9CA3AF';
-    var initial = esc(((p.name || p.id || '?').trim().charAt(0) || '?').toUpperCase());
+    // Image ALWAYS comes from p.img (catalog truth). Never construct paths
+    // from p.id. If the asset is genuinely missing/broken, show a clean
+    // "Preview unavailable" state — never a letter placeholder.
+    var missing = '<div class="' + cls + ' prod-unavailable"><span>Preview<br>unavailable</span></div>';
     if (p.img) {
       return '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="512" height="512"' +
-        ' onerror="this.outerHTML=\'<div class=&quot;' + cls + '&quot; style=&quot;color:' + rcol + '&quot;>' + initial + '</div>\'">';
+        ' onerror="this.outerHTML=\'<div class=&quot;' + cls + ' prod-unavailable&quot;><span>Preview<br>unavailable</span></div>\';' +
+        'if(window.console&&console.warn)console.warn(&quot;[store] missing asset: ' + esc(p.img) + '&quot;)">';
     }
-    return '<div class="' + cls + '" style="color:' + rcol + '">' + initial + '</div>';
+    return missing;
   }
 
   function badges(p) {
     var rcol = RARITY_COL[p.rarity] || '#9CA3AF';
     var b = '<span class="prod-badge" style="border-color:' + rcol + ';color:' + rcol + '">' + esc(p.rarity) + '</span>';
+    if (p.animated) b += '<span class="prod-badge anim">✦ Animated</span>';
+    if (p.vortexPlus) b += '<span class="prod-badge plus">Vortex+</span>';
     if (equippedCache[p.id]) b += '<span class="prod-badge equipped">EQUIPPED</span>';
     else if (ownedCache[p.id]) b += '<span class="prod-badge owned">OWNED</span>';
     return b;
@@ -160,6 +188,9 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       if (state.cat !== 'all' && p.cat !== state.cat) return false;
       if (rarActive.length && rarActive.indexOf(p.rarity) < 0) return false;
       if (!band.test(Number(p.price || 0))) return false;
+      if (!themeMatch(p, state.theme)) return false;
+      if (state.animatedOnly && !p.animated) return false;
+      if (state.plusOnly && !p.vortexPlus) return false;
       if (q) {
         var hay = ((p.name || '') + ' ' + (p.rarity || '') + ' ' + catLabel(p.cat) + ' ' + ((p.tags || []).join(' '))).toLowerCase();
         if (hay.indexOf(q) < 0) return false;
@@ -172,7 +203,8 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
   function hasFilter() {
     return state.q.trim() !== '' || state.cat !== 'all' ||
       Object.keys(state.rar).some(function (k) { return state.rar[k]; }) ||
-      state.price !== 'any' || state.sort !== 'featured';
+      state.price !== 'any' || state.sort !== 'featured' ||
+      state.theme !== 'all' || state.animatedOnly || state.plusOnly;
   }
 
   function collectionItems(tag) {
@@ -305,6 +337,11 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
           ' coins — bundle saves ' + Number(Math.max(0, bm.save)).toLocaleString() + ' coins.</div>' : '') + '</div>';
     }
     var feats = typeFeatures(p).map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('');
+    if (p.animated && feats.indexOf('Animated') < 0 && p.type !== 'WINGS' && p.type !== 'PET') feats += '<li>Animated</li>';
+    var fxRow = (p.effects && p.effects.length)
+      ? '<div class="detail-meta">Effects: ' + p.effects.map(esc).join(', ') + '</div>' : '';
+    var statusRow = (p.status && p.status !== 'available')
+      ? '<div class="detail-meta">Status: preview only — in-game model coming soon</div>' : '';
     var m = document.getElementById('storeModal');
     if (!m) {
       m = document.createElement('div');
@@ -316,13 +353,14 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       '<button class="store-modal-x" id="storeModalX">✕</button>' +
       '<div class="detail-stage" id="detailStage">' +
       (p.img
-        ? '<img class="detail-preview" src="' + esc(p.img) + '" alt="' + esc(p.name) + '" decoding="async">'
-        : '<div class="detail-letter" style="color:' + rcol + '">' + esc((p.name || '?').charAt(0)) + '</div>') +
+        ? '<img class="detail-preview" src="' + esc(p.img) + '" alt="' + esc(p.name) + '" decoding="async"' +
+          ' onerror="this.outerHTML=\'<div class=&quot;detail-img prod-unavailable&quot;><span>Preview<br>unavailable</span></div>\'">'
+        : '<div class="detail-img prod-unavailable"><span>Preview<br>unavailable</span></div>') +
       '</div>' +
       '<h2>' + esc(p.name) + '</h2>' +
       '<div class="detail-meta"><span style="color:' + rcol + '">' + esc(p.rarity) + '</span> · ' + esc(catLabel(p.cat)) + '</div>' +
       '<p class="detail-desc">' + esc(p.desc || 'A Vortex cosmetic, rendered live in game.') + '</p>' +
-      '<ul class="detail-feats">' + feats + '</ul>' + contents +
+      '<ul class="detail-feats">' + feats + '</ul>' + fxRow + statusRow + contents +
       '<div class="detail-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
       '<div class="detail-actions">' +
       (owned ? '<button class="btn btn-secondary" disabled>Owned — equip it in the Vault</button>'
@@ -446,6 +484,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
             mc: acct && acct.linked ? acct.linked.mc : null,
             uuid: acct && acct.linked ? acct.linked.uuid : null,
             coins: (acct && typeof acct.coins === 'number') ? acct.coins : null,
+            vortexPlus: !!(acct && acct.vortexPlus),
             owned: (acct && acct.owned) || [],
             equipped: (acct && acct.equipped) || {}
           };
@@ -470,6 +509,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
         '<div class="acct" id="acctBtn">' +
         (me.avatar ? '<img src="' + esc(me.avatar) + '" alt="">' : '<span class="acct-fb">' + esc((me.username || '?').charAt(0)) + '</span>') +
         '<span class="acct-name">' + esc(me.displayName || me.username || '') + '</span>' +
+        (account.vortexPlus ? '<span class="acct-plus">Vortex+</span>' : '') +
         '<span class="acct-coins">' + coins + '</span>' +
         '<div class="acct-menu" id="acctMenu" hidden>' +
         (account.mc ? '<div class="acct-row">Minecraft: <b>' + esc(account.mc) + '</b></div>'
@@ -578,11 +618,20 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     });
     var sort = document.getElementById('storeSort');
     if (sort) sort.addEventListener('change', function () { state.sort = sort.value; paint(); });
+    var theme = document.getElementById('themeSel');
+    if (theme) theme.addEventListener('change', function () { state.theme = theme.value; paint(); });
+    var animOnly = document.getElementById('animOnly');
+    if (animOnly) animOnly.addEventListener('change', function () { state.animatedOnly = !!animOnly.checked; paint(); });
+    var plusOnly = document.getElementById('plusOnly');
+    if (plusOnly) plusOnly.addEventListener('change', function () { state.plusOnly = !!plusOnly.checked; paint(); });
     var clear = document.getElementById('clearFilters');
     if (clear) clear.addEventListener('click', function () {
-      state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured' };
+      state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false, plusOnly: false };
       if (q) q.value = '';
       if (sort) sort.value = 'featured';
+      if (theme) theme.value = 'all';
+      if (animOnly) animOnly.checked = false;
+      if (plusOnly) plusOnly.checked = false;
       document.querySelectorAll('[data-rar]').forEach(function (c) { c.checked = false; });
       var p0 = document.querySelector('[data-price="any"]');
       if (p0) p0.checked = true;
