@@ -782,47 +782,8 @@ footer { margin-top: auto; border-top: 1px solid var(--border); background: rgba
 .sec-head h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.02em; }
 .sec-head span { color: var(--muted); font-size: 0.85rem; }
 
-/* Product grid & cards (Lunar style: image tile + name + price line) */
-.prod-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.prod {
-  display: block; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 14px; overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-.prod:hover { transform: translateY(-4px); border-color: rgba(47,227,234,0.4); }
-.prod-img { position: relative; aspect-ratio: 1; overflow: hidden; background: #0b0f1a; }
-.prod-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-/* NOTE: no letter placeholders anywhere — a missing asset renders
-   .prod-unavailable ("Preview unavailable"), never a product initial. */
-.prod-unavailable { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  border:1px dashed rgba(255,255,255,.18); background:rgba(255,255,255,.02); }
-.prod-unavailable span { font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#5b6b85; text-align:center; line-height:1.5; }
-.prod-badges { position:absolute; top:10px; left:10px; display:flex; gap:6px; flex-wrap:wrap;
-  max-width:calc(100% - 60px); z-index:1; }
-.prod-badge {
-  background: rgba(5,7,13,0.8); color: var(--accent);
-  font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 4px 9px; border-radius: 8px; border: 1px solid rgba(47,227,234,0.3);
-  white-space:nowrap;
-}
-.rarity-Common { border-color:#9CA3AF !important; color:#9CA3AF !important; }
-.rarity-Rare { border-color:#38BDF8 !important; color:#38BDF8 !important; }
-.rarity-Epic { border-color:#C084FC !important; color:#C084FC !important; }
-.rarity-Legendary { border-color:#FB923C !important; color:#FB923C !important; }
-.rarity-Mythic { border-color:#F472B6 !important; color:#F472B6 !important; }
-.prod-badge.anim { border-color:#4ADE80 !important; color:#4ADE80 !important; }
-.prod-badge.plus { border-color:#FFD97D !important; color:#FFD97D !important; }
-.prod-badge.owned { border-color:#4ADE80 !important; color:#4ADE80 !important; }
-.prod-badge.equipped { border-color:#38BDF8 !important; color:#38BDF8 !important; }
-.prod-info { padding: 12px 14px 14px; }
-.prod-info b { font-size: 0.95rem; font-weight: 800; display: block; line-height: 1.25; min-height: 2.4em; }
-.prod-price { margin-top: 8px; font-size: 0.9rem; font-weight: 800; color: var(--text); display: flex; flex-direction: column; gap: 2px; }
-.prod-price span { color: var(--muted); font-size: 0.72rem; font-weight: 600; }
-@media (max-width: 1200px) { .prod-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 900px) { .prod-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 620px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 400px) { .prod-grid { grid-template-columns: 1fr; } }
+/* NOTE: the cosmetic product grid was removed with the Vortex+/Coins store
+   reset. Product card styles live on only if products return. */
 
 /* Vortex+ premium card */
 .plus-card {

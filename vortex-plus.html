@@ -26,6 +26,19 @@
     .plus-concept span { font-size:.75rem; color:#FFD97D; font-weight:700; letter-spacing:.06em; }
     .plus-concept small { display:block; opacity:.6; font-size:.75rem; margin-top:4px; }
     .plus-note { font-size:.85rem; opacity:.65; text-align:center; margin:18px 0 40px; line-height:1.6; }
+    .plus-state { display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:.9rem;
+      border-radius:99px; padding:10px 20px; margin:14px 0 4px; border:1px solid; }
+    .plus-state.loading { color:#8EA2C0; border-color:rgba(255,255,255,.15); }
+    .plus-state.on { color:#FFD97D; border-color:rgba(255,217,125,.5); background:rgba(255,217,125,.06); }
+    .plus-state.off { color:#cbd5e1; border-color:rgba(255,255,255,.2); }
+    .plus-state.na { color:#8EA2C0; border-color:rgba(255,255,255,.12); }
+    .status-card { text-align:center; background:#14141f; border:1px solid rgba(255,217,125,.25); border-radius:18px;
+      padding:30px 22px; margin:10px 0 30px; }
+    .status-card p { opacity:.75; font-size:.92rem; line-height:1.6; max-width:60ch; margin:10px auto 0; }
+    .roadmap { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:14px 0 6px; }
+    .roadmap span { font-size:.78rem; font-weight:700; border:1px dashed rgba(255,255,255,.2); color:#8EA2C0;
+      border-radius:99px; padding:8px 16px; }
+    .roadmap b { color:#FFD97D; font-weight:900; font-size:.68rem; letter-spacing:.08em; margin-right:6px; }
   </style>
 </head>
 <body class="dark">
@@ -60,22 +73,32 @@
     <section class="wrap plus-hero">
       <span class="hero-eyebrow"><i class="fa-solid fa-crown"></i> Membership</span>
       <h1>VORTEX<span class="grad">+</span></h1>
-      <p>Unlock the premium side of Vortex.</p>
+      <p>Unlock the complete Vortex experience.</p>
     </section>
     <section class="wrap">
-      <div class="plus-grid">
-        <div class="plus-feat"><i class="fa-solid fa-mask"></i><h3>Exclusive capes</h3><p>Members-only cape designs that never enter the regular store rotation.</p></div>
-        <div class="plus-feat"><i class="fa-solid fa-gift"></i><h3>Monthly cape drops</h3><p>A new member cape every month, yours to keep.</p></div>
-        <div class="plus-feat"><i class="fa-solid fa-bolt"></i><h3>Early access</h3><p>Try new capes before they reach the public store.</p></div>
-        <div class="plus-feat"><i class="fa-solid fa-fire"></i><h3>Special effects</h3><p>Unique particles and equip effects on member capes.</p></div>
-        <div class="plus-feat"><i class="fa-solid fa-palette"></i><h3>Premium vault features</h3><p>Special Vault skins and profile styling for members.</p></div>
-        <div class="plus-feat"><i class="fa-solid fa-id-badge"></i><h3>Profile badge</h3><p>A Vortex+ badge on your account, launcher and Discord.</p></div>
+      <div class="status-card" id="plusStatus" aria-live="polite">
+        <div class="plus-badge"><i class="fa-solid fa-crown"></i> YOUR MEMBERSHIP</div>
+        <div style="margin-top:12px"><span class="plus-state loading">Checking membership…</span></div>
+        <p>Sign in to check your live status. Free accounts see locked previews; members see everything unlocked.</p>
       </div>
     </section>
     <section class="wrap">
-      <div class="sec-head"><h2>Vortex+ exclusive capes</h2><span>none released yet</span></div>
-      <div class="plus-concepts" id="plusConcepts"></div>
-      <p class="plus-note">No member-exclusive capes exist yet — the 10 launch capes in the <a href="store.html">cape store</a> are available to everyone.<br>Membership billing is not integrated yet — nothing here can be purchased until real payments exist.</p>
+      <div class="sec-head"><h2>Included today</h2><span>live features only — nothing promised that is not built</span></div>
+      <div class="plus-grid">
+        <div class="plus-feat"><i class="fa-solid fa-id-badge"></i><h3>Vortex+ profile badge</h3><p>Members carry a gold Vortex+ badge on their account across the site. Yours appears automatically when your entitlement is active.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-server"></i><h3>Server-side entitlement</h3><p>Membership lives in your Vortex wallet, checked server-side on every load. No local flags, nothing to fake, nothing to lose offline without a check.</p></div>
+        <div class="plus-feat"><i class="fa-solid fa-lock"></i><h3>Plus-gated offers</h3><p>Member-only offers are enforced automatically by the backend. When a plus-only item is listed, free accounts see it locked and members claim it.</p></div>
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="sec-head"><h2>On the roadmap</h2><span>coming soon — not available yet, no buttons pretending otherwise</span></div>
+      <div class="roadmap">
+        <span><b>COMING SOON</b> Monthly / Lifetime billing</span>
+        <span><b>COMING SOON</b> Launcher personalization</span>
+        <span><b>COMING SOON</b> In-game HUD &amp; UI presets</span>
+        <span><b>COMING SOON</b> Premium profile system</span>
+      </div>
+      <p class="plus-note">Launcher themes, in-game presets and profile features ship only with the client and launcher updates that implement them.<br>Until then this page will not pretend they exist.</p>
     </section>
     <section class="wrap">
       <div class="plus-price">
@@ -95,20 +118,37 @@
     </div>
   </footer>
   <script src="site.js"></script>
-  <script>
-    fetch('data/vortex-plus.json').then(function (r) { return r.json(); }).then(function (d) {
-      var host = document.getElementById('plusConcepts');
-      if (!host || !d || !d.concepts) return;
-      host.innerHTML = d.concepts.map(function (c) {
-        var name = String(c.name || '').replace(/</g, '&lt;');
-        var img = String(c.img || '').replace(/"/g, '&quot;');
-        var sub = String(c.rarity ? c.rarity + ' · ' + Number(c.price || 0).toLocaleString() + ' coins' : (c.kind || '')).replace(/</g, '&lt;');
-        var art = img
-          ? '<img src="' + img + '" alt="' + name + ' cape render" loading="lazy" decoding="async" width="512" height="512" style="width:100%;border-radius:10px;display:block;margin-bottom:8px">'
-          : '';
-        return '<div class="plus-concept">' + art + '<b>' + name + '</b><span>VORTEX+</span><small>' + sub + '</small></div>';
-      }).join('');
-    }).catch(function () {});
+  <script type="module">
+    import { fetchPlusStatus, statusPill, badgeHTML } from './js/vortex-plus.js';
+    (function () {
+      var host = document.getElementById('plusStatus');
+      if (!host) return;
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+      fetchPlusStatus().then(function (s) {
+        var line, cta;
+        if (s.state === 'active') {
+          line = 'Membership <b style="color:#FFD97D">ACTIVE</b> — everything Vortex+ is unlocked for you. ' +
+            'Your badge ' + badgeHTML(s) + ' appears on your account automatically.';
+          cta = '<a class="btn btn-secondary" href="store.html#coins" style="margin-top:14px">View coins</a>';
+        } else if (s.state === 'standard') {
+          line = 'You are on the <b>Standard</b> plan — Vortex+ features show as <b>locked</b> previews. ' +
+            'Membership billing is coming soon; nothing is sold yet.';
+          cta = '<a class="btn btn-primary" href="socials.html" style="margin-top:14px">Join Discord for launch news</a>';
+        } else {
+          var why = s.reason === 'signed-out'
+            ? 'Sign in with Discord to check your live membership status.'
+            : 'The account service is unreachable right now — status cannot be verified, so nothing is shown as owned.';
+          line = why;
+          cta = s.reason === 'signed-out'
+            ? '<a class="btn btn-primary" href="/api/discord-login" style="margin-top:14px"><i class="fa-brands fa-discord"></i> Sign in</a>'
+            : '';
+        }
+        host.innerHTML = '<div class="plus-badge"><i class="fa-solid fa-crown"></i> YOUR MEMBERSHIP</div>' +
+          '<div style="margin-top:12px">' + statusPill(s) + '</div><p>' + line + '</p>' + cta;
+      }).catch(function () {});
+    })();
   </script>
 </body>
 </html>
