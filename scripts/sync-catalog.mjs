@@ -1,20 +1,15 @@
-// Vortex catalog sync — LINK ACCOUNT COLLECTION (complete reset).
+// Vortex catalog sync — Vortex+ & Coins store (no product catalog).
 //
-// Single source of truth: data/cosmetics/<capes|hats|pets>.json (one item
-// each, all in the link-account collection) + the collection record at
-// cosmetics/collections/link-account/collection.json.
-// There is EXACTLY ONE collection with EXACTLY 3 items; this script fails
-// the build on anything else.
+// The store sells NO cosmetic products: data/cosmetics/<capes|hats|pets>.json
+// are intentionally EMPTY (kept as pipeline shape for a future locker).
+// There must be NO collections directory: a single collection record would
+// mean products are being sold again. This script fails the build on any
+// item, any collection, or any inconsistency.
 //
-// Outputs (all generated, deterministic, no base64/assets inside JS):
-//   data/cosmetics.json              (index: categories, counts, total)
-//   data/cosmetics/<cat>.json        (re-normalized, img/texture verified)
+// Outputs (all generated, deterministic):
+//   data/cosmetics.json              (index: total 0)
+//   data/cosmetics/<cat>.json        (re-normalized, still validated)
 //   cosmetics-store.js               (legacy global shim: var COSMETICS_STORE)
-//
-// Every item's image ALWAYS comes from its own `img` field
-// (cosmetics/<cat>/<file>_preview.webp); the client texture ALWAYS comes
-// from its own `texture` field. Both must exist on disk, case-sensitively.
-// The store never constructs paths from ids.
 //
 // Usage: node scripts/sync-catalog.mjs
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
@@ -55,7 +50,7 @@ for (const cat of CATS) {
     fail('cannot read ' + file + ': ' + e.message);
   }
   const items = Array.isArray(src.items) ? src.items : [];
-  if (!items.length) fail(cat + ' source has no items');
+  // Empty is the expected state: the store sells no products.
   byCat[cat] = items;
   all = all.concat(items);
 }
@@ -105,36 +100,10 @@ for (const it of all) {
   if (!it.collection || typeof it.collection !== 'string') fail(it.id + ': missing collection');
 }
 
-// EXACTLY ONE collection with EXACTLY the catalog items.
-const colRoot = join(ROOT, 'cosmetics', 'collections');
-let colDirs = [];
-try {
-  colDirs = readdirSync(colRoot).filter((d) => {
-    try { return statSync(join(colRoot, d)).isDirectory(); } catch { return false; }
-  });
-} catch (e) {
-  fail('missing cosmetics/collections/');
+// No collections may exist: the store sells no products.
+if (existsSync(join(ROOT, 'cosmetics', 'collections'))) {
+  fail('cosmetics/collections/ must not exist (store sells no products)');
 }
-if (colDirs.length !== 1) fail('must be exactly 1 collection, found: ' + JSON.stringify(colDirs));
-const colFile = join(colRoot, colDirs[0], 'collection.json');
-let col;
-try {
-  col = JSON.parse(readFileSync(colFile, 'utf8'));
-} catch (e) {
-  fail('cannot read ' + colFile + ': ' + e.message);
-}
-if (!col.id || !col.name || !Array.isArray(col.items)) fail('bad collection.json shape');
-if (col.items.length !== all.length) {
-  fail('collection must list exactly the catalog items (' + all.length + ')');
-}
-for (const id of col.items) {
-  if (!seen.has(id)) fail('collection lists unknown item ' + id);
-}
-for (const it of all) {
-  if (it.collection !== col.id) fail(it.id + ': collection must be ' + col.id);
-}
-const colPreview = join(colRoot, colDirs[0], 'preview.webp');
-if (!existsSync(colPreview)) fail('missing collection preview ' + colPreview);
 
 const updatedAt = new Date().toISOString();
 const counts = {};
@@ -196,4 +165,4 @@ for (const cat of CATS) {
 writeFileSync(join(ROOT, 'cosmetics-store.js'),
   GEN + 'var COSMETICS_STORE = ' + JSON.stringify({ items: shimItems }) + ';\n');
 
-console.log(`sync-catalog: ok — ${all.length} items, collection=${col.id} [${col.items.join(', ')}]`);
+console.log(`sync-catalog: ok — ${all.length} items (store sells no products)`);

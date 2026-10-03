@@ -80,7 +80,8 @@ for (const f of htmlFiles) for (const r of refsFromHtml(f)) checkRef(f, r);
 for (const r of refsFromCss('site.css')) checkRef('site.css', r);
 const jsFiles = ['site.js', 'cosmetics-store.js', 'features.js', 'news.js',
   'updates.js', 'socials.js', 'tickets.js', 'site-content.js', 'vortex-credits.js',
-  'vortex-experience.js', 'vortex-socials.js', 'js/catalog.js', 'js/store-page.js']
+  'vortex-experience.js', 'vortex-socials.js', 'js/catalog.js', 'js/store-page.js',
+  'js/vortex-plus.js']
   .filter(f => existsSync(join(ROOT, f)));
 for (const f of jsFiles) for (const r of refsFromJs(f)) checkRef(f, r);
 

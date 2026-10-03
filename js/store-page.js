@@ -1,87 +1,16 @@
-/* VORTEX LINK ACCOUNT COLLECTION — the one and only collection (page code).
-   Active catalog: data/cosmetics/{capes,hats,pets}.json, exactly 3 items,
-   all in the link-account collection. Nothing else is listed, searched,
-   or sold here.
-   Images ALWAYS come from product.img (never built from ids). A missing
-   asset shows "Preview unavailable" — never a letter placeholder.
-   Purchase/ownership is always verified by the backend (order -> /claim
-   in Discord -> credits -> owned -> Vault). No fake sales, no fake confirmations, no popularity numbers anywhere. */
-import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
+/* VORTEX STORE — Vortex+ status + Coins only. No products, no collections,
+   no catalog, no grids. Balances, history and redemption are read from
+   (or written through) the real backend; every failure shows an honest
+   state instead of demo numbers. Entitlement reads go through
+   js/vortex-plus.js (server truth, never local flags). */
+import { fetchPlusStatus, statusPill, badgeHTML } from './vortex-plus.js';
 
 (function () {
-  var RARITY_COL = { Common: '#9CA3AF', Rare: '#38BDF8', Epic: '#C084FC', Legendary: '#FB923C', Mythic: '#F472B6' };
-  var RARITY_RANK = { Common: 0, Rare: 1, Epic: 2, Legendary: 3, Mythic: 4 };
-  var PRICE_BANDS = [    { id: 'any', label: 'Any price', test: function () { return true; } },
-    { id: 'p1', label: '100 – 200', test: function (p) { return p <= 200; } },
-    { id: 'p2', label: '200 – 300', test: function (p) { return p > 200 && p <= 300; } },
-    { id: 'p3', label: '300 – 500', test: function (p) { return p > 300 && p <= 500; } },
-    { id: 'p4', label: '500 +', test: function (p) { return p > 500; } }
-  ];
-  var THEMES = [
-    { id: 'galaxy', label: 'Galaxy', match: ['galaxy', 'cosmic', 'nebula', 'astral'] },
-    { id: 'fire', label: 'Fire', match: ['fire', 'flame', 'ember', 'lava', 'magma', 'inferno'] },
-    { id: 'ice', label: 'Ice', match: ['ice', 'frost', 'frozen', 'glacier', 'snow', 'winter'] },
-    { id: 'void', label: 'Void', match: ['void', 'abyss', 'ender', 'rift'] },
-    { id: 'cyber', label: 'Cyber', match: ['cyber', 'circuit', 'pulse', 'neon'] },
-    { id: 'celestial', label: 'Celestial', match: ['celestial', 'aurora', 'eclipse', 'corona', 'stars', 'moon', 'constellation', 'lights', 'northern'] },
-    { id: 'nature', label: 'Nature', match: ['forest', 'moss', 'nature', 'flower', 'ocean', 'tide'] },
-    { id: 'shadow', label: 'Shadow', match: ['shadow', 'phantom', 'ghost', 'wisp', 'dark', 'midnight'] },
-    { id: 'royal', label: 'Royal', match: ['royal', 'gold', 'crown', 'obsidian'] },
-    { id: 'crystal', label: 'Crystal', match: ['crystal', 'gem', 'nova', 'star'] },
-    { id: 'storm', label: 'Storm', match: ['storm', 'thunder', 'lightning', 'rain'] }
-  ];
-  function themeMatch(p, themeId) {
-    if (themeId === 'all') return true;
-    if (p.theme === themeId) return true;
-    var tags = p.tags || [];
-    for (var i = 0; i < THEMES.length; i++) {
-      if (THEMES[i].id !== themeId) continue;
-      for (var j = 0; j < tags.length; j++) {
-        if (THEMES[i].match.indexOf(tags[j]) >= 0) return true;
-      }
-      return false;
-    }
-    return true;
-  }
-  var ALL = [];
-  var byId = {};
-  var CATS = [
-    { id: 'capes', label: 'Capes', single: 'Cape', vault: 'Capes' },
-    { id: 'hats', label: 'Hats', single: 'Hat', vault: 'Hats' },
-    { id: 'pets', label: 'Pets', single: 'Pet', vault: 'Pets' }
-  ];
-  function catEntry(id) {
-    for (var i = 0; i < CATS.length; i++) if (CATS[i].id === id) return CATS[i];
-    return { id: id, label: id, single: id, vault: id };
-  }
-  var state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false };
-  var ownedCache = {};
-  var equippedCache = {};
-  var account = null; // {discord, mc, uuid, coins, owned[]} when logged in
+  var account = null; // {me, mc, coins, plus} or null
+  var plusState = { state: 'loading', plus: false };
 
-  function botBase() {
-    try {
-      var b = window.VORTEX_BOT_URL || localStorage.getItem('vortex_bot_url') || '';
-      return String(b || '').replace(/\/$/, '');
-    } catch (e) { return ''; }
-  }
-  function mcName() {
-    try { return localStorage.getItem('vortex_mc') || ''; } catch (e) { return ''; }
-  }
-  function setMcName(v) {
-    try { localStorage.setItem('vortex_mc', v); } catch (e) {}
-  }
-  function wishlist() {
-    try { return JSON.parse(localStorage.getItem('vortex_favs') || '[]'); } catch (e) { return []; }
-  }
-  function toggleWish(id) {
-    try {
-      var f = wishlist();
-      var i = f.indexOf(id);
-      if (i >= 0) f.splice(i, 1);
-      else f.push(id);
-      localStorage.setItem('vortex_favs', JSON.stringify(f));
-    } catch (e) {}
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
   function toast(msg, ok) {
@@ -100,356 +29,79 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     } catch (e) {}
   }
 
-  function esc(s) {
-    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  function fmtCoins(n) {
+    return Number(n || 0).toLocaleString();
   }
-  function tileHTML(p) {
-    // Image ALWAYS comes from p.img (catalog truth). Never construct paths
-    // from p.id. If the asset is genuinely missing/broken, show a clean
-    // "Preview unavailable" state — never a letter placeholder.
-    if (p.img) {
-      return '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' render" loading="lazy" decoding="async" width="768" height="768"' +
-        ' onerror="this.outerHTML=\'<div class=&quot;prod-unavailable&quot;><span>Preview<br>unavailable</span></div>\';' +
-        'if(window.console&&console.warn)console.warn(&quot;[store] missing asset: ' + esc(p.img) + '&quot;)">';
+
+  function paintBalances() {
+    var label, sub;
+    if (!account) {
+      label = '—';
+      sub = 'Sign in with Discord to see your real balance.';
+    } else if (account.coins === null || account.coins === undefined) {
+      label = '—';
+      sub = 'Balance unavailable — the coin service is unreachable right now.';
+    } else {
+      label = fmtCoins(account.coins);
+      sub = 'Live balance from your Vortex wallet' +
+        (account.mc ? ' · ' + account.mc : ' · link Minecraft to earn the welcome bonus') + '.';
     }
-    return '<div class="prod-unavailable"><span>Preview<br>unavailable</span></div>';
-  }
-
-  function themeLabel(id) {
-    for (var i = 0; i < THEMES.length; i++) if (THEMES[i].id === id) return THEMES[i].label;
-    return id;
-  }
-
-  function badges(p) {
-    var b = '<span class="prod-badge rarity-' + esc(p.rarity) + '">' + esc(p.rarity) + '</span>';
-    if (p.animated) b += '<span class="prod-badge anim">✦ Animated</span>';
-    if (p.collection === 'link-account') b += '<span class="prod-badge plus">Link Account</span>';
-    else if (p.vortexPlus) b += '<span class="prod-badge plus">Vortex+</span>';
-    if (equippedCache[p.id]) b += '<span class="prod-badge equipped">EQUIPPED</span>';
-    else if (ownedCache[p.id]) b += '<span class="prod-badge owned">OWNED</span>';
-    return '<span class="prod-badges">' + b + '</span>';
-  }
-
-  function card(p) {
-    var owned = !!ownedCache[p.id];
-    var wished = wishlist().indexOf(p.id) >= 0;
-    return '' +
-      '<div class="prod" data-id="' + esc(p.id) + '">' +
-      '<button class="prod-fav' + (wished ? ' on' : '') + '" data-wish="' + esc(p.id) + '" title="Save to wishlist" aria-label="Save to wishlist">★</button>' +
-      '<div class="prod-img" data-view="' + esc(p.id) + '">' + tileHTML(p) + badges(p) + '</div>' +
-      '<div class="prod-info"><b data-view="' + esc(p.id) + '">' + esc(p.name) + '</b>' +
-      '<div class="prod-cat">' + esc(catEntry(p.cat).single) + ' · ' + esc(themeLabel(p.theme)) + '</div>' +
-      '<div class="prod-desc">' + esc(p.desc || '') + '</div>' +
-      '<div class="prod-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
-      '<div class="prod-actions">' +
-      '<button class="btn btn-secondary sm" data-view="' + esc(p.id) + '">View</button>' +
-      (owned
-        ? '<button class="btn btn-secondary sm" disabled>Owned</button>'
-        : '<button class="btn btn-primary sm" data-buy="' + esc(p.id) + '">Buy</button>') +
-      '</div></div></div>';
-  }
-
-  function featureCard(p) {
-    var owned = !!ownedCache[p.id];
-    return '' +
-      '<div class="cape-feature" data-id="' + esc(p.id) + '">' +
-      '<div data-view="' + esc(p.id) + '">' + tileHTML(p) + '</div>' +
-      '<div><span class="prod-badge rarity-' + esc(p.rarity) + '">' + esc(p.rarity) + ' · Flagship</span>' +
-      '<h2>' + esc(p.name) + '</h2>' +
-      '<p>' + esc(p.desc || '') + ' Custom cosmetic built for the Vortex client.</p>' +
-      '<div class="detail-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
-      '<div class="cape-feature-actions">' +
-      '<button class="btn btn-secondary" data-view="' + esc(p.id) + '">View details</button>' +
-      (owned
-        ? '<button class="btn btn-secondary" disabled>Owned — equip it in the Vault</button>'
-        : '<button class="btn btn-primary" data-buy="' + esc(p.id) + '">Buy now</button>') +
-      '</div></div></div>';
-  }
-
-  function section(id, title, sub, inner) {
-    return '<section class="wrap store-sec" id="' + id + '"><div class="sec-head"><h2>' + esc(title) + '</h2><span>' +
-      esc(sub) + '</span></div>' + inner + '</section>';
-  }
-
-  function sortedItems(items) {
-    var arr = items.slice();
-    if (state.sort === 'price-asc') arr.sort(function (a, b) { return (a.price || 0) - (b.price || 0); });
-    else if (state.sort === 'price-desc') arr.sort(function (a, b) { return (b.price || 0) - (a.price || 0); });
-    else if (state.sort === 'name') arr.sort(function (a, b) { return String(a.name).localeCompare(String(b.name)); });
-    else if (state.sort === 'newest') arr.sort(function (a, b) { return ((b.isNew ? 1 : 0) - (a.isNew ? 1 : 0)) || ((b.price || 0) - (a.price || 0)); });
-    else arr.sort(function (a, b) {
-      return ((RARITY_RANK[b.rarity] || 0) - (RARITY_RANK[a.rarity] || 0)) || ((b.price || 0) - (a.price || 0));
-    });
-    return arr;
-  }
-
-  function filtered() {
-    var q = state.q.trim().toLowerCase();
-    var band = PRICE_BANDS.filter(function (b) { return b.id === state.price; })[0] || PRICE_BANDS[0];
-    var rarActive = Object.keys(state.rar).filter(function (k) { return state.rar[k]; });
-    var out = ALL.filter(function (p) {
-      if (state.cat !== 'all' && p.cat !== state.cat) return false;
-      if (rarActive.length && rarActive.indexOf(p.rarity) < 0) return false;
-      if (!band.test(Number(p.price || 0))) return false;
-      if (!themeMatch(p, state.theme)) return false;
-      if (state.animatedOnly && !p.animated) return false;
-      if (q) {
-        var hay = ((p.name || '') + ' ' + (p.desc || '') + ' ' + (p.rarity || '') +
-          ' ' + catEntry(p.cat).single + ' ' + themeLabel(p.theme) + ' ' + ((p.tags || []).join(' '))).toLowerCase();
-        if (hay.indexOf(q) < 0) return false;
-      }
-      return true;
-    });
-    return sortedItems(out);
-  }
-
-  function hasFilter() {
-    return state.q.trim() !== '' || state.cat !== 'all' ||
-      Object.keys(state.rar).some(function (k) { return state.rar[k]; }) ||
-      state.price !== 'any' || state.sort !== 'featured' ||
-      state.theme !== 'all' || state.animatedOnly;
-  }
-
-  function paint() {
-    var host = document.getElementById('storeCatalog');
-    if (!host) return;
-    var html = '';
-    if (hasFilter()) {
-      var res = filtered();
-      html = section('results', 'Results', res.length + ' items',
-        (res.length ? '<div class="prod-grid">' + res.map(card).join('') + '</div>'
-          : '<p class="empty-note">Nothing matches. Try a different search or clear the filters.</p>'));
-      host.innerHTML = html;
-      return;
-    }
-    var wished = wishlist();
-    var wishItems = ALL.filter(function (p) { return wished.indexOf(p.id) >= 0; });
-    if (wishItems.length) {
-      html += section('wishlist', 'Wishlist', 'saved on this device — not server ownership',
-        '<div class="prod-grid">' + wishItems.map(card).join('') + '</div>');
-    }
-    var flagship = ALL.filter(function (p) { return p.featured; })[0] || ALL[0];
-    if (flagship) {
-      html += '<div class="wrap" id="featured">' + featureCard(flagship) + '</div>';
-    }
-    var fresh = ALL.filter(function (p) { return p.isNew && p !== flagship; });
-    if (fresh.length) {
-      html += section('new', 'New Arrivals', 'fresh vault arrivals',
-        '<div class="prod-grid">' + sortedItems(fresh).map(card).join('') + '</div>');
-    }
-    html += section('all', 'All Cosmetics', ALL.length + ' items in the Link Account Collection',
-      '<div class="prod-grid">' + sortedItems(ALL).map(card).join('') + '</div>');
-    host.innerHTML = html;
-  }
-
-  function openDetail(id) {
-    var p = byId[id];
-    if (!p) return;
-    var owned = !!ownedCache[p.id];
-    var wished = wishlist().indexOf(p.id) >= 0;
-    var cat = catEntry(p.cat);
-    var defaultFeats = p.cat === 'pets'
-      ? ['Hover idle motion', 'Follows you in game', 'Multiplayer visible']
-      : p.cat === 'hats'
-        ? ['Head-tracked fit', 'Multiplayer visible']
-        : ['Cloth motion', 'Multiplayer visible'];
-    var feats = (p.features && p.features.length ? p.features : defaultFeats)
-      .map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('');
-    if (p.animated && feats.indexOf('Animated') < 0) feats += '<li>Animated in the client</li>';
-    var plusRow = p.vortexPlus
-      ? '<div class="detail-meta"><span style="color:#FFD97D">Vortex+ exclusive cape</span></div>'
-      : '';
-    var collectionRow = p.collection === 'link-account'
-      ? '<div class="detail-meta">Part of the <b>Link Account Collection</b> — unlock by <a href="link-minecraft.html">linking your account</a>.</div>'
-      : '';
-    // Honest status: "functional" only when the Vortex client actually
-    // supports the cape; otherwise say preview-only. Never imply more.
-    var statusRow = (p.status && p.status !== 'functional')
-      ? '<div class="detail-meta" style="opacity:.7">Status: preview only — client support pending</div>'
-      : '';
-    var m = document.getElementById('storeModal');
-    if (!m) {
-      m = document.createElement('div');
-      m.id = 'storeModal';
-      m.className = 'store-modal';
-      document.body.appendChild(m);
-    }
-    // Product visual: the cape worn on the blocky player render (same
-    // camera/lighting for every cape). No fake "interactive 3D model" —
-    // the live Vault preview lives in the Vortex client.
-    // Main product visual: the player render (never the raw texture).
-    // A secondary "View texture" toggle shows the raw client texture.
-    var texToggle = p.texture
-      ? '<button class="linklike" data-textoggle="1">View texture</button>' +
-        '<div class="texview" id="texView" hidden>' +
-        '<img src="' + esc(p.texture) + '" alt="' + esc(p.name) + ' raw texture" loading="lazy" decoding="async">' +
-        '<small>Raw texture — the client asset. Main preview above is the worn render.</small></div>'
-      : '';
-    m.innerHTML = '<div class="store-modal-box wide">' +
-      '<button class="store-modal-x" id="storeModalX">✕</button>' +
-      '<div class="detail-stage">' +
-      (p.img
-        ? '<img class="detail-preview" src="' + esc(p.img) + '" alt="' + esc(p.name) + ' cape render" decoding="async" fetchpriority="high"' +
-          ' onerror="this.outerHTML=\'<div class=&quot;detail-unavailable&quot;><span>Preview<br>unavailable</span></div>\'">'
-        : '<div class="detail-unavailable"><span>Preview<br>unavailable</span></div>') +
-      '</div>' + texToggle +
-      '<h2>' + esc(p.name) + '</h2>' +
-      '<div class="detail-meta"><span class="prod-badge rarity-' + esc(p.rarity) + '" style="position:static">' + esc(p.rarity) + '</span> · ' + esc(cat.single) + ' · ' + esc(themeLabel(p.theme)) + '</div>' +
-      '<p class="detail-desc">' + esc(p.desc || 'A Vortex cosmetic, rendered for the store.') + '</p>' +
-      '<ul class="detail-feats">' + feats + '</ul>' + plusRow + collectionRow + statusRow +
-      '<div class="detail-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
-      '<div class="detail-actions">' +
-      (owned ? '<button class="btn btn-secondary" disabled>Owned — equip it in the Vault</button>'
-        : '<button class="btn btn-primary" data-buy="' + esc(p.id) + '">Buy now</button>') +
-      '<button class="btn btn-secondary" data-wish="' + esc(p.id) + '">' + (wished ? '★ Wishlisted' : '☆ Wishlist') + '</button>' +
-      '</div>' +
-      '<button class="linklike" data-clienthow="1">How do I wear this in Minecraft?</button>' +
-      '<div class="clienthow" id="clientHow" hidden><ol>' +
-      '<li>Buy here, then run <b>/claim &lt;code&gt;</b> in Discord.</li>' +
-      '<li>Open the Vortex Launcher and join any world or server.</li>' +
-      '<li>Press the Vault key and equip it under ' + esc(cat.vault) + '.</li>' +
-      '<li>Other Vortex players see it on you automatically.</li></ol></div>' +
-      '</div>';
-    m.classList.add('open');
-    document.getElementById('storeModalX').onclick = function () { m.classList.remove('open'); };
-    m.onclick = function (e) { if (e.target === m) m.classList.remove('open'); };
-    var how = m.querySelector('[data-clienthow]');
-    if (how) how.onclick = function () {
-      var el = document.getElementById('clientHow');
-      if (el) el.hidden = !el.hidden;
-    };
-    var texBtn = m.querySelector('[data-textoggle]');
-    if (texBtn) texBtn.onclick = function () {
-      var el = document.getElementById('texView');
-      if (el) {
-        el.hidden = !el.hidden;
-        texBtn.textContent = el.hidden ? 'View texture' : 'Hide texture';
-      }
-    };
-  }
-
-  function openInventory() {
-    var m = document.getElementById('storeModal');
-    if (!m) {
-      m = document.createElement('div');
-      m.id = 'storeModal';
-      m.className = 'store-modal';
-      document.body.appendChild(m);
-    }
-    var owned = ALL.filter(function (p) { return ownedCache[p.id]; });
-    var eq = ALL.filter(function (p) { return equippedCache[p.id]; });
-    var wished = ALL.filter(function (p) { return wishlist().indexOf(p.id) >= 0; });
-    function mini(p) {
-      return '<div class="inv-mini" data-view="' + esc(p.id) + '">' + tileHTML(p) +
-        '<span>' + esc(p.name) + '</span></div>';
-    }
-    m.innerHTML = '<div class="store-modal-box wide">' +
-      '<button class="store-modal-x" id="storeModalX">✕</button>' +
-      '<h2>' + (account ? esc(account.discord.username || 'Your') + ' inventory' : 'Inventory') + '</h2>' +
-      (account && account.mc
-        ? '<div class="detail-meta">Minecraft: <b>' + esc(account.mc) + '</b>' +
-          (account.uuid ? ' · <span>' + esc(account.uuid.slice(0, 8)) + '…</span>' : '') +
-          ' · <span>' + Number(account.coins || 0).toLocaleString() + ' coins</span></div>'
-        : '<p class="detail-desc">Log in with Discord and link your Minecraft account to see live inventory.</p>') +
-      '<h3 class="inv-h">Equipped (' + eq.length + ')</h3>' +
-      (eq.length ? '<div class="inv-grid">' + eq.map(mini).join('') + '</div>' : '<p class="empty-note">Nothing equipped — open the Vault in game.</p>') +
-      '<h3 class="inv-h">Owned (' + owned.length + ')</h3>' +
-      (owned.length ? '<div class="inv-grid">' + owned.map(mini).join('') + '</div>' : '<p class="empty-note">No purchases yet.</p>') +
-      '<h3 class="inv-h">Wishlist (' + wished.length + ', this device only)</h3>' +
-      (wished.length ? '<div class="inv-grid">' + wished.map(mini).join('') + '</div>' : '<p class="empty-note">Tap ★ on any cosmetic to save it here.</p>') +
-      '</div>';
-    m.classList.add('open');
-    document.getElementById('storeModalX').onclick = function () { m.classList.remove('open'); };
-    m.onclick = function (e) { if (e.target === m) m.classList.remove('open'); };
-  }
-
-  function refreshOwned(cb) {
-    ownedCache = {};
-    equippedCache = {};
-    var mc = mcName();
-    var base = botBase();
-    function done() { paint(); if (cb) cb(); }
-    if (account && account.owned) {
-      account.owned.forEach(function (id) { ownedCache[id] = true; });
-      Object.keys(account.equipped || {}).forEach(function (slot) {
-        var id = account.equipped[slot];
-        if (id) equippedCache[id] = true;
-      });
-      done();
-      return;
-    }
-    if (!mc || !base) { done(); return; }
-    fetch(base + '/api/cosmetics/owned?mc=' + encodeURIComponent(mc) + '&uuid=', { method: 'GET' })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        var list = (d && d.ok && d.owned) ? d.owned : [];
-        list.forEach(function (id) { ownedCache[id] = true; });
-        done();
-      })
-      .catch(done);
+    document.querySelectorAll('[data-credit]').forEach(function (el) { el.textContent = label; });
+    var big = document.getElementById('coinBig');
+    if (big) big.textContent = label;
+    var note = document.getElementById('coinNote');
+    if (note) note.textContent = sub;
+    var pill = document.getElementById('plusState');
+    if (pill) pill.innerHTML = statusPill(plusState);
   }
 
   function loadAccount() {
     var wrap = document.getElementById('accountWrap');
     function renderLogin() {
-      if (!wrap) return;
-      wrap.innerHTML = '<a class="btn btn-secondary sm" href="/api/discord-login"><i class="fa-brands fa-discord"></i> <span>Login</span></a>';
+      account = null;
+      plusState = { state: 'unavailable', reason: 'signed-out', plus: false };
+      if (wrap) {
+        wrap.innerHTML = '<a class="btn btn-secondary sm" href="/api/discord-login"><i class="fa-brands fa-discord"></i> <span>Login</span></a>';
+      }
+      paintBalances();
     }
-    fetch('/api/me', { credentials: 'same-origin' })
-      .then(function (r) {
-        if (!r.ok) throw new Error('no session');
-        return r.json();
-      })
-      .then(function (me) {
-        if (!me || !me.ok) throw new Error('no session');
-        var base = botBase();
-        var url = base ? base + '/api/account/' + encodeURIComponent(me.id) : null;
-        function withAcct(acct) {
-          account = {
-            discord: me,
-            mc: acct && acct.linked ? acct.linked.mc : null,
-            uuid: acct && acct.linked ? acct.linked.uuid : null,
-            coins: (acct && typeof acct.coins === 'number') ? acct.coins : null,
-            vortexPlus: !!(acct && acct.vortexPlus),
-            owned: (acct && acct.owned) || [],
-            equipped: (acct && acct.equipped) || {}
-          };
-          if (account.mc) setMcName(account.mc);
-          renderAccount();
-          refreshOwned();
-        }
-        if (!url) { withAcct(null); return; }
-        fetch(url).then(function (r) { return r.json(); }).then(function (a) {
-          withAcct(a && a.ok ? a : null);
-        }).catch(function () { withAcct(null); });
-      })
-      .catch(renderLogin);
+    paintBalances();
+    fetchPlusStatus().then(function (s) {
+      plusState = s;
+      if (s.state === 'unavailable' && s.reason === 'signed-out') { renderLogin(); return; }
+      var me = s.me || {};
+      account = {
+        me: me,
+        mc: s.mc || null,
+        coins: (s.coins === null || s.coins === undefined) ? null : s.coins,
+        plus: !!s.plus,
+      };
+      renderAccount();
+      paintBalances();
+    }).catch(renderLogin);
 
     function renderAccount() {
       if (!wrap || !account) { renderLogin(); return; }
-      var me = account.discord;
+      var me = account.me || {};
       var coins = (account.coins === null || account.coins === undefined)
-        ? '<span title="Bot unreachable">— coins</span>'
-        : '<b>' + Number(account.coins).toLocaleString() + ' coins</b>';
+        ? '<span title="Coin service unreachable">— coins</span>'
+        : '<b>' + fmtCoins(account.coins) + ' coins</b>';
       wrap.innerHTML =
         '<div class="acct" id="acctBtn">' +
         (me.avatar ? '<img src="' + esc(me.avatar) + '" alt="">' : '<span class="acct-fb">V</span>') +
         '<span class="acct-name">' + esc(me.displayName || me.username || '') + '</span>' +
-        (account.vortexPlus ? '<span class="acct-plus">Vortex+</span>' : '') +
+        badgeHTML(plusState) +
         '<span class="acct-coins">' + coins + '</span>' +
         '<div class="acct-menu" id="acctMenu" hidden>' +
         (account.mc ? '<div class="acct-row">Minecraft: <b>' + esc(account.mc) + '</b></div>'
           : '<div class="acct-row">Minecraft: <a href="/link-minecraft.html">link account</a></div>') +
-        '<button class="acct-row linklike" data-inv="1">Inventory (' + Object.keys(ownedCache).length + ' owned)</button>' +
+        '<div class="acct-row">Vortex+: <b>' + (plusState.state === 'active' ? 'Active' : 'Standard') + '</b></div>' +
         '<a class="acct-row" href="/api/logout">Logout</a>' +
         '</div></div>';
       var btn = document.getElementById('acctBtn');
       var menu = document.getElementById('acctMenu');
       if (btn && menu) {
-        btn.onclick = function (e) {
-          if (e.target && e.target.getAttribute && e.target.getAttribute('data-inv')) { openInventory(); return; }
-          menu.hidden = !menu.hidden;
-        };
+        btn.onclick = function () { menu.hidden = !menu.hidden; };
         document.addEventListener('click', function h(ev) {
           if (!menu.hidden && btn && !btn.contains(ev.target)) menu.hidden = true;
         });
@@ -457,176 +109,103 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     }
   }
 
-  function buyFlow(id) {
-    var p = byId[id];
-    if (!p) return;
-    if (ownedCache[id]) { toast(p.name + ' is already owned.', true); return; }
-    var base = botBase();
-    var mc = (account && account.mc) || mcName();
-    if (!base) {
-      var nb = prompt('Bot API URL (same as launcher Settings, e.g. http://127.0.0.1:8080):', '');
-      if (!nb) return;
-      try { localStorage.setItem('vortex_bot_url', String(nb).replace(/\/$/, '')); } catch (e) {}
-      base = botBase();
-    }
-    if (!mc) {
-      mc = prompt('Minecraft username (must match your linked account):', '') || '';
-      mc = mc.trim();
-      if (!/^[A-Za-z0-9_]{3,16}$/.test(mc)) { toast('Enter a valid Minecraft username.', false); return; }
-      setMcName(mc);
-    }
-    fetch(base + '/api/store/order', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ mc: mc, id: id })
-    })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (!d || !d.ok) { toast((d && d.error) || 'Order failed.', false); return; }
-        var m = document.getElementById('storeModal');
-        if (!m) { m = document.createElement('div'); m.id = 'storeModal'; m.className = 'store-modal'; document.body.appendChild(m); }
-        m.innerHTML = '<div class="store-modal-box">' +
-          '<button class="store-modal-x" id="storeModalX">✕</button>' +
-          '<h2>Complete purchase</h2>' +
-          '<p class="detail-desc">' + esc(p.name) + ' — <b>' + Number(d.price).toLocaleString() + ' coins</b></p>' +
-          '<div class="order-code">' + esc(d.code) + '</div>' +
-          '<p class="detail-desc">In Discord, run:<br><b>/claim ' + esc(d.code) + '</b><br>Coins leave your balance only there. Code expires in 5 minutes.</p>' +
-          '<button class="btn btn-secondary" id="orderDone">Done</button></div>';
-        m.classList.add('open');
-        document.getElementById('storeModalX').onclick = function () { m.classList.remove('open'); refreshOwned(); };
-        document.getElementById('orderDone').onclick = function () { m.classList.remove('open'); refreshOwned(); };
-        toast('Order created — claim it in Discord.', true);
-      })
-      .catch(function () { toast('Bot unreachable. Check the Bot API URL.', false); });
-  }
-
-  function openCoins() {
+  function modalShell(inner) {
     var m = document.getElementById('storeModal');
-    if (!m) { m = document.createElement('div'); m.id = 'storeModal'; m.className = 'store-modal'; document.body.appendChild(m); }
-    var bal = (account && account.coins !== null && account.coins !== undefined)
-      ? Number(account.coins).toLocaleString() + ' coins' : 'login to see balance';
+    if (!m) {
+      m = document.createElement('div');
+      m.id = 'storeModal';
+      m.className = 'store-modal';
+      document.body.appendChild(m);
+    }
     m.innerHTML = '<div class="store-modal-box">' +
-      '<button class="store-modal-x" id="storeModalX">✕</button>' +
-      '<h2>Vortex Coins</h2>' +
-      '<p class="detail-desc">Balance: <b>' + esc(bal) + '</b></p>' +
-      '<p class="detail-desc">Coins are earned with the +100 welcome bonus and Discord events. ' +
-      'Sales open in our Discord — join and watch the announcements channel.</p>' +
-      '<a class="btn btn-primary" href="socials.html">Join Discord</a></div>';
+      '<button class="store-modal-x" id="storeModalX">✕</button>' + inner + '</div>';
     m.classList.add('open');
     document.getElementById('storeModalX').onclick = function () { m.classList.remove('open'); };
     m.onclick = function (e) { if (e.target === m) m.classList.remove('open'); };
+    return m;
   }
 
-  function syncPills() {
-    var pills = document.getElementById('catPills');
-    if (!pills) return;
-    pills.querySelectorAll('[data-pill]').forEach(function (x) {
-      var v = x.getAttribute('data-pill');
-      x.classList.toggle('on', v === state.cat);
-    });
+  function historyHTML(rows) {
+    if (!rows.length) {
+      return '<p class="empty-note">No coin activity yet. Link your account to claim the +100 welcome bonus.</p>';
+    }
+    return '<ul class="tx-list">' + rows.map(function (h) {
+      var amt = Number(h.amount || 0);
+      var cls = amt < 0 ? 'neg' : 'pos';
+      var when = '';
+      try { when = h.at ? new Date(h.at).toLocaleString() : ''; } catch (e) {}
+      return '<li><span class="tx-amt ' + cls + '">' + (amt > 0 ? '+' : '') + fmtCoins(amt) + '</span>' +
+        '<span class="tx-note">' + esc(h.note || 'Coin activity') + '</span>' +
+        (when ? '<span class="tx-when">' + esc(when) + '</span>' : '') + '</li>';
+    }).join('') + '</ul>';
   }
 
-  function bindToolbar() {
-    var q = document.getElementById('storeSearch');
-    if (q) q.addEventListener('input', function () { state.q = q.value; paint(); });
-    var pills = document.getElementById('catPills');
-    if (pills) pills.addEventListener('click', function (e) {
-      var b = e.target.closest ? e.target.closest('[data-pill]') : null;
-      if (!b) return;
-      state.cat = b.getAttribute('data-pill') || 'all';
-      syncPills();
-      paint();
-    });
-    document.querySelectorAll('[data-rar]').forEach(function (c) {
-      c.addEventListener('change', function () {
-        state.rar[c.getAttribute('data-rar')] = !!c.checked;
-        paint();
-      });
-    });
-    document.querySelectorAll('[data-price]').forEach(function (r) {
-      r.addEventListener('change', function () {
-        if (r.checked) { state.price = r.getAttribute('data-price'); paint(); }
-      });
-    });
-    var sort = document.getElementById('storeSort');
-    if (sort) sort.addEventListener('change', function () { state.sort = sort.value; paint(); });
-    var theme = document.getElementById('themeSel');
-    if (theme) theme.addEventListener('change', function () { state.theme = theme.value; paint(); });
-    var animOnly = document.getElementById('animOnly');
-    if (animOnly) animOnly.addEventListener('change', function () { state.animatedOnly = !!animOnly.checked; paint(); });
-    var clear = document.getElementById('clearFilters');
-    if (clear) clear.addEventListener('click', function () {
-      state = { q: '', cat: 'all', rar: {}, price: 'any', sort: 'featured', theme: 'all', animatedOnly: false };
-      if (q) q.value = '';
-      if (sort) sort.value = 'featured';
-      if (theme) theme.value = 'all';
-      if (animOnly) animOnly.checked = false;
-      document.querySelectorAll('[data-rar]').forEach(function (c) { c.checked = false; });
-      var p0 = document.querySelector('[data-price="any"]');
-      if (p0) p0.checked = true;
-      syncPills();
-      paint();
-    });
+  function openCoins() {
+    var bal = (account && account.coins !== null && account.coins !== undefined)
+      ? fmtCoins(account.coins) + ' coins' : 'sign in to see balance';
+    var m = modalShell(
+      '<h2>Vortex Coins</h2>' +
+      '<p class="detail-desc">Balance: <b>' + esc(bal) + '</b></p>' +
+      '<p class="detail-desc">Earn coins with the <b>+100 verified-link bonus</b>, Discord events and gift codes. ' +
+      'Direct coin purchases are <b>coming soon</b> — nothing is charged here.</p>' +
+      '<div class="redeem-row"><input id="redeemCode" type="text" placeholder="Gift code (e.g. VX2-…)" autocomplete="off" aria-label="Gift code">' +
+      '<button class="btn btn-primary sm" id="redeemBtn" type="button">Redeem</button></div>' +
+      '<p class="detail-desc" id="redeemMsg" role="status"></p>' +
+      '<h3 class="inv-h">Recent activity</h3><div id="coinHistory"><p class="empty-note">Loading…</p></div>' +
+      '<a class="btn btn-secondary sm" href="socials.html" style="margin-top:10px">Join Discord</a>');
+    var btn = document.getElementById('redeemBtn');
+    var inp = document.getElementById('redeemCode');
+    var msg = document.getElementById('redeemMsg');
+    function say(t, ok) {
+      if (msg) { msg.textContent = t; msg.style.color = ok ? '#4ADE80' : '#F87171'; }
+      if (ok) toast(t, true); else if (t) toast(t, false);
+    }
+    if (btn) btn.onclick = function () {
+      var code = inp && inp.value ? inp.value.trim() : '';
+      if (!code) { say('Enter a gift code first.', false); return; }
+      btn.disabled = true;
+      say('Redeeming…', true);
+      fetch('/api/credits-redeem', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin', body: JSON.stringify({ code: code }),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          btn.disabled = false;
+          if (d && d.ok) {
+            say((d.message || 'Code redeemed.') + ' Balance updated below.', true);
+            loadAccount();
+            loadHistory();
+          } else {
+            say((d && (d.message || d.error)) || 'Redemption failed.', false);
+          }
+        })
+        .catch(function () { btn.disabled = false; say('Redemption service unreachable.', false); });
+    };
+    loadHistory();
   }
 
-  function bootWithItems(items) {
-    ALL = (items || []).filter(function (p) {
-      return p && (p.cat === 'capes' || p.cat === 'hats' || p.cat === 'pets');
-    });
-    byId = {};
-    ALL.forEach(function (p) { byId[p.id] = p; });
-    paint();
-    loadAccount();
-    refreshOwned();
+  function loadHistory() {
+    var host = document.getElementById('coinHistory');
+    if (!host) return;
+    fetch('/api/credits-history', { credentials: 'same-origin' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || d.ok !== true) { host.innerHTML = '<p class="empty-note">Activity unavailable right now.</p>'; return; }
+        if (d.configured === false) { host.innerHTML = '<p class="empty-note">Activity unavailable — the coin service is not configured.</p>'; return; }
+        if (d.linked === false) { host.innerHTML = '<p class="empty-note"><a href="/link-minecraft.html">Link your Minecraft account</a> to see coin activity.</p>'; return; }
+        host.innerHTML = historyHTML(d.history || []);
+      })
+      .catch(function () { host.innerHTML = '<p class="empty-note">Activity unavailable right now.</p>'; });
   }
 
   function boot() {
-    bindToolbar();
-    loadIndex().then(function (idx) {
-      if (idx && idx.legacy) {
-        return loadAllLegacy().then(function (items) {
-          if (!items.length) throw new Error('empty');
-          bootWithItems(items);
-        });
-      }
-      return Promise.all(
-        (idx.categories && idx.categories.length ? idx.categories : ['capes'])
-          .map(function (c) { return loadCategory(c); })
-      ).then(function (parts) {
-        var items = [];
-        parts.forEach(function (list) {
-          (list || []).forEach(function (p) {
-            if (!items.find(function (q) { return q.id === p.id; })) items.push(p);
-          });
-        });
-        if (!items.length) throw new Error('empty');
-        bootWithItems(items);
-      });
-    }).catch(function () {
-      var host = document.getElementById('storeCatalog');
-      if (host) {
-        host.innerHTML = '<section class="wrap store-sec"><div class="sec-head"><h2>Store unavailable</h2>' +
-          '<span>Could not load the collection catalog. Serve the site over http(s) or deploy it.</span></div></section>';
-      }
-    });
-
+    loadAccount();
     document.body.addEventListener('click', function (e) {
       var t = e.target;
       if (!t || !t.getAttribute) return;
-      var wish = t.getAttribute('data-wish');
-      if (wish) { toggleWish(wish); paint(); return; }
       var coins = t.getAttribute('data-coins');
       if (coins) { openCoins(); return; }
-      var view = t.getAttribute('data-view');
-      // plus-minis and feature tiles carry data-view on a wrapper div;
-      // clicks on their children (img/b/small) bubble up with no data-view,
-      // so walk up to the nearest [data-view].
-      if (!view && t.closest) {
-        var up = t.closest('[data-view]');
-        if (up) view = up.getAttribute('data-view');
-      }
-      if (view) { openDetail(view); return; }
-      var buy = t.getAttribute('data-buy');
-      if (buy) { buyFlow(buy); return; }
     });
   }
 

@@ -1,43 +1,6 @@
 {
   "category": "pets",
-  "count": 1,
-  "updatedAt": "2026-10-03T17:20:52.618Z",
-  "items": [
-    {
-      "id": "vortexling-pet",
-      "name": "Vortexling",
-      "cat": "pets",
-      "type": "PET",
-      "slot": "PET",
-      "rarity": "Legendary",
-      "price": 450,
-      "desc": "Vortexling — a hovering dimensional wisp with a burning energy core. The mascot of the Link Account Collection.",
-      "tags": [
-        "vortexling",
-        "vortex",
-        "pet",
-        "companion",
-        "energy",
-        "core",
-        "cyan",
-        "cyber"
-      ],
-      "theme": "cyber",
-      "img": "cosmetics/pets/vortexling_preview.webp",
-      "model": "cosmetics/pets/vortexling.json",
-      "texture": "cosmetics/pets/vortexling.png",
-      "animated": false,
-      "effects": [],
-      "status": "preview-only",
-      "vortexPlus": false,
-      "featured": false,
-      "isNew": true,
-      "features": [
-        "Hover idle motion",
-        "Follows you in game",
-        "Multiplayer visible"
-      ],
-      "collection": "link-account"
-    }
-  ]
+  "count": 0,
+  "updatedAt": "2026-10-03T18:15:23.600Z",
+  "items": []
 }

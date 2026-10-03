@@ -1,44 +1,6 @@
 {
   "category": "capes",
-  "count": 1,
-  "updatedAt": "2026-10-03T17:20:52.618Z",
-  "items": [
-    {
-      "id": "vortex-signature-cape",
-      "name": "Vortex Signature Cape",
-      "cat": "capes",
-      "type": "CAPE",
-      "slot": "CAPE",
-      "rarity": "Legendary",
-      "price": 600,
-      "desc": "The Vortex emblem wreathed in rotating dimensional energy — the signature of the launcher.",
-      "tags": [
-        "vortex",
-        "signature",
-        "energy",
-        "cosmic",
-        "rotation",
-        "swirl",
-        "brand",
-        "cyan",
-        "cape"
-      ],
-      "theme": "cyber",
-      "img": "cosmetics/capes/vortex_signature_cape_preview.webp",
-      "model": null,
-      "texture": "cosmetics/capes/vortex_signature_cape.png",
-      "animated": false,
-      "effects": [],
-      "status": "preview-only",
-      "vortexPlus": false,
-      "featured": true,
-      "isNew": true,
-      "features": [
-        "Cloth motion",
-        "Vortex emblem seal",
-        "Multiplayer visible"
-      ],
-      "collection": "link-account"
-    }
-  ]
+  "count": 0,
+  "updatedAt": "2026-10-03T18:15:23.600Z",
+  "items": []
 }

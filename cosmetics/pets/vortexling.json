@@ -1,0 +1,273 @@
+{
+  "id": "vortexling-pet",
+  "slot": "PET",
+  "type": "PET",
+  "texture": "cosmetics/pets/vortexling.png",
+  "anim": "cosmetics/pets/vortexling-anim.json",
+  "follow": {
+    "offset": [
+      10,
+      2,
+      4
+    ],
+    "note": "hovers beside/behind the player; never inside the body, never at the hand"
+  },
+  "_doc": {
+    "texture": "32x32 opaque; core glowface art at x4..5,y4..5 (2x2); rest is base",
+    "anim": "intended idle motion (bob/sway); honored when the client implements pet animation"
+  },
+  "parts": {
+    "body": {
+      "flat": [
+        16,
+        20,
+        38
+      ],
+      "boxes": [
+        {
+          "from": [
+            -1.5,
+            12,
+            -1.5
+          ],
+          "to": [
+            1.5,
+            15,
+            1.5
+          ]
+        }
+      ]
+    },
+    "core": {
+      "tex": "cosmetics/pets/vortexling.png",
+      "uv": [
+        4,
+        4
+      ],
+      "boxes": [
+        {
+          "from": [
+            -1,
+            12.3,
+            1.2
+          ],
+          "to": [
+            1,
+            14.3,
+            2.0
+          ]
+        }
+      ]
+    },
+    "socketL": {
+      "flat": [
+        8,
+        10,
+        18
+      ],
+      "boxes": [
+        {
+          "from": [
+            -1.4,
+            14.4,
+            1.35
+          ],
+          "to": [
+            -0.8,
+            15.0,
+            1.55
+          ]
+        }
+      ]
+    },
+    "socketR": {
+      "flat": [
+        8,
+        10,
+        18
+      ],
+      "boxes": [
+        {
+          "from": [
+            0.8,
+            14.4,
+            1.35
+          ],
+          "to": [
+            1.4,
+            15.0,
+            1.55
+          ]
+        }
+      ]
+    },
+    "eyeL": {
+      "flat": [
+        220,
+        250,
+        255
+      ],
+      "boxes": [
+        {
+          "from": [
+            -1.25,
+            14.5,
+            1.5
+          ],
+          "to": [
+            -0.95,
+            14.75,
+            1.7
+          ]
+        }
+      ]
+    },
+    "eyeR": {
+      "flat": [
+        220,
+        250,
+        255
+      ],
+      "boxes": [
+        {
+          "from": [
+            0.95,
+            14.5,
+            1.5
+          ],
+          "to": [
+            1.25,
+            14.75,
+            1.7
+          ]
+        }
+      ]
+    },
+    "ringF": {
+      "flat": [
+        0,
+        200,
+        230
+      ],
+      "boxes": [
+        {
+          "from": [
+            -2.6,
+            13.3,
+            2.1
+          ],
+          "to": [
+            2.6,
+            13.6,
+            2.4
+          ]
+        }
+      ]
+    },
+    "ringB": {
+      "flat": [
+        0,
+        200,
+        230
+      ],
+      "boxes": [
+        {
+          "from": [
+            -2.6,
+            13.3,
+            -2.4
+          ],
+          "to": [
+            2.6,
+            13.6,
+            -2.1
+          ]
+        }
+      ]
+    },
+    "ringL": {
+      "flat": [
+        0,
+        200,
+        230
+      ],
+      "boxes": [
+        {
+          "from": [
+            -2.6,
+            13.3,
+            -2.1
+          ],
+          "to": [
+            -2.3,
+            13.6,
+            2.1
+          ]
+        }
+      ]
+    },
+    "ringR": {
+      "flat": [
+        0,
+        200,
+        230
+      ],
+      "boxes": [
+        {
+          "from": [
+            2.3,
+            13.3,
+            -2.1
+          ],
+          "to": [
+            2.6,
+            13.6,
+            2.1
+          ]
+        }
+      ]
+    },
+    "shard": {
+      "flat": [
+        0,
+        150,
+        200
+      ],
+      "boxes": [
+        {
+          "from": [
+            -0.7,
+            11.0,
+            -0.7
+          ],
+          "to": [
+            0.7,
+            12.0,
+            0.7
+          ]
+        }
+      ]
+    },
+    "shardTip": {
+      "flat": [
+        0,
+        200,
+        230
+      ],
+      "boxes": [
+        {
+          "from": [
+            -0.35,
+            10.0,
+            -0.35
+          ],
+          "to": [
+            0.35,
+            11.0,
+            0.35
+          ]
+        }
+      ]
+    }
+  }
+}

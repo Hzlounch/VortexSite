@@ -1,42 +1,6 @@
 {
   "category": "hats",
-  "count": 1,
-  "updatedAt": "2026-10-03T17:20:52.618Z",
-  "items": [
-    {
-      "id": "vortex-signature-hat",
-      "name": "Vortex Signature Hat",
-      "cat": "hats",
-      "type": "HAT",
-      "slot": "HEAD",
-      "rarity": "Epic",
-      "price": 350,
-      "desc": "A dark energy circlet with a glowing Vortex brow mark — techwear for your head.",
-      "tags": [
-        "vortex",
-        "signature",
-        "hat",
-        "circlet",
-        "energy",
-        "cyan",
-        "cyber"
-      ],
-      "theme": "cyber",
-      "img": "cosmetics/hats/vortex_signature_hat_preview.webp",
-      "model": "cosmetics/hats/vortex_signature_hat.json",
-      "texture": "cosmetics/hats/vortex_signature_hat.png",
-      "animated": false,
-      "effects": [],
-      "status": "preview-only",
-      "vortexPlus": false,
-      "featured": false,
-      "isNew": true,
-      "features": [
-        "Head-tracked fit",
-        "Vortex brow emblem",
-        "Multiplayer visible"
-      ],
-      "collection": "link-account"
-    }
-  ]
+  "count": 0,
+  "updatedAt": "2026-10-03T18:15:23.600Z",
+  "items": []
 }
