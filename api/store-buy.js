@@ -2,7 +2,7 @@
 // Calls the Vortex bot's /api/credits/spend with the user's Discord ID and a shared secret.
 //
 // Prices/ids come from the generated catalog (data/cosmetics.json, built by
-// scripts/sync-catalog.mjs from the bot catalog) — never a hardcoded list,
+// scripts/sync-catalog.mjs from data/cosmetics/capes.json) — never a hardcoded list,
 // so ids here can never drift from what the Store sells and the game owns.
 const fs = require('fs');
 const path = require('path');
@@ -13,7 +13,7 @@ function loadCatalog() {
   if (CATALOG) return CATALOG;
   CATALOG = { prices: {}, names: {} };
   try {
-    const cats = ['cloaks', 'wings', 'headwear', 'pets', 'auras', 'suits'];
+    const cats = ['capes']; // CAPES-ONLY store (archived cats live in data/archive/)
     for (const c of cats) {
       const f = path.join(__dirname, '..', 'data', 'cosmetics', c + '.json');
       const d = JSON.parse(fs.readFileSync(f, 'utf8'));
