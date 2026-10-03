@@ -1,33 +1,10 @@
 {
-  "updatedAt": "2026-10-02T18:26:47.014Z",
-  "total": 101,
+  "updatedAt": "2026-10-03T11:36:33.999Z",
+  "total": 15,
   "counts": {
-    "cloaks": 25,
-    "headwear": 20,
-    "wings": 16,
-    "pets": 15,
-    "auras": 15,
-    "suits": 10
+    "capes": 15
   },
-  "starter": [
-    "top_hat",
-    "basic_cape",
-    "fire_cape",
-    "galaxy_cloak",
-    "crown",
-    "demon_horns",
-    "halo",
-    "mini_dragon",
-    "mini_ghost",
-    "flame_ring",
-    "dragon_wings"
-  ],
   "categories": [
-    "auras",
-    "cloaks",
-    "headwear",
-    "pets",
-    "suits",
-    "wings"
+    "capes"
   ]
 }

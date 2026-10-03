@@ -1,0 +1,349 @@
+{
+  "category": "wings",
+  "count": 16,
+  "updatedAt": "2026-10-02T18:26:47.014Z",
+  "items": [
+    {
+      "id": "dragon_wings",
+      "name": "Dragon Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Leathery and loud.",
+      "tags": [
+        "dragon",
+        "wings"
+      ],
+      "img": "cosmetics/wings/dragon_wings.webp",
+      "model": "cosmetics/models/dragon_wings.json",
+      "texture": "textures/cosmetics/wings/dragon_wings.png",
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "angel_wings",
+      "name": "Angel Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 420,
+      "desc": "Feathered grace.",
+      "tags": [
+        "angel",
+        "wings"
+      ],
+      "img": "cosmetics/wings/angel_wings.webp",
+      "model": "cosmetics/cosmetics/models/angel_wings.json",
+      "texture": "textures/cosmetics/wings/angel_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "demon_wings",
+      "name": "Demon Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 310,
+      "desc": "Smells like sulfur.",
+      "tags": [
+        "demon",
+        "wings"
+      ],
+      "img": "cosmetics/wings/demon_wings.webp",
+      "model": "cosmetics/cosmetics/models/demon_wings.json",
+      "texture": "textures/cosmetics/wings/demon_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "void_wings",
+      "name": "Void Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 430,
+      "desc": "Torn from nothing.",
+      "tags": [
+        "void",
+        "wings"
+      ],
+      "img": "cosmetics/wings/void_wings.webp",
+      "model": "cosmetics/cosmetics/models/void_wings.json",
+      "texture": "textures/cosmetics/wings/void_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "galaxy_wings",
+      "name": "Galaxy Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Mythic",
+      "price": 470,
+      "desc": "Starlit flight.",
+      "tags": [
+        "galaxy",
+        "wings"
+      ],
+      "img": "cosmetics/wings/galaxy_wings.webp",
+      "model": "cosmetics/cosmetics/models/galaxy_wings.json",
+      "texture": "textures/cosmetics/wings/galaxy_wings.png",
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "mechanical_wings",
+      "name": "Mechanical Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 330,
+      "desc": "Riveted steel.",
+      "tags": [
+        "mechanical",
+        "wings"
+      ],
+      "img": "cosmetics/wings/mechanical_wings.webp",
+      "model": "cosmetics/cosmetics/models/mechanical_wings.json",
+      "texture": "textures/cosmetics/wings/mechanical_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "crystal_wings",
+      "name": "Crystal Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 410,
+      "desc": "Sharp and shiny.",
+      "tags": [
+        "crystal",
+        "wings"
+      ],
+      "img": "cosmetics/wings/crystal_wings.webp",
+      "model": "cosmetics/cosmetics/models/crystal_wings.json",
+      "texture": "textures/cosmetics/wings/crystal_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "fire_wings",
+      "name": "Fire Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Rare",
+      "price": 230,
+      "desc": "Warm updraft included.",
+      "tags": [
+        "fire",
+        "wings"
+      ],
+      "img": "cosmetics/wings/fire_wings.webp",
+      "model": "cosmetics/cosmetics/models/fire_wings.json",
+      "texture": "textures/cosmetics/wings/fire_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "ice_wings",
+      "name": "Ice Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Rare",
+      "price": 225,
+      "desc": "Cold snap flight.",
+      "tags": [
+        "ice",
+        "wings"
+      ],
+      "img": "cosmetics/wings/ice_wings.webp",
+      "model": "cosmetics/cosmetics/models/ice_wings.json",
+      "texture": "textures/cosmetics/wings/ice_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "fairy_wings",
+      "name": "Fairy Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Common",
+      "price": 140,
+      "desc": "Tiny and twinkly.",
+      "tags": [
+        "fairy",
+        "wings"
+      ],
+      "img": "cosmetics/wings/fairy_wings.webp",
+      "model": "cosmetics/cosmetics/models/fairy_wings.json",
+      "texture": "textures/cosmetics/wings/fairy_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "shadow_wings",
+      "name": "Shadow Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 320,
+      "desc": "Dark as night.",
+      "tags": [
+        "shadow",
+        "wings"
+      ],
+      "img": "cosmetics/wings/shadow_wings.webp",
+      "model": "cosmetics/cosmetics/models/shadow_wings.json",
+      "texture": "textures/cosmetics/wings/shadow_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "storm_wings",
+      "name": "Storm Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Rare",
+      "price": 235,
+      "desc": "Thunderbird style.",
+      "tags": [
+        "storm",
+        "wings"
+      ],
+      "img": "cosmetics/wings/storm_wings.webp",
+      "model": "cosmetics/cosmetics/models/storm_wings.json",
+      "texture": "textures/cosmetics/wings/storm_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "golden_wings",
+      "name": "Golden Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Legendary",
+      "price": 440,
+      "desc": "Wealth takes flight.",
+      "tags": [
+        "golden",
+        "wings"
+      ],
+      "img": "cosmetics/wings/golden_wings.webp",
+      "model": "cosmetics/cosmetics/models/golden_wings.json",
+      "texture": "textures/cosmetics/wings/golden_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "frost_wings",
+      "name": "Frost Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Common",
+      "price": 150,
+      "desc": "Chilly feathers.",
+      "tags": [
+        "frost",
+        "wings"
+      ],
+      "img": "cosmetics/wings/frost_wings.webp",
+      "model": "cosmetics/cosmetics/models/frost_wings.json",
+      "texture": "textures/cosmetics/wings/frost_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "ember_wings",
+      "name": "Ember Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Common",
+      "price": 155,
+      "desc": "Smoldering tips.",
+      "tags": [
+        "ember",
+        "wings"
+      ],
+      "img": "cosmetics/wings/ember_wings.webp",
+      "model": "cosmetics/cosmetics/models/ember_wings.json",
+      "texture": "textures/cosmetics/wings/ember_wings.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "inferno_wings",
+      "name": "Inferno Wings",
+      "cat": "wings",
+      "type": "WINGS",
+      "slot": "BACK",
+      "rarity": "Epic",
+      "price": 340,
+      "desc": "Forged in the Nether heart.",
+      "tags": [
+        "inferno",
+        "wings"
+      ],
+      "img": "cosmetics/wings/inferno_wings.webp",
+      "model": "cosmetics/models/inferno_wings.json",
+      "texture": "textures/cosmetics/wings/inferno_wings.png",
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    }
+  ]
+}

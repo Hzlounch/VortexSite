@@ -1,12 +1,36 @@
 {
-  "updatedAt": "2026-10-03T00:00:00.000Z",
-  "note": "Vortex+ member cosmetic CONCEPTS. No assets exist; never render these as products until modeled. Status is always 'planned'.",
+  "updatedAt": "2026-10-03T12:00:00.000Z",
+  "note": "Vortex+ member-exclusive CAPES. Artwork is the real store render (product.img truth). Membership billing is COMING SOON — payments are not integrated yet.",
   "concepts": [
-    { "id": "vp_celestial_wings", "name": "Vortex+ Celestial Wings", "kind": "Wings", "status": "planned" },
-    { "id": "vp_void_crown", "name": "Vortex+ Void Crown", "kind": "Headwear", "status": "planned" },
-    { "id": "vp_neon_aura", "name": "Vortex+ Neon Aura", "kind": "Aura", "status": "planned" },
-    { "id": "vp_ember_whelp", "name": "Vortex+ Ember Whelp", "kind": "Pet", "status": "planned" },
-    { "id": "vp_eclipse_cloak", "name": "Vortex+ Eclipse Cloak", "kind": "Cape", "status": "planned" },
-    { "id": "vp_crystal_companion", "name": "Vortex+ Crystal Companion", "kind": "Pet", "status": "planned" }
+    {
+      "id": "vortex-eclipse-cape",
+      "name": "Vortex+ Eclipse",
+      "kind": "Cape",
+      "status": "exclusive",
+      "rarity": "Legendary",
+      "price": 480,
+      "img": "cosmetics/capes/vortex_eclipse_cape.webp",
+      "desc": "Member-exclusive eclipse in Vortex violet, hemmed in gold."
+    },
+    {
+      "id": "vortex-phantom-cape",
+      "name": "Vortex+ Phantom",
+      "kind": "Cape",
+      "status": "exclusive",
+      "rarity": "Mythic",
+      "price": 560,
+      "img": "cosmetics/capes/vortex_phantom_cape.webp",
+      "desc": "A ghostly wisp-trail cape marked with phantom eyes. Members only."
+    },
+    {
+      "id": "vortex-aurora-cape",
+      "name": "Vortex+ Aurora",
+      "kind": "Cape",
+      "status": "exclusive",
+      "rarity": "Epic",
+      "price": 400,
+      "img": "cosmetics/capes/vortex_aurora_cape.webp",
+      "desc": "Member-exclusive aurora with a gold collar and hem."
+    }
   ]
 }

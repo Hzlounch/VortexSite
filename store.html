@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store | Vortex Client</title>
+  <title>Vortex Capes | Vortex Client Store</title>
+  <meta name="description" content="Vortex Capes — custom Minecraft capes built for the Vortex client. One-time purchase, yours forever. Cosmetic only, never pay-to-win.">
   <link rel="icon" type="image/jpeg" href="vortex-logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="site.css">
@@ -42,39 +43,48 @@
   </div>
 
   <main>
-    <!-- HERO / FEATURED -->
+    <!-- HERO: VORTEX CAPES -->
     <section class="store-hero wrap">
       <div class="store-hero-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="store-hero-text">
-        <span class="hero-eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Featured drop</span>
-        <h1>Galaxy <span class="grad">Collection</span></h1>
-        <p>Explore the Vortex Galaxy — wings, cloaks and pets rendered from the real in-game models. One-time purchase, yours forever. Cosmetic only, never pay-to-win.</p>
+        <span class="hero-eyebrow"><i class="fa-solid fa-crown"></i> Flagship drop — Eclipse Cape</span>
+        <h1>VORTEX <span class="grad">CAPES</span></h1>
+        <p>Custom capes built for the Vortex client. Original designs, rendered from the real in-game look. One-time purchase, yours forever. Cosmetic only, never pay-to-win.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#col-galaxy">View collection</a>
-          <a class="btn btn-secondary" href="#latest">New arrivals</a>
+          <a class="btn btn-primary" href="#all-capes">Browse Capes</a>
+          <a class="btn btn-secondary" href="vortex-plus.html">Vortex+</a>
         </div>
       </div>
       <div class="store-hero-render">
-        <img id="heroRender" src="cosmetics/wings/galaxy_wings.webp" alt="Galaxy Wings render" fetchpriority="high" decoding="async" width="512" height="512">
+        <img id="heroRender" src="cosmetics/capes/eclipse_cape.webp" alt="Eclipse Cape render" fetchpriority="high" decoding="async" width="768" height="768">
       </div>
     </section>
 
-    <!-- SEARCH + CATEGORY PILLS + FILTERS -->
+    <!-- STORE NAV: Home / Capes / Vortex+ / Support -->
+    <section class="wrap store-subnav" aria-label="Store navigation">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#all-capes" class="on"><i class="fa-solid fa-mask"></i> Capes</a>
+      <a href="#vortex-plus-capes"><i class="fa-solid fa-crown"></i> Vortex+</a>
+      <a href="support.html"><i class="fa-solid fa-circle-question"></i> Support</a>
+    </section>
+
+    <!-- SEARCH + THEME + SORT + FILTERS -->
     <section class="wrap store-toolbar">
       <div class="toolbar-row">
-        <input id="storeSearch" type="search" placeholder="Search cosmetics… (try &quot;dragon&quot;)" autocomplete="off" aria-label="Search cosmetics">
+        <input id="storeSearch" type="search" placeholder="Search capes… (try &quot;galaxy&quot;)" autocomplete="off" aria-label="Search capes">
         <select id="themeSel" aria-label="Theme">
           <option value="all">Theme: All</option>
           <option value="galaxy">Galaxy</option>
           <option value="fire">Fire</option>
           <option value="ice">Ice</option>
           <option value="void">Void</option>
-          <option value="dragon">Dragon</option>
-          <option value="shadow">Shadow</option>
-          <option value="storm">Storm</option>
-          <option value="crystal">Crystal</option>
-          <option value="golden">Golden</option>
+          <option value="cyber">Cyber</option>
+          <option value="celestial">Celestial</option>
           <option value="nature">Nature</option>
+          <option value="shadow">Shadow</option>
+          <option value="royal">Royal</option>
+          <option value="crystal">Crystal</option>
+          <option value="storm">Storm</option>
         </select>
         <select id="storeSort" aria-label="Sort">
           <option value="featured">Sort: Featured</option>
@@ -85,14 +95,9 @@
         </select>
         <button class="btn btn-secondary sm" id="clearFilters" type="button">Clear</button>
       </div>
-      <div class="cat-pills" id="catPills" role="tablist" aria-label="Categories">
-        <button data-pill="all" class="on" type="button">All</button>
-        <button data-pill="wings" type="button">Wings</button>
-        <button data-pill="cloaks" type="button">Capes</button>
-        <button data-pill="pets" type="button">Pets</button>
-        <button data-pill="auras" type="button">Auras</button>
-        <button data-pill="headwear" type="button">Headwear</button>
-        <button data-pill="suits" type="button">Suits</button>
+      <div class="cat-pills" id="catPills" role="tablist" aria-label="Cape filters">
+        <button data-pill="all" class="on" type="button">All Capes</button>
+        <button data-pill="plus" type="button">Vortex+ Exclusives</button>
       </div>
       <details class="filters">
         <summary>Filters</summary>
@@ -122,9 +127,9 @@
     <section class="store-top">
       <div class="wrap store-head">
         <div>
-          <span class="hero-eyebrow"><i class="fa-solid fa-hand-holding-dollar"></i> Vortex Store</span>
-          <h1>Shop Minecraft <span class="grad">cosmetics</span></h1>
-          <p>Pets, wings, cloaks, auras and suits. One-time purchases unlock cosmetics forever — no pay-to-win, cosmetic only.</p>
+          <span class="hero-eyebrow"><i class="fa-solid fa-hand-holding-dollar"></i> Vortex Cape Store</span>
+          <h1>Shop Vortex <span class="grad">capes</span></h1>
+          <p>Every cape below is an original Vortex design. More categories (wings, pets, auras and others) return one by one — only when they are genuinely ready.</p>
         </div>
         <div class="store-balance" data-credit-wrap>
           <span>Your balance</span>
@@ -135,22 +140,17 @@
       </div>
     </section>
 
-    <!-- CATEGORY GRID like Lunar -->
+    <!-- CAPE SHORTCUTS (capes only — no other categories) -->
     <section class="wrap">
       <div class="cat-grid" id="catGrid">
-        <a class="cat-card big" href="#wings"><div class="cat-ico"><i class="fa-solid fa-dragon"></i></div><div><b>Wings</b><span>Unique wing designs for your back</span></div></a>
-        <a class="cat-card" href="#latest"><div class="cat-ico"><i class="fa-solid fa-sparkles"></i></div><div><b>New</b><span>Fresh vault arrivals</span></div></a>
-        <a class="cat-card" href="#pets"><div class="cat-ico"><i class="fa-solid fa-paw"></i></div><div><b>Pets</b><span>Companions for your adventures</span></div></a>
-        <a class="cat-card" href="#auras"><div class="cat-ico"><i class="fa-solid fa-rings-wedding"></i></div><div><b>Auras</b><span>Distinct aura effects</span></div></a>
-        <a class="cat-card" href="#cloaks"><div class="cat-ico"><i class="fa-solid fa-mask"></i></div><div><b>Cloaks</b><span>Custom-designed cloaks</span></div></a>
-        <a class="cat-card" href="#headwear"><div class="cat-ico"><i class="fa-solid fa-hat-cowboy"></i></div><div><b>Headwear</b><span>Unique designs for your head</span></div></a>
-        <a class="cat-card" href="#suits"><div class="cat-ico"><i class="fa-solid fa-gift"></i></div><div><b>Suits</b><span>Full outfits, more for less</span></div></a>
-        <a class="cat-card" href="#coins"><div class="cat-ico"><i class="fa-solid fa-coins"></i></div><div><b>Coins</b><span>Grab cosmetics without a wallet</span></div></a>
-        <a class="cat-card plus" href="#plus"><div class="cat-ico"><i class="fa-solid fa-crown"></i></div><div><b>Vortex+</b><span>Exclusive features & cosmetics</span></div></a>
+        <a class="cat-card big" href="#all-capes"><div class="cat-ico"><i class="fa-solid fa-mask"></i></div><div><b>Browse Capes</b><span>The full starter collection</span></div></a>
+        <a class="cat-card" href="#featured"><div class="cat-ico"><i class="fa-solid fa-sparkles"></i></div><div><b>Featured</b><span>The flagship Eclipse Cape</span></div></a>
+        <a class="cat-card" href="#new"><div class="cat-ico"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div><b>New</b><span>Fresh vault arrivals</span></div></a>
+        <a class="cat-card plus" href="#vortex-plus-capes"><div class="cat-ico"><i class="fa-solid fa-crown"></i></div><div><b>Vortex+</b><span>Member-exclusive capes</span></div></a>
       </div>
     </section>
 
-    <!-- LIVE CATALOG (rendered by store.js from real cosmetics) -->
+    <!-- LIVE CAPE CATALOG (rendered by js/store-page.js from data/cosmetics/capes.json) -->
     <div id="storeCatalog"></div>
     <style>
       .prod { position:relative; }
@@ -158,18 +158,20 @@
       .prod-fav.on { color:#FFD97D; border-color:rgba(255,217,125,.5); }
       .prod-badge.owned { border-color:#4ADE80 !important; color:#4ADE80 !important; }
       .prod-cat { font-size:12px; opacity:.65; }
-      .prod-contents { font-size:11px; opacity:.7; margin-top:4px; }
+      .prod-desc { font-size:12px; opacity:.75; margin-top:4px; line-height:1.45; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:2.6em; }
       .store-modal { position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index:99; }
       .store-modal.open { display:flex; }
       .store-modal-box { background:#14141f; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:26px; width:min(420px,92vw); text-align:center; position:relative; }
       .store-modal-x { position:absolute; top:10px; right:12px; background:none; border:none; color:#8EA2C0; font-size:16px; cursor:pointer; }
-      .detail-img { width:192px; height:96px; object-fit:contain; image-rendering:pixelated; background:rgba(0,0,0,.4); border-radius:10px; }
-      .detail-letter { display:flex; align-items:center; justify-content:center; font-size:56px; font-weight:900; margin:0 auto;
-        background:radial-gradient(circle at 50% 35%, rgba(47,227,234,0.14), rgba(0,0,0,.4) 70%); }
+      .detail-preview { width:min(420px,84%); height:auto; display:block; margin:0 auto; border-radius:12px; }
+      .prod-unavailable { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+        border:1px dashed rgba(255,255,255,.18); background:rgba(255,255,255,.02); }
+      .prod-unavailable span { font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+        color:#5b6b85; text-align:center; line-height:1.5; }
+      .detail-unavailable { margin:0 auto; max-width:420px; border:1px dashed rgba(255,255,255,.18); border-radius:12px;
+        padding:48px 20px; font-size:.85rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#5b6b85; }
       .detail-meta { margin:6px 0; font-size:13px; }
       .detail-desc { font-size:13px; opacity:.8; margin:8px 0; line-height:1.5; }
-      .detail-contents { text-align:left; font-size:12px; opacity:.85; margin:8px 0; }
-      .detail-contents ul { margin:4px 0 0 18px; }
       .detail-price { font-size:20px; font-weight:800; margin:10px 0; }
       .order-code { font-size:26px; font-weight:900; letter-spacing:4px; background:rgba(56,189,248,.1); border:1px dashed rgba(56,189,248,.5); border-radius:10px; padding:10px; margin:10px 0; }
       .store-toast { position:fixed; bottom:22px; left:50%; transform:translateX(-50%) translateY(20px); background:#14141f; border:1px solid rgba(255,255,255,.15); padding:12px 20px; border-radius:12px; opacity:0; transition:.25s; z-index:120; font-size:14px; }
@@ -183,8 +185,8 @@
       .store-hero h1 { font-size:clamp(2rem,4vw,3.2rem); font-weight:900; margin:8px 0; }
       .store-hero p { opacity:.8; max-width:46ch; line-height:1.6; }
       .hero-cta { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
-      .store-hero-render img { width:100%; max-width:420px; margin:0 auto; filter:drop-shadow(0 0 42px rgba(168,85,247,.45));
-        animation:heroFloat 6s ease-in-out infinite; }
+      .store-hero-render img { width:100%; max-width:420px; margin:0 auto; display:block; border-radius:16px;
+        filter:drop-shadow(0 0 42px rgba(168,85,247,.45)); animation:heroFloat 6s ease-in-out infinite; }
       @keyframes heroFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-14px); } }
       @media (prefers-reduced-motion: reduce) { .store-hero-render img { animation:none; } }
       .store-hero-bg span { position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(168,85,247,.5), transparent 70%);
@@ -197,13 +199,27 @@
       .store-hero-bg span:nth-child(6) { width:34px; height:34px; left:58%; top:26%; animation-delay:-3s; }
       @keyframes drift { 0%,100% { transform:translateY(0); opacity:.7; } 50% { transform:translateY(-26px); opacity:1; } }
       @media (prefers-reduced-motion: reduce) { .store-hero-bg span { animation:none; } }
-      .store-toolbar { margin-top:22px; display:flex; flex-direction:column; gap:12px; }
-      .toolbar-row { display:flex; gap:10px; }
-      #storeSearch { flex:1; background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px 16px; font-size:15px; }
+      .store-subnav { display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
+      .store-subnav a { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.05);
+        border:1px solid rgba(255,255,255,.12); color:#cbd5e1; border-radius:99px; padding:9px 18px;
+        font-weight:700; font-size:.85rem; text-decoration:none; }
+      .store-subnav a.on { background:linear-gradient(90deg,#0057ff,#38bdf8); color:#fff; border-color:transparent; }
+      .store-toolbar { margin-top:18px; display:flex; flex-direction:column; gap:12px; }
+      .toolbar-row { display:flex; gap:10px; flex-wrap:wrap; }
+      #storeSearch { flex:1; min-width:200px; background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px 16px; font-size:15px; }
       #storeSearch:focus { outline:none; border-color:rgba(56,189,248,.6); }
       #storeSort, #themeSel { background:#0b0e14; border:1px solid rgba(255,255,255,.14); color:#fff; border-radius:12px; padding:12px; }
+      .prod-badges { position:absolute; top:10px; left:10px; display:flex; gap:6px; flex-wrap:wrap; max-width:calc(100% - 60px); z-index:1; }
+      .prod-badge { background:rgba(5,7,13,.8); font-size:.62rem; font-weight:800; letter-spacing:.06em;
+        text-transform:uppercase; padding:4px 9px; border-radius:8px; border:1px solid rgba(47,227,234,.3); }
       .prod-badge.anim { border-color:#4ADE80 !important; color:#4ADE80 !important; }
       .prod-badge.plus { border-color:#FFD97D !important; color:#FFD97D !important; }
+      .prod-badge.equipped { border-color:#38BDF8 !important; color:#38BDF8 !important; }
+      .rarity-Common { border-color:#9CA3AF !important; color:#9CA3AF !important; }
+      .rarity-Rare { border-color:#38BDF8 !important; color:#38BDF8 !important; }
+      .rarity-Epic { border-color:#C084FC !important; color:#C084FC !important; }
+      .rarity-Legendary { border-color:#FB923C !important; color:#FB923C !important; }
+      .rarity-Mythic { border-color:#F472B6 !important; color:#F472B6 !important; }
       .cat-pills { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
       .cat-pills button { flex:0 0 auto; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:#cbd5e1;
         border-radius:99px; padding:9px 18px; font-weight:700; cursor:pointer; }
@@ -217,25 +233,32 @@
       .prod:hover .prod-img img { transform:scale(1.07); }
       .prod { transition:transform .2s ease, box-shadow .2s ease; }
       .prod:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.45), 0 0 22px rgba(56,189,248,.12); }
-      .prod-badge.equipped { border-color:#38BDF8 !important; color:#38BDF8 !important; }
       .prod-actions { display:flex; gap:8px; margin-top:8px; }
       .prod-actions .btn { flex:1; }
       .empty-note { opacity:.65; padding:18px 4px; }
-      .collection-hero { position:relative; border-radius:16px; overflow:hidden; margin-bottom:14px; cursor:pointer;
-        border:1px solid rgba(255,255,255,.1); min-height:170px; display:flex; align-items:flex-end;
-        background:linear-gradient(120deg, rgba(30,10,60,.9), rgba(8,12,30,.95)); }
-      .collection-hero img { position:absolute; right:2%; top:50%; transform:translateY(-50%); width:min(300px,44%);
-        filter:drop-shadow(0 0 30px rgba(168,85,247,.4)); pointer-events:none; }
-      .collection-hero-text { position:relative; padding:26px; }
-      .collection-hero-text h2 { font-size:1.6rem; font-weight:900; }
-      .collection-hero-text p { opacity:.75; margin:4px 0 12px; }
+      /* flagship feature */
+      .cape-feature { display:grid; grid-template-columns:.9fr 1.1fr; gap:28px; align-items:center;
+        background:linear-gradient(135deg, rgba(251,146,60,.10), rgba(8,10,28,.92));
+        border:1px solid rgba(251,146,60,.35); border-radius:20px; padding:32px; margin-bottom:18px; }
+      .cape-feature img { width:100%; max-width:380px; margin:0 auto; display:block; border-radius:14px;
+        filter:drop-shadow(0 0 36px rgba(251,146,60,.35)); }
+      .cape-feature h2 { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:900; margin:6px 0; }
+      .cape-feature p { opacity:.8; line-height:1.6; max-width:52ch; }
+      .cape-feature .detail-price { font-size:1.5rem; }
+      .cape-feature-actions { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+      /* vortex+ minis */
+      .plus-minis { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0 6px; }
+      .plus-mini { background:rgba(255,255,255,.03); border:1px solid rgba(255,217,125,.3); border-radius:14px;
+        padding:14px; text-align:center; }
+      .plus-mini img { width:100%; max-width:220px; border-radius:10px; display:block; margin:0 auto 8px; }
+      .plus-mini b { display:block; }
+      .plus-mini span { font-size:.75rem; color:#FFD97D; font-weight:800; letter-spacing:.06em; }
+      .plus-mini small { display:block; opacity:.65; font-size:.78rem; margin-top:4px; }
       .store-modal-box.wide { width:min(560px,94vw); max-height:88vh; overflow-y:auto; }
       .detail-stage { perspective:700px; background:radial-gradient(circle at 50% 40%, rgba(56,189,248,.12), rgba(0,0,0,.45) 70%);
         border-radius:14px; padding:18px; margin-bottom:6px; }
-      .detail-preview { width:min(380px,80%); margin:0 auto; animation:heroFloat 5s ease-in-out infinite; transition:transform .15s ease; }
-      .detail-feats { list-style:none; text-align:left; margin:10px 0; font-size:13px; display:grid; gap:5px; }
+      .detail-feats { list-style:none; text-align:left; margin:10px 0; padding:0; font-size:13px; display:grid; gap:5px; }
       .detail-feats li::before { content:'✓ '; color:#4ADE80; font-weight:900; }
-      .bundle-save { margin-top:8px; color:#FFD97D; font-weight:700; }
       .detail-actions { display:flex; gap:8px; margin-top:6px; }
       .detail-actions .btn { flex:1; }
       .linklike { background:none; border:none; color:#38BDF8; cursor:pointer; font-size:13px; margin-top:10px; }
@@ -256,23 +279,47 @@
       .inv-h { text-align:left; margin:14px 0 8px; font-size:15px; }
       .inv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(88px,1fr)); gap:8px; }
       .inv-mini { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:6px; cursor:pointer; font-size:11px; }
-      .inv-mini img { width:100%; aspect-ratio:1; object-fit:contain; }
+      .inv-mini img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:6px; }
       .inv-mini span { display:block; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-      @media (max-width: 860px) { .store-hero { grid-template-columns:1fr; padding:26px; } .store-hero-render img { max-width:300px; } }
+      @media (max-width: 860px) {
+        .store-hero { grid-template-columns:1fr; padding:26px; }
+        .store-hero-render img { max-width:300px; }
+        .cape-feature { grid-template-columns:1fr; padding:22px; }
+        .plus-minis { grid-template-columns:1fr; }
+      }
     </style>
+
+    <!-- VORTEX+ EXCLUSIVE CAPES -->
+    <section class="wrap store-sec" id="vortex-plus-capes">
+      <div class="sec-head"><h2>Vortex+ Capes</h2><span>member-exclusive designs</span></div>
+      <div class="plus-minis">
+        <div class="plus-mini" data-view="vortex-eclipse-cape">
+          <img src="cosmetics/capes/vortex_eclipse_cape.webp" alt="Vortex+ Eclipse cape render" loading="lazy" decoding="async" width="512" height="512">
+          <b>Vortex+ Eclipse</b><span>VORTEX+</span><small>480 coins · Legendary</small>
+        </div>
+        <div class="plus-mini" data-view="vortex-phantom-cape">
+          <img src="cosmetics/capes/vortex_phantom_cape.webp" alt="Vortex+ Phantom cape render" loading="lazy" decoding="async" width="512" height="512">
+          <b>Vortex+ Phantom</b><span>VORTEX+</span><small>560 coins · Mythic</small>
+        </div>
+        <div class="plus-mini" data-view="vortex-aurora-cape">
+          <img src="cosmetics/capes/vortex_aurora_cape.webp" alt="Vortex+ Aurora cape render" loading="lazy" decoding="async" width="512" height="512">
+          <b>Vortex+ Aurora</b><span>VORTEX+</span><small>400 coins · Epic</small>
+        </div>
+      </div>
+    </section>
 
     <!-- VORTEX+ PREMIUM -->
     <section class="wrap store-sec" id="plus">
       <div class="plus-card">
         <div class="plus-left">
           <div class="plus-badge"><i class="fa-solid fa-crown"></i> VORTEX+</div>
-          <h2>Subscribe to <span class="grad">Vortex+</span> to unlock exclusive features and cosmetics.</h2>
+          <h2>Subscribe to <span class="grad">Vortex+</span> to unlock exclusive capes and vault perks.</h2>
           <ul class="plus-feats">
-            <li><i class="fa-solid fa-wand-magic-sparkles"></i> Exclusive Cosmetics</li>
+            <li><i class="fa-solid fa-wand-magic-sparkles"></i> Exclusive Capes</li>
             <li><i class="fa-solid fa-tags"></i> Store Savings</li>
             <li><i class="fa-brands fa-discord"></i> Discord Perks</li>
-            <li><i class="fa-solid fa-shirt"></i> Cloth Cloaks</li>
-            <li><i class="fa-solid fa-face-grin-stars"></i> Monthly Emote</li>
+            <li><i class="fa-solid fa-gift"></i> Monthly Cape Drops</li>
+            <li><i class="fa-solid fa-bolt"></i> Early Access</li>
             <li><i class="fa-solid fa-ban"></i> Ad-Free Experience</li>
           </ul>
           <a class="btn btn-primary btn-lg" href="vortex-plus.html">Explore Vortex+</a>
@@ -285,7 +332,7 @@
 
     <!-- COINS -->
     <section class="wrap store-sec" id="coins">
-      <div class="sec-head"><h2>Vortex Coins</h2><span>Grab cosmetics without reaching for your wallet</span></div>
+      <div class="sec-head"><h2>Vortex Coins</h2><span>Grab capes without reaching for your wallet</span></div>
       <div class="coin-grid">
         <div class="coin-card"><img src="cosmetics/cs-coins.png" alt="Small" loading="lazy" decoding="async"><b>540 Vortex Coins</b><span>$4.99</span></div>
         <div class="coin-card"><img src="cosmetics/cs-coins.png" alt="Medium" loading="lazy" decoding="async"><b>1,190 Vortex Coins</b><span>$9.99</span></div>
@@ -323,13 +370,11 @@
         </div>
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Products</h4>
-            <a href="#wings">Wings</a>
-            <a href="#pets">Pets</a>
-            <a href="#cloaks">Capes</a>
-            <a href="#auras">Auras</a>
-            <a href="#headwear">Headwear</a>
-            <a href="#suits">Suits</a>
+            <h4>Store</h4>
+            <a href="#all-capes">Capes</a>
+            <a href="#featured">Featured</a>
+            <a href="#new">New Arrivals</a>
+            <a href="#vortex-plus-capes">Vortex+ Exclusives</a>
             <a href="#coins">Coins</a>
           </div>
           <div class="footer-col">

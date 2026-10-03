@@ -1,0 +1,352 @@
+{
+  "category": "auras",
+  "count": 15,
+  "updatedAt": "2026-10-02T18:26:47.014Z",
+  "items": [
+    {
+      "id": "flame_ring",
+      "name": "Flame Ring",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 120,
+      "desc": "Warm circle.",
+      "tags": [
+        "flame",
+        "ring",
+        "aura"
+      ],
+      "img": "cosmetics/auras/flame_ring.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "soul_fire",
+      "name": "Soul Fire",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 210,
+      "desc": "Blue soul flames.",
+      "tags": [
+        "soul",
+        "fire",
+        "aura"
+      ],
+      "img": "cosmetics/auras/soul_fire.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "soul_fire_flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "heart_aura",
+      "name": "Heart Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 130,
+      "desc": "Full of love.",
+      "tags": [
+        "heart",
+        "aura"
+      ],
+      "img": "cosmetics/auras/heart_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "heart"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "smoke_aura",
+      "name": "Smoke Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 110,
+      "desc": "Mysterious haze.",
+      "tags": [
+        "smoke",
+        "aura"
+      ],
+      "img": "cosmetics/auras/smoke_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "smoke"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "enchant_aura",
+      "name": "Enchant Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 220,
+      "desc": "Glyphs of power.",
+      "tags": [
+        "enchant",
+        "aura"
+      ],
+      "img": "cosmetics/auras/enchant_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "witch_aura",
+      "name": "Witch Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Epic",
+      "price": 290,
+      "desc": "Brewed shadows.",
+      "tags": [
+        "witch",
+        "aura"
+      ],
+      "img": "cosmetics/auras/witch_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "witch"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "portal_aura",
+      "name": "Portal Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Nether calling.",
+      "tags": [
+        "portal",
+        "aura"
+      ],
+      "img": "cosmetics/auras/portal_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "spark_aura",
+      "name": "Spark Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 125,
+      "desc": "Crackling energy.",
+      "tags": [
+        "spark",
+        "aura"
+      ],
+      "img": "cosmetics/auras/spark_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "electric_spark"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "glow_aura",
+      "name": "Glow Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 115,
+      "desc": "Soft glow.",
+      "tags": [
+        "glow",
+        "aura"
+      ],
+      "img": "cosmetics/auras/glow_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "glow"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "ember_aura",
+      "name": "Ember Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 200,
+      "desc": "Floating embers.",
+      "tags": [
+        "ember",
+        "aura"
+      ],
+      "img": "cosmetics/auras/ember_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "frost_aura",
+      "name": "Frost Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Rare",
+      "price": 205,
+      "desc": "Chilling mist.",
+      "tags": [
+        "frost",
+        "aura"
+      ],
+      "img": "cosmetics/auras/frost_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "snowflake"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "lava_aura",
+      "name": "Lava Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Epic",
+      "price": 320,
+      "desc": "Careful, hot.",
+      "tags": [
+        "lava",
+        "aura"
+      ],
+      "img": "cosmetics/auras/lava_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "dripping_lava"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "magic_aura",
+      "name": "Magic Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Legendary",
+      "price": 380,
+      "desc": "Arcane residue.",
+      "tags": [
+        "magic",
+        "aura"
+      ],
+      "img": "cosmetics/auras/magic_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "void_aura",
+      "name": "Void Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Legendary",
+      "price": 390,
+      "desc": "Endless dark.",
+      "tags": [
+        "void",
+        "aura"
+      ],
+      "img": "cosmetics/auras/void_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    },
+    {
+      "id": "note_aura",
+      "name": "Note Aura",
+      "cat": "auras",
+      "type": "AURA",
+      "slot": "AURA",
+      "rarity": "Common",
+      "price": 135,
+      "desc": "Musical vibes.",
+      "tags": [
+        "note",
+        "aura"
+      ],
+      "img": "cosmetics/auras/note_aura.webp",
+      "model": null,
+      "texture": "textures/cosmetics/auras/flame_dot.png",
+      "animated": true,
+      "effects": [
+        "note"
+      ],
+      "status": "available",
+      "vortexPlus": false
+    }
+  ]
+}

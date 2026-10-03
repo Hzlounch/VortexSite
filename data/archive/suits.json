@@ -1,0 +1,296 @@
+{
+  "category": "suits",
+  "count": 10,
+  "updatedAt": "2026-10-02T18:26:47.014Z",
+  "items": [
+    {
+      "id": "dragon_suit",
+      "name": "Dragon Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Legendary",
+      "price": 440,
+      "desc": "Full dragon transformation.",
+      "tags": [
+        "dragon",
+        "suit"
+      ],
+      "img": "cosmetics/suits/dragon_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "flame"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "demon_horns",
+        "BACK": "dragon_wings",
+        "PET": "mini_dragon",
+        "AURA": "flame_ring"
+      }
+    },
+    {
+      "id": "galaxy_suit",
+      "name": "Galaxy Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Mythic",
+      "price": 500,
+      "desc": "Wear the cosmos.",
+      "tags": [
+        "galaxy",
+        "suit"
+      ],
+      "img": "cosmetics/suits/galaxy_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "enchant",
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "halo",
+        "BACK": "galaxy_wings",
+        "PET": "wisp_pet",
+        "AURA": "void_aura"
+      }
+    },
+    {
+      "id": "fire_suit",
+      "name": "Fire Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Epic",
+      "price": 340,
+      "desc": "Straight out of the Nether.",
+      "tags": [
+        "fire",
+        "suit"
+      ],
+      "img": "cosmetics/suits/fire_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "demon_horns",
+        "BACK": "fire_cape",
+        "PET": "phoenix_pet",
+        "AURA": "flame_ring"
+      }
+    },
+    {
+      "id": "void_suit",
+      "name": "Void Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Legendary",
+      "price": 430,
+      "desc": "Embrace nothing.",
+      "tags": [
+        "void",
+        "suit"
+      ],
+      "img": "cosmetics/suits/void_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "portal"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "dark_halo",
+        "BACK": "void_cape",
+        "PET": "void_spirit_pet",
+        "AURA": "void_aura"
+      }
+    },
+    {
+      "id": "angel_suit",
+      "name": "Angel Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Epic",
+      "price": 350,
+      "desc": "Blessed loadout.",
+      "tags": [
+        "angel",
+        "suit"
+      ],
+      "img": "cosmetics/suits/angel_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "glow"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "halo",
+        "BACK": "angel_wings",
+        "PET": "owl_pet",
+        "AURA": "glow_aura"
+      }
+    },
+    {
+      "id": "creeper_suit",
+      "name": "Creeper Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Rare",
+      "price": 240,
+      "desc": "Sssstylish.",
+      "tags": [
+        "creeper",
+        "suit"
+      ],
+      "img": "cosmetics/suits/creeper_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "smoke"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "cat_ears",
+        "BACK": "creeper_cape",
+        "PET": "creeper_pet",
+        "AURA": "smoke_aura"
+      }
+    },
+    {
+      "id": "ice_suit",
+      "name": "Ice Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Rare",
+      "price": 230,
+      "desc": "Stay frosty.",
+      "tags": [
+        "ice",
+        "suit"
+      ],
+      "img": "cosmetics/suits/ice_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "snowflake"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "knight_helm",
+        "BACK": "ice_cape",
+        "PET": "frog_pet",
+        "AURA": "frost_aura"
+      }
+    },
+    {
+      "id": "shadow_suit",
+      "name": "Shadow Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Epic",
+      "price": 300,
+      "desc": "Unseen majority.",
+      "tags": [
+        "shadow",
+        "suit"
+      ],
+      "img": "cosmetics/suits/shadow_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "smoke"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "beanie",
+        "BACK": "shadow_cape",
+        "PET": "mini_ghost",
+        "AURA": "smoke_aura"
+      }
+    },
+    {
+      "id": "royal_suit",
+      "name": "Royal Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Legendary",
+      "price": 450,
+      "desc": "Rule the server.",
+      "tags": [
+        "royal",
+        "suit"
+      ],
+      "img": "cosmetics/suits/royal_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "enchant"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "ruby_crown",
+        "BACK": "royal_cape",
+        "PET": "golem_pet",
+        "AURA": "enchant_aura"
+      }
+    },
+    {
+      "id": "storm_suit",
+      "name": "Storm Suit",
+      "cat": "suits",
+      "type": "SUIT",
+      "slot": "SUIT",
+      "rarity": "Rare",
+      "price": 250,
+      "desc": "Thunder wear.",
+      "tags": [
+        "storm",
+        "suit"
+      ],
+      "img": "cosmetics/suits/storm_suit.webp",
+      "model": null,
+      "texture": null,
+      "animated": true,
+      "effects": [
+        "electric_spark"
+      ],
+      "status": "available",
+      "vortexPlus": false,
+      "outfit": {
+        "HEAD": "viking_helm",
+        "BACK": "storm_cape",
+        "PET": "turtle_pet",
+        "AURA": "spark_aura"
+      }
+    }
+  ]
+}
