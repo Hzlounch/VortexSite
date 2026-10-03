@@ -13,7 +13,7 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
 
 const FILES = ['store.html', 'index.html', 'features.html', 'vortex-plus.html', 'js/store-page.js', 'js/catalog.js',
   'data/cosmetics.json', 'data/cosmetics/capes.json', 'data/vortex-plus.json', 'cosmetics-store.js',
-  'cosmetics/capes/eclipse_cape_preview.webp', 'cosmetics/capes/galaxy_rift_cape_preview.webp', 'cosmetics/capes/royal_obsidian_cape_preview.webp',
+  'cosmetics/capes/eclipse_cape_preview.webp', 'cosmetics/capes/galaxy_rift_cape_preview.webp', 'cosmetics/capes/royal_obsidian_cape_preview.webp', 'cosmetics/capes/vortex_signature_cape_preview.webp', 'cosmetics/capes/vortex_signature_cape.png',
   'scene-store.webp', 'scene-cosmic.webp', 'scene-cosmic-960.webp', 'vortex-logo.jpg', 'site.css', 'cosmetics/cs-coins.png'];
 
 const server = createServer(async (req, res) => {
@@ -60,7 +60,7 @@ try {
     if (!b.byteLength) { console.error('FAIL img empty', it.id); failed++; break; }
   }
   const store = await (await fetch('http://127.0.0.1:8901/store.html')).text();
-  for (const needle of ['js/store-page.js', 'vortex-logo.jpg', 'VORTEX', 'cosmetics/capes/eclipse_cape_preview.webp']) {
+  for (const needle of ['js/store-page.js', 'vortex-logo.jpg', 'VORTEX', 'cosmetics/capes/vortex_signature_cape_preview.webp']) {
     if (!store.includes(needle)) { console.error('FAIL store.html missing', needle); failed++; }
   }
   if (store.includes('cosmetics-store.js') || store.includes('src="store.js"')) {

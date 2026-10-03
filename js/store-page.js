@@ -220,11 +220,11 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       html += section('wishlist', 'Wishlist', 'saved on this device — not server ownership',
         '<div class="prod-grid">' + wishItems.map(card).join('') + '</div>');
     }
-    var flagship = byId['eclipse-cape'] || ALL[0];
+    var flagship = ALL.filter(function (p) { return p.featured; })[0] || ALL[0];
     if (flagship) {
       html += '<div class="wrap" id="featured">' + featureCard(flagship) + '</div>';
     }
-    var fresh = ALL.filter(function (p) { return p.isNew && p.id !== 'eclipse-cape'; });
+    var fresh = ALL.filter(function (p) { return p.isNew && p !== flagship; });
     if (fresh.length) {
       html += section('new', 'New Capes', 'fresh vault arrivals',
         '<div class="prod-grid">' + sortedItems(fresh).map(card).join('') + '</div>');

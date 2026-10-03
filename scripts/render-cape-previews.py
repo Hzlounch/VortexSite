@@ -296,6 +296,7 @@ CAPES = [
     ("crystal-nova-cape", (125, 211, 252)),
     ("stormcaller-cape", (147, 197, 253)),
     ("royal-obsidian-cape", (212, 175, 105)),
+    ("vortex-signature-cape", (0, 200, 235)),
 ]
 
 # Standard 64x32 cape UV: back panel (visible design face when worn).

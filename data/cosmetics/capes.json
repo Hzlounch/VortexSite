@@ -1,8 +1,44 @@
 {
   "category": "capes",
-  "count": 10,
-  "updatedAt": "2026-10-03T14:34:02.296Z",
+  "count": 11,
+  "updatedAt": "2026-10-03T15:58:09.361Z",
   "items": [
+    {
+      "id": "vortex-signature-cape",
+      "name": "Vortex Signature Cape",
+      "cat": "capes",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Legendary",
+      "price": 600,
+      "desc": "The Vortex emblem wreathed in rotating dimensional energy — the signature of the launcher.",
+      "tags": [
+        "vortex",
+        "signature",
+        "energy",
+        "cosmic",
+        "rotation",
+        "swirl",
+        "brand",
+        "cyan",
+        "cape"
+      ],
+      "theme": "cyber",
+      "img": "cosmetics/capes/vortex_signature_cape_preview.webp",
+      "model": null,
+      "texture": "cosmetics/capes/vortex_signature_cape.png",
+      "animated": false,
+      "effects": [],
+      "status": "preview-only",
+      "vortexPlus": false,
+      "featured": true,
+      "isNew": true,
+      "features": [
+        "Cloth motion",
+        "Vortex emblem seal",
+        "Multiplayer visible"
+      ]
+    },
     {
       "id": "eclipse-cape",
       "name": "Eclipse Cape",
@@ -27,7 +63,7 @@
       "effects": [],
       "status": "preview-only",
       "vortexPlus": false,
-      "featured": true,
+      "featured": false,
       "isNew": true,
       "features": [
         "Cloth motion",
