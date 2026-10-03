@@ -1,0 +1,169 @@
+{
+  "note": "Delisted from the active 10-cape first collection; files kept in cosmetics/capes/, restorable.",
+  "updatedAt": "2026-10-03T14:30:30.292Z",
+  "items": [
+    {
+      "id": "celestial-cape",
+      "name": "Celestial Cape",
+      "cat": "capes",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Mythic",
+      "price": 520,
+      "desc": "A charted night sky \u0623\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u200c constellations and a crescent moon in thread.",
+      "tags": [
+        "celestial",
+        "stars",
+        "constellation",
+        "moon",
+        "cape"
+      ],
+      "theme": "celestial",
+      "img": "cosmetics/capes/celestial_cape_preview.webp",
+      "model": null,
+      "texture": "cosmetics/capes/celestial_cape.png",
+      "animated": false,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false,
+      "featured": false,
+      "isNew": true,
+      "features": [
+        "Cloth motion",
+        "Constellation chart",
+        "Multiplayer visible"
+      ]
+    },
+    {
+      "id": "shadow-flame-cape",
+      "name": "Shadow Flame Cape",
+      "cat": "capes",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Legendary",
+      "price": 430,
+      "desc": "Dark violet fire that burns cold and never goes out.",
+      "tags": [
+        "shadow",
+        "flame",
+        "fire",
+        "dark",
+        "cape"
+      ],
+      "theme": "shadow",
+      "img": "cosmetics/capes/shadow_flame_cape_preview.webp",
+      "model": null,
+      "texture": "cosmetics/capes/shadow_flame_cape.png",
+      "animated": false,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": false,
+      "featured": false,
+      "isNew": false,
+      "features": [
+        "Cloth motion",
+        "Violet flame motif",
+        "Multiplayer visible"
+      ]
+    },
+    {
+      "id": "vortex-eclipse-cape",
+      "name": "Vortex+ Eclipse",
+      "cat": "capes",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Legendary",
+      "price": 480,
+      "desc": "Member-exclusive eclipse in Vortex violet, hemmed in gold.",
+      "tags": [
+        "eclipse",
+        "vortex",
+        "violet",
+        "gold",
+        "celestial",
+        "cape"
+      ],
+      "theme": "celestial",
+      "img": "cosmetics/capes/vortex_eclipse_cape_preview.webp",
+      "model": null,
+      "texture": "cosmetics/capes/vortex_eclipse_cape.png",
+      "animated": false,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": true,
+      "featured": false,
+      "isNew": true,
+      "features": [
+        "Cloth motion",
+        "Violet corona",
+        "Multiplayer visible"
+      ]
+    },
+    {
+      "id": "vortex-phantom-cape",
+      "name": "Vortex+ Phantom",
+      "cat": "capes",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Mythic",
+      "price": 560,
+      "desc": "A ghostly wisp-trail cape marked with phantom eyes. Members only.",
+      "tags": [
+        "phantom",
+        "ghost",
+        "wisp",
+        "vortex",
+        "shadow",
+        "cape"
+      ],
+      "theme": "shadow",
+      "img": "cosmetics/capes/vortex_phantom_cape_preview.webp",
+      "model": null,
+      "texture": "cosmetics/capes/vortex_phantom_cape.png",
+      "animated": false,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": true,
+      "featured": false,
+      "isNew": true,
+      "features": [
+        "Cloth motion",
+        "Phantom gaze",
+        "Multiplayer visible"
+      ]
+    },
+    {
+      "id": "vortex-aurora-cape",
+      "name": "Vortex+ Aurora",
+      "cat": "capes",
+      "type": "CAPE",
+      "slot": "CAPE",
+      "rarity": "Epic",
+      "price": 400,
+      "desc": "Member-exclusive aurora with a gold collar and hem.",
+      "tags": [
+        "aurora",
+        "vortex",
+        "gold",
+        "lights",
+        "celestial",
+        "cape"
+      ],
+      "theme": "celestial",
+      "img": "cosmetics/capes/vortex_aurora_cape_preview.webp",
+      "model": null,
+      "texture": "cosmetics/capes/vortex_aurora_cape.png",
+      "animated": false,
+      "effects": [],
+      "status": "available",
+      "vortexPlus": true,
+      "featured": false,
+      "isNew": true,
+      "features": [
+        "Cloth motion",
+        "Gilded aurora",
+        "Multiplayer visible"
+      ]
+    }
+  ]
+}

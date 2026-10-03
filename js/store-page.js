@@ -245,6 +245,11 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
     var plusRow = p.vortexPlus
       ? '<div class="detail-meta"><span style="color:#FFD97D">Vortex+ exclusive cape</span></div>'
       : '';
+    // Honest status: "functional" only when the Vortex client actually
+    // supports the cape; otherwise say preview-only. Never imply more.
+    var statusRow = (p.status && p.status !== 'functional')
+      ? '<div class="detail-meta" style="opacity:.7">Status: preview only — client support pending</div>'
+      : '';
     var m = document.getElementById('storeModal');
     if (!m) {
       m = document.createElement('div');
@@ -274,7 +279,7 @@ import { loadIndex, loadCategory, loadAllLegacy } from './catalog.js';
       '<h2>' + esc(p.name) + '</h2>' +
       '<div class="detail-meta"><span class="prod-badge rarity-' + esc(p.rarity) + '" style="position:static">' + esc(p.rarity) + '</span> · Cape · ' + esc(themeLabel(p.theme)) + '</div>' +
       '<p class="detail-desc">' + esc(p.desc || 'A Vortex cape, rendered for the store.') + '</p>' +
-      '<ul class="detail-feats">' + feats + '</ul>' + plusRow +
+      '<ul class="detail-feats">' + feats + '</ul>' + plusRow + statusRow +
       '<div class="detail-price">' + Number(p.price || 0).toLocaleString() + ' coins</div>' +
       '<div class="detail-actions">' +
       (owned ? '<button class="btn btn-secondary" disabled>Owned — equip it in the Vault</button>'
