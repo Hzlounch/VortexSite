@@ -76,7 +76,8 @@ try {
     if (!store.includes(needle)) { console.error('FAIL store.html missing', needle); failed++; }
   }
   for (const banned of ['storeCatalog', 'data-view', 'data-buy', 'data-wish', 'catPills',
-    'prod-letter', 'Purchase successful', 'purchase complete']) {
+    'prod-letter', 'Purchase successful', 'purchase complete',
+    'COMING SOON', 'Coming soon', 'coming soon', 'SOON', 'PLACEHOLDER', 'cape', 'Cape', 'preview.webp']) {
     if (store.includes(banned)) { console.error('FAIL store.html contains banned', banned); failed++; }
   }
   const page = await (await fetch('http://127.0.0.1:8901/js/store-page.js')).text();
@@ -88,11 +89,13 @@ try {
   }
   // Plus page: live status, honest scope, coming-soon billing, no fake perks.
   const plus = await (await fetch('http://127.0.0.1:8901/vortex-plus.html')).text();
-  for (const needle of ['js/vortex-plus.js', 'id="plusStatus"', 'COMING SOON', 'Coming soon']) {
+  for (const needle of ['js/vortex-plus.js', 'id="plusStatus"', 'id="activateBody"', 'id="featGrid"',
+    '/api/plus-redeem', 'How to unlock', 'UNLOCKED', 'LOCKED']) {
     if (!plus.includes(needle)) { console.error('FAIL vortex-plus.html missing', needle); failed++; }
   }
   for (const banned of ['Monthly cape drops', 'Exclusive Capes', 'exclusive capes', 'plusConcepts',
-    'Purchase successful', '$4.99', '$9.99', '$19.99']) {
+    'Purchase successful', '$4.99', '$9.99', '$19.99',
+    'COMING SOON', 'Coming soon', 'coming soon', 'SOON', 'PLACEHOLDER']) {
     if (plus.includes(banned)) { console.error('FAIL vortex-plus.html contains banned', banned); failed++; }
   }
   // Entitlement module: server truth, no local persistence of status.

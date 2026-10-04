@@ -1,0 +1,5 @@
+{
+  "bob": 0.8,
+  "sway": 0.3,
+  "note": "intended idle hover motion; honored when the client implements pet animation"
+}

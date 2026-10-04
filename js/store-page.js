@@ -201,6 +201,7 @@ import { fetchPlusStatus, statusPill, badgeHTML } from './vortex-plus.js';
 
   function boot() {
     loadAccount();
+    loadHistory();
     document.body.addEventListener('click', function (e) {
       var t = e.target;
       if (!t || !t.getAttribute) return;
